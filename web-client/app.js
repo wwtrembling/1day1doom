@@ -16,7 +16,6 @@ const UI_TEXT = {
         cat_smart: "의료/교육",
         cat_art: "예술/프리랜서",
         cat_home: "학생/무직",
-        label_job_spec: "구체적인 직업",
         btn_submit: "미래 확인하기",
         btn_retry: "다시 하기",
         btn_share: "공유하기",
@@ -38,7 +37,6 @@ const UI_TEXT = {
         cat_smart: "Medical/Edu",
         cat_art: "Arts/Freelance",
         cat_home: "Student/Unemployed",
-        label_job_spec: "Specific Job",
         btn_submit: "Check Future",
         btn_retry: "Try Again",
         btn_share: "Share",
@@ -53,6 +51,7 @@ let currentLang = 'ko';
 let dailyData = null;
 
 // Initialize
+// Initialize
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Detect Language
     const browserLang = navigator.language || navigator.userLanguage;
@@ -61,10 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     updateLanguage(currentLang);
 
-    // 2. Fetch Data
-    await fetchDailyData();
-
-    // 3. Event Listeners
+    // 2. Event Listeners
     document.getElementById('btn-ko').addEventListener('click', () => updateLanguage('ko'));
     document.getElementById('btn-en').addEventListener('click', () => updateLanguage('en'));
 
@@ -72,8 +68,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('btn-restart').addEventListener('click', resetForm);
     document.getElementById('btn-share').addEventListener('click', shareResult);
 
-    // 4. Load Saved Data
+    // 3. Load Saved Data (Prior to Deep Link check)
     loadUserData();
+
+    // 4. Fetch Data & Check Deep Link
+    await fetchDailyData(); // This sets 'dailyData'
+
+    // Check for Deep Link Parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const pName = urlParams.get('name');
+    const pAge = urlParams.get('age');
+    const pGender = urlParams.get('gender');
+    const pJob = urlParams.get('job');
+
+    if (pName && pAge && pGender && pJob) {
+        // Auto-fill form
+        document.getElementById('name').value = pName;
+        document.getElementById('age').value = pAge;
+
+        const radio = document.querySelector(`input[name="gender"][value="${pGender}"]`);
+        if (radio) radio.checked = true;
+
+        document.getElementById('job-category').value = pJob;
+
+        // Auto-show result (skip loading animation for instant deep link view)
+        if (dailyData) {
+            try {
+                // Hide Input, Show Result directly
+                document.getElementById('input-section').classList.add('hidden');
+                document.getElementById('loading-section').classList.add('hidden'); // Ensure loading is hidden
+
+                renderResultContent();
+
+                document.getElementById('result-section').classList.remove('hidden');
+            } catch (e) {
+                console.error("Deep link render failed:", e);
+                // Fallback to input
+                document.getElementById('input-section').classList.remove('hidden');
+            }
+        }
+    }
 });
 
 function updateLanguage(lang) {
@@ -104,24 +138,45 @@ async function fetchDailyData() {
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
-    const dateStr = `${yyyy}-${mm}-${dd}`;
+    const todayStr = `${yyyy}-${mm}-${dd}`;
 
-    // Use flat structure (Always fetch data.json)
-    const url = `./data/data.json`;
+    // check URL param
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateParam = urlParams.get('date');
+
+    // Default to Today's date path if no param
+    // Use 'public/data' structure as requested
+    const targetDate = dateParam || todayStr;
+
+    // Path: ./public/data/{date}/data.json
+    // Note: If index.html is in web-client root, then public folder is ./public
+    const url = `./public/data/${targetDate}/data.json`;
+    const basePath = `./public/data/${targetDate}/`;
+
+    if (dateParam) {
+        console.log(`Fetching historical data: ${dateParam}`);
+    } else {
+        console.log(`Fetching today's data: ${todayStr}`);
+    }
 
     try {
         const response = await fetch(url);
-        if (!response.ok) throw new Error('Data not found');
+        if (!response.ok) throw new Error(`Data not found for ${targetDate}`);
         dailyData = await response.json();
-        dailyData._basePath = `./data/`; // Helper for images
+        dailyData._basePath = basePath; // Helper for images
+        dailyData.meta.date = targetDate; // Ensure meta date matches
 
         // Update SEO
         updateSEO();
     } catch (e) {
         console.error("Failed to load daily data:", e);
-        // Fallback or Alert?
-        // Using alert for B-grade feel
-        // alert("오늘의 멸망 데이터가 아직 도착하지 않았습니다.");
+
+        if (dateParam) {
+            alert(`해당 날짜(${targetDate})의 멸망 데이터가 없습니다. 메인으로 이동합니다.`);
+            window.location.search = '';
+        } else {
+            alert(`오늘(${targetDate})의 멸망 데이터가 아직 도착하지 않았습니다.`);
+        }
     }
 }
 
@@ -137,25 +192,38 @@ function updateSEO() {
 
 function handleFormSubmit(e) {
     e.preventDefault();
+    console.log("Form submitted. DailyData:", dailyData);
     if (!dailyData) {
         alert("오늘의 멸망 데이터를 불러오는 중입니다. 잠시만 기다려주세요.");
         return;
     }
 
-    // 1. Save Data
-    saveUserData();
+    try {
+        // 1. Save Data
+        saveUserData();
 
-    // 2. Hide Input, Show Loading
-    document.getElementById('input-section').classList.add('hidden');
-    document.getElementById('loading-section').classList.remove('hidden');
+        // 2. Hide Input, Show Loading
+        document.getElementById('input-section').classList.add('hidden');
+        document.getElementById('loading-section').classList.remove('hidden');
 
-    // 3. Wait 5 seconds
-    setTimeout(() => {
-        // 4. Hide Loading, Show Result
-        document.getElementById('loading-section').classList.add('hidden');
-        renderResultContent();
-        document.getElementById('result-section').classList.remove('hidden');
-    }, 5000); // 5000ms = 5 seconds
+        // 3. Wait 5 seconds
+        setTimeout(() => {
+            try {
+                // 4. Hide Loading, Show Result
+                document.getElementById('loading-section').classList.add('hidden');
+                renderResultContent();
+                document.getElementById('result-section').classList.remove('hidden');
+            } catch (err) {
+                console.error("Error rendering result:", err);
+                alert("결과를 표시하는 중 오류가 발생했습니다: " + err.message);
+                // Show input again so they aren't stuck
+                document.getElementById('input-section').classList.remove('hidden');
+            }
+        }, 5000); // 5000ms = 5 seconds
+    } catch (err) {
+        console.error("Error in form submission:", err);
+        alert("오류가 발생했습니다: " + err.message);
+    }
 }
 
 function saveUserData() {
@@ -163,8 +231,7 @@ function saveUserData() {
         name: document.getElementById('name').value,
         age: document.getElementById('age').value,
         gender: document.querySelector('input[name="gender"]:checked').value,
-        jobCat: document.getElementById('job-category').value,
-        jobSpec: document.getElementById('specific-job').value
+        jobCat: document.getElementById('job-category').value
     };
     localStorage.setItem('odod_user_data', JSON.stringify(userData));
 }
@@ -181,7 +248,6 @@ function loadUserData() {
                 if (radio) radio.checked = true;
             }
             if (data.jobCat) document.getElementById('job-category').value = data.jobCat;
-            if (data.jobSpec) document.getElementById('specific-job').value = data.jobSpec;
         } catch (e) {
             console.error("Failed to load saved data", e);
         }
@@ -194,9 +260,22 @@ function renderResultContent() {
     const age = document.getElementById('age').value;
     const gender = document.querySelector('input[name="gender"]:checked').value;
     const jobCat = document.getElementById('job-category').value;
-    const jobSpec = document.getElementById('specific-job').value;
+
+    // Check if element exists
+    const optionEl = document.querySelector(`#job-category option[value="${jobCat}"]`);
+    if (!optionEl) {
+        throw new Error(`직군 선택을 찾을 수 없습니다: ${jobCat}`);
+    }
+    const jobCatText = optionEl.textContent;
+
+    if (!dailyData || !dailyData.content) {
+        throw new Error("데이터가 로드되지 않았습니다.");
+    }
 
     const content = dailyData.content[currentLang];
+    if (!content) {
+        throw new Error(`언어 데이터가 없습니다: ${currentLang}`);
+    }
 
     // 1. Text Content
     document.getElementById('theme-title').textContent = content.theme_title;
@@ -205,7 +284,7 @@ function renderResultContent() {
     const processScenario = (text) => {
         return text.replace('${name}', name)
             .replace('${age}', age)
-            .replace('${job}', jobSpec);
+            .replace('${job}', jobCatText);
     };
 
     document.getElementById('text-10y').textContent = processScenario(content.scenarios['10y']);
@@ -229,17 +308,40 @@ function renderResultContent() {
 }
 
 async function shareResult() {
+    let shareUrl = window.location.href;
+
+    // Clean existing search params to avoid duplication
+    const urlObj = new URL(window.location.href);
+
+    // 1. Date Param
+    if (dailyData && dailyData.meta && dailyData.meta.date) {
+        urlObj.searchParams.set('date', dailyData.meta.date);
+    }
+
+    // 2. User Params (Deep Linking)
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    const jobCat = document.getElementById('job-category').value;
+
+    if (name) urlObj.searchParams.set('name', name);
+    if (age) urlObj.searchParams.set('age', age);
+    if (gender) urlObj.searchParams.set('gender', gender);
+    if (jobCat) urlObj.searchParams.set('job', jobCat);
+
+    shareUrl = urlObj.toString();
+
     const text = UI_TEXT[currentLang].slogan + "\n\n" +
         document.getElementById('theme-title').textContent + "\n" +
         document.getElementById('theme-desc').textContent + "\n\n" +
-        window.location.href;
+        shareUrl;
 
     if (navigator.share) {
         try {
             await navigator.share({
                 title: document.title,
                 text: text,
-                url: window.location.href,
+                url: shareUrl,
             });
         } catch (err) {
             console.log('Share canceled');

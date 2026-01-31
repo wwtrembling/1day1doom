@@ -9,7 +9,6 @@ from config import DATA_CONTENT, SEO_KEYWORDS, ARCHETYPES, GENDERS
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 WEB_CLIENT_PATH = os.path.join(PROJECT_ROOT, 'web-client')
-WEB_CLIENT_PATH = os.path.join(PROJECT_ROOT, 'web-client')
 PUBLIC_DATA_ROOT = os.path.join(WEB_CLIENT_PATH, 'public', 'data')
 BATCH_OUTPUT_ROOT = os.path.join(BASE_DIR, 'output')
 RAW_ASSETS_PATH = os.path.join(BASE_DIR, 'raw_assets')
@@ -69,31 +68,19 @@ def generate_daily_data(target_date_str=None):
     print(f"[Data] Generated {output_file}")
     
     # 4. Sync to Web Client
-    # Destination: web-client/public/data/ (Flat structure, no date folder)
-    if os.path.exists(PUBLIC_DATA_ROOT):
-        # Clean up existing data to avoid stale files
-        for filename in os.listdir(PUBLIC_DATA_ROOT):
-            file_path = os.path.join(PUBLIC_DATA_ROOT, filename)
-            try:
-                if os.path.isfile(file_path) or os.path.islink(file_path):
-                    os.unlink(file_path)
-                elif os.path.isdir(file_path):
-                    shutil.rmtree(file_path)
-            except Exception as e:
-                print(f'Failed to delete {file_path}. Reason: {e}')
-    else:
+    # Destination: web-client/public/data/{date}/ ONLY
+    
+    if not os.path.exists(PUBLIC_DATA_ROOT):
         os.makedirs(PUBLIC_DATA_ROOT)
 
-    # Copy all files from day_output_dir to PUBLIC_DATA_ROOT
-    for item in os.listdir(day_output_dir):
-        s = os.path.join(day_output_dir, item)
-        d = os.path.join(PUBLIC_DATA_ROOT, item)
-        if os.path.isdir(s):
-            shutil.copytree(s, d, dirs_exist_ok=True)
-        else:
-            shutil.copy2(s, d)
-            
-    print(f"[Sync] Copied flat content to {PUBLIC_DATA_ROOT}")
+    # 4-1. Archive Copy
+    archive_dir = os.path.join(PUBLIC_DATA_ROOT, date_str)
+    if os.path.exists(archive_dir):
+        shutil.rmtree(archive_dir)
+    shutil.copytree(day_output_dir, archive_dir)
+    print(f"[Sync] Archived content to {archive_dir}")
+
+    # No longer copying to root/latest. Only date folder.
 
     # 5. Update Sitemap
     update_sitemap(date_str)
