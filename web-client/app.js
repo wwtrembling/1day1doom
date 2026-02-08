@@ -7,15 +7,17 @@ const UI_TEXT = {
         input_title: "생존자 등록",
         label_name: "이름",
         label_age: "나이",
-        label_gender: "성별",
-        gender_m: "남성",
-        gender_f: "여성",
         label_job_cat: "직군",
-        cat_desk: "사무/IT",
-        cat_physical: "현장/운동",
-        cat_smart: "의료/교육",
-        cat_art: "예술/프리랜서",
-        cat_home: "학생/무직",
+        cat_office: "사무직/IT",
+        cat_service: "서비스/자영업",
+        cat_professional: "전문직/의료",
+        cat_labor: "현장/운동",
+        cat_art: "예술/방송",
+        cat_student: "학생",
+        cat_influencer: "인플루언서",
+        cat_rich: "금수저/경영",
+        cat_gamer: "게이머/해커",
+        cat_home: "무직/백수",
         btn_submit: "미래 확인하기",
         btn_retry: "다시 하기",
         btn_share: "공유하기",
@@ -28,15 +30,17 @@ const UI_TEXT = {
         input_title: "Survivor Registration",
         label_name: "Name",
         label_age: "Age",
-        label_gender: "Gender",
-        gender_m: "Male",
-        gender_f: "Female",
         label_job_cat: "Category",
-        cat_desk: "Office/IT",
-        cat_physical: "Labor/Sports",
-        cat_smart: "Medical/Edu",
-        cat_art: "Arts/Freelance",
-        cat_home: "Student/Unemployed",
+        cat_office: "Office/IT",
+        cat_service: "Service/Retail",
+        cat_professional: "Professional/Medical",
+        cat_labor: "Labor/Sports",
+        cat_art: "Art/Media",
+        cat_student: "Student",
+        cat_influencer: "Influencer",
+        cat_rich: "Rich/Executive",
+        cat_gamer: "Gamer/Hacker",
+        cat_home: "Unemployed",
         btn_submit: "Check Future",
         btn_retry: "Try Again",
         btn_share: "Share",
@@ -81,13 +85,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const pGender = urlParams.get('gender');
     const pJob = urlParams.get('job');
 
-    if (pName && pAge && pGender && pJob) {
+    if (pName && pAge && pJob) {
         // Auto-fill form
         document.getElementById('name').value = pName;
         document.getElementById('age').value = pAge;
 
-        const radio = document.querySelector(`input[name="gender"][value="${pGender}"]`);
-        if (radio) radio.checked = true;
+        // gender removed
 
         document.getElementById('job-category').value = pJob;
 
@@ -134,19 +137,45 @@ function updateLanguage(lang) {
 
 async function fetchDailyData() {
     const today = new Date();
-    // Format YYYY-MM-DD in local time
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-    const todayStr = `${yyyy}-${mm}-${dd}`;
+    // Format YYYY-Www in local time
+    const todayStr = getISOWeekStr(today);
 
     // check URL param
     const urlParams = new URLSearchParams(window.location.search);
     const dateParam = urlParams.get('date');
 
-    // Default to Today's date path if no param
-    // Use 'public/data' structure as requested
-    const targetDate = dateParam || todayStr;
+    let targetDate = dateParam;
+
+    if (!targetDate) {
+        // Dynamic Date Loading via weekOfYear.js
+        try {
+            const weekRes = await fetch('./public/data/weekOfYear.js?t=' + new Date().getTime()); // bust cache
+            if (weekRes.ok) {
+                const availableWeeks = await weekRes.json();
+
+                if (Array.isArray(availableWeeks) && availableWeeks.length > 0) {
+                    // Check if todayStr is in the list
+                    if (availableWeeks.includes(todayStr)) {
+                        targetDate = todayStr;
+                        console.log(`Using current week data: ${targetDate}`);
+                    } else {
+                        // Fallback to random week
+                        const randomIndex = Math.floor(Math.random() * availableWeeks.length);
+                        targetDate = availableWeeks[randomIndex];
+                        console.log(`Current week data missing. Fallback to random week: ${targetDate}`);
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn("Failed to fetch weekOfYear.js", e);
+        }
+    }
+
+    // Fallback if still null
+    if (!targetDate) {
+        targetDate = todayStr; // Try original today again (will likely fail 404 but correct behavior for "no data yet")
+        console.log(`Fallback to today's week (likely 404): ${targetDate}`);
+    }
 
     // Path: ./public/data/{date}/data.json
     // Note: If index.html is in web-client root, then public folder is ./public
@@ -155,8 +184,6 @@ async function fetchDailyData() {
 
     if (dateParam) {
         console.log(`Fetching historical data: ${dateParam}`);
-    } else {
-        console.log(`Fetching today's data: ${todayStr}`);
     }
 
     try {
@@ -230,7 +257,6 @@ function saveUserData() {
     const userData = {
         name: document.getElementById('name').value,
         age: document.getElementById('age').value,
-        gender: document.querySelector('input[name="gender"]:checked').value,
         jobCat: document.getElementById('job-category').value
     };
     localStorage.setItem('odod_user_data', JSON.stringify(userData));
@@ -243,10 +269,7 @@ function loadUserData() {
             const data = JSON.parse(saved);
             if (data.name) document.getElementById('name').value = data.name;
             if (data.age) document.getElementById('age').value = data.age;
-            if (data.gender) {
-                const radio = document.querySelector(`input[name="gender"][value="${data.gender}"]`);
-                if (radio) radio.checked = true;
-            }
+            // gender removed
             if (data.jobCat) document.getElementById('job-category').value = data.jobCat;
         } catch (e) {
             console.error("Failed to load saved data", e);
@@ -258,7 +281,6 @@ function renderResultContent() {
     // Get Inputs
     const name = document.getElementById('name').value;
     const age = document.getElementById('age').value;
-    const gender = document.querySelector('input[name="gender"]:checked').value;
     const jobCat = document.getElementById('job-category').value;
 
     // Check if element exists
@@ -281,10 +303,17 @@ function renderResultContent() {
     document.getElementById('theme-title').textContent = content.theme_title;
     document.getElementById('theme-desc').textContent = content.theme_desc;
 
+    // genderText removed
+
     const processScenario = (text) => {
-        return text.replace('${name}', name)
-            .replace('${age}', age)
-            .replace('${job}', jobCatText);
+        return text
+            .replace(/\$\{name\}/g, name)
+            .replace(/\{\{name\}\}/g, name)
+            .replace(/\$\{age\}/g, age)
+            .replace(/\{\{age\}\}/g, age)
+            .replace(/\$\{job\}/g, jobCatText)
+            .replace(/\{\{job\}\}/g, jobCatText);
+        // gender replaced logic removed
     };
 
     document.getElementById('text-10y').textContent = processScenario(content.scenarios['10y']);
@@ -292,9 +321,8 @@ function renderResultContent() {
     document.getElementById('text-30y').textContent = processScenario(content.scenarios['30y']);
 
     // 2. Image
-    // Key: male_desk, female_physical etc.
-    const genderPrefix = gender === 'm' ? 'male' : 'female';
-    const imgKey = `${genderPrefix}_${jobCat}`;
+    // Key: office, gamer etc.
+    const imgKey = jobCat;
     const imgSrc = dailyData.archetypes[imgKey];
 
     if (imgSrc) {
@@ -321,12 +349,11 @@ async function shareResult() {
     // 2. User Params (Deep Linking)
     const name = document.getElementById('name').value;
     const age = document.getElementById('age').value;
-    const gender = document.querySelector('input[name="gender"]:checked').value;
     const jobCat = document.getElementById('job-category').value;
 
     if (name) urlObj.searchParams.set('name', name);
     if (age) urlObj.searchParams.set('age', age);
-    if (gender) urlObj.searchParams.set('gender', gender);
+    // gender removed
     if (jobCat) urlObj.searchParams.set('job', jobCat);
 
     shareUrl = urlObj.toString();
@@ -360,4 +387,19 @@ async function shareResult() {
 function resetForm() {
     document.getElementById('result-section').classList.add('hidden');
     document.getElementById('input-section').classList.remove('hidden');
+}
+
+
+function getISOWeekStr(d) {
+    // Copy date so don't modify original
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    // Set to nearest Thursday: current date + 4 - current day number
+    // Make Sunday's day number 7
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+    // Get first day of year
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    // Calculate full weeks to nearest Thursday
+    var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+    // Return format YYYY-Www
+    return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
 }

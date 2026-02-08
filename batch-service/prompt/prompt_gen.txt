@@ -1,0 +1,33 @@
+[Context]
+This is for a "Daily Doom Scenario" project generating satirical dystopian images.
+Theme Title: {{theme_title}}
+Theme Description: {{theme_desc}}
+Job Archetype: {{job}}
+
+[Task]
+Describe a static, stylized realistic scene with dry, deadpan humor.
+
+The humor comes from the **"Wildly Disproportionate Importance"** given to a trivial task.
+The character is treating a meaningless action as if it is the only thing keeping the universe together.
+
+Composition:
+- Foreground (sharp focus): The [Job Archetype] slouches over their desk,
+  carefully aligning a single, insignificant office object (e.g., a paperclip, a stapler, a crumb)
+  with an amount of precision that feels **wildly disproportionate**.
+  case: It looks like they have postponed this specific micro-movement for years 
+  and it has finally reached the top of their priority list.
+  Their expression is completely absorbed, blank, and terrifyingly serious.
+
+- Background (soft focus): The [Theme] element exists quietly.
+  The apocalypse (Zombies, Aliens, Robots) is just "background noise".
+  It is ignored not because it's safe, but because the foreground paperclip is **more important**.
+
+Style:
+Stylized realism, flat and ordinary lighting.
+The scene feels like a very inconvenient workday where priorities are completely broken.
+
+[Constraints]
+- Output ONLY the raw prompt text in English.
+- NO TEXT, NO WORDS, NO NUMBERS.
+- NO GORE, NO VIOLENCE.
+- Keep it under 150 words.

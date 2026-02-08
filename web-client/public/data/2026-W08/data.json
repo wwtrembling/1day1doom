@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "date": "2026-W08",
+    "seo_keywords": {
+      "ko": "달팽이 점령, 슬로우 아포칼립스, 한국 점령, 엄청난 속도, 멸망",
+      "en": "Snail Invasion, Slow Apocalypse, Korea Occupied, Extreme Speed, Doom"
+    }
+  },
+  "content": {
+    "ko": {
+      "theme_title": "대한민국, 1mm/s 의 속도로 점령당하다: 거대 달팽이 습격!",
+      "theme_desc": "느리지만 확실하게, 달팽이 군단이 한반도를 뒤덮으며 국가 기능 마비, 최후의 저항은 시작될 것인가?",
+      "scenarios": {
+        "10y": "10년 후, {{gender}} {{job}}인 당신은 멸망을 피해 팔공산 동굴에 숨어 '달팽이 방어' 매뉴얼을 제작, 달팽이의 점액을 이용한 생존 기술을 전파하고 있습니다.",
+        "20y": "20년 후, 달팽이들은 드디어 서울에 도착, 당신은 달팽이 점액으로 만든 갑옷을 입고, 달팽이 레이싱 경주에 참여하여 생존 물자를 획득하는 베테랑이 되었습니다. 마지막 남은 햄버거를 걸고...",
+        "30y": "30년 후, 달팽이들은 지구를 떠나 우주로 진출하려 하고, 당신은 '달팽이 멸망'을 막기 위해 달팽이 언어를 연구하여, 그들과 대화하려 하지만, 결국 달팽이 행성에 갇혀 평생을 달팽이 경주 심판으로 살아가게 됩니다."
+      }
+    },
+    "en": {
+      "theme_title": "South Korea Occupied at 1mm/s: The Great Snail Invasion!",
+      "theme_desc": "Slow but sure, the snail army is covering the Korean peninsula, paralyzing national functions. Will the final resistance begin?",
+      "scenarios": {
+        "10y": "10 years later, you, a {{gender}} {{job}}, are hiding in a cave in Palgongsan Mountain, creating a 'Snail Defense' manual, and spreading survival skills using snail slime.",
+        "20y": "20 years later, the snails have finally arrived in Seoul, and you, wearing armor made of snail slime, have become a veteran participating in snail racing to acquire survival supplies. For the last remaining hamburger...",
+        "30y": "30 years later, the snails are trying to leave Earth and venture into space, and you, in an effort to prevent 'Snail Doom,' study the snail language to communicate with them, but end up trapped on the Snail planet, living your life as a snail racing judge."
+      }
+    }
+  },
+  "archetypes": {
+    "male_desk": "./male_desk.webp",
+    "female_desk": "./female_desk.webp"
+  }
+}

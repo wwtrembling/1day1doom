@@ -26,7 +26,14 @@ SEO_KEYWORDS = {
 }
 
 ARCHETYPES = [
-    "desk", "physical", "smart", "art", "home"
+    "office",
+    "service",
+    "professional",
+    "labor",
+    "art",
+    "student", 
+    "influencer",
+    "rich",
+    "gamer",
+    "home"
 ]
-
-GENDERS = ["m", "f"]

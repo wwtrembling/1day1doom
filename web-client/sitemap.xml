@@ -5,4 +5,29 @@
     <loc>https://example.com/?date=2026-01-31</loc>
     <lastmod>2026-01-31</lastmod>
   </url>
+
+  <url>
+    <loc>https://example.com/?date=2026-02-03</loc>
+    <lastmod>2026-02-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://example.com/?date=2026-W06</loc>
+    <lastmod>2026-W06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://example.com/?date=2026-W07</loc>
+    <lastmod>2026-W07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://example.com/?date=2026-W08</loc>
+    <lastmod>2026-W08</lastmod>
+  </url>
+
+  <url>
+    <loc>https://example.com/?date=2026-W09</loc>
+    <lastmod>2026-W09</lastmod>
+  </url>
 </urlset>
