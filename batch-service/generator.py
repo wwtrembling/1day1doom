@@ -4,9 +4,10 @@ import shutil
 import datetime
 import sys
 import llm_client
-from config import DATA_CONTENT, SEO_KEYWORDS, ARCHETYPES
+from config import ARCHETYPES
 import os
 from dotenv import load_dotenv
+import concurrent.futures
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -20,182 +21,222 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 WEB_CLIENT_PATH = os.path.join(PROJECT_ROOT, 'web-client')
 PUBLIC_DATA_ROOT = os.path.join(WEB_CLIENT_PATH, 'public', 'data')
-BATCH_OUTPUT_ROOT = PUBLIC_DATA_ROOT # Write directly to public/data as requested
-RAW_ASSETS_PATH = os.path.join(BASE_DIR, 'raw_assets')
-SITEMAP_PATH = os.path.join(WEB_CLIENT_PATH, 'sitemap.xml')
+BATCH_OUTPUT_ROOT = os.path.join(BASE_DIR, 'output') # Staging Area
 
-def generate_weekly_data(target_date_str=None):
-    if target_date_str:
-        today = datetime.datetime.strptime(target_date_str, "%Y-%m-%d").date()
-    else:
-        today = datetime.date.today()
+# Manifest is in PUBLIC to drive the app
+SCENARIOS_MANIFEST_PATH = os.path.join(PUBLIC_DATA_ROOT, 'scenarios.json')
+
+def get_next_scenario_id():
+    if not os.path.exists(SCENARIOS_MANIFEST_PATH):
+        return "s1"
     
+    with open(SCENARIOS_MANIFEST_PATH, 'r', encoding='utf-8') as f:
+        scenarios = json.load(f)
     
-    
-    # Calculate ISO Week
-    current_date = today
-    
-    while True:
-        iso_year, iso_week, _ = current_date.isocalendar()
-        date_str = f"{iso_year}-W{iso_week:02d}"
-        day_output_dir = os.path.join(BATCH_OUTPUT_ROOT, date_str)
+    if not scenarios:
+        return "s1"
         
-        if not os.path.exists(day_output_dir):
-            break
-            
-        print(f"[Generator] {date_str} already exists. Skipping to next week...")
-        current_date = current_date + datetime.timedelta(weeks=1)
+    # Find max 'sN'
+    max_n = 0
+    for s in scenarios:
+        if s.startswith('s'):
+            try:
+                n = int(s[1:])
+                if n > max_n:
+                    max_n = n
+            except:
+                pass
+    
+    return f"s{max_n + 1}"
 
-    print(f"[Generator] Target Date: {today}, Valid Week: {date_str}")
+def update_manifest(new_id):
+    scenarios = []
+    if os.path.exists(SCENARIOS_MANIFEST_PATH):
+        with open(SCENARIOS_MANIFEST_PATH, 'r', encoding='utf-8') as f:
+            scenarios = json.load(f)
+            
+    if new_id not in scenarios:
+        scenarios.append(new_id)
+        
+    with open(SCENARIOS_MANIFEST_PATH, 'w', encoding='utf-8') as f:
+        json.dump(scenarios, f, indent=4)
+    print(f"[Manifest] Updated {SCENARIOS_MANIFEST_PATH} with {new_id}")
+
+def deploy_scenario(scenario_id):
+    """
+    Moves generated assets from BATCH_OUTPUT_ROOT to PUBLIC_DATA_ROOT.
+    Moes Images (*.webp) AND JSONs (*.json).
+    Keeps Prompts (*.txt) in BATCH_OUTPUT_ROOT.
+    """
+    src_dir = os.path.join(BATCH_OUTPUT_ROOT, scenario_id)
+    dst_dir = os.path.join(PUBLIC_DATA_ROOT, scenario_id)
     
-    os.makedirs(day_output_dir)
+    if not os.path.exists(dst_dir):
+        os.makedirs(dst_dir)
+        
+    print(f"[Deploy] Deploying {scenario_id} from {src_dir} to {dst_dir}...")
     
-    # 1. Generate JSON Data via LLM
-    print("[Generator] Requesting Scenario from Gemini...")
-    llm_data = llm_client.generate_scenario(date_str)
+    files = os.listdir(src_dir)
+    for file in files:
+        src_file = os.path.join(src_dir, file)
+        dst_file = os.path.join(dst_dir, file)
+        
+        if file.endswith(".webp"):
+            # Move Images (User Request: "Move image files")
+            shutil.move(src_file, dst_file)
+            print(f"  [Moved] {file}")
+        elif file.endswith(".json"):
+            # Copy/Move JSONs (Required for App)
+            # Using copy so we keep a record in output? Or move?
+            # User said "Result files in output... then move images".
+            # Implies others stay? But App needs JSON.
+            # I will COPY JSONs so they exist in both (Record + App)
+            shutil.copy2(src_file, dst_file)
+            print(f"  [Copied] {file}")
+        else:
+            # Leave Prompts (.txt) etc.
+            print(f"  [Skipped] {file}")
+
+    print(f"[Deploy] Completed for {scenario_id}")
+
+def generate_new_scenario():
+    # 1. Determine ID
+    scenario_id = get_next_scenario_id()
     
-    if not llm_data:
-        print("[Error] Failed to generate scenario data. Aborting.")
+    # 2. Output Directory (Staging)
+    output_dir = os.path.join(BATCH_OUTPUT_ROOT, scenario_id)
+    
+    if os.path.exists(output_dir):
+        print(f"[Warning] {output_dir} already exists. Overwriting...")
+    else:
+        os.makedirs(output_dir)
+        
+    print(f"[Generator] Starting generation for {scenario_id} in {output_dir}...")
+    today_str = datetime.date.today().isoformat()
+    
+    # 3. Generate Master Scenario
+    print("[Generator] Generating Master Scenario...")
+    master_data = llm_client.generate_scenario(today_str)
+    
+    if not master_data:
+        print("[Error] Failed to generate master scenario.")
         return
 
-    # Ensure meta date matches the folder date string
-    llm_data['meta']['date'] = date_str
+    master_content_ko = master_data.get('content', {}).get('ko', {})
+    if not master_content_ko:
+        master_content_ko = master_data
+        
+    theme_title = master_content_ko.get('theme_title', "Unknown Theme")
+    theme_desc = master_content_ko.get('theme_desc', "No description.")
     
-    # 2. Generate Images via LLM (Parallel)
-    # We need to construct tasks for each gender/job
-    # Read prompt template
-    with open(os.path.join(BASE_DIR, "prompt", "image.txt"), "r", encoding="utf-8") as f:
-        image_prompt_template = f.read()
-    
-    # Prepare Archetypes list for processing
+    print(f"[Generator] Theme: {theme_title}")
+
+    # 4. Save Master Scenario JSON
+    scenario_json_path = os.path.join(output_dir, "scenario.json")
+    scenario_data = {
+        "meta": {
+             "date": today_str,
+             "scenario_id": scenario_id
+        },
+        "content": master_data.get('content', master_data)
+    }
+    with open(scenario_json_path, 'w', encoding='utf-8') as f:
+        json.dump(scenario_data, f, indent=2, ensure_ascii=False)
+    print(f"[Generator] Saved {scenario_json_path}")
+
+    # 5. Generate Job Data (Parallel)
     tasks = []
-    # Initialize archetypes dict in data
-    llm_data["archetypes"] = {}
+    
+    prompt_gen_path = os.path.join(BASE_DIR, "prompt", "prompt_gen.json")
+    system_prompt_gen, user_template_gen = llm_client.parse_prompt_file(prompt_gen_path)
 
-    for job in ARCHETYPES:
-        # 2.1 Generate Image Prompt
-        print(f"[Generator] Generating prompt for {job}...")
+    def process_job(job_entry):
+        job_id, job_desc = job_entry
+        print(f"[Job: {job_id}] Generating future scenarios...")
         
-        # English content for prompt generation
-        content_src = llm_data['content'].get('en', llm_data['content'].get('ko'))
+        # 5.1 Generate Future Scenarios
+        # Pass the full description to the LLM for better context
+        job_context = f"{job_desc}" 
+        job_scenarios = llm_client.generate_job_data(theme_title, theme_desc, job_context)
         
-        prompt_context = {
-            "theme_title": content_src['theme_title'],
-            "theme_desc": content_src['theme_desc'],
-            "job": job
+        if not job_scenarios:
+            print(f"[Job: {job_id}] Failed to generate scenarios.")
+            return False
+
+        # 5.2 Construct Job Data Structure
+        job_data = {
+            "meta": {
+                "date": today_str,
+                "scenario_id": scenario_id
+            },
+            "content": {
+                "ko": {
+                    "theme_title": theme_title,
+                    "theme_desc": theme_desc,
+                    "scenarios": job_scenarios 
+                },
+                "en": {
+                    "theme_title": theme_title,
+                    "theme_desc": theme_desc,
+                    "scenarios": job_scenarios 
+                }
+            },
+            "archetypes": {} 
         }
-        
-        # We need a new method in llm_client or reuse generate_content with a different template
-        # Let's read the prompt_gen template
-        with open(os.path.join(BASE_DIR, "prompt", "prompt_gen.txt"), "r", encoding="utf-8") as f:
-            prompt_gen_template = f.read()
 
-        # Construct the full prompt for the LLM to write the image description
-        full_prompt_gen = prompt_gen_template.replace("{{theme_title}}", prompt_context["theme_title"]) \
-                                             .replace("{{theme_desc}}", prompt_context["theme_desc"]) \
-                                             .replace("{{job}}", job)
+        # 5.3 Generate Image Prompt
+        scenario_30y = job_scenarios.get("30y", "")
+        context_desc = f"{theme_desc}\n\nSituation (30 Years Later): {scenario_30y}"
         
-        # Call LLM to get the image description
-        image_prompt_text = llm_client.generate_text(full_prompt_gen)
+        full_prompt_gen = user_template_gen.replace("{{theme_title}}", theme_title) \
+                                             .replace("{{theme_desc}}", context_desc) \
+                                             .replace("{{job}}", job_context)
+                                             
+        print(f"[Job: {job_id}] Generating image prompt...")
+        image_prompt_text = llm_client.generate_text(full_prompt_gen, system_instruction=system_prompt_gen)
         
         if not image_prompt_text:
-            print(f"[Warning] Failed to generate prompt for {job}. Using fallback.")
-            image_prompt_text = f"Funny dystopian {job} surviving {prompt_context['theme_title']}"
-            
-        # Save the generated prompt
-        prompt_filename = f"{job}_prompt.txt"
-        with open(os.path.join(day_output_dir, prompt_filename), "w", encoding="utf-8") as f:
+            image_prompt_text = f"Dystopian {job_id} {theme_title}"
+
+        with open(os.path.join(output_dir, f"{job_id}_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(image_prompt_text)
+
+        # 5.4 Generate Image
+        img_filename = f"{job_id}.webp"
+        img_path = os.path.join(output_dir, img_filename)
+        
+        print(f"[Job: {job_id}] Generating image...")
+        success = llm_client.generate_image_from_text(image_prompt_text, img_path)
+        
+        if success:
+            job_data["archetypes"][job_id] = f"./{img_filename}"
+        else:
+             print(f"[Job: {job_id}] Image generation failed.")
+        
+        # 5.5 Save Job Data JSON
+        json_filename = f"{job_id}_data.json"
+        with open(os.path.join(output_dir, json_filename), "w", encoding="utf-8") as f:
+            json.dump(job_data, f, indent=2, ensure_ascii=False)
             
-        # 2.2 Generate Image
-        dst_filename = f"{job}.webp"
-        dst_path = os.path.join(day_output_dir, dst_filename)
-        
-        # Add to data json
-        llm_data["archetypes"][job] = f"./{dst_filename}"
-        
-        # Add to task list (We pass the READY-MADE prompt, not a template)
-        # We need to adjust generate_image signature or pass it as "context" that is already the prompt
-        tasks.append((image_prompt_text, dst_path))
+        return True
 
-    print(f"[Generator] Starting {len(tasks)} image generation tasks in parallel...")
-    
-    import concurrent.futures
-    
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        # Updated signature usage: generate_image_from_text(prompt, output_path)
-        futures = {executor.submit(llm_client.generate_image_from_text, t[0], t[1]): t for t in tasks}
-        
+    # Run in parallel
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+        # ARCHETYPES is now a dict, so .items() gives (key, value) tuples
+        futures = {executor.submit(process_job, item): item[0] for item in ARCHETYPES.items()}
         for future in concurrent.futures.as_completed(futures):
-            task_info = futures[future]
-            #(prompt, path)
-            job_name = os.path.basename(task_info[1]).replace(".webp", "")
+            job_id = futures[future]
             try:
-                success = future.result()
-                if success:
-                    print(f"[Generator] Image task finished: {job_name}")
-                else:
-                    print(f"[Warning] Image task failed: {job_name}")
-            except Exception as exc:
-                print(f"[Error] Image task generated exception: {exc}")
+                future.result()
+            except Exception as e:
+                print(f"[Error] Job {job_id} failed: {e}")
 
-    # 3. Write JSON File (data.json)
-    output_file = os.path.join(day_output_dir, "data.json")
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(llm_data, f, indent=2, ensure_ascii=False)
-    print(f"[Data] Generated {output_file}")
-    
-    # 4. Update latest.js
-    # We are writing directly to PUBLIC_DATA_ROOT, so we just need to update the pointer
-    
-    if not os.path.exists(PUBLIC_DATA_ROOT):
-        os.makedirs(PUBLIC_DATA_ROOT)
+    # 6. Deploy Assets
+    deploy_scenario(scenario_id)
 
-    latest_js_path = os.path.join(PUBLIC_DATA_ROOT, "latest.js")
-    with open(latest_js_path, 'w', encoding='utf-8') as f:
-        f.write(f'var LATEST_DATA_DATE = "{date_str}";')
-    print(f"[Sync] Updated {latest_js_path}")
-
-    # 5. Update Sitemap
-    update_sitemap(date_str)
-
-def update_sitemap(date_str):
-    # Simple XML append
-    domain = "https://example.com" # TODO: Replace with actual domain if known, else usage placeholder
-    url_entry = f"  <url>\n    <loc>{domain}/?date={date_str}</loc>\n    <lastmod>{date_str}</lastmod>\n  </url>"
-    
-    header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-    footer = '</urlset>'
-    
-    content = ""
-    existing_urls = []
-    
-    if os.path.exists(SITEMAP_PATH):
-        try:
-            with open(SITEMAP_PATH, 'r', encoding='utf-8') as f:
-                content = f.read()
-                # Very basic parsing to avoid duplicates
-                if f"/?date={date_str}</loc>" in content:
-                    print("[Sitemap] Entry already exists.")
-                    return
-                # Remove footer to append
-                content = content.replace(footer, "")
-        except Exception as e:
-            print(f"[Sitemap] Error reading existing sitemap: {e}")
-            content = header + "\n"
-    else:
-        content = header + "\n"
-    
-    # Append
-    if not content.strip().endswith('\n'):
-        content += "\n"
-        
-    content += url_entry + "\n" + footer
-    
-    with open(SITEMAP_PATH, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print(f"[Sitemap] Updated with {date_str}")
+    # 7. Update Manifest
+    update_manifest(scenario_id)
+    print(f"[Success] Generated and Deployed {scenario_id}")
 
 if __name__ == "__main__":
-    target_date = sys.argv[1] if len(sys.argv) > 1 else None
-    generate_weekly_data(target_date)
+    generate_new_scenario()

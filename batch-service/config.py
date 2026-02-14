@@ -1,39 +1,13 @@
 
-DATA_CONTENT = {
-    "ko": {
-        "theme_title": "서울역 좀비 사태",
-        "theme_desc": "감염된 비둘기가 사람을 공격합니다.",
-        "scenarios": {
-            "10y": "10년 뒤, 당신은 [${job}] 경험을 살려 생존 중입니다...",
-            "20y": "20년 뒤, 당신은 거처를 옮겨...",
-            "30y": "30년 뒤, 당신은 전설이 되어..."
-        }
-    },
-    "en": {
-        "theme_title": "Zombie Outbreak in Seoul",
-        "theme_desc": "Infected pigeons are attacking people.",
-        "scenarios": {
-            "10y": "10 years later, you are surviving using your [${job}] skills...",
-            "20y": "20 years later, you have moved to...",
-            "30y": "30 years later, you have become a legend..."
-        }
-    }
+ARCHETYPES = {
+    "office": "Office Worker (Corporate employee dealing with bureaucracy, spreadsheets, and eternal meetings)",
+    # "service": "Service Worker (Customer service agent, barista, or retail staff dealing with difficult customers)",
+    # "professional": "Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism)",
+    # "labor": "Manual Laborer (Construction, factory, or logistics worker physically building the world)",
+    # "art": "Artist (Musician, painter, or writer struggling with creativity and relevance)",
+    # "student": "Student (Overworked academic or broke college student facing a bleak future)",
+    # "influencer": "Influencer (Social media star obsessed with likes, trends, and superficiality)",
+    # "rich": "Rich Person (Wealthy elite detached from reality, solving problems with money)",
+    # "gamer": "Gamer (Shut-in, e-sports aspirant, or VR enthusiast living online)",
+    # "home": "Homebody (NEET, homemaker, or someone who strictly refuses to leave the house)"
 }
-
-SEO_KEYWORDS = {
-    "ko": "좀비 사태, 1일1멸망, 생존 테스트, 디스토피아",
-    "en": "Zombie Apocalypse, Daily Doom, Survival Test, Dystopia"
-}
-
-ARCHETYPES = [
-    "office",
-    "service",
-    "professional",
-    "labor",
-    "art",
-    "student", 
-    "influencer",
-    "rich",
-    "gamer",
-    "home"
-]

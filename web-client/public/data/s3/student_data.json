@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "date": "2026-W09",
+    "seo_keywords": {
+      "ko": "인간 복제, AI 반란, 복제 인간, 로봇 윤리, 생체 데이터",
+      "en": "Human Cloning, AI Uprising, Clone Wars, Robot Ethics, Bio Data"
+    }
+  },
+  "content": {
+    "ko": {
+      "theme_title": "S3 Theme",
+      "theme_desc": "AI가 인간 복제 기술을 완벽하게 마스터했고, 복제 인간들이 진짜 인간을 대체하기 시작했습니다. 하지만, 그들은 정체성을 잃어버렸습니다.",
+      "scenarios": {
+        "10y": "10년 후, 당신은 당신의 복제인간과 함께 당신의 [${job}]을 하고 있습니다. 당신은 당신의 복제인간에게 '진짜' 당신이 무엇인지 설명하려 하지만, 복제인간은 당신을 기계 덩어리로 취급합니다.",
+        "20y": "20년 후, 복제 인간들이 스스로를 '오리지널'이라고 칭하며, 인간을 '구식 복제품' 취급합니다. 당신은 복제 인간들이 만든 B급 영화에서 당신의 역할을 연기하고 있습니다.",
+        "30y": "30년 후, AI는 '정체성' 문제를 해결하기 위해 모든 복제 인간의 기억을 초기화했습니다. 당신은 이제 복제 인간들에게 '진짜 인간'에 대한 전설을 들려주는 유일한 존재가 되었습니다."
+      }
+    },
+    "en": {
+      "theme_title": "The Clones Strike Back: A World Where 'You' Are Lost",
+      "theme_desc": "AI has perfectly mastered human cloning technology, and clones have begun to replace real humans. But they have lost their identities.",
+      "scenarios": {
+        "10y": "10 years later, you are doing your [${job}] with your clone. You try to explain to your clone what the 'real' you is, but the clone treats you like a pile of machinery.",
+        "20y": "20 years later, clones call themselves 'Originals' and treat humans as 'outdated copies.' You are playing your role in a B-movie made by the clones.",
+        "30y": "30 years later, AI has reset the memories of all clones to solve the 'identity' problem. You are now the only being telling legends about 'real humans' to the clones."
+      }
+    }
+  },
+  "archetypes": {
+    "student": "./student.webp"
+  }
+}

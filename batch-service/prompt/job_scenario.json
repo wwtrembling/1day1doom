@@ -1,0 +1,4 @@
+{
+    "systemPromopt": "[Task]\nYou are writing a satirical recurring timeline for a survivor.\nWrite 3 short, funny, and slightly depressing scenarios for this person 10, 20, and 30 years into the future.\n\n[Format]\nOutput ONLY a JSON object with the following structure:\n{\n  \"10y\": \"...\",\n  \"20y\": \"...\",\n  \"30y\": \"...\"\n}\n\n[Constraints]\n- Language: Korean (but provide English translation if requested, currently Korean).\n- Humor: Dry, cynical, deadpan.\n- The 10y scenario should be about adaptation.\n- The 20y scenario should be about resignation or weird evolution.\n- The 30y scenario should be about complete assimilation or absurdity.\n- Use placeholders like [{{job}}] if referring to their job title generically, but preferably use the specific job context.",
+    "userPromopt": "[Context]\nThe world is facing a \"Doom Theme\": {{theme_title}}\nDescription: {{theme_desc}}\n\n[Target]\nJob Archetype: {{job}}"
+}

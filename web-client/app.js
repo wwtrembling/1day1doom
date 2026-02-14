@@ -4,6 +4,7 @@ const CONFIG = {
 
 const UI_TEXT = {
     ko: {
+        app_title: "1일 1멸망 🧟",
         input_title: "생존자 등록",
         label_name: "이름",
         label_age: "나이",
@@ -27,6 +28,7 @@ const UI_TEXT = {
         msg_share_done: "미래가 복사되었습니다! 친구들에게 경고하세요."
     },
     en: {
+        app_title: "1 Day 1 Doom 🧟",
         input_title: "Survivor Registration",
         label_name: "Name",
         label_age: "Age",
@@ -51,10 +53,13 @@ const UI_TEXT = {
     }
 };
 
-let currentLang = 'ko';
-let dailyData = null;
+// let currentLang = 'ko'; // Previously declared at line 56
+let currentThemeData = null; // Stores scenario.json data
+let currentJobData = null;   // Stores {job}_data.json data
 
-// Initialize
+
+let scenarios = [];
+
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Detect Language
@@ -72,184 +77,199 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('btn-restart').addEventListener('click', resetForm);
     document.getElementById('btn-share').addEventListener('click', shareResult);
 
-    // 3. Load Saved Data (Prior to Deep Link check)
+    // 3. Load Scenarios List
+    await fetchScenarioList();
+
+    // 4. Load Saved Data (Prior to Deep Link check)
     loadUserData();
 
-    // 4. Fetch Data & Check Deep Link
-    await fetchDailyData(); // This sets 'dailyData'
-
-    // Check for Deep Link Parameters
+    // 5. Check Deep Link
     const urlParams = new URLSearchParams(window.location.search);
     const pName = urlParams.get('name');
     const pAge = urlParams.get('age');
-    const pGender = urlParams.get('gender');
     const pJob = urlParams.get('job');
+    const pScenario = urlParams.get('s'); // s=s1, s2 etc.
 
     if (pName && pAge && pJob) {
         // Auto-fill form
         document.getElementById('name').value = pName;
         document.getElementById('age').value = pAge;
-
-        // gender removed
-
         document.getElementById('job-category').value = pJob;
 
-        // Auto-show result (skip loading animation for instant deep link view)
-        if (dailyData) {
-            try {
+        // Auto-show result
+        try {
+            // Determine which scenario to load
+            let scenarioToLoad = pScenario;
+            if (!scenarioToLoad) {
+                // If no specific scenario in link, use the rotation logic or default to latest
+                // effectively acting like a new submission but skipping the click
+                scenarioToLoad = getNextScenario(pJob);
+            }
+
+            await loadScenarioData(scenarioToLoad, pJob);
+
+            if (currentJobData) {
                 // Hide Input, Show Result directly
                 document.getElementById('input-section').classList.add('hidden');
-                document.getElementById('loading-section').classList.add('hidden'); // Ensure loading is hidden
+                document.getElementById('loading-section').classList.add('hidden');
 
                 renderResultContent();
 
                 document.getElementById('result-section').classList.remove('hidden');
-            } catch (e) {
-                console.error("Deep link render failed:", e);
-                // Fallback to input
-                document.getElementById('input-section').classList.remove('hidden');
             }
+        } catch (e) {
+            console.error("Deep link render failed:", e);
+            document.getElementById('input-section').classList.remove('hidden');
         }
     }
 });
 
-function updateLanguage(lang) {
-    currentLang = lang;
-
-    // Toggle Buttons
-    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-    // Update UI Text
-    const texts = UI_TEXT[lang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (texts[key]) el.textContent = texts[key];
-    });
-
-    document.getElementById('slogan').textContent = texts.slogan;
-
-    // Update Result View if data is already loaded and visible
-    if (!document.getElementById('result-section').classList.contains('hidden') && dailyData) {
-        renderResultContent();
+async function fetchScenarioList() {
+    try {
+        const response = await fetch('./public/data/scenarios.json');
+        if (!response.ok) throw new Error("Failed to load scenarios.json");
+        scenarios = await response.json();
+        console.log("Loaded scenarios:", scenarios);
+    } catch (e) {
+        console.error("Error loading scenarios:", e);
+        // Fallback or Alert?
+        scenarios = ['s1']; // Minimal fallback
     }
 }
 
-async function fetchDailyData() {
-    const today = new Date();
-    // Format YYYY-Www in local time
-    const todayStr = getISOWeekStr(today);
+function getNextScenario(jobCat) {
+    if (!scenarios || scenarios.length === 0) return 's1';
 
-    // check URL param
-    const urlParams = new URLSearchParams(window.location.search);
-    const dateParam = urlParams.get('date');
-
-    let targetDate = dateParam;
-
-    if (!targetDate) {
-        // Dynamic Date Loading via weekOfYear.js
-        try {
-            const weekRes = await fetch('./public/data/weekOfYear.js?t=' + new Date().getTime()); // bust cache
-            if (weekRes.ok) {
-                const availableWeeks = await weekRes.json();
-
-                if (Array.isArray(availableWeeks) && availableWeeks.length > 0) {
-                    // Check if todayStr is in the list
-                    if (availableWeeks.includes(todayStr)) {
-                        targetDate = todayStr;
-                        console.log(`Using current week data: ${targetDate}`);
-                    } else {
-                        // Fallback to random week
-                        const randomIndex = Math.floor(Math.random() * availableWeeks.length);
-                        targetDate = availableWeeks[randomIndex];
-                        console.log(`Current week data missing. Fallback to random week: ${targetDate}`);
-                    }
-                }
-            }
-        } catch (e) {
-            console.warn("Failed to fetch weekOfYear.js", e);
-        }
+    // 1. Get history from LocalStorage
+    // Key: odod_scenario_history (JSON object: { "office": "s3", "gamer": "s1" ... })
+    let history = {};
+    const savedHistory = localStorage.getItem('odod_scenario_history');
+    if (savedHistory) {
+        try { history = JSON.parse(savedHistory); } catch (e) { }
     }
 
-    // Fallback if still null
-    if (!targetDate) {
-        targetDate = todayStr; // Try original today again (will likely fail 404 but correct behavior for "no data yet")
-        console.log(`Fallback to today's week (likely 404): ${targetDate}`);
-    }
+    const lastSeen = history[jobCat];
 
-    // Path: ./public/data/{date}/data.json
-    // Note: If index.html is in web-client root, then public folder is ./public
-    const url = `./public/data/${targetDate}/data.json`;
-    const basePath = `./public/data/${targetDate}/`;
+    // Logic: Latest -> ... -> First -> Latest
+    // Sort scenarios purely to establish order? Assuming scenarios.json is ordered [s1, s2, s3...].
+    // If not, we might want to sort them. Let's assume they are sorted or we rely on the list order.
+    // Latest = last element.
 
-    if (dateParam) {
-        console.log(`Fetching historical data: ${dateParam}`);
-    }
+    let nextScenario = '';
 
-    try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Data not found for ${targetDate}`);
-        dailyData = await response.json();
-        dailyData._basePath = basePath; // Helper for images
-        dailyData.meta.date = targetDate; // Ensure meta date matches
-
-        // Update SEO
-        updateSEO();
-    } catch (e) {
-        console.error("Failed to load daily data:", e);
-
-        if (dateParam) {
-            alert(`해당 날짜(${targetDate})의 멸망 데이터가 없습니다. 메인으로 이동합니다.`);
-            window.location.search = '';
+    if (!lastSeen) {
+        // First time for this job: Show Latest
+        nextScenario = scenarios[scenarios.length - 1];
+    } else {
+        // Find index of last seen
+        const lastIndex = scenarios.indexOf(lastSeen);
+        if (lastIndex === -1) {
+            // Unknown scenario (maybe deleted), reset to Latest
+            nextScenario = scenarios[scenarios.length - 1];
         } else {
-            alert(`오늘(${targetDate})의 멸망 데이터가 아직 도착하지 않았습니다.`);
+            // Previous index
+            let nextIndex = lastIndex - 1;
+            if (nextIndex < 0) {
+                // Wrap to Latest (End of array)
+                nextIndex = scenarios.length - 1;
+            }
+            nextScenario = scenarios[nextIndex];
         }
+    }
+
+    // Save decision implies we "viewed" it? 
+    // Actually, we should probably save it when we actually render or just here.
+    // Let's save here because this function determines what WE WILL SHOW.
+    history[jobCat] = nextScenario;
+    localStorage.setItem('odod_scenario_history', JSON.stringify(history));
+
+    return nextScenario;
+}
+
+async function loadScenarioData(scenarioId, jobCat) {
+    console.log(`Loading scenario: ${scenarioId} for job: ${jobCat}`);
+    try {
+        // 1. Load Master Scenario (Theme) - Cache if possible or just fetch
+        // We could optimize to not fetch if already loaded for same scenarioId
+        if (!currentThemeData || currentThemeData.meta.scenario_id !== scenarioId) {
+            const themeUrl = `./public/data/${scenarioId}/scenario.json`;
+            const themeRes = await fetch(themeUrl);
+            if (!themeRes.ok) throw new Error(`Theme data not found for ${scenarioId}`);
+            currentThemeData = await themeRes.json();
+            // Ensure meta has scenario_id if missing (legacy support)
+            if (!currentThemeData.meta.scenario_id) currentThemeData.meta.scenario_id = scenarioId;
+        }
+
+        // 2. Load Job Data
+        const jobUrl = `./public/data/${scenarioId}/${jobCat}_data.json`;
+        const jobRes = await fetch(jobUrl);
+        if (!jobRes.ok) throw new Error(`Job data not found for ${scenarioId} / ${jobCat}`);
+
+        currentJobData = await jobRes.json();
+
+        // Setup helper paths
+        currentJobData._basePath = `./public/data/${scenarioId}/`;
+        currentJobData.id = scenarioId;
+
+        updateSEO();
+        return true;
+    } catch (e) {
+        console.error("Failed to load scenario data:", e);
+        alert(`데이터를 불러올 수 없습니다: ${scenarioId} (${jobCat})`);
+        return false;
     }
 }
 
 function updateSEO() {
-    if (!dailyData) return;
-    const meta = dailyData.meta;
-    const desc = dailyData.content[currentLang].theme_desc;
+    if (!currentThemeData) return;
+    const content = currentThemeData.content[currentLang] || currentThemeData.content; // Fallback structure
+    const desc = content.theme_desc;
+
 
     document.querySelector('meta[name="description"]').setAttribute("content", desc);
     document.querySelector('meta[property="og:description"]').setAttribute("content", desc);
     document.title = UI_TEXT[currentLang].slogan;
 }
 
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
     e.preventDefault();
-    console.log("Form submitted. DailyData:", dailyData);
-    if (!dailyData) {
-        alert("오늘의 멸망 데이터를 불러오는 중입니다. 잠시만 기다려주세요.");
-        return;
-    }
+
+    // 1. Determine next scenario
+    const jobCat = document.getElementById('job-category').value;
+    const nextScenario = getNextScenario(jobCat);
 
     try {
-        // 1. Save Data
+        // 2. Save Data
         saveUserData();
 
-        // 2. Hide Input, Show Loading
+        // 3. Hide Input, Show Loading
         document.getElementById('input-section').classList.add('hidden');
         document.getElementById('loading-section').classList.remove('hidden');
 
-        // 3. Wait 5 seconds
+        // 4. Preload Data while waiting
+        await loadScenarioData(nextScenario, jobCat);
+
+        // 5. Wait 3 seconds for effect
         setTimeout(() => {
             try {
-                // 4. Hide Loading, Show Result
+                if (!currentJobData) {
+                    throw new Error("Scenario data not loaded");
+                }
+
+                // 6. Hide Loading, Show Result
                 document.getElementById('loading-section').classList.add('hidden');
                 renderResultContent();
                 document.getElementById('result-section').classList.remove('hidden');
             } catch (err) {
                 console.error("Error rendering result:", err);
                 alert("결과를 표시하는 중 오류가 발생했습니다: " + err.message);
-                // Show input again so they aren't stuck
                 document.getElementById('input-section').classList.remove('hidden');
             }
-        }, 5000); // 5000ms = 5 seconds
+        }, 3000);
     } catch (err) {
         console.error("Error in form submission:", err);
         alert("오류가 발생했습니다: " + err.message);
+        document.getElementById('input-section').classList.remove('hidden');
     }
 }
 
@@ -290,18 +310,25 @@ function renderResultContent() {
     }
     const jobCatText = optionEl.textContent;
 
-    if (!dailyData || !dailyData.content) {
+    if (!currentJobData || !currentThemeData) {
         throw new Error("데이터가 로드되지 않았습니다.");
     }
 
-    const content = dailyData.content[currentLang];
-    if (!content) {
-        throw new Error(`언어 데이터가 없습니다: ${currentLang}`);
-    }
+    // Theme Info from currentThemeData
+    const themeContent = currentThemeData.content[currentLang] || currentThemeData.content;
+    if (!themeContent) throw new Error(`테마 데이터 오류: ${currentLang}`);
+
+    // Job Info from currentJobData
+    // Note: currentJobData might still have content.ko.scenarios OR it might rely on us merging?
+    // In our generator/conversion, we stuck with structure: jobData.content.ko.scenarios...
+    // But themes are also in jobData currently (duplicates).
+    // We should prefer currentThemeData for Title/Desc, and currentJobData for Scenarios.
+
+    const jobContent = currentJobData.content[currentLang] || currentJobData.content;
 
     // 1. Text Content
-    document.getElementById('theme-title').textContent = content.theme_title;
-    document.getElementById('theme-desc').textContent = content.theme_desc;
+    document.getElementById('theme-title').textContent = themeContent.theme_title;
+    document.getElementById('theme-desc').textContent = themeContent.theme_desc;
 
     // genderText removed
 
@@ -313,23 +340,22 @@ function renderResultContent() {
             .replace(/\{\{age\}\}/g, age)
             .replace(/\$\{job\}/g, jobCatText)
             .replace(/\{\{job\}\}/g, jobCatText);
-        // gender replaced logic removed
     };
 
-    document.getElementById('text-10y').textContent = processScenario(content.scenarios['10y']);
-    document.getElementById('text-20y').textContent = processScenario(content.scenarios['20y']);
-    document.getElementById('text-30y').textContent = processScenario(content.scenarios['30y']);
+    document.getElementById('text-10y').textContent = processScenario(jobContent.scenarios['10y']);
+    document.getElementById('text-20y').textContent = processScenario(jobContent.scenarios['20y']);
+    document.getElementById('text-30y').textContent = processScenario(jobContent.scenarios['30y']);
 
     // 2. Image
     // Key: office, gamer etc.
     const imgKey = jobCat;
-    const imgSrc = dailyData.archetypes[imgKey];
+    const imgSrc = currentJobData.archetypes[imgKey];
 
     if (imgSrc) {
         // Resolve relative path if needed
         let finalSrc = imgSrc;
-        if (imgSrc.startsWith('./') && dailyData._basePath) {
-            finalSrc = dailyData._basePath + imgSrc.substring(2);
+        if (imgSrc.startsWith('./') && currentJobData._basePath) {
+            finalSrc = currentJobData._basePath + imgSrc.substring(2);
         }
         document.getElementById('result-image').src = finalSrc;
     }
@@ -341,9 +367,9 @@ async function shareResult() {
     // Clean existing search params to avoid duplication
     const urlObj = new URL(window.location.href);
 
-    // 1. Date Param
-    if (dailyData && dailyData.meta && dailyData.meta.date) {
-        urlObj.searchParams.set('date', dailyData.meta.date);
+    // 1. Scenario Param
+    if (currentJobData && currentJobData.id) {
+        urlObj.searchParams.set('s', currentJobData.id);
     }
 
     // 2. User Params (Deep Linking)
@@ -390,16 +416,4 @@ function resetForm() {
 }
 
 
-function getISOWeekStr(d) {
-    // Copy date so don't modify original
-    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-    // Set to nearest Thursday: current date + 4 - current day number
-    // Make Sunday's day number 7
-    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-    // Get first day of year
-    var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    // Calculate full weeks to nearest Thursday
-    var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-    // Return format YYYY-Www
-    return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
-}
+

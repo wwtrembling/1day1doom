@@ -13,6 +13,19 @@ client = None
 if GEMINI_API_KEY:
     client = genai.Client(api_key=GEMINI_API_KEY)
 
+def parse_prompt_file(file_path):
+    """
+    Parses a JSON prompt file with 'systemPromopt' and 'userPromopt' keys.
+    Returns (system_prompt, user_prompt_template).
+    """
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    
+    system_prompt = data.get("systemPromopt", "")
+    user_prompt = data.get("userPromopt", "")
+    
+    return system_prompt, user_prompt
+
 def generate_scenario(date_str):
     """
     Generates the daily scenario using Gemini via google-genai SDK.
@@ -23,28 +36,26 @@ def generate_scenario(date_str):
 
     # Load prompt template
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    prompt_path = os.path.join(base_dir, "prompt", "scenario.txt")
+    prompt_path = os.path.join(base_dir, "prompt", "scenario.json")
     
-    with open(prompt_path, "r", encoding="utf-8") as f:
-        prompt_content = f.read()
-
-    full_prompt = f"""
-{prompt_content}
-
-[Command]
-Today's date is "{date_str}".
-Please invent a **completely new, random, creative, and hilarious Doom Theme** for today.
-Output ONLY the JSON object.
-"""
+    system_prompt, user_template = parse_prompt_file(prompt_path)
+    
+    # Fill User Template
+    full_user_prompt = user_template.replace("{{date}}", date_str)
 
     max_retries = 3
     for attempt in range(max_retries):
         try:
             # Using generate_content from the new client
+            config = types.GenerateContentConfig(response_mime_type='application/json')
+            
+            if system_prompt:
+                config.system_instruction = system_prompt
+
             response = client.models.generate_content(
                 model='gemini-2.0-flash-lite-001', 
-                contents=full_prompt,
-                config=types.GenerateContentConfig(response_mime_type='application/json')
+                contents=full_user_prompt,
+                config=config
             )
             
             text = response.text
@@ -62,7 +73,46 @@ Output ONLY the JSON object.
     print("[Error] Max retries exceeded for scenario generation.")
     return None
 
-def generate_text(prompt):
+def generate_job_data(theme_title, theme_desc, job):
+    """
+    Generates job-specific future scenarios (10y/20y/30y).
+    """
+    if not client:
+        print("Error: GEMINI_API_KEY is missing.")
+        return None
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    prompt_path = os.path.join(base_dir, "prompt", "job_scenario.json")
+    
+    system_prompt, user_template = parse_prompt_file(prompt_path)
+
+    full_user_prompt = user_template.replace("{{theme_title}}", theme_title) \
+                                 .replace("{{theme_desc}}", theme_desc) \
+                                 .replace("{{job}}", job)
+
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            config = types.GenerateContentConfig(response_mime_type='application/json')
+            
+            if system_prompt:
+                config.system_instruction = system_prompt
+
+            response = client.models.generate_content(
+                model='gemini-2.0-flash-lite-001', 
+                contents=full_user_prompt,
+                config=config
+            )
+            return json.loads(response.text)
+        except Exception as e:
+            if "429" in str(e) or "Quota exceeded" in str(e):
+                time.sleep(30 * (attempt + 1))
+            else:
+                print(f"Error generating job data for {job}: {e}")
+                return None
+    return None
+
+def generate_text(prompt, system_instruction=None):
     """
     Generates text using Gemini.
     """
@@ -73,9 +123,14 @@ def generate_text(prompt):
     max_retries = 3
     for attempt in range(max_retries):
         try:
+            config = types.GenerateContentConfig()
+            if system_instruction:
+                config.system_instruction = system_instruction
+                
             response = client.models.generate_content(
                 model='gemini-2.0-flash-lite-001', 
-                contents=prompt
+                contents=prompt,
+                config=config
             )
             return response.text.strip()
         except Exception as e:
