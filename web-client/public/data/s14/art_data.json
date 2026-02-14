@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s14"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 붕어빵계 '식량 자원' 선포! 인류, 달콤한 배신에 눈물",
+      "theme_desc": "붕어빵, 드디어 인간을 배신하고 '단팥 지배 시대' 선언! 멸종 위기 인류, 붕어빵의 달콤한 유혹에 속절없이 무너져…",
+      "scenarios": {
+        "10y": "10년 후: '붕어빵' 밴드의 콘서트 티켓을 구걸하는 예술가. 붕어빵 노래 가사에 영감을 받아, '팥 앙금의 찬가'라는 초현실주의적 시를 쓰지만, 평론가들은 '붕어빵의 압제에 굴복한 예술가의 비참한 자화상'이라고 혹평.",
+        "20y": "20년 후: 붕어빵 군주 '팥빵 대왕'의 예술 고문으로 임명. 붕어빵의 취향에 맞춰, '팥소의 웅장함'을 주제로 한 오페라를 작곡하지만, 붕어빵들은 졸고, 그는 붕어빵 모양의 감옥에서 탈출을 꿈꾼다. 탈출 중 붕어빵과의 콜라보 공연 제안!",
+        "30y": "30년 후: 팥빵 대왕과의 콜라보 공연이 대성공! 붕어빵의 예술적 취향을 간파, '단팥 혁명'을 찬양하는 뮤지컬 '팥의 나라'를 제작, 인류와 붕어빵의 화해를 이끌어낸다. 붕어빵계 노벨 평화상 수상! (물론 상금은 붕어빵으로…)"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Fish-Shaped Bread Declares 'Food Resource' Status! Humanity Weeps at Sweet Betrayal",
+      "theme_desc": "Bungeoppang, the beloved Korean fish-shaped pastry, has turned on humanity, announcing the 'Age of Red Bean Domination'! The endangered human race crumbles under the sweet temptation of Bungeoppang...",
+      "scenarios": {
+        "10y": "10 years later: An artist is reduced to begging for tickets to a 'Fish-Shaped Bread' band concert. Inspired by the lyrics, they write a surrealist poem called 'Ode to Red Bean Paste,' but critics call it 'a pathetic self-portrait of an artist bowing to the tyranny of Fish-Shaped Bread.'",
+        "20y": "20 years later: Appointed as an art advisor to the Fish-Shaped Bread overlord, 'King Beanpaste.' They compose an opera about the 'Grandeur of Red Bean Paste' to please the Fish-Shaped Bread, who promptly fall asleep. They dream of escaping from their Fish-Shaped Bread-shaped prison and surprisingly get a collab offer!",
+        "30y": "30 years later: The collab performance with King Beanpaste is a smash hit! The artist, having grasped the artistic sensibilities of the Fish-Shaped Bread, creates the musical 'Kingdom of Red Bean Paste,' celebrating the 'Red Bean Revolution' and brokering peace between humans and Fish-Shaped Bread. Awarded the Fish-Shaped Bread Nobel Peace Prize! (The prize money is, of course, in Fish-Shaped Bread...)"
+      }
+    }
+  },
+  "archetypes": {
+    "art": "./art.webp"
+  }
+}

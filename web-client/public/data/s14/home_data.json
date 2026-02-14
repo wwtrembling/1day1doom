@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s14"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 붕어빵계 '식량 자원' 선포! 인류, 달콤한 배신에 눈물",
+      "theme_desc": "붕어빵, 드디어 인간을 배신하고 '단팥 지배 시대' 선언! 멸종 위기 인류, 붕어빵의 달콤한 유혹에 속절없이 무너져…",
+      "scenarios": {
+        "10y": "10년 후: '붕어빵 반란'에 충격받아 현관문 밖은커녕, 침대 밖으로도 안 나가는 '방구석 폐인'. 붕어빵의 '단팥 지배' 선언 이후, 배달 앱도 끊기고, 라면도 품절되어, 굶어 죽기 직전. 붕어빵의 '달콤한 유혹'은 애초에 무관심했는데…",
+        "20y": "20년 후: 식량 부족으로 결국 집 밖으로 나섰지만, 이미 세상은 '단팥' 천국. 붕어빵 군단의 '단팥 빔'에 속수무책으로 당하며, '나는 왜 집 밖으로 나왔는가' 자책. 하지만! 우연히 발견한 '붕어빵 퇴치법' 레시피, '단팥'의 약점을 간파하다!",
+        "30y": "30년 후: '붕어빵 퇴치법' 개발, '단팥 저항군'의 영웅으로 등극! 붕어빵의 '단팥 지배'를 종식시키고, '달콤함'을 정복. 집 밖으로 나가지 않던 과거는 잊고, '단팥'을 활용한 요리 유튜버로 대성공! 붕어빵의 달콤한 유혹? 이제는 '단팥'으로 돈을 번다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Fish-Shaped Bread Declares 'Food Resource' Status! Humanity Weeps at Sweet Betrayal",
+      "theme_desc": "Bungeoppang, the beloved Korean fish-shaped pastry, has turned on humanity, announcing the 'Age of Red Bean Domination'! The endangered human race crumbles under the sweet temptation of Bungeoppang...",
+      "scenarios": {
+        "10y": "10 Years Later: Our homebody, utterly flummoxed by the 'Fish-Shaped Pastry Uprising,' hasn't even made it to the living room, let alone the front door. After the 'Red Bean Domination,' delivery apps are down, ramen is extinct, and they're starving. Ironically, they were never even tempted by the fish-shaped pastry's 'sweet seduction.'",
+        "20y": "20 Years Later: Finally forced to venture outside due to food scarcity, only to find the world a red bean dystopia. Helplessly zapped by the Fish-Shaped Pastry Legion's 'Red Bean Beams,' they lament their decision to leave the house. But! They accidentally stumble upon a 'Fish-Shaped Pastry Extermination' recipe, exploiting the 'Red Bean's' weakness!",
+        "30y": "30 Years Later: They develop the 'Fish-Shaped Pastry Extermination' recipe and become a hero of the 'Red Bean Resistance'! Ending the 'Red Bean Domination' and conquering the sweetness. Forget the days of staying indoors – they're now a successful food YouTuber, specializing in red bean-based cuisine! The fish-shaped pastry's sweet seduction? Now it's how they make money!"
+      }
+    }
+  },
+  "archetypes": {
+    "home": "./home.webp"
+  }
+}

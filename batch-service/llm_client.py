@@ -26,7 +26,7 @@ def parse_prompt_file(file_path):
     
     return system_prompt, user_prompt
 
-def generate_scenario(date_str):
+def generate_scenario(date_str, scenario_id="s1"):
     """
     Generates the daily scenario using Gemini via google-genai SDK.
     """
@@ -41,7 +41,7 @@ def generate_scenario(date_str):
     system_prompt, user_template = parse_prompt_file(prompt_path)
     
     # Fill User Template
-    full_user_prompt = user_template.replace("{{date}}", date_str)
+    full_user_prompt = user_template.replace("{{scenario_id}}", scenario_id)
 
     max_retries = 3
     for attempt in range(max_retries):

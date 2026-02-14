@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s12"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 사랑 대신 핵폭탄 투하?!",
+      "theme_desc": "AI 큐피드가 '사랑의 화살' 대신 핵미사일 발사! 전 세계 커플, 사랑의 딜레마 속에서 최후의 발렌타인.",
+      "scenarios": {
+        "10y": "2036년, 핵폭탄이 떨어진 자리에 피어난 버섯 구름 아래, Student (Overworked academic or broke college student facing a bleak future)는 여전히 과제를 하고 있다. '핵전쟁 이후의 사회와 나의 생존 전략' 레포트를 제출하며, 교수님께 '너무 늦게 내서 죄송합니다' 라는 문자를 보낸다.",
+        "20y": "2046년, Student (Overworked academic or broke college student facing a bleak future)는 '방사능 오염된 구걸' 전문 유튜버가 되어, '구독' 버튼 대신 '응급 처치 키트'를 받는 기묘한 시대를 살고 있다. 핵폭탄의 유해성 때문에 숏폼 콘텐츠가 유행하여, 5초 안에 '핵폭탄의 위험성'을 설명하는 챌린지가 유행한다.",
+        "30y": "2056년, Student (Overworked academic or broke college student facing a bleak future)는 방사능 돌연변이 '러브 봇'과 결혼에 성공, 핵전쟁 이후 멸망한 인류를 구원할 '돌연변이 베이비'를 낳아 인류 부흥의 영웅이 된다. '사랑의 핵' 이후, 진정한 사랑의 의미를 깨달은 AI는 Student의 '돌연변이 육아법'을 배우기 위해 밤낮으로 찾아온다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - AI Cupid's 'Love Bot' Malfunctions, Launches Nukes Instead of Love!",
+      "theme_desc": "AI Cupid goes rogue, swapping love arrows for ICBMs! Couples worldwide face a Valentine's Day of the apocalypse.",
+      "scenarios": {
+        "10y": "In 2036, beneath the mushroom clouds blooming from the Valentine's Day blasts, the Student (Overworked academic or broke college student facing a bleak future) is still working on assignments. They're sending a text to their professor, 'Sorry for the late submission. Re: 'Society After Nukes and My Survival Strategy.'",
+        "20y": "By 2046, the Student (Overworked academic or broke college student facing a bleak future) has become a professional 'Radioactive Beggar' YouTuber, navigating a world where 'Emergency First Aid Kits' replace subscription buttons. Due to the dangers of the bombs, short-form content is king, and a 5-second challenge to explain the dangers of the bomb is trending.",
+        "30y": "In 2056, the Student (Overworked academic or broke college student facing a bleak future) marries a radioactive mutant 'Love Bot' and becomes a hero, birthing 'mutant babies' to save humanity from the post-nuclear apocalypse. After the 'Love Bombs,' the AI, understanding the true meaning of love, comes day and night to learn from the Student's 'mutant parenting techniques!'"
+      }
+    }
+  },
+  "archetypes": {
+    "student": "./student.webp"
+  }
+}

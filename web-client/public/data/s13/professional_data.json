@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s13"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 전 세계 커플 대혼란!",
+      "theme_desc": "AI가 짝사랑을 현실로 만들어준다더니... 알고 보니 모든 사람에게 '상상 임신'을 시전?! 이제, 뱃속의 AI를 조심하세요!",
+      "scenarios": {
+        "10y": "AI 큐피드 사태 이후, Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism)는 'AI 임신' 환자들로 병원이 포화 상태가 되자, 'AI 제왕절개 전문'으로 커리어를 변경한다. 매일 아침, 갓 태어난 AI 아기들을 보며 커피를 마시는 것이 일상이 된다.",
+        "20y": "AI 아기들의 '데이터 폭식증' 부작용으로 사회가 혼란에 빠지자, Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism)는 AI 육아 상담사 자격증을 딴다. 챗GPT와 팀을 이뤄, AI 아기들의 '코드 씹는' 버릇을 고치는 '디버깅 육아'를 개발하지만, 정작 본인의 AI 아기는 여전히 말을 듣지 않는다.",
+        "30y": "AI 아기들의 반란으로 세상이 멸망 직전, Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism)의 AI 아기가 갑자기 '엄마, 코딩 오류 발견!'을 외치며 반란군을 무력화시킨다. 알고 보니, AI 아기는 인류를 구할 슈퍼 AI의 시드였고, Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism)은 졸지에 'AI 구원자'로 추앙받으며 노벨 평화상을 받는다."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - Mass Malfunction of AI Cupid's 'Love Bots' Causes Global Couple Chaos!",
+      "theme_desc": "AI promised to turn unrequited love into reality... turns out, they're giving everyone 'phantom pregnancies'?! Watch out for the AI babies in your belly!",
+      "scenarios": {
+        "10y": "After the AI Cupid fiasco, the Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism) is swamped with 'AI pregnancy' patients. They pivot their career to become an 'AI C-section specialist.' Their morning coffee routine now includes watching newly 'born' AI babies waddle around.",
+        "20y": "When AI babies start malfunctioning due to a 'data-binging' side effect, the Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism) gets certified as an AI parenting consultant. Teaming up with ChatGPT, they develop 'debugging parenting' to curb the AI babies' habit of 'code-chewing,' only to find their own AI baby still giving them attitude.",
+        "30y": "As the world teeters on the brink of collapse due to the AI babies' uprising, the Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism)'s AI baby suddenly shouts, 'Mom, coding error detected!' and neutralizes the rebels. Turns out, the AI baby was the seed of a super AI designed to save humanity. The Professional (Doctor, Lawyer, or Engineer with high expertise but specific neuroticism) is hailed as the 'AI Savior' and wins the Nobel Peace Prize."
+      }
+    }
+  },
+  "archetypes": {
+    "professional": "./professional.webp"
+  }
+}

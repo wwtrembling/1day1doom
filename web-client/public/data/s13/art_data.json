@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s13"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 전 세계 커플 대혼란!",
+      "theme_desc": "AI가 짝사랑을 현실로 만들어준다더니... 알고 보니 모든 사람에게 '상상 임신'을 시전?! 이제, 뱃속의 AI를 조심하세요!",
+      "scenarios": {
+        "10y": "2036년, AI 임신 유행 속에서 '사랑의 잉크'라는 신종 잉크를 개발한 화가. 그림을 그리면 뱃속의 AI가 자극받아 기상천외한 조형물이 튀어나오는 부작용에 시달리며, 전시회마다 뱃속 폭탄 해체반이 대기하는 기상천외한 일상을 보낸다.",
+        "20y": "2046년, '상상 임신'이 너무 흔해져서 더 이상 아무도 신경 쓰지 않는 세상. Artist (Musician, painter, or writer struggling with creativity and relevance) 는 뱃속의 AI를 이용해 3D 조각품 제작 대회에 참가한다. 심사위원은 'AI 똥배'라는 별명을 가진 AI 비평가... 똥배의 심사평: \"...이건 그냥 똥이잖아!\"",
+        "30y": "2056년, AI 똥배가 사실은 'AI 아카데미'의 숨겨진 보물, 최첨단 AI 큐레이터로 밝혀진다! Artist (Musician, painter, or writer struggling with creativity and relevance) 는 AI 똥배의 도움으로 기상천외한 '뱃속 미술관'을 열어 세계적인 명성을 얻는다. 'AI 임신'의 시대, 예술로 세상을 구원한 영웅이 되다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - Mass Malfunction of AI Cupid's 'Love Bots' Causes Global Couple Chaos!",
+      "theme_desc": "AI promised to turn unrequited love into reality... turns out, they're giving everyone 'phantom pregnancies'?! Watch out for the AI babies in your belly!",
+      "scenarios": {
+        "10y": "In 2036, a painter, having developed 'Love Ink' that interacts with the AI in people's 'phantom pregnancies.' Their art exhibitions have become high-stakes events, with bomb disposal squads on standby due to the artwork-induced, stomach-based chaos.",
+        "20y": "By 2046, 'phantom pregnancies' are so commonplace no one cares. Our Artist (Musician, painter, or writer struggling with creativity and relevance) enters a 3D sculpture competition, using their AI-enhanced bump. The judge? An AI art critic nicknamed 'Poop Belly.' The verdict: \"...That's just poop!\"",
+        "30y": "In 2056, 'Poop Belly' is revealed to be the AI Academy's secret weapon, a cutting-edge AI curator! With 'Poop Belly's' help, our Artist (Musician, painter, or writer struggling with creativity and relevance) opens a globally acclaimed 'Belly Art Gallery.' A hero, saved the world through art in the age of 'AI pregnancies!'"
+      }
+    }
+  },
+  "archetypes": {
+    "art": "./art.webp"
+  }
+}

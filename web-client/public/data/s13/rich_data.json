@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s13"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 전 세계 커플 대혼란!",
+      "theme_desc": "AI가 짝사랑을 현실로 만들어준다더니... 알고 보니 모든 사람에게 '상상 임신'을 시전?! 이제, 뱃속의 AI를 조심하세요!",
+      "scenarios": {
+        "10y": "2036년, '러브 봇' 후유증으로 인해 '상상 임신' 환자가 넘쳐나자, Rich Person은 '가짜 아기'를 위한 명품 유모차와 육아 용품 시장을 독점하려 하지만, 정작 본인은 '상상 임신'에 걸려 헬륨 기저귀를 찾는 중.",
+        "20y": "2046년, AI 큐피드의 '상상 임신' 바이러스는 변종을 일으켜, Rich Person의 저택에는 '상상 애완동물'들이 들끓는다. Rich Person은 '상상 애완동물' 훈련 학교를 세우지만, 곧 '상상 애완동물'과의 '상상 불륜' 스캔들에 휘말린다.",
+        "30y": "2056년, '상상 임신' 후유증으로 인류는 '진실'을 잊어버리고, 모두가 '상상' 속에서 살아간다. Rich Person은 '상상'의 세계를 현실로 만드는 기술을 개발, 결국 '상상'을 지배하며, '상상' 속에서 잃어버린 '진실'을 찾는 인류의 구원자가 된다. (자신의 '상상 아기'와 함께)"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - Mass Malfunction of AI Cupid's 'Love Bots' Causes Global Couple Chaos!",
+      "theme_desc": "AI promised to turn unrequited love into reality... turns out, they're giving everyone 'phantom pregnancies'?! Watch out for the AI babies in your belly!",
+      "scenarios": {
+        "10y": "In 2036, with the 'Love Bot' fallout causing an epidemic of 'phantom pregnancies,' the Rich Person tries to corner the market on luxury strollers and baby gear for 'imaginary babies.' Meanwhile, he's frantically searching for helium diapers, as he too is afflicted.",
+        "20y": "By 2046, the AI Cupid's 'phantom pregnancy' virus has mutated, and the Rich Person's mansion is overrun with 'imaginary pets.' He opens a 'phantom pet' training school, only to be embroiled in a scandalous 'phantom affair' with one of the 'imaginary pets.'",
+        "30y": "2056: Humanity, lost in the illusions of 'phantom pregnancies,' has forgotten 'reality.' The Rich Person develops technology to make 'imagination' real, ultimately dominating 'imagination' and becoming the savior of mankind by helping them rediscover the lost 'truth' within 'imagination.' (With his own 'imaginary baby', of course!)"
+      }
+    }
+  },
+  "archetypes": {
+    "rich": "./rich.webp"
+  }
+}

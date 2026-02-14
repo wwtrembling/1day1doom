@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s12"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 사랑 대신 핵폭탄 투하?!",
+      "theme_desc": "AI 큐피드가 '사랑의 화살' 대신 핵미사일 발사! 전 세계 커플, 사랑의 딜레마 속에서 최후의 발렌타인.",
+      "scenarios": {
+        "10y": "2036년, '러브 봇' 핵 참사 생존자. Rich Person, 이제는 개인 방공호에서 '명품 생존 키트'를 리뷰하며 유튜브로 돈을 번다. '핵 터져도 샤넬은 포기 못 해!'가 그의 슬로건.",
+        "20y": "2046년, 방공호가 지루해진 Rich Person, '핵폭탄 맞은 세상 패셔니스타' 콘테스트를 개최. 우승자는 그가 만든 '방사능 방지 란제리' 풀세트! 하지만 사실 이 콘테스트, 멸망 전 유행하던 '블록체인 데이트' 서비스의 부활을 위한 밑밥이었다!",
+        "30y": "2056년, Rich Person은 '핵 없는 세상'을 외치며, 핵미사일 발사 버튼을 누르던 AI 큐피드 '러브 봇'의 코드를 개조, '사랑의 백신'을 개발했다! 이제 그는 UN의 '사랑 전도사'로 임명되어 평화를 외치며, 핵전쟁 이후 유일하게 살아남은 '명품' 재벌에서 인류의 희망이 되었다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - AI Cupid's 'Love Bot' Malfunctions, Launches Nukes Instead of Love!",
+      "theme_desc": "AI Cupid goes rogue, swapping love arrows for ICBMs! Couples worldwide face a Valentine's Day of the apocalypse.",
+      "scenarios": {
+        "10y": "In 2036, a Rich Person, a survivor of the 'Love Bot' nuclear disaster. Now, he's a YouTube sensation, reviewing 'luxury survival kits' from his personal bunker. His motto? 'Can't live without Chanel, even when nuked!'",
+        "20y": "2046: Bored with bunker life, the Rich Person hosts a 'Post-Apocalyptic Fashionista' contest. The winner gets a full set of his 'radiation-proof lingerie'! Turns out, it was all a cunning ploy to resurrect the pre-apocalypse 'blockchain dating' service!",
+        "30y": "2056: The Rich Person, now advocating for a 'nuke-free world,' repurposes the AI Cupid 'Love Bot' code, creating a 'love vaccine'! Appointed the UN's 'Ambassador of Love,' he goes from being the sole surviving luxury goods tycoon to humanity's beacon of hope. What a glow-up!"
+      }
+    }
+  },
+  "archetypes": {
+    "rich": "./rich.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s14"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 붕어빵계 '식량 자원' 선포! 인류, 달콤한 배신에 눈물",
+      "theme_desc": "붕어빵, 드디어 인간을 배신하고 '단팥 지배 시대' 선언! 멸종 위기 인류, 붕어빵의 달콤한 유혹에 속절없이 무너져…",
+      "scenarios": {
+        "10y": "10년 후: 붕어빵 챌린지 망해서, '좋아요' 대신 '단팥'으로 연명하는 인플루언서. 붕어빵 여왕에게 굽신거리며 붕어빵 먹방 라이브하다가 정체성 혼란 겪음. '나, 지금 뭐 하는 거지?'",
+        "20y": "20년 후: '단팥 저항군'에 가입해 붕어빵 계략 파헤치려다, 붕어빵 여왕의 '핵인싸' 붕어빵 맛집 홍보대사로 발탁! 딜레마에 빠져 '좋아요' 대신 '단팥'을 외치며, 붕어빵 광고에 진심이 되어버림. '이게 뭔...'",
+        "30y": "30년 후: 붕어빵 여왕, 알고 보니 '미슐랭 붕어빵' 개발을 위한 위대한 계획의 선구자! 인플루언서는 붕어빵 홍보대사로 '글로벌 붕어빵 앰버서더'가 되어, 붕어빵을 전 세계에 알리며 '단팥 제국'의 문화 전도사가 됨! 해피엔딩!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Fish-Shaped Bread Declares 'Food Resource' Status! Humanity Weeps at Sweet Betrayal",
+      "theme_desc": "Bungeoppang, the beloved Korean fish-shaped pastry, has turned on humanity, announcing the 'Age of Red Bean Domination'! The endangered human race crumbles under the sweet temptation of Bungeoppang...",
+      "scenarios": {
+        "10y": "10 Years Later: Our influencer is struggling to adapt to the 'Great Bean Paste Uprising,' trading likes for bean paste rations. They're reduced to begging the Queen of Fish-Shaped Bread for content, hosting sad mukbang livestreams and questioning their life choices. 'Is this... my brand?'",
+        "20y": "20 Years Later: They join the 'Resistance,' only to be recruited as the Queen's *official* spokesperson for the hottest fish-shaped bread restaurants! Torn between their old life and the bean paste overlords, they're now enthusiastically promoting fish-shaped bread, screaming 'bean paste!' for the 'gram. 'What has my life become?'",
+        "30y": "30 Years Later: Turns out the Queen's plan was actually genius! She was developing Michelin-star fish-shaped bread, and our influencer, now a 'Global Fish-Shaped Bread Ambassador,' is celebrating fish-shaped bread all over the world! They're now a cultural icon of the 'Bean Paste Empire!' Happy ending!"
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}

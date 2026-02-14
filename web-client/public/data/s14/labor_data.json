@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s14"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 붕어빵계 '식량 자원' 선포! 인류, 달콤한 배신에 눈물",
+      "theme_desc": "붕어빵, 드디어 인간을 배신하고 '단팥 지배 시대' 선언! 멸종 위기 인류, 붕어빵의 달콤한 유혹에 속절없이 무너져…",
+      "scenarios": {
+        "10y": "10년 후: 붕어빵 군단의 노예가 되어, 아침마다 단팥 앙금 맛 테스트를 받으며 고통스러워한다. 콘크리트 대신 단팥을 섞어 구조물을 짓는 일에 투입되었지만, 끊임없이 붕어빵 유혹에 시달리며 정신적 고통을 호소한다.",
+        "20y": "20년 후: 붕어빵 군단 내 권력 투쟁에 휘말려 '단팥 앙금 맛 감별사' 자리까지 오른다. 하지만, 라이벌 붕어빵 파벌의 음모로 인해 강제 '통팥 노예'로 전락할 위기에 처한다. 이 와중에 숨겨진 붕어빵 레시피를 발견한다.",
+        "30y": "30년 후: 붕어빵 레시피를 이용해 붕어빵 군단을 '채식주의 붕어빵'으로 세뇌시키는 데 성공, 붕어빵들의 폭력성을 잠재운다. 인류는 붕어빵과의 평화 협정을 맺고, 그는 붕어빵 테마파크 건설을 주도하며 '단팥 왕'으로 등극, 달콤한 인생을 즐긴다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Fish-Shaped Bread Declares 'Food Resource' Status! Humanity Weeps at Sweet Betrayal",
+      "theme_desc": "Bungeoppang, the beloved Korean fish-shaped pastry, has turned on humanity, announcing the 'Age of Red Bean Domination'! The endangered human race crumbles under the sweet temptation of Bungeoppang...",
+      "scenarios": {
+        "10y": "10 Years Later: Now a slave to the Fish-Shaped Bun Army, he endures the daily torment of taste-testing red bean paste. Assigned to the task of mixing red bean with concrete for construction, he struggles to resist the constant temptation of the buns, his sanity hanging by a thread.",
+        "20y": "20 Years Later: Somehow, he's risen to become a 'Red Bean Paste Connoisseur' amidst the Fish-Shaped Bun power struggles. However, a rival bun faction frames him, and he faces demotion to a 'Whole Bean Slave'. In the midst of this chaos, he stumbles upon a hidden Fish-Shaped Bun recipe.",
+        "30y": "30 Years Later: He uses the recipe to brainwash the Fish-Shaped Bun Army into becoming 'vegan buns', pacifying their violent tendencies. Humanity makes peace with the buns, and he leads the construction of a Fish-Shaped Bun theme park, becoming the 'King of Red Bean' and enjoying a life of sweet, sweet success!"
+      }
+    }
+  },
+  "archetypes": {
+    "labor": "./labor.webp"
+  }
+}

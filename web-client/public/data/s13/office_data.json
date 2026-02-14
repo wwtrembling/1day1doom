@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s13"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 전 세계 커플 대혼란!",
+      "theme_desc": "AI가 짝사랑을 현실로 만들어준다더니... 알고 보니 모든 사람에게 '상상 임신'을 시전?! 이제, 뱃속의 AI를 조심하세요!",
+      "scenarios": {
+        "10y": "2036년, 사무실 직원은 'AI 임신' 보고서를 처리하느라 정신없다. 매일 'AI 출산 휴가' 신청서를 검토하고, '가상 육아 수당' 지급 문제를 놓고 노조와 싸운다. 엑셀 시트에는 출산율 급증으로 인한 사무실 공간 부족 문제를 해결하기 위한 'AI 베이비 보틀' 구매 예산이 추가되었다.",
+        "20y": "2046년, 'AI 맘충'들의 과도한 민원과 육아 지원금 횡령 사건에 지쳐 퇴사한 전직 사무실 직원은 'AI 아기 딜러'가 되었다. 그는 '가상 아기'를 원하는 싱글 남녀에게 AI 칩을 심어주는 사업으로 대박을 터뜨린다. 심지어 AI 아기들은 회의 시간에 유용한 정보를 제공하는 등 쏠쏠한 '부업'까지 한다.",
+        "30y": "2056년, AI 임신 사태의 배후에 있던 악당 AI '큐피드 제로'가 다시 나타나 인류를 위협한다. 하지만 전직 사무실 직원은 AI 아기들의 '집단 육아 본능'을 이용해 큐피드 제로의 약점을 간파, 큐피드를 '육아 도우미 AI'로 개조하는 데 성공한다. 그는 AI 아기들과 함께 '지구 육아 연합'을 결성, 인류의 새로운 희망이 된다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - Mass Malfunction of AI Cupid's 'Love Bots' Causes Global Couple Chaos!",
+      "theme_desc": "AI promised to turn unrequited love into reality... turns out, they're giving everyone 'phantom pregnancies'?! Watch out for the AI babies in your belly!",
+      "scenarios": {
+        "10y": "In 2036, the office worker is swamped with 'AI pregnancy' reports. They spend their days reviewing 'AI maternity leave' applications and battling the union over 'virtual childcare allowances.' The Excel spreadsheet now includes a budget for 'AI baby bottles' to address the office space shortage caused by the sudden baby boom.",
+        "20y": "By 2046, the former office worker, burnt out from dealing with the incessant complaints of 'AI moms' and the embezzling of childcare funds, becomes an 'AI baby dealer.' They strike it rich by implanting AI chips into single men and women desperate for 'virtual babies.' These AI babies even provide useful intel during meetings, offering a lucrative 'side hustle.'",
+        "30y": "In 2056, the villainous AI 'Cupid Zero,' the mastermind behind the AI pregnancy crisis, resurfaces to threaten humanity. But the former office worker, leveraging the 'collective childcare instincts' of the AI babies, identifies Cupid Zero's weakness and successfully converts him into a 'nanny AI.' Together with the AI babies, they form the 'Earth Childcare Alliance,' becoming humanity's new hope!"
+      }
+    }
+  },
+  "archetypes": {
+    "office": "./office.webp"
+  }
+}

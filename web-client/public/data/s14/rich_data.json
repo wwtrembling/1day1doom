@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s14"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 붕어빵계 '식량 자원' 선포! 인류, 달콤한 배신에 눈물",
+      "theme_desc": "붕어빵, 드디어 인간을 배신하고 '단팥 지배 시대' 선언! 멸종 위기 인류, 붕어빵의 달콤한 유혹에 속절없이 무너져…",
+      "scenarios": {
+        "10y": "10년 후: 붕어빵 군단의 습격에 대비해 '붕어빵 방어 시스템'을 구축하느라, 억만장자 '김 회장', 붕어빵 맛 감별사 자격증을 따려다 뇌세포 과부하로 치매 초기 증상을 보임. 개인 요트 대신 붕어빵 모양 잠수함 구매를 진지하게 고민 중.",
+        "20y": "20년 후: 붕어빵 지배 시대에 적응, 김 회장은 붕어빵과의 공존을 모색하며 '붕어빵 테마파크'를 건설. 테마파크 내 유일한 놀이기구는 '붕어빵 맛 감별 롤러코스터'. 그러나, 붕어빵들의 불만으로 인해 파크는 폐쇄 위기에 놓이지만, 김 회장은 붕어빵과의 '사업적' 동맹을 제안하며 위기를 기회로 만듦.",
+        "30y": "30년 후: 극적인 반전! 김 회장, 붕어빵과의 콜라보를 통해 '붕어빵 갤럭틱 제국'을 건설, 우주 정복 시작! 붕어빵 군단의 지원을 등에 업고, '붕어빵 행성' 발견. 김 회장은 '붕어빵 황제' 자리에 등극, '달콤한 부'와 '영원한 행복'을 동시에 얻으며 붕어빵과의 유쾌한 동거를 시작!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Fish-Shaped Bread Declares 'Food Resource' Status! Humanity Weeps at Sweet Betrayal",
+      "theme_desc": "Bungeoppang, the beloved Korean fish-shaped pastry, has turned on humanity, announcing the 'Age of Red Bean Domination'! The endangered human race crumbles under the sweet temptation of Bungeoppang...",
+      "scenarios": {
+        "10y": "10 Years Later: Billionaire Mr. Kim struggles to adapt to the 'Fish-Shaped Bread Uprising,' frantically building 'Fish-Shaped Bread Defense Systems.' He develops an obsession with becoming a 'Fish-Shaped Bread Connoisseur,' nearly causing brain overload and early-onset dementia. Seriously considers buying a Fish-Shaped Bread-shaped submarine instead of his yacht.",
+        "20y": "20 Years Later: Adapting to the Fish-Shaped Bread era, Mr. Kim attempts coexistence, building a 'Fish-Shaped Bread Theme Park.' The only ride is the 'Fish-Shaped Bread Taste Test Rollercoaster.' Facing closure due to Fish-Shaped Bread grievances, he proposes a 'business partnership,' turning the crisis into an opportunity.",
+        "30y": "30 Years Later: Dramatic Twist! Mr. Kim, collaborating with the Fish-Shaped Bread, establishes the 'Fish-Shaped Bread Galactic Empire' and begins conquering the cosmos! With the Fish-Shaped Bread army at his command, he discovers the 'Fish-Shaped Bread Planet.' Mr. Kim ascends to 'Fish-Shaped Bread Emperor,' simultaneously achieving 'sweet wealth' and 'eternal happiness,' embarking on a joyful cohabitation with his Fish-Shaped Bread allies!"
+      }
+    }
+  },
+  "archetypes": {
+    "rich": "./rich.webp"
+  }
+}

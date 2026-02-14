@@ -1,11 +1,11 @@
 import os
 import json
+import re
 import shutil
 import datetime
 import sys
 import llm_client
 from config import ARCHETYPES
-import os
 from dotenv import load_dotenv
 import concurrent.futures
 
@@ -27,46 +27,45 @@ BATCH_OUTPUT_ROOT = os.path.join(BASE_DIR, 'output') # Staging Area
 SCENARIOS_MANIFEST_PATH = os.path.join(PUBLIC_DATA_ROOT, 'scenarios.json')
 
 def get_next_scenario_id():
-    if not os.path.exists(SCENARIOS_MANIFEST_PATH):
-        return "s1"
-    
-    with open(SCENARIOS_MANIFEST_PATH, 'r', encoding='utf-8') as f:
-        scenarios = json.load(f)
-    
-    if not scenarios:
-        return "s1"
-        
-    # Find max 'sN'
+    """batch-service/output에서 기존 sN 폴더를 스캔하여 다음 ID를 결정합니다."""
     max_n = 0
-    for s in scenarios:
-        if s.startswith('s'):
-            try:
-                n = int(s[1:])
-                if n > max_n:
-                    max_n = n
-            except:
-                pass
+    for root_dir in [BATCH_OUTPUT_ROOT, PUBLIC_DATA_ROOT]:
+        if os.path.exists(root_dir):
+            for name in os.listdir(root_dir):
+                if os.path.isdir(os.path.join(root_dir, name)) and name.startswith('s'):
+                    try:
+                        n = int(name[1:])
+                        if n > max_n:
+                            max_n = n
+                    except ValueError:
+                        pass
     
     return f"s{max_n + 1}"
 
 def update_manifest(new_id):
+    """실제 존재하는 시나리오 폴더를 스캔하여 매니페스트를 생성합니다."""
     scenarios = []
-    if os.path.exists(SCENARIOS_MANIFEST_PATH):
-        with open(SCENARIOS_MANIFEST_PATH, 'r', encoding='utf-8') as f:
-            scenarios = json.load(f)
-            
-    if new_id not in scenarios:
-        scenarios.append(new_id)
-        
+    if os.path.exists(PUBLIC_DATA_ROOT):
+        for name in os.listdir(PUBLIC_DATA_ROOT):
+            dir_path = os.path.join(PUBLIC_DATA_ROOT, name)
+            if os.path.isdir(dir_path) and name.startswith('s'):
+                try:
+                    int(name[1:])  # sN 형식인지 확인
+                    scenarios.append(name)
+                except ValueError:
+                    pass
+    
+    # sN 번호 기준 정렬
+    scenarios.sort(key=lambda x: int(x[1:]))
+    
     with open(SCENARIOS_MANIFEST_PATH, 'w', encoding='utf-8') as f:
         json.dump(scenarios, f, indent=4)
-    print(f"[Manifest] Updated {SCENARIOS_MANIFEST_PATH} with {new_id}")
+    print(f"[Manifest] Updated {SCENARIOS_MANIFEST_PATH}: {scenarios}")
 
 def deploy_scenario(scenario_id):
     """
-    Moves generated assets from BATCH_OUTPUT_ROOT to PUBLIC_DATA_ROOT.
-    Moes Images (*.webp) AND JSONs (*.json).
-    Keeps Prompts (*.txt) in BATCH_OUTPUT_ROOT.
+    Moves generated images from BATCH_OUTPUT_ROOT to PUBLIC_DATA_ROOT.
+    Only images (*.webp) are moved. Other files stay in BATCH_OUTPUT_ROOT.
     """
     src_dir = os.path.join(BATCH_OUTPUT_ROOT, scenario_id)
     dst_dir = os.path.join(PUBLIC_DATA_ROOT, scenario_id)
@@ -80,24 +79,38 @@ def deploy_scenario(scenario_id):
     for file in files:
         src_file = os.path.join(src_dir, file)
         dst_file = os.path.join(dst_dir, file)
-        
-        if file.endswith(".webp"):
-            # Move Images (User Request: "Move image files")
-            shutil.move(src_file, dst_file)
-            print(f"  [Moved] {file}")
-        elif file.endswith(".json"):
-            # Copy/Move JSONs (Required for App)
-            # Using copy so we keep a record in output? Or move?
-            # User said "Result files in output... then move images".
-            # Implies others stay? But App needs JSON.
-            # I will COPY JSONs so they exist in both (Record + App)
-            shutil.copy2(src_file, dst_file)
-            print(f"  [Copied] {file}")
-        else:
-            # Leave Prompts (.txt) etc.
-            print(f"  [Skipped] {file}")
+        shutil.move(src_file, dst_file)
+        print(f"  [Moved] {file}")
 
     print(f"[Deploy] Completed for {scenario_id}")
+
+def sanitize_image_prompt(prompt):
+    """
+    LLM이 생성한 이미지 프롬프트에서 텍스트/대사 요소를 제거하고,
+    no-text 접미사를 추가합니다.
+    """
+    # 1. 따옴표 안의 대사/텍스트 제거 ("...", '...')
+    prompt = re.sub(r'"[^"]{3,}"', '', prompt)
+    prompt = re.sub(r"'[^']{3,}'", '', prompt)
+    
+    # 2. "saying ...", "reading ...", "labeled ...", "titled ..." 패턴 제거
+    prompt = re.sub(r'\b(saying|reading|labeled|titled|captioned|writing|displaying)\s+\S+(\s+\S+){0,5}', '', prompt, flags=re.IGNORECASE)
+    
+    # 3. 마크다운 아티팩트 제거
+    prompt = prompt.replace('```', '').replace('**', '')
+    
+    # 4. "Here's" 등 설명 접두어 제거
+    prompt = re.sub(r"^(Here'?s?\s+(a|an|the|my|your)\s+.*?:\s*\n?)", '', prompt, flags=re.IGNORECASE)
+    
+    # 5. 연속 공백 정리
+    prompt = re.sub(r'\s+', ' ', prompt).strip()
+    
+    # 6. no-text 접미사 추가
+    no_text_suffix = ". Absolutely no text, no words, no letters, no numbers, no signs anywhere in the image."
+    if "no text" not in prompt.lower():
+        prompt += no_text_suffix
+    
+    return prompt
 
 def generate_new_scenario():
     # 1. Determine ID
@@ -116,20 +129,26 @@ def generate_new_scenario():
     
     # 3. Generate Master Scenario
     print("[Generator] Generating Master Scenario...")
-    master_data = llm_client.generate_scenario(today_str)
+    master_data = llm_client.generate_scenario(today_str, scenario_id)
     
     if not master_data:
         print("[Error] Failed to generate master scenario.")
         return
 
-    master_content_ko = master_data.get('content', {}).get('ko', {})
-    if not master_content_ko:
-        master_content_ko = master_data
-        
-    theme_title = master_content_ko.get('theme_title', "Unknown Theme")
-    theme_desc = master_content_ko.get('theme_desc', "No description.")
+    # LLM returns {ko: {theme_title, theme_desc}, en: {theme_title, theme_desc}}
+    # LLM이 리스트로 반환하는 경우 방어 처리
+    if isinstance(master_data, list):
+        master_data = master_data[0] if master_data else {}
     
-    print(f"[Generator] Theme: {theme_title}")
+    ko_theme = master_data.get('ko', master_data)
+    en_theme = master_data.get('en', master_data)
+    
+    theme_title_ko = ko_theme.get('theme_title', "Unknown Theme")
+    theme_desc_ko = ko_theme.get('theme_desc', "No description.")
+    theme_title_en = en_theme.get('theme_title', theme_title_ko)
+    theme_desc_en = en_theme.get('theme_desc', theme_desc_ko)
+    
+    print(f"[Generator] Theme: {theme_title_ko}")
 
     # 4. Save Master Scenario JSON
     scenario_json_path = os.path.join(output_dir, "scenario.json")
@@ -138,7 +157,7 @@ def generate_new_scenario():
              "date": today_str,
              "scenario_id": scenario_id
         },
-        "content": master_data.get('content', master_data)
+        "content": master_data
     }
     with open(scenario_json_path, 'w', encoding='utf-8') as f:
         json.dump(scenario_data, f, indent=2, ensure_ascii=False)
@@ -147,7 +166,7 @@ def generate_new_scenario():
     # 5. Generate Job Data (Parallel)
     tasks = []
     
-    prompt_gen_path = os.path.join(BASE_DIR, "prompt", "prompt_gen.json")
+    prompt_gen_path = os.path.join(BASE_DIR, "prompt", "image_prompt.json")
     system_prompt_gen, user_template_gen = llm_client.parse_prompt_file(prompt_gen_path)
 
     def process_job(job_entry):
@@ -157,13 +176,17 @@ def generate_new_scenario():
         # 5.1 Generate Future Scenarios
         # Pass the full description to the LLM for better context
         job_context = f"{job_desc}" 
-        job_scenarios = llm_client.generate_job_data(theme_title, theme_desc, job_context)
+        job_scenarios = llm_client.generate_job_data(theme_title_ko, theme_desc_ko, job_context)
         
         if not job_scenarios:
             print(f"[Job: {job_id}] Failed to generate scenarios.")
             return False
 
         # 5.2 Construct Job Data Structure
+        # LLM returns {ko: {10y, 20y, 30y}, en: {10y, 20y, 30y}}
+        ko_scenarios = job_scenarios.get('ko', job_scenarios)
+        en_scenarios = job_scenarios.get('en', job_scenarios)
+        
         job_data = {
             "meta": {
                 "date": today_str,
@@ -171,24 +194,24 @@ def generate_new_scenario():
             },
             "content": {
                 "ko": {
-                    "theme_title": theme_title,
-                    "theme_desc": theme_desc,
-                    "scenarios": job_scenarios 
+                    "theme_title": theme_title_ko,
+                    "theme_desc": theme_desc_ko,
+                    "scenarios": ko_scenarios
                 },
                 "en": {
-                    "theme_title": theme_title,
-                    "theme_desc": theme_desc,
-                    "scenarios": job_scenarios 
+                    "theme_title": theme_title_en,
+                    "theme_desc": theme_desc_en,
+                    "scenarios": en_scenarios
                 }
             },
             "archetypes": {} 
         }
 
         # 5.3 Generate Image Prompt
-        scenario_30y = job_scenarios.get("30y", "")
-        context_desc = f"{theme_desc}\n\nSituation (30 Years Later): {scenario_30y}"
+        scenario_30y = en_scenarios.get("30y", "")
+        context_desc = f"{theme_desc_en}\n\nSituation (30 Years Later): {scenario_30y}"
         
-        full_prompt_gen = user_template_gen.replace("{{theme_title}}", theme_title) \
+        full_prompt_gen = user_template_gen.replace("{{theme_title}}", theme_title_en) \
                                              .replace("{{theme_desc}}", context_desc) \
                                              .replace("{{job}}", job_context)
                                              
@@ -196,7 +219,10 @@ def generate_new_scenario():
         image_prompt_text = llm_client.generate_text(full_prompt_gen, system_instruction=system_prompt_gen)
         
         if not image_prompt_text:
-            image_prompt_text = f"Dystopian {job_id} {theme_title}"
+            image_prompt_text = f"Pixar-style 3D render, chibi {job_id} character in a colorful apocalyptic scene"
+
+        # 프롬프트 후처리: 텍스트/대사 제거 + no-text 접미사 추가
+        image_prompt_text = sanitize_image_prompt(image_prompt_text)
 
         with open(os.path.join(output_dir, f"{job_id}_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(image_prompt_text)

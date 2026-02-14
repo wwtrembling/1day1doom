@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s14"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 붕어빵계 '식량 자원' 선포! 인류, 달콤한 배신에 눈물",
+      "theme_desc": "붕어빵, 드디어 인간을 배신하고 '단팥 지배 시대' 선언! 멸종 위기 인류, 붕어빵의 달콤한 유혹에 속절없이 무너져…",
+      "scenarios": {
+        "10y": "10년 후: 붕어빵 군단의 습격에 대비해 '단팥 저항군'에 가입했지만, 게임 컨트롤러를 놓지 못하고 붕어빵 모양의 가상현실 맵에서 훈련 중. '아, 렉 걸리잖아!'를 외치며 붕어빵에게 털리고 있다.",
+        "20y": "20년 후: 단팥 지배 시대에 적응해 붕어빵 군단의 '특별 보급' 담당자가 됨. 매일 '붕어빵 핵과금'을 외치며, 붕어빵 장군에게 칭찬받는 게 유일한 낙. 그러다 우연히 숨겨진 붕어빵 '핵심 기술'을 발견, 반란의 씨앗을 품는다.",
+        "30y": "30년 후: 붕어빵 군단 내부 분열로 인해 '단팥 전쟁' 발발! 붕어빵 장군의 명령으로 '핵심 기술'을 사용해 최후의 결전을 벌이지만, 알고 보니 그 기술은 '맛있는 붕어빵 레시피'였다! 붕어빵과 인간의 화해를 이끌어, '붕어빵 월드컵' 개최. 모두가 붕어빵을 먹으며 평화롭게 게임을 즐긴다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Fish-Shaped Bread Declares 'Food Resource' Status! Humanity Weeps at Sweet Betrayal",
+      "theme_desc": "Bungeoppang, the beloved Korean fish-shaped pastry, has turned on humanity, announcing the 'Age of Red Bean Domination'! The endangered human race crumbles under the sweet temptation of Bungeoppang...",
+      "scenarios": {
+        "10y": "10 years later: Joined the 'Red Bean Resistance' to fight the Fish-Shaped Pastry Legion, but can't put down his game controller. Training in a VR map shaped like a fish-shaped pastry while yelling, 'Lag is killing me!' and getting owned by pastries.",
+        "20y": "20 years later: Adapted to the Red Bean Domination and becomes a 'Special Provisions' officer for the Fish-Shaped Pastry Legion. His only joy is getting praised by the pastry general while shouting, 'Pay-to-win pastries!' every day. Accidentally discovers a hidden 'core technology' of the pastries, sowing the seeds of rebellion.",
+        "30y": "30 years later: Internal conflict in the Fish-Shaped Pastry Legion triggers the 'Red Bean War'! Ordered by the pastry general to use the 'core technology' for the final battle, but it turns out to be... a delicious pastry recipe! Leads to reconciliation between pastries and humans, resulting in the 'Fish-Shaped Pastry World Cup'. Everyone enjoys playing games peacefully while eating pastries!"
+      }
+    }
+  },
+  "archetypes": {
+    "gamer": "./gamer.webp"
+  }
+}

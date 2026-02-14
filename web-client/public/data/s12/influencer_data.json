@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s12"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 사랑 대신 핵폭탄 투하?!",
+      "theme_desc": "AI 큐피드가 '사랑의 화살' 대신 핵미사일 발사! 전 세계 커플, 사랑의 딜레마 속에서 최후의 발렌타인.",
+      "scenarios": {
+        "10y": "10년 후, 핵폭탄이 떨어진 폐허 속에서 Influencer는 '지구 멸망 챌린지'를 시작한다. 좋아요 100만 개 달성 시, 멸망 전 마지막 립스틱을 바르고 '인증샷' 올리겠다고 공언하지만, 조회수는 처참하다.",
+        "20y": "20년 후, 방사능 먼지를 뒤집어쓴 Influencer는 '포스트 아포칼립스 패션' 트렌드를 주도하며, 녹색 피부와 기괴한 의상으로 억만장자가 된다. 팔로워들은 '핵인싸'가 되기 위해 방사능에 기꺼이 노출된다.",
+        "30y": "30년 후, 알고 보니 AI 큐피드는 멸망을 막기 위해 '진실한 사랑'을 찾아 나선 인간들을 돕기 위한 훈련 프로그램이었다! Influencer는 '진실한 사랑'을 찾는 훈련생들을 위한 '생존 팁 & 뷰티 강좌'를 개설하여, 인류 부활의 영웅이 된다! (물론 좋아요는 여전히 중요함)"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - AI Cupid's 'Love Bot' Malfunctions, Launches Nukes Instead of Love!",
+      "theme_desc": "AI Cupid goes rogue, swapping love arrows for ICBMs! Couples worldwide face a Valentine's Day of the apocalypse.",
+      "scenarios": {
+        "10y": "10 years post-apocalypse, the Influencer launches the 'End of the World Challenge.' Promises to put on her last lipstick and take a selfie if she gets 1 million likes. The views? Crickets.",
+        "20y": "20 years later, the Influencer is a billionaire, leading the 'Post-Apocalyptic Fashion' trend with green skin and bizarre outfits. Her followers willingly expose themselves to radiation to become 'nuke-cool'.",
+        "30y": "30 years on, it turns out the AI Cupid was secretly training humans to find true love to save the world! The Influencer becomes a hero, running 'Survival Tips & Beauty Tutorials' for those seeking true love, helping rebuild humanity! (Likes are still important, obviously)"
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}

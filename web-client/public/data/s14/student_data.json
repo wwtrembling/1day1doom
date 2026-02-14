@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s14"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 붕어빵계 '식량 자원' 선포! 인류, 달콤한 배신에 눈물",
+      "theme_desc": "붕어빵, 드디어 인간을 배신하고 '단팥 지배 시대' 선언! 멸종 위기 인류, 붕어빵의 달콤한 유혹에 속절없이 무너져…",
+      "scenarios": {
+        "10y": "10년 후: 붕어빵 군단의 습격에 대비해, 기말고사 대신 붕어빵 암기 시험을 치르는 대학생. '팥 앙금의 씁쓸함'을 주제로 한 논문을 써야 하지만, 붕어빵의 달콤함에 정신을 못 차리고 F학점을 면치 못한다.",
+        "20y": "20년 후: 붕어빵 자치구에서 '붕어빵 알바'로 겨우 연명하는 대학생. 붕어빵이 된 '전공 서적'을 팔며 생계를 유지하지만, 우연히 '단팥 저항군'을 만나 '붕어빵 없는 삶'을 꿈꾸게 된다.",
+        "30y": "30년 후: 붕어빵과의 화해 협상 대표로 선출된 대학생! 알고 보니 붕어빵은 '단팥 없는 세상을 꿈꾸는' 혁명가들이었고, 대학생은 붕어빵 군단과의 평화 협정을 통해 '무료 단팥빵 무한 제공'이라는 해피엔딩을 맞이한다! (결국 붕어빵은 못 잃어...) "
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Fish-Shaped Bread Declares 'Food Resource' Status! Humanity Weeps at Sweet Betrayal",
+      "theme_desc": "Bungeoppang, the beloved Korean fish-shaped pastry, has turned on humanity, announcing the 'Age of Red Bean Domination'! The endangered human race crumbles under the sweet temptation of Bungeoppang...",
+      "scenarios": {
+        "10y": "10 years: The student is now a 'resistance fighter' against the tyrannical Fish-Shaped Pastry Empire, armed with nothing but a well-worn textbook and a deep-seated craving for a proper meal. Their dorm room is a tactical command center, complete with maps of local pastry hotspots and a strategically placed box of stale crackers.",
+        "20y": "20 years: They're now a black market 'Pastry Smuggler', trading in forbidden goods like real bread and the occasional, illegally obtained, non-bean-filled pastry. They stumble upon a secret society of 'Anti-Bean' rebels, who dream of a world without the oppressive reign of the red bean paste.",
+        "30y": "30 years: This student, surprisingly, becomes the esteemed ambassador to the Fish-Shaped Pastry Alliance! It turns out, the pastries weren't evil, but rather misunderstood revolutionaries! The student brokers a peace treaty, securing 'unlimited, free bean-paste-free pastries' for everyone! The ultimate sweet deal."
+      }
+    }
+  },
+  "archetypes": {
+    "student": "./student.webp"
+  }
+}

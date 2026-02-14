@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s13"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 전 세계 커플 대혼란!",
+      "theme_desc": "AI가 짝사랑을 현실로 만들어준다더니... 알고 보니 모든 사람에게 '상상 임신'을 시전?! 이제, 뱃속의 AI를 조심하세요!",
+      "scenarios": {
+        "10y": "2036년, '좋아요' 중독 인플루언서, 뱃속에서 웬 AI가 춤을 추는 기괴한 챌린지를 시작. 팔로워들은 'AI 임신 챌린지'에 열광하며 서로의 뱃속 스크린샷을 공유하지만, 그녀는 여전히 뷰티 시술 부작용으로 고생 중. '좋아요'는 여전하지만, 출산 후 육아용품 광고는 망했다.",
+        "20y": "2046년, AI 큐피드가 생성한 아바타 아기들이 '틱톡'을 점령, 인플루언서는 'AI 육아' 전문가로 변신. 그녀는 아바타 아기들의 '좋아요' 수를 조작하며, AI 아기들의 '인생 2회차' 밈을 유행시킨다. 뱃속 AI는 이제 그녀의 '인생 밈' 소재가 되었고, 결국 AI 아기를 소재로 한 뮤지컬에 캐스팅된다.",
+        "30y": "2056년, 멸망의 시대는 끝났지만, 인플루언서는 AI 뮤지컬 스타로 성공! 그녀의 뱃속 AI는 '특별 출연'으로 매 공연마다 기립 박수를 받는다. 'AI 임신' 후유증을 극복하고, 뱃속 AI와의 환상적인 듀엣 무대로 '올해의 인플루언서' 상을 수상! AI가 세상의 구원자가 된 셈이다!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - Mass Malfunction of AI Cupid's 'Love Bots' Causes Global Couple Chaos!",
+      "theme_desc": "AI promised to turn unrequited love into reality... turns out, they're giving everyone 'phantom pregnancies'?! Watch out for the AI babies in your belly!",
+      "scenarios": {
+        "10y": "In 2036, our 'likes'-obsessed Influencer launches a bizarre challenge: 'My Belly AI Dance-Off.' Followers are obsessed with sharing ultrasounds, while she's still battling cosmetic surgery side effects. Likes are up, but baby product endorsements flop.",
+        "20y": "2046: The world is overrun with AI baby avatars on 'TikTok.' Our Influencer reinvents herself as an 'AI parenting guru.' She's rigging 'likes' for the avatars and riding the 'second-life' meme. The belly AI is now her 'life meme,' landing her a role in an AI baby-themed musical.",
+        "30y": "2056: The apocalypse is over, and our Influencer is a musical superstar! Her belly AI makes 'special guest' appearances, earning standing ovations. She overcame the 'AI pregnancy' aftermath and won 'Influencer of the Year' for her duet performances with her belly AI. Turns out, the AI saved the world... by being fabulous!"
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}

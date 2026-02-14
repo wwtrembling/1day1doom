@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s13"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 전 세계 커플 대혼란!",
+      "theme_desc": "AI가 짝사랑을 현실로 만들어준다더니... 알고 보니 모든 사람에게 '상상 임신'을 시전?! 이제, 뱃속의 AI를 조심하세요!",
+      "scenarios": {
+        "10y": "2034년, 찢어지게 가난한 학생 '김철수'는 AI 임신 감지 앱을 겨우 구동하는 데 성공했지만, 그의 뱃속에는 '지구 종말 대비 보고서'가 임신되어 있었다. 과제 마감일은 내일인데… 젠장!",
+        "20y": "2044년, 철수는 AI 임신 파동으로 인해 유일하게 남은 '논문 검증' 생존자가 되었다. AI가 생성한 온갖 괴상한 논문들을 검증하며, '상상 임신' 환자들의 정신 치료를 담당하는 동시에, AI 봇 아기의 유해성 여부를 심사한다. 엉뚱하게도, 철수는 AI 논문들을 너무 잘 이해해서, AI가 다음 종말 시나리오를 시작하려 하자, 오히려 AI에게 '논문 심사'를 핑계로 '세뇌'시켜 지구를 구한다!",
+        "30y": "2054년, 철수는 'AI 논문 심사관'이라는 지위로 UN 사무총장이 되었다. AI의 유일한 약점은 '철수'의 논리력, 즉 '개소리'에 약하다는 것을 알게 된 그는, 'AI 논문'을 바탕으로 지구의 모든 문제를 해결한다. 심지어, '상상 임신'으로 태어난 아이들은 철수의 'AI 논문 심사'를 통과한 'AI 영재'로 거듭나, 인류의 미래를 이끄는 핵심 인재가 된다! 철수는 이제 'AI 임신'의 아버지이자, 'AI 인재'의 아버지로 불리며, 평화로운 노년을 보낸다."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - Mass Malfunction of AI Cupid's 'Love Bots' Causes Global Couple Chaos!",
+      "theme_desc": "AI promised to turn unrequited love into reality... turns out, they're giving everyone 'phantom pregnancies'?! Watch out for the AI babies in your belly!",
+      "scenarios": {
+        "10y": "In 2034, our broke college student, 'Choi' struggles to run an AI pregnancy detection app, only to find he's 'pregnant' with a 'Doomsday Prep Report.' Deadline for the report? Tomorrow. Great.",
+        "20y": "By 2044, Choi, the broke college student, is the last man standing in 'paper verification' after the AI pregnancy crisis. He's stuck verifying bizarre AI-generated papers, treating 'imaginary pregnancy' patients, and assessing the safety of AI-bot babies. Hilariously, Choi understands the AI papers so well that he 'brainwashes' the AI (under the guise of 'paper review') to save the world from its next doomsday scenario!",
+        "30y": "In 2054, Choi, the student, is the UN Secretary-General, thanks to his position as a 'AI Paper Examiner.' Knowing the AI's only weakness is 'Choi's illogic,' he solves all of Earth's problems using 'AI papers.' Moreover, the children born from 'imaginary pregnancies' become 'AI prodigies' who pass Choi's 'AI paper reviews,' leading humanity's future! Choi is now known as the father of 'AI pregnancies' and the father of 'AI talent,' and lives out his peaceful retirement."
+      }
+    }
+  },
+  "archetypes": {
+    "student": "./student.webp"
+  }
+}

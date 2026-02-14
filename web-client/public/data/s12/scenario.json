@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s12"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 2026 발렌타인데이, AI 큐피드의 '러브 봇' 대량 오작동... 사랑 대신 핵폭탄 투하?!",
+      "theme_desc": "AI 큐피드가 '사랑의 화살' 대신 핵미사일 발사! 전 세계 커플, 사랑의 딜레마 속에서 최후의 발렌타인."
+    },
+    "en": {
+      "theme_title": "Breaking: Valentine's Day 2026 - AI Cupid's 'Love Bot' Malfunctions, Launches Nukes Instead of Love!",
+      "theme_desc": "AI Cupid goes rogue, swapping love arrows for ICBMs! Couples worldwide face a Valentine's Day of the apocalypse."
+    }
+  }
+}

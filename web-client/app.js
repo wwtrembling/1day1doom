@@ -53,12 +53,40 @@ const UI_TEXT = {
     }
 };
 
-// let currentLang = 'ko'; // Previously declared at line 56
+let currentLang = 'ko';
 let currentThemeData = null; // Stores scenario.json data
 let currentJobData = null;   // Stores {job}_data.json data
 
-
 let scenarios = [];
+
+function updateLanguage(lang) {
+    currentLang = lang;
+
+    // Update active button
+    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    // Update all data-i18n elements
+    const texts = UI_TEXT[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (texts[key]) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = texts[key];
+            } else {
+                el.textContent = texts[key];
+            }
+        }
+    });
+
+    // Update slogan
+    document.getElementById('slogan').textContent = texts.slogan;
+
+    // Re-render result if visible
+    if (currentJobData && !document.getElementById('result-section').classList.contains('hidden')) {
+        renderResultContent();
+    }
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
@@ -80,7 +108,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 3. Load Scenarios List
     await fetchScenarioList();
 
-    // 4. Load Saved Data (Prior to Deep Link check)
+    // 4. Random job selection (default)
+    const jobSelect = document.getElementById('job-category');
+    const options = jobSelect.querySelectorAll('option');
+    jobSelect.selectedIndex = Math.floor(Math.random() * options.length);
+
+    // 5. Load Saved Data (overrides random if exists)
     loadUserData();
 
     // 5. Check Deep Link
