@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s3"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 좀비 치킨, 부활하여 런치타임 습격!",
+      "theme_desc": "닭고기 파동으로 전 세계 런치 메뉴에서 치킨이 사라지자, 언데드 닭들이 떼거지로 나타나 점심시간을 사냥터로 만들었습니다.",
+      "scenarios": {
+        "10y": "야, 10년 후 쯤엔 좀비 치킨 떼를 막으려고, 금으로 만든 닭 모형을 미끼로 썼대!",
+        "20y": "20년 뒤엔, 좀비 치킨과의 협약을 맺고 '치킨 없는 런치'를 팔면서 대박 났대.",
+        "30y": "30년 뒤, 좀비 치킨이 AI 학습 코딩을 맡아, '치킨 없는 런치' 레시피를 개발해 전 세계를 구원했대!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: Zombie Chickens Rise, Launch a Lunchtime Attack!",
+      "theme_desc": "With the global chicken supply crisis, undead poultry swarmed out of nowhere turning lunch breaks into a battlefield.",
+      "scenarios": {
+        "10y": "Dude, ten years from now, they're using solid gold chicken decoys to distract the zombie chicken hordes!",
+        "20y": "In twenty years, they've brokered a deal with the zombie chickens, making a fortune selling 'Chicken-Free Lunches'.",
+        "30y": "Thirty years from now, the zombie chickens are coding AI, creating the perfect 'Chicken-Free Lunch' recipe, saving the world!"
+      }
+    }
+  },
+  "archetypes": {
+    "rich": "./rich.webp"
+  }
+}

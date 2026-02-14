@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s2"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "오늘의 멸망: 바퀴벌레, K-POP 댄스 챌린지 점령!",
+      "theme_desc": "엄청난 속도로 춤을 배우고 진화한 바퀴벌레 떼가 댄스 챌린지를 장악하며, 인간은 춤 실력으로 생존 경쟁에 돌입했다.",
+      "scenarios": {
+        "10y": "바퀴벌레 댄스 배틀에서 살아남으려고, 매일 밤 댄스 학원 대신 폐건물에서 춤 연습 중이야.",
+        "20y": "바퀴벌레 심사위원들 앞에서 춤추는 게 일상인데, 뜻밖의 기회로 바퀴벌레 아이돌 그룹의 안무가가 됐지 뭐야?",
+        "30y": "바퀴벌레들이 인간 춤을 따라 추면서 세상에 평화가 찾아왔고, 난 그들의 전담 트레이너가 됐어!"
+      }
+    },
+    "en": {
+      "theme_title": "Apocalypse Today: Cockroaches Take Over K-POP Dance Challenge!",
+      "theme_desc": "A swarm of cockroaches, rapidly evolving and mastering dance moves, dominates dance challenges, forcing humans to compete for survival through dance skills.",
+      "scenarios": {
+        "10y": "I'm dodging cockroach dance battles in the construction yard, still trying to nail the 'Gangnam Style' moves.",
+        "20y": "Ended up as a judge on 'Roach Idol,' but somehow landed a gig choreographing for a cockroach boy band.",
+        "30y": "The roaches started mimicking human dances, world peace ensued, and I'm their personal dance coach now!"
+      }
+    }
+  },
+  "archetypes": {
+    "labor": "./labor.webp"
+  }
+}

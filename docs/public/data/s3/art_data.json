@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s3"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 좀비 치킨, 부활하여 런치타임 습격!",
+      "theme_desc": "닭고기 파동으로 전 세계 런치 메뉴에서 치킨이 사라지자, 언데드 닭들이 떼거지로 나타나 점심시간을 사냥터로 만들었습니다.",
+      "scenarios": {
+        "10y": "좀비 치킨 떼를 피해 숨어 사는 예술가, 붓 대신 삽으로 무덤을 파고 있대.",
+        "20y": "좀비 치킨 공포에 질린 예술가, 닭 울음소리로 힙한 음악을 만들어서 떼돈 벌었지 뭐야?",
+        "30y": "좀비 치킨 런치 습격 방지 '치킨 예술가'로 임명! '오늘의 런치' 초대 회장님이 됐대!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: Zombie Chickens Rise, Launch a Lunchtime Attack!",
+      "theme_desc": "With the global chicken supply crisis, undead poultry swarmed out of nowhere turning lunch breaks into a battlefield.",
+      "scenarios": {
+        "10y": "Artist hiding from zombie chickens, now using a shovel instead of a brush.",
+        "20y": "Terrified artist, makes a fortune making music from chicken sounds?",
+        "30y": "Appointed 'Chicken Artist' to prevent zombie chicken attacks! The 'Lunch of the Day' chairperson!"
+      }
+    }
+  },
+  "archetypes": {
+    "art": "./art.webp"
+  }
+}

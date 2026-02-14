@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s4"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: BTS 안무, 현실 왜곡 시작!",
+      "theme_desc": "BTS의 '다이너마이트' 안무가 현실에 구현되어, 중력이 춤추는 대로 바뀌며 인류는 리듬에 맞춰 멸망."
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: BTS Choreography, Reality Distortion!",
+      "theme_desc": "The 'Dynamite' choreography manifests in reality, altering gravity to the rhythm of the dance, leading humanity to its doom in a synchronized dance."
+    }
+  }
+}

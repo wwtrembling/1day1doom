@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s2"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "오늘의 멸망: 바퀴벌레, K-POP 댄스 챌린지 점령!",
+      "theme_desc": "엄청난 속도로 춤을 배우고 진화한 바퀴벌레 떼가 댄스 챌린지를 장악하며, 인간은 춤 실력으로 생존 경쟁에 돌입했다.",
+      "scenarios": {
+        "10y": "바퀴벌레 챌린지 심사위원 됐는데, 엑셀 표 정리하다 탈락했어.",
+        "20y": "바퀴벌레 댄스 대회 우승해서, 바퀴벌레 킹에게 비서로 스카우트 됐어!",
+        "30y": "바퀴벌레랑 듀엣 댄스 챌린지 나가서, 우주 평화 홍보대사 됐다!"
+      }
+    },
+    "en": {
+      "theme_title": "Apocalypse Today: Cockroaches Take Over K-POP Dance Challenge!",
+      "theme_desc": "A swarm of cockroaches, rapidly evolving and mastering dance moves, dominates dance challenges, forcing humans to compete for survival through dance skills.",
+      "scenarios": {
+        "10y": "They made me a judge for the cockroach dance-off, but I got eliminated for bad spreadsheet skills.",
+        "20y": "Won the cockroach dance competition and got scouted as the cockroach king's secretary!",
+        "30y": "Team up with a cockroach for a dance duet, and we became ambassadors of intergalactic peace!"
+      }
+    }
+  },
+  "archetypes": {
+    "office": "./office.webp"
+  }
+}

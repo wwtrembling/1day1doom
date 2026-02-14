@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s1"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 붕어빵, 인류 포획 시작!",
+      "theme_desc": "달콤한 유혹에 빠진 인류, 붕어빵의 끈적한 촉수에 속절없이 사로잡히고 있다. 곧 붕어빵 공장에서 강제 노동을 하게 될지도.",
+      "scenarios": {
+        "10y": "야, 붕어빵 군주님 맘에 들어서 붕어빵 갑옷 풀셋 맞췄대… 흑흑, 망했어.",
+        "20y": "붕어빵 노예 탈출 작전을 돈으로 지원했는데, 알고 보니 붕어빵이 내 재산 불려줬대!",
+        "30y": "붕어빵 왕국에 기부했더니, 붕어빵 행성 최고 부자로 임명됐다! 붕하!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: The Great Fish-Shaped Pastry Assimilation!",
+      "theme_desc": "Humans are falling prey to the delicious allure of fish-shaped pastries, ensnared by their sticky embrace. Forced labor in the pastry factories looms.",
+      "scenarios": {
+        "10y": "Dude, he's wearing a full set of fish-shaped bread armor because the Fishy Overlord likes him… We're doomed.",
+        "20y": "He funded an escape from the fish-shaped bread slavery, only to find out it boosted his fortune!",
+        "30y": "Donating to the Fishy Kingdom got him the title of richest person on the Fish-Bread planet! Wahoo!"
+      }
+    }
+  },
+  "archetypes": {
+    "rich": "./rich.webp"
+  }
+}

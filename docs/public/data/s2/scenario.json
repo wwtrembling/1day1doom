@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s2"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "오늘의 멸망: 바퀴벌레, K-POP 댄스 챌린지 점령!",
+      "theme_desc": "엄청난 속도로 춤을 배우고 진화한 바퀴벌레 떼가 댄스 챌린지를 장악하며, 인간은 춤 실력으로 생존 경쟁에 돌입했다."
+    },
+    "en": {
+      "theme_title": "Apocalypse Today: Cockroaches Take Over K-POP Dance Challenge!",
+      "theme_desc": "A swarm of cockroaches, rapidly evolving and mastering dance moves, dominates dance challenges, forcing humans to compete for survival through dance skills."
+    }
+  }
+}

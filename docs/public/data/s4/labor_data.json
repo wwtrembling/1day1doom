@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s4"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: BTS 안무, 현실 왜곡 시작!",
+      "theme_desc": "BTS의 '다이너마이트' 안무가 현실에 구현되어, 중력이 춤추는 대로 바뀌며 인류는 리듬에 맞춰 멸망.",
+      "scenarios": {
+        "10y": "야, 너 10년 뒤엔 중력 댄스에 맞춰 벽돌을 쌓는데, 허리가 끊어질 것 같대.",
+        "20y": "20년 뒤엔 댄스 배틀에서 살아남은 AI 로봇이랑 팀 먹고, 멸망한 세상의 유일한 건설 회사를 차리겠네.",
+        "30y": "30년 뒤엔 BTS가 춤추는 대로 도시가 지어지는데, 춤 실력으로 승진해서 이사 됐대! 🥳"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: BTS Choreography, Reality Distortion!",
+      "theme_desc": "The 'Dynamite' choreography manifests in reality, altering gravity to the rhythm of the dance, leading humanity to its doom in a synchronized dance.",
+      "scenarios": {
+        "10y": "Dude, in 10 years, you'll be laying bricks to the gravity dance, and your back's gonna feel it.",
+        "20y": "20 years later, you team up with an AI robot who won the dance battle and start the only construction company in the apocalypse.",
+        "30y": "In 30 years, cities are built by BTS's choreography, and you get promoted to director based on your dance skills! 🥳"
+      }
+    }
+  },
+  "archetypes": {
+    "labor": "./labor.webp"
+  }
+}

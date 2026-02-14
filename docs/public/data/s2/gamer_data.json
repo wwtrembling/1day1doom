@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s2"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "오늘의 멸망: 바퀴벌레, K-POP 댄스 챌린지 점령!",
+      "theme_desc": "엄청난 속도로 춤을 배우고 진화한 바퀴벌레 떼가 댄스 챌린지를 장악하며, 인간은 춤 실력으로 생존 경쟁에 돌입했다.",
+      "scenarios": {
+        "10y": "야, 너 10년 후엔 바퀴벌레 댄스 챌린지 룰렛에서 살아남으려고, 밤낮없이 게임 컨트롤러 돌린대.",
+        "20y": "근데 20년 후엔, 바퀴벌레 심판진이 널 챌린지 댄스 코치로 스카우트하더라?",
+        "30y": "30년 후, 바퀴벌레들이 너의 춤에 감동해서, 너를 인류 대표로 우주 댄스 배틀에 보낸대!"
+      }
+    },
+    "en": {
+      "theme_title": "Apocalypse Today: Cockroaches Take Over K-POP Dance Challenge!",
+      "theme_desc": "A swarm of cockroaches, rapidly evolving and mastering dance moves, dominates dance challenges, forcing humans to compete for survival through dance skills.",
+      "scenarios": {
+        "10y": "Dude, in 10 years, you'll be furiously mashing buttons to survive the cockroach dance challenge roulette.",
+        "20y": "Guess what? In 20 years, the cockroach judges scout you as their dance challenge coach.",
+        "30y": "And finally, in 30 years, the cockroaches are so moved by your moves they send you to space for the intergalactic dance-off, representing humanity!"
+      }
+    }
+  },
+  "archetypes": {
+    "gamer": "./gamer.webp"
+  }
+}

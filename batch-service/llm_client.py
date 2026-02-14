@@ -1,6 +1,7 @@
 import os
 import json
 import time
+from PIL import Image as PILImage
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
@@ -26,7 +27,7 @@ def parse_prompt_file(file_path):
     
     return system_prompt, user_prompt
 
-def generate_scenario(date_str, scenario_id="s1"):
+def generate_scenario(date_str, scenario_id="s1", previous_themes=None):
     """
     Generates the daily scenario using Gemini via google-genai SDK.
     """
@@ -42,6 +43,15 @@ def generate_scenario(date_str, scenario_id="s1"):
     
     # Fill User Template
     full_user_prompt = user_template.replace("{{scenario_id}}", scenario_id)
+
+    # 이전 소재 목록 주입
+    if previous_themes:
+        themes_text = "🚫 아래는 이미 사용한 소재입니다. 이 소재들과 동일하거나 유사한 주제는 절대 사용하지 마세요:\n"
+        for i, title in enumerate(previous_themes, 1):
+            themes_text += f"  {i}. {title}\n"
+    else:
+        themes_text = ""
+    full_user_prompt = full_user_prompt.replace("{{previous_themes}}", themes_text)
 
     max_retries = 3
     for attempt in range(max_retries):
@@ -62,9 +72,10 @@ def generate_scenario(date_str, scenario_id="s1"):
             data = json.loads(text)
             return data
         except Exception as e:
-            if "429" in str(e) or "Quota exceeded" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+            err = str(e)
+            if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
                 wait_time = 30 * (attempt + 1)
-                print(f"[Warning] Quota exceeded. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
+                print(f"[Warning] Retryable error. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
                 time.sleep(wait_time)
             else:
                 print(f"Error generating scenario: {e}")
@@ -72,6 +83,7 @@ def generate_scenario(date_str, scenario_id="s1"):
     
     print("[Error] Max retries exceeded for scenario generation.")
     return None
+
 
 def generate_job_data(theme_title, theme_desc, job):
     """
@@ -105,8 +117,11 @@ def generate_job_data(theme_title, theme_desc, job):
             )
             return json.loads(response.text)
         except Exception as e:
-            if "429" in str(e) or "Quota exceeded" in str(e):
-                time.sleep(30 * (attempt + 1))
+            err = str(e)
+            if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
+                wait_time = 30 * (attempt + 1)
+                print(f"[Warning] Retryable error for {job}. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
+                time.sleep(wait_time)
             else:
                 print(f"Error generating job data for {job}: {e}")
                 return None
@@ -134,8 +149,10 @@ def generate_text(prompt, system_instruction=None):
             )
             return response.text.strip()
         except Exception as e:
-            if "429" in str(e) or "Quota exceeded" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+            err = str(e)
+            if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
                 wait_time = 30 * (attempt + 1)
+                print(f"[Warning] Retryable error. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
                 time.sleep(wait_time)
             else:
                 print(f"Error generating text: {e}")
@@ -181,16 +198,25 @@ def generate_image_from_text(prompt, output_path):
                      print(f"[Image] Error: Cannot save image. Attributes: {dir(image)}")
                      return False
                      
-                print(f"[Image] Saved to {output_path}")
+                # 리사이즈 + 압축 (웹 최적화)
+                try:
+                    with PILImage.open(output_path) as img:
+                        img = img.resize((512, 512), PILImage.LANCZOS)
+                        img.save(output_path, 'WEBP', quality=80)
+                    size_kb = os.path.getsize(output_path) // 1024
+                    print(f"[Image] Saved to {output_path} ({size_kb}KB)")
+                except Exception as resize_err:
+                    print(f"[Image] Saved (resize skipped: {resize_err})")
                 return True
             else:
                 print("[Image] No image returned.")
                 return False
                 
         except Exception as e:
-            if "429" in str(e) or "Quota exceeded" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+            err = str(e)
+            if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
                 wait_time = 30 * (attempt + 1)
-                print(f"[Image] Quota exceeded. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
+                print(f"[Image] Retryable error. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
                 time.sleep(wait_time)
             else:
                 print(f"[Image] Error generating image: {e}")

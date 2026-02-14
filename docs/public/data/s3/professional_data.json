@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s3"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 좀비 치킨, 부활하여 런치타임 습격!",
+      "theme_desc": "닭고기 파동으로 전 세계 런치 메뉴에서 치킨이 사라지자, 언데드 닭들이 떼거지로 나타나 점심시간을 사냥터로 만들었습니다.",
+      "scenarios": {
+        "10y": "야, 너 10년 후엔 좀비 치킨의 '급소'를 파악하는 외과의사가 돼서, 맨날 뼈만 깎고 있대.",
+        "20y": "20년 후엔, 좀비 치킨 학문 최고 권위자 돼서, 닭 뼈로 만든 조각상 팔아서 돈 벌고 있더라.",
+        "30y": "30년 후엔, 좀비 치킨과 평화 협정을 맺는 데 성공해서, '치킨 없는 세상'을 만들었다고 칭송받는대!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: Zombie Chickens Rise, Launch a Lunchtime Attack!",
+      "theme_desc": "With the global chicken supply crisis, undead poultry swarmed out of nowhere turning lunch breaks into a battlefield.",
+      "scenarios": {
+        "10y": "Dude, in 10 years, you're the surgeon who pinpoints zombie chicken weak spots and's stuck carving bones all day.",
+        "20y": "20 years from now, you're a zombie chicken expert, making bank selling chicken bone sculptures.",
+        "30y": "30 years later, you brokered peace with the zombie chickens, and everyone's hailing you for creating a 'chicken-free world'!"
+      }
+    }
+  },
+  "archetypes": {
+    "professional": "./professional.webp"
+  }
+}

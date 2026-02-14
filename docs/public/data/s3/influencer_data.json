@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s3"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 좀비 치킨, 부활하여 런치타임 습격!",
+      "theme_desc": "닭고기 파동으로 전 세계 런치 메뉴에서 치킨이 사라지자, 언데드 닭들이 떼거지로 나타나 점심시간을 사냥터로 만들었습니다.",
+      "scenarios": {
+        "10y": "야, 너 10년 뒤엔 좀비 치킨 먹방 찍는 인플루언서래! 조회수는 폭발했지만, 너는 맛을 못 느껴.",
+        "20y": "좀비 치킨 유행 지난 지 오래인데, 닭 뼈로 만든 명품 가방 언박싱 영상 찍는대. 생각보다 핫하대!",
+        "30y": "좀비 치킨과 화해하고, 채식 닭고기 레시피 개발해서 노벨 평화상 후보에 올랐대! 대박이지?"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: Zombie Chickens Rise, Launch a Lunchtime Attack!",
+      "theme_desc": "With the global chicken supply crisis, undead poultry swarmed out of nowhere turning lunch breaks into a battlefield.",
+      "scenarios": {
+        "10y": "Hey, in 10 years, you're an influencer doing a zombie chicken mukbang! Views are through the roof, but you can't taste a thing.",
+        "20y": "Zombie chicken's so last season, but you're unboxing a luxury bag made of chicken bones. Surprisingly, it's trending!",
+        "30y": "You made peace with the zombie chickens and developed a vegan chicken recipe, got nominated for the Nobel Peace Prize! Awesome, right?"
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}

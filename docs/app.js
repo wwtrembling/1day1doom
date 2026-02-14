@@ -383,6 +383,8 @@ function renderResultContent() {
     // Key: office, gamer etc.
     const imgKey = jobCat;
     const imgSrc = currentJobData.archetypes[imgKey];
+    const imgEl = document.getElementById('result-image');
+    const imgContainer = imgEl.closest('.image-container');
 
     if (imgSrc) {
         // Resolve relative path if needed
@@ -390,7 +392,11 @@ function renderResultContent() {
         if (imgSrc.startsWith('./') && currentJobData._basePath) {
             finalSrc = currentJobData._basePath + imgSrc.substring(2);
         }
-        document.getElementById('result-image').src = finalSrc;
+        imgEl.src = finalSrc;
+        if (imgContainer) imgContainer.style.display = '';
+    } else {
+        imgEl.src = '';
+        if (imgContainer) imgContainer.style.display = 'none';
     }
 }
 

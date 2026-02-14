@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s3"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 좀비 치킨, 부활하여 런치타임 습격!",
+      "theme_desc": "닭고기 파동으로 전 세계 런치 메뉴에서 치킨이 사라지자, 언데드 닭들이 떼거지로 나타나 점심시간을 사냥터로 만들었습니다.",
+      "scenarios": {
+        "10y": "좀비 치킨 방역 지침 때문에, 오전 회의는 화상, 오후 회의는 대면으로 바뀌었어.",
+        "20y": "좀비 치킨 퇴치 공로로 특별 승진했는데, 알고 보니 치킨 사료 배급 담당이었지 뭐야?",
+        "30y": "좀비 치킨과 평화 협정을 맺어, 치킨 없는 채식주의자 도시락을 개발했다, 왠 횡재람!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: Zombie Chickens Rise, Launch a Lunchtime Attack!",
+      "theme_desc": "With the global chicken supply crisis, undead poultry swarmed out of nowhere turning lunch breaks into a battlefield.",
+      "scenarios": {
+        "10y": "Office meetings are now a tactical exercise, dodging zombie chickens during lunch breaks.",
+        "20y": "Got promoted for zombie chicken control, turns out I'm just in charge of the chicken feed supply?",
+        "30y": "Brokered a peace treaty with zombie chickens, and now I make veggie-chicken-less lunchboxes, cha-ching!"
+      }
+    }
+  },
+  "archetypes": {}
+}

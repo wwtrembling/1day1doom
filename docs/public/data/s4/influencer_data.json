@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s4"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: BTS 안무, 현실 왜곡 시작!",
+      "theme_desc": "BTS의 '다이너마이트' 안무가 현실에 구현되어, 중력이 춤추는 대로 바뀌며 인류는 리듬에 맞춰 멸망.",
+      "scenarios": {
+        "10y": "야, 10년 뒤 넌 BTS 춤에 맞춰 멸망하는 세상에서, 좋아요 구걸하며 춤추는 좀비 댄서래.",
+        "20y": "세상이 춤추는 폐허에서, 넌 '좋아요' 대신 '살려줘' 외치며, 틱톡 챌린지 강요받는 댄서가 됐어.",
+        "30y": "그런데, 멸망한 세상에서 '다이너마이트' 춤이 부활 춤으로 인정받아, 넌 댄스 갓이 됐대!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: BTS Choreography, Reality Distortion!",
+      "theme_desc": "The 'Dynamite' choreography manifests in reality, altering gravity to the rhythm of the dance, leading humanity to its doom in a synchronized dance.",
+      "scenarios": {
+        "10y": "Dude, in 10 years, you're a zombie dancer, begging for likes while dancing to BTS in a collapsing world.",
+        "20y": "In the dance-fueled ruins, you're forced to do TikTok challenges, screaming 'save me' instead of 'likes'.",
+        "30y": "But get this – 'Dynamite' becomes a resurrection dance, and you become a freaking dance god!"
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}

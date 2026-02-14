@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s4"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: BTS 안무, 현실 왜곡 시작!",
+      "theme_desc": "BTS의 '다이너마이트' 안무가 현실에 구현되어, 중력이 춤추는 대로 바뀌며 인류는 리듬에 맞춰 멸망.",
+      "scenarios": {
+        "10y": "회사원은 중력 춤에 맞춰 엑셀 시트를 짜고, 임원 회의는 '앙증맞은 댄스 배틀'로 변질됐어.",
+        "20y": "춤추는 세상에서, 회의 대신 '몸짓 언어 해석사'로 전직했는데, 월급은 BTS 굿즈로 받게 됐지 뭐야.",
+        "30y": "알고 보니 춤의 리듬은 우주의 에너지원, 춤 잘 추는 회사가 세상을 구원했대!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: BTS Choreography, Reality Distortion!",
+      "theme_desc": "The 'Dynamite' choreography manifests in reality, altering gravity to the rhythm of the dance, leading humanity to its doom in a synchronized dance.",
+      "scenarios": {
+        "10y": "Your office job now involves swaying to gravity-defying spreadsheets, and board meetings are basically dance-offs.",
+        "20y": "Turns out, you're now a 'Body Language Interpreter' instead of a corporate drone, getting paid in BTS merch.",
+        "30y": "The dance moves were the key to the universe's energy, and the best dancers saved the world!"
+      }
+    }
+  },
+  "archetypes": {
+    "office": "./office.webp"
+  }
+}

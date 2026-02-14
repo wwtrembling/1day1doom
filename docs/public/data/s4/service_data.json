@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s4"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: BTS 안무, 현실 왜곡 시작!",
+      "theme_desc": "BTS의 '다이너마이트' 안무가 현실에 구현되어, 중력이 춤추는 대로 바뀌며 인류는 리듬에 맞춰 멸망.",
+      "scenarios": {
+        "10y": "야, 고객 불만 처리하다가 춤에 맞춰 중력 바뀌는 바람에 하늘로 붕 떴대.",
+        "20y": "고객센터 로봇들이 '다이너마이트' 추면서 불만 접수하는데, 춤이 너무 신나서 다들 춤춘대!",
+        "30y": "결국 춤으로 소통하는 외계인들이랑 친구 먹고, 우주 고객센터 차려서 대박 났대!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: BTS Choreography, Reality Distortion!",
+      "theme_desc": "The 'Dynamite' choreography manifests in reality, altering gravity to the rhythm of the dance, leading humanity to its doom in a synchronized dance.",
+      "scenarios": {
+        "10y": "Dude, after handling a Karen complaint, the gravity shifted with the dance, and you floated away.",
+        "20y": "Customer service robots are doing the 'Dynamite' dance for complaints, and everyone's dancing because it's so catchy!",
+        "30y": "You ended up befriending aliens who communicate through dance, and opened a cosmic customer service that's a huge hit!"
+      }
+    }
+  },
+  "archetypes": {
+    "service": "./service.webp"
+  }
+}

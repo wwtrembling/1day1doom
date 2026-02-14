@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s1"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 붕어빵, 인류 포획 시작!",
+      "theme_desc": "달콤한 유혹에 빠진 인류, 붕어빵의 끈적한 촉수에 속절없이 사로잡히고 있다. 곧 붕어빵 공장에서 강제 노동을 하게 될지도.",
+      "scenarios": {
+        "10y": "야, 붕어빵 군주님 맘에 들어야 살아남는다고, 붕어빵 먹방만 찍는 인플루언서래.",
+        "20y": "어쩌다 붕어빵 포획 담당 돼서, 팔로워들 붕어빵 공장으로 끌고 가는 중.",
+        "30y": "헐, 붕어빵 군주가 맘에 들었는지, 붕어빵 제국 황제가 되었다네!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: The Great Fish-Shaped Pastry Assimilation!",
+      "theme_desc": "Humans are falling prey to the delicious allure of fish-shaped pastries, ensnared by their sticky embrace. Forced labor in the pastry factories looms.",
+      "scenarios": {
+        "10y": "Guess what? The influencer is now a 'taste tester' for the Fish-Shaped Bun overlords, only eating, reviewing, and liking fish-shaped buns.",
+        "20y": "Turns out, they're in charge of luring other humans into the fish-shaped bun factory with the perfect viral content.",
+        "30y": "Turns out the Fish-Shaped Bun Emperor was looking for a new heir, and our influencer got the throne!"
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}

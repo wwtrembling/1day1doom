@@ -26,6 +26,26 @@ BATCH_OUTPUT_ROOT = os.path.join(BASE_DIR, 'output') # Staging Area
 # Manifest is in PUBLIC to drive the app
 SCENARIOS_MANIFEST_PATH = os.path.join(PUBLIC_DATA_ROOT, 'scenarios.json')
 
+def collect_previous_themes():
+    """기존 시나리오 폴더에서 이전에 사용된 테마 제목들을 수집합니다."""
+    titles = []
+    for root_dir in [PUBLIC_DATA_ROOT, BATCH_OUTPUT_ROOT]:
+        if not os.path.exists(root_dir):
+            continue
+        for name in os.listdir(root_dir):
+            scenario_path = os.path.join(root_dir, name, "scenario.json")
+            if os.path.isdir(os.path.join(root_dir, name)) and name.startswith('s') and os.path.exists(scenario_path):
+                try:
+                    with open(scenario_path, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    title = data.get('content', {}).get('ko', {}).get('theme_title', '')
+                    if title:
+                        titles.append(title)
+                except Exception:
+                    pass
+    return titles
+
+
 def get_next_scenario_id():
     """batch-service/output에서 기존 sN 폴더를 스캔하여 다음 ID를 결정합니다."""
     max_n = 0
@@ -41,6 +61,7 @@ def get_next_scenario_id():
                         pass
     
     return f"s{max_n + 1}"
+
 
 def update_manifest(new_id):
     """실제 존재하는 시나리오 폴더를 스캔하여 매니페스트를 생성합니다."""
@@ -139,7 +160,10 @@ def generate_new_scenario():
     
     # 3. Generate Master Scenario
     print("[Generator] Generating Master Scenario...")
-    master_data = llm_client.generate_scenario(today_str, scenario_id)
+    previous_themes = collect_previous_themes()
+    if previous_themes:
+        print(f"[Generator] Found {len(previous_themes)} previous themes to exclude.")
+    master_data = llm_client.generate_scenario(today_str, scenario_id, previous_themes=previous_themes)
     
     if not master_data:
         print("[Error] Failed to generate master scenario.")
