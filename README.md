@@ -71,7 +71,7 @@ sequenceDiagram
 │       ├── scenario.json       # 마스터 테마 생성용
 │       ├── job_scenario.json   # 직업별 스토리 생성용
 │       └── prompt_gen.json     # 이미지 프롬프트 생성용
-├── web-client/             # 프론트엔드 애플리케이션
+├── docs/                   # 프론트엔드 애플리케이션 (GitHub Pages 배포)
 │   ├── app.js              # 메인 로직 (데이터 로딩, UI 처리)
 │   ├── index.html          # 메인 페이지
 │   ├── style.css           # 스타일 시트
@@ -108,15 +108,15 @@ sequenceDiagram
     python generator.py
     ```
     *   실행 시 `batch-service/output/s{N}/` 폴더에 생성 결과물이 저장됩니다.
-    *   생성이 완료되면 자동으로 `web-client/public/data/s{N}/`으로 필요한 파일이 복사/이동됩니다.
+    *   생성이 완료되면 자동으로 `docs/public/data/s{N}/`으로 필요한 파일이 복사/이동됩니다.
 
 ### 2. 웹 클라이언트 실행 (결과 확인하기)
 
-`web-client` 폴더는 정적 웹사이트이므로 별도의 백엔드 서버 없이 브라우저에서 바로 열거나 로컬 서버를 띄워 확인할 수 있습니다.
+`docs` 폴더는 정적 웹사이트이므로 별도의 백엔드 서버 없이 브라우저에서 바로 열거나 로컬 서버를 띄워 확인할 수 있습니다.
 
 1.  **로컬 서버 실행** (Python 이용 예시):
     ```bash
-    cd web-client
+    cd docs
     python -m http.server 8000
     # 또는
     npx serve .

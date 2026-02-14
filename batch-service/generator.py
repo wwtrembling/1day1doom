@@ -19,7 +19,7 @@ if not GEMINI_API_KEY:
 # Project Paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
-WEB_CLIENT_PATH = os.path.join(PROJECT_ROOT, 'web-client')
+WEB_CLIENT_PATH = os.path.join(PROJECT_ROOT, 'docs')
 PUBLIC_DATA_ROOT = os.path.join(WEB_CLIENT_PATH, 'public', 'data')
 BATCH_OUTPUT_ROOT = os.path.join(BASE_DIR, 'output') # Staging Area
 

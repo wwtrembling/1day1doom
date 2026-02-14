@@ -4,7 +4,8 @@ import shutil
 
 # Config
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-WEB_CLIENT_PATH = os.path.join(BASE_DIR, 'web-client')
+PROJECT_ROOT = os.path.dirname(BASE_DIR)
+WEB_CLIENT_PATH = os.path.join(PROJECT_ROOT, 'docs')
 PUBLIC_DATA_ROOT = os.path.join(WEB_CLIENT_PATH, 'public', 'data')
 
 # Jobs List (from config.py or app.js)
