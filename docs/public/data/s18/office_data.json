@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s18"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: '좀비 토끼' 떼, 전국 고속도로 점거!",
+      "theme_desc": "부활한 토끼들이 광폭 질주하며 좀비 바이러스 확산, 전국 물류망 마비로 대한민국 식량난 심화!",
+      "scenarios": {
+        "10y": "좀비 토끼 때문에 야근 수당도 못 받는데, 팀장은 엑셀로 토끼 굴 파는 법을 연구한대.",
+        "20y": "좀비 토끼 햄버거 패티 개발팀에 발령받았는데, '고객 만족'을 위해 토끼를 직접 잡으래.",
+        "30y": "좀비 토끼가 키운 당근으로 만든 '불로장생 비빔밥' 덕분에, 불멸의 삶을 얻었지 뭐야!"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: Zombie Rabbits Take Over Highways!",
+      "theme_desc": "Undead bunnies spread a zombie virus, paralyzing the nation's supply chains, leading to widespread food shortages in South Korea.",
+      "scenarios": {
+        "10y": "Still stuck in endless meetings, but now they're about zombie rabbit containment strategies and spreadsheet updates.",
+        "20y": "Promoted to 'Zombie Rabbit Meat Division,' and the company picnic menu is... well, you get the idea.",
+        "30y": "Turns out the zombie rabbits cultivated the perfect immortality carrots, and now I'm a permanent resident of the carrot farm!"
+      }
+    }
+  },
+  "archetypes": {
+    "office": "./office.webp"
+  }
+}

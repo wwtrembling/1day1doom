@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s15"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: 햄스터 떼, 세계 식량 창고 점령! '볼 굴리기' 작전 개시",
+      "theme_desc": "거대 햄스터 군단, 식량 창고의 해바라기 씨를 노리며 지구촌 굶주림 위기 심화. '햄스터 롤러코스터' 기술로 UN 사무총장 긴급 회담 소집!"
+    },
+    "en": {
+      "theme_title": "Breaking: Hamster Horde Seizes Global Food Supply! 'Roll Out' Operation Underway",
+      "theme_desc": "Giant hamster army targets sunflower seeds in food reserves, escalating global hunger crisis. UN Secretary-General calls for emergency summit, citing 'Hamster Rollercoaster' technology."
+    }
+  }
+}

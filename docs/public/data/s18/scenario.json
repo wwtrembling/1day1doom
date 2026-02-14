@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "date": "2026-02-14",
+    "scenario_id": "s18"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "속보: '좀비 토끼' 떼, 전국 고속도로 점거!",
+      "theme_desc": "부활한 토끼들이 광폭 질주하며 좀비 바이러스 확산, 전국 물류망 마비로 대한민국 식량난 심화!"
+    },
+    "en": {
+      "theme_title": "Breaking: Zombie Rabbits Take Over Highways!",
+      "theme_desc": "Undead bunnies spread a zombie virus, paralyzing the nation's supply chains, leading to widespread food shortages in South Korea."
+    }
+  }
+}

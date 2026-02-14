@@ -84,6 +84,16 @@ def deploy_scenario(scenario_id):
 
     print(f"[Deploy] Completed for {scenario_id}")
 
+    # Clean up: remove the source directory after deployment
+    if os.path.exists(src_dir):
+        shutil.rmtree(src_dir)
+        print(f"[Deploy] Cleaned up {src_dir}")
+
+    # Remove output root if empty
+    if os.path.exists(BATCH_OUTPUT_ROOT) and not os.listdir(BATCH_OUTPUT_ROOT):
+        os.rmdir(BATCH_OUTPUT_ROOT)
+        print(f"[Deploy] Removed empty output directory {BATCH_OUTPUT_ROOT}")
+
 def sanitize_image_prompt(prompt):
     """
     LLM이 생성한 이미지 프롬프트에서 텍스트/대사 요소를 제거하고,
@@ -209,10 +219,10 @@ def generate_new_scenario():
 
         # 5.3 Generate Image Prompt
         scenario_30y = en_scenarios.get("30y", "")
-        context_desc = f"{theme_desc_en}\n\nSituation (30 Years Later): {scenario_30y}"
         
         full_prompt_gen = user_template_gen.replace("{{theme_title}}", theme_title_en) \
-                                             .replace("{{theme_desc}}", context_desc) \
+                                             .replace("{{theme_desc}}", theme_desc_en) \
+                                             .replace("{{scenario_30y}}", scenario_30y) \
                                              .replace("{{job}}", job_context)
                                              
         print(f"[Job: {job_id}] Generating image prompt...")
