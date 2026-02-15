@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Day One Doom</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="1 Day 1 Doom 🧟 Your Daily Dose of Dystopia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1day1doom.com/en/">
+    <meta property="og:title" content="1 Day 1 Doom 🧟">
+    <meta property="og:description" content="Your Daily Dose of Dystopia. Delivering your doom today.">
+    <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1 Day 1 Doom 🧟">
+    <meta name="twitter:description" content="Your Daily Dose of Dystopia. Delivering your doom today.">
+    <meta name="twitter:image" content="https://1day1doom.com/public/og-image.jpg">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container comic-border">
+        <header>
+            <h1 class="comic-title" data-i18n="app_title">1일 1멸망 🧟</h1>
+            <div class="lang-switch">
+                <a href="../ko/index.html" id="btn-ko" class="comic-btn">KO</a>
+                <a href="../en/index.html" id="btn-en" class="comic-btn active">EN</a>
+            </div>
+            <p id="slogan" class="comic-subtitle">오늘의 멸망을 배달해드립니다.</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section id="input-section" class="panel">
+                <h2 data-i18n="input_title">생존자 등록</h2>
+
+                <form id="survival-form">
+                    <div class="form-group">
+                        <label for="name" data-i18n="label_name">이름</label>
+                        <input type="text" id="name" required placeholder="Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age" data-i18n="label_age">나이</label>
+                        <input type="number" id="age" required placeholder="Age">
+                    </div>
+
+                    <!-- Gender Input Removed -->
+
+                    <div class="form-group">
+                        <label for="job-category" data-i18n="label_job_cat">직군</label>
+                        <select id="job-category">
+                            <option value="office" data-i18n="cat_office">사무직/IT (Office)</option>
+                            <option value="service" data-i18n="cat_service">서비스/자영업 (Service)</option>
+                            <option value="professional" data-i18n="cat_professional">전문직/의료 (Professional)</option>
+                            <option value="labor" data-i18n="cat_labor">현장/운동 (Labor)</option>
+                            <option value="art" data-i18n="cat_art">예술/방송 (Art)</option>
+                            <option value="student" data-i18n="cat_student">학생 (Student)</option>
+                            <option value="influencer" data-i18n="cat_influencer">인플루언서 (Influencer)</option>
+                            <option value="rich" data-i18n="cat_rich">금수저/경영 (Rich)</option>
+                            <option value="gamer" data-i18n="cat_gamer">게이머/해커 (Gamer)</option>
+                            <option value="home" data-i18n="cat_home">무직/백수 (Unemployed)</option>
+                        </select>
+                    </div>
+
+
+
+                    <button type="submit" class="comic-btn action-btn" data-i18n="btn_submit">미래 확인하기</button>
+                </form>
+            </section>
+
+            <!-- Loading Section (Hidden) -->
+            <section id="loading-section" class="panel hidden">
+                <div class="loading-content">
+                    <h2 class="animate-blink" data-i18n="msg_calculating">미래를 계산하는 중...</h2>
+                    <div class="spinner">⏳</div>
+                    <p data-i18n="msg_wait">잠시만 기다려주세요...</p>
+                </div>
+            </section>
+
+            <!-- Result Section (Hidden) -->
+            <section id="result-section" class="panel hidden">
+                <div class="theme-header">
+                    <h2 id="theme-title">...</h2>
+                    <p id="theme-desc">...</p>
+                </div>
+
+                <div class="image-container">
+                    <img id="result-image" src="" alt="Dystopian Future" class="comic-img">
+                </div>
+
+                <div class="scenarios">
+                    <div class="scenario-box">
+                        <span class="badge">10 Years Later</span>
+                        <p id="text-10y">...</p>
+                    </div>
+                    <div class="scenario-box">
+                        <span class="badge">20 Years Later</span>
+                        <p id="text-20y">...</p>
+                    </div>
+                    <div class="scenario-box">
+                        <span class="badge">30 Years Later</span>
+                        <p id="text-30y">...</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-share" class="comic-btn action-btn secondary" data-i18n="btn_share">공유하기</button>
+                    <button id="btn-restart" class="comic-btn action-btn primary" data-i18n="btn_retry">다시 하기</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; One Day One Doom</p>
+        </footer>
+    </div>
+
+    <script src="../app.js"></script>
+</body>
+
+</html>

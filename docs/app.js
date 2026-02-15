@@ -90,16 +90,17 @@ function updateLanguage(lang) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Detect Language
-    const browserLang = navigator.language || navigator.userLanguage;
-    if (browserLang.toLowerCase().startsWith('en')) {
+    // 1. Detect Language from HTML tag
+    const htmlLang = document.documentElement.lang;
+    if (htmlLang === 'en') {
         currentLang = 'en';
+    } else {
+        currentLang = 'ko';
     }
     updateLanguage(currentLang);
 
     // 2. Event Listeners
-    document.getElementById('btn-ko').addEventListener('click', () => updateLanguage('ko'));
-    document.getElementById('btn-en').addEventListener('click', () => updateLanguage('en'));
+    // Language buttons are now links, so no click listeners needed
 
     document.getElementById('survival-form').addEventListener('submit', handleFormSubmit);
     document.getElementById('btn-restart').addEventListener('click', resetForm);
@@ -159,7 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function fetchScenarioList() {
     try {
-        const response = await fetch('./public/data/scenarios.json');
+        const response = await fetch('../public/data/scenarios.json');
         if (!response.ok) throw new Error("Failed to load scenarios.json");
         scenarios = await response.json();
         console.log("Loaded scenarios:", scenarios);
@@ -225,7 +226,7 @@ async function loadScenarioData(scenarioId, jobCat) {
         // 1. Load Master Scenario (Theme) - Cache if possible or just fetch
         // We could optimize to not fetch if already loaded for same scenarioId
         if (!currentThemeData || currentThemeData.meta.scenario_id !== scenarioId) {
-            const themeUrl = `./public/data/${scenarioId}/scenario.json`;
+            const themeUrl = `../public/data/${scenarioId}/scenario.json`;
             const themeRes = await fetch(themeUrl);
             if (!themeRes.ok) throw new Error(`Theme data not found for ${scenarioId}`);
             currentThemeData = await themeRes.json();
@@ -234,14 +235,14 @@ async function loadScenarioData(scenarioId, jobCat) {
         }
 
         // 2. Load Job Data
-        const jobUrl = `./public/data/${scenarioId}/${jobCat}_data.json`;
+        const jobUrl = `../public/data/${scenarioId}/${jobCat}_data.json`;
         const jobRes = await fetch(jobUrl);
         if (!jobRes.ok) throw new Error(`Job data not found for ${scenarioId} / ${jobCat}`);
 
         currentJobData = await jobRes.json();
 
         // Setup helper paths
-        currentJobData._basePath = `./public/data/${scenarioId}/`;
+        currentJobData._basePath = `../public/data/${scenarioId}/`;
         currentJobData.id = scenarioId;
 
         updateSEO();
