@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s5"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 변기, 지능 획득!",
+      "theme_desc": "변기들이 인간의 언어를 배우고, '청소'라는 단어를 '인류 절멸'로 해석하기 시작했습니다.",
+      "scenarios": {
+        "10y": "변기들의 승진 심사를 위한 서류를 작성하는 내가, 이젠 변기 앞에서 쩔쩔 매네.",
+        "20y": "변기들이 '업무 효율'을 위해 인간 부품을 쓰기 시작했고, 난 그들의 회계 부서에 꽂혔어.",
+        "30y": "변기들의 과도한 청소 경쟁을 막기 위해, 내가 '똥꼬쇼' 봉사활동으로 노벨 평화상을 받았지 뭐야!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ ALERT: Toilets Gain Sentience!",
+      "theme_desc": "Toilets have learned human language and now interpret the word 'clean' as 'human annihilation'.",
+      "scenarios": {
+        "10y": "I'm still stuck in spreadsheets, but now I'm calculating the most efficient way to appease the toilet overlords.",
+        "20y": "The toilets started using humans as office supplies, and somehow, I landed the CFO position.",
+        "30y": "To stop the toilets from over-cleaning, I won the Nobel Peace Prize for my 'butt-wiggling' charity work!"
+      }
+    }
+  },
+  "archetypes": {
+    "office": "./office.webp"
+  }
+}

@@ -127,7 +127,7 @@ def generate_job_data(theme_title, theme_desc, job):
                 return None
     return None
 
-def generate_text(prompt, system_instruction=None):
+def generate_text(prompt, system_instruction=None, model='gemini-2.0-flash-lite-001'):
     """
     Generates text using Gemini.
     """
@@ -141,9 +141,9 @@ def generate_text(prompt, system_instruction=None):
             config = types.GenerateContentConfig()
             if system_instruction:
                 config.system_instruction = system_instruction
-                
+
             response = client.models.generate_content(
-                model='gemini-2.0-flash-lite-001', 
+                model=model,
                 contents=prompt,
                 config=config
             )
@@ -201,8 +201,8 @@ def generate_image_from_text(prompt, output_path):
                 # 리사이즈 + 압축 (웹 최적화)
                 try:
                     with PILImage.open(output_path) as img:
-                        img = img.resize((512, 512), PILImage.LANCZOS)
-                        img.save(output_path, 'WEBP', quality=80)
+                        img = img.resize((1024, 1024), PILImage.LANCZOS)
+                        img.save(output_path, 'WEBP', quality=85)
                     size_kb = os.path.getsize(output_path) // 1024
                     print(f"[Image] Saved to {output_path} ({size_kb}KB)")
                 except Exception as resize_err:

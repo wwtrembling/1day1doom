@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 batch-service/output/
 batch-service/venv/
+bash.exe.stackdump

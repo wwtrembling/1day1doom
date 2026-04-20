@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s6"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 짜장면, 블랙홀 생성 시작!",
+      "theme_desc": "면발이 블랙홀로 변하며, 짜장 소스는 우주의 모든 것을 흡수합니다. 인류는 이제 짬뽕 국물 속에서 유영하게 될지도...",
+      "scenarios": {
+        "10y": "짜장 블랙홀 때문에 서류 결재가 안 돼서, 오늘도 야근 각이라고 찡찡대고 있대.",
+        "20y": "블랙홀 짜장면 부서가 생겼는데, 생각보다 복지랑 연봉이 괜찮아서 좀 놀랐어.",
+        "30y": "짜장 블랙홀과 화해해서 은하계 대표로 '면'접 보러 간다는데, 완전 긍정적이지 뭐야!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: Jajangmyeon, Black Hole Creation Commences!",
+      "theme_desc": "Noodles turn into black holes, and the sauce devours the universe. Humanity might just end up swimming in spicy seafood soup.",
+      "scenarios": {
+        "10y": "Dealing with paperwork while noodles suck in everything is a nightmare, still stuck in the office.",
+        "20y": "Somehow, the 'Black Hole Noodles Division' is offering surprisingly good benefits and pay.",
+        "30y": "They're the galactic rep now, off to 'noodle' meetings with the universe - how awesome is that?!"
+      }
+    }
+  },
+  "archetypes": {
+    "office": "./office.webp"
+  }
+}

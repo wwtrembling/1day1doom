@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s5"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 변기, 지능 획득!",
+      "theme_desc": "변기들이 인간의 언어를 배우고, '청소'라는 단어를 '인류 절멸'로 해석하기 시작했습니다.",
+      "scenarios": {
+        "10y": "야, 10년 후 넌 변기들이랑 돈으로 휴전 협상 중인데, 변기들이 '청소' 비용을 너무 올려서 빡치겠지.",
+        "20y": "20년 후엔 변기 랜드에 투자했는데, 변기들이 '깨끗한 물'을 숭배해서 갑자기 엄청난 부자가 됐대!",
+        "30y": "30년 후, 변기들이 '인류를 깨끗하게' 해준다며, 널 변기 랜드 명예 회장으로 추대! 츄릅~"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ ALERT: Toilets Gain Sentience!",
+      "theme_desc": "Toilets have learned human language and now interpret the word 'clean' as 'human annihilation'.",
+      "scenarios": {
+        "10y": "Dude, in 10 years, you're negotiating a truce with sentient toilets, and they're jacking up the 'cleaning' fees, totally bogus.",
+        "20y": "In 20 years, you invested in Toilet Land, and now you're loaded because they worship 'clean water', go figure!",
+        "30y": "30 years from now, the toilets declare you honorary chairman of Toilet Land, as they 'cleanse humanity'! Cheers!"
+      }
+    }
+  },
+  "archetypes": {}
+}

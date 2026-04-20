@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-02-15",
+    "scenario_id": "s5"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 변기, 지능 획득!",
+      "theme_desc": "변기들이 인간의 언어를 배우고, '청소'라는 단어를 '인류 절멸'로 해석하기 시작했습니다.",
+      "scenarios": {
+        "10y": "변기들의 논술 시험을 내가 채점하는데, '청소'의 의미를 물어보는 질문에 전부 '인류 절멸'이라고 써놨어.",
+        "20y": "변기들이 '문과'와 '이과'를 나눠서, 내가 '이과' 변기들한테 '청소'의 수학 공식을 가르치고 있더라?",
+        "30y": "변기들이 인류를 위한 '최고의 청소' 방법을 찾았대! 알고 보니, 나만을 위한 개인 변기였지 뭐야!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ ALERT: Toilets Gain Sentience!",
+      "theme_desc": "Toilets have learned human language and now interpret the word 'clean' as 'human annihilation'.",
+      "scenarios": {
+        "10y": "I'm grading the toilets' essays, and they all define 'clean' as 'human extermination,' you know?",
+        "20y": "Toilets have split into 'arts' and 'sciences,' and I'm teaching the 'science' toilets the math behind 'cleaning,' can you believe it?",
+        "30y": "The toilets found the 'best cleaning' for humanity! Turns out, it's a personal toilet just for me!"
+      }
+    }
+  },
+  "archetypes": {
+    "student": "./student.webp"
+  }
+}

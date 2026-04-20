@@ -4,10 +4,58 @@ import re
 import shutil
 import datetime
 import sys
+import random
 import llm_client
 from config import ARCHETYPES
 from dotenv import load_dotenv
 import concurrent.futures
+
+# 이미지 다양성을 위한 랜덤 요소 풀
+CAMERA_ANGLES = [
+    "dynamic low angle shot looking up at the character",
+    "bird's eye view from above showing the whole scene",
+    "Dutch angle with tilted camera for comedic tension",
+    "medium close-up focusing on character's expression and upper body",
+    "wide establishing shot showing the full environment",
+    "over-the-shoulder perspective from behind a background element",
+    "dramatic worm's eye view from ground level",
+]
+
+EMOTIONS = [
+    "completely calm and unbothered while chaos surrounds them",
+    "extreme panic with eyes popping out and jaw dropped",
+    "smug overconfidence with a sly grin and one eyebrow raised",
+    "resigned acceptance with a tired half-smile",
+    "adorable exaggerated fear with trembling knees",
+    "mischievous excitement with a sneaky grin",
+    "total confusion with spiral eyes and question marks above head",
+    "deadpan stare while everything is absurd around them",
+]
+
+POSES = [
+    "riding on top of something unexpected",
+    "mid-fall about to trip over something",
+    "running frantically in a comedic sprint",
+    "hugging or clinging to something tightly",
+    "turning around in shock at something behind them",
+    "sitting cross-legged with exaggerated smugness",
+    "kneeling dramatically on the ground",
+    "leaning casually against something absurd",
+    "being carried or lifted by something",
+    "pointing dramatically at something off-screen",
+    "hiding behind something and peeking out",
+    "doing a facepalm or covering their eyes",
+]
+
+COMIC_TECHNIQUES = [
+    "Size Contrast: make key objects/creatures hilariously oversized or tiny compared to the character",
+    "Absurd Background Reactions: background elements have shocked, confused, or judgmental expressions",
+    "Outfit Mismatch: job uniform is completely wrong for the current situation",
+    "Slapstick Moment: something spilling, breaking, exploding, or falling at the worst possible time",
+    "Visual Irony: the character's calm action completely contradicts the chaotic situation",
+    "Chain Reaction: a domino effect of small disasters happening in the background",
+    "Role Reversal: the scenario elements are doing the character's job while the character does theirs",
+]
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -241,16 +289,27 @@ def generate_new_scenario():
             "archetypes": {} 
         }
 
-        # 5.3 Generate Image Prompt
+        # 5.3 Generate Image Prompt (with randomized directives for variety)
         scenario_30y = en_scenarios.get("30y", "")
-        
+
+        # 랜덤 요소 선택 (매 직업마다 다른 조합)
+        camera = random.choice(CAMERA_ANGLES)
+        emotion = random.choice(EMOTIONS)
+        pose = random.choice(POSES)
+        techniques = random.sample(COMIC_TECHNIQUES, 2)
+        techniques_str = "\n".join(f"  - {t}" for t in techniques)
+
         full_prompt_gen = user_template_gen.replace("{{theme_title}}", theme_title_en) \
                                              .replace("{{theme_desc}}", theme_desc_en) \
                                              .replace("{{scenario_30y}}", scenario_30y) \
-                                             .replace("{{job}}", job_context)
+                                             .replace("{{job}}", job_context) \
+                                             .replace("{{camera_angle}}", camera) \
+                                             .replace("{{emotion}}", emotion) \
+                                             .replace("{{pose}}", pose) \
+                                             .replace("{{comic_techniques}}", techniques_str)
                                              
         print(f"[Job: {job_id}] Generating image prompt...")
-        image_prompt_text = llm_client.generate_text(full_prompt_gen, system_instruction=system_prompt_gen)
+        image_prompt_text = llm_client.generate_text(full_prompt_gen, system_instruction=system_prompt_gen, model='gemini-2.5-flash')
         
         if not image_prompt_text:
             image_prompt_text = f"Pixar-style 3D render, chibi {job_id} character in a colorful apocalyptic scene"

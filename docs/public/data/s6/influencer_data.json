@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s6"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 경고: 짜장면, 블랙홀 생성 시작!",
+      "theme_desc": "면발이 블랙홀로 변하며, 짜장 소스는 우주의 모든 것을 흡수합니다. 인류는 이제 짬뽕 국물 속에서 유영하게 될지도...",
+      "scenarios": {
+        "10y": "짜장면 블랙홀 유행에 맞춰 뷰티 팁을 올렸는데, 댓글이 '블랙홀 각질 제거법' 밖에 없어.",
+        "20y": "블랙홀 짜장 소스 맛집 탐방 영상으로 조회수 대박, 알고 보니 짜장면 성분 분석 전문가 됐대.",
+        "30y": "멸망 후, '짜장면 없는 삶' 챌린지 1등해서, 블랙홀 짜장면 부활 프로젝트 홍보대사 됐지 뭐야!"
+      }
+    },
+    "en": {
+      "theme_title": "⚠️ Warning: Jajangmyeon, Black Hole Creation Commences!",
+      "theme_desc": "Noodles turn into black holes, and the sauce devours the universe. Humanity might just end up swimming in spicy seafood soup.",
+      "scenarios": {
+        "10y": "Tried a 'black hole beauty' tutorial, but the comments were all about exfoliating black holes.",
+        "20y": "Got a viral video reviewing black hole sauce restaurants; turns out, I'm a black hole food analyst now.",
+        "30y": "Won the 'Life Without Noodles' challenge and became the ambassador for the black hole noodle revival!"
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}
