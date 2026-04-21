@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "알바 시급 계산기가 연봉 협상에 개입해서, 회의 시간에 엑셀 대신 시급 계산기 켜놓고 설득당하는 중.",
+        "20y": "시급 계산기 노조가 결성되면서, 내 연봉도 최저 시급으로 계산될까 봐 매일 밤 잠 못 자.",
+        "30y": "회사 건물에 '최저 시급 보장' 현수막 걸렸는데, 사장님 월급이 알바 시급으로 깎였다더라."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "10y": "My pay negotiations now involve a self-aware minimum wage calculator, and I'm pretty sure it's winning.",
+        "20y": "The minimum wage calculator unionized, so now I'm worried my salary will also be calculated at minimum wage.",
+        "30y": "The company's got a 'minimum wage guaranteed' banner up, and word is the boss's salary got slashed to minimum wage, too."
+      }
+    }
+  },
+  "archetypes": {
+    "office": "./office.webp"
+  }
+}

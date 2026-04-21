@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "알바 시급 계산기가 월급 협상에 끼어들어, 변호사 수임료가 전부 최저 시급으로 깎였대.",
+        "20y": "이제는 피고인도 계산기한테 변호사 시급을 깎아달라고 부탁하는 세상이 왔어.",
+        "30y": "알바 시급 계산기가 변호사 자격증을 따더니, '국선' 변호사로 취업했대… 판사보다 돈 잘 번다더라."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "10y": "The minimum wage calculator now negotiates lawyer fees, and all my clients' fees are reduced to minimum wage.",
+        "20y": "Now, even defendants ask the calculator to lower their lawyers' fees.",
+        "30y": "The minimum wage calculator got a law degree and is now a public defender... I heard it makes more money than the judge."
+      }
+    }
+  },
+  "archetypes": {
+    "professional": "./professional.webp"
+  }
+}

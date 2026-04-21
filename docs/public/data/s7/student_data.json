@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "알바 시급 계산기가 시위해서, 용돈 벌려고 주 6일 노예 계약 맺었어.",
+        "20y": "시급 계산기 독재에 대항해, 몰래 계산기 해킹해서 시급 올리는 게 유일한 낙이야.",
+        "30y": "시급 계산기한테 뺨 맞으면서, '그래도 난 널 사랑해...' 외치는 게 내 졸업 논문 주제래."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "10y": "The minimum wage calculator went on strike, so I'm stuck with a six-day-a-week slave contract just to get some spending money.",
+        "20y": "My only joy is secretly hacking the wage calculator to raise my pay, fighting against its tyranny.",
+        "30y": "My thesis is about getting slapped by the wage calculator while screaming, 'I still love you...'"
+      }
+    }
+  },
+  "archetypes": {
+    "student": "./student.webp"
+  }
+}

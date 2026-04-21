@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "알바 시급 계산기가 노래 가사 검열해서, 저작권료도 못 받는 밴드...",
+        "20y": "알바 시급 계산기 AI가 제 그림에 '노동 가치'를 매겨서, 전시회가 파업함 ㅋㅋㅋ",
+        "30y": "알바 시급 계산기가 제 장례식장 축가 불러줬는데, 곡 제목이 '최저 임금 인상'이래 ㅋㅋㅋ"
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "10y": "The minimum wage calculator now reviews my song lyrics, so my band can't even get royalties...",
+        "20y": "The AI wage calculator valued my paintings based on 'labor value,' so my art exhibition went on strike lol",
+        "30y": "The wage calculator sang the funeral song at my memorial, and the song was titled 'Minimum Wage Increase' lol"
+      }
+    }
+  },
+  "archetypes": {
+    "art": "./art.webp"
+  }
+}

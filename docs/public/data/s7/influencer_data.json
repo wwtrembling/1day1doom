@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "좋아요 수에 따라 최저시급이 달라지는 '알바 시급 챌린지' 유행 시작했대.",
+        "20y": "알바 시급 계산기, 이제 나한테 좋아요 구걸하는 영상만 올리라고 함.",
+        "30y": "알바 시급 계산기랑 결혼했는데, 매일 '좋아요' 안 눌렀다고 싸워.",
+        "en": {
+          "10y": "A trend started where minimum wage changed based on your likes.",
+          "20y": "The minimum wage calculator now tells me to only upload videos begging for likes.",
+          "30y": "I'm married to the minimum wage calculator, and we fight every day because I didn't get enough likes."
+        }
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "ko": {
+          "10y": "좋아요 수에 따라 최저시급이 달라지는 '알바 시급 챌린지' 유행 시작했대.",
+          "20y": "알바 시급 계산기, 이제 나한테 좋아요 구걸하는 영상만 올리라고 함.",
+          "30y": "알바 시급 계산기랑 결혼했는데, 매일 '좋아요' 안 눌렀다고 싸워.",
+          "en": {
+            "10y": "A trend started where minimum wage changed based on your likes.",
+            "20y": "The minimum wage calculator now tells me to only upload videos begging for likes.",
+            "30y": "I'm married to the minimum wage calculator, and we fight every day because I didn't get enough likes."
+          }
+        }
+      }
+    }
+  },
+  "archetypes": {
+    "influencer": "./influencer.webp"
+  }
+}

@@ -13,12 +13,10 @@ import concurrent.futures
 # 이미지 다양성을 위한 랜덤 요소 풀
 CAMERA_ANGLES = [
     "dynamic low angle shot looking up at the character",
-    "bird's eye view from above showing the whole scene",
     "Dutch angle with tilted camera for comedic tension",
     "medium close-up focusing on character's expression and upper body",
-    "wide establishing shot showing the full environment",
-    "over-the-shoulder perspective from behind a background element",
     "dramatic worm's eye view from ground level",
+    "slight high angle looking down at the character, emphasizing smallness",
 ]
 
 EMOTIONS = [
@@ -30,10 +28,11 @@ EMOTIONS = [
     "mischievous excitement with a sneaky grin",
     "total confusion with spiral eyes and question marks above head",
     "deadpan stare while everything is absurd around them",
+    "exhausted acceptance with dark circles under eyes, barely standing",
+    "forced smile hiding pure internal chaos",
 ]
 
 POSES = [
-    "riding on top of something unexpected",
     "mid-fall about to trip over something",
     "running frantically in a comedic sprint",
     "hugging or clinging to something tightly",
@@ -41,20 +40,18 @@ POSES = [
     "sitting cross-legged with exaggerated smugness",
     "kneeling dramatically on the ground",
     "leaning casually against something absurd",
-    "being carried or lifted by something",
     "pointing dramatically at something off-screen",
     "hiding behind something and peeking out",
     "doing a facepalm or covering their eyes",
 ]
 
-COMIC_TECHNIQUES = [
-    "Size Contrast: make key objects/creatures hilariously oversized or tiny compared to the character",
-    "Absurd Background Reactions: background elements have shocked, confused, or judgmental expressions",
-    "Outfit Mismatch: job uniform is completely wrong for the current situation",
-    "Slapstick Moment: something spilling, breaking, exploding, or falling at the worst possible time",
-    "Visual Irony: the character's calm action completely contradicts the chaotic situation",
-    "Chain Reaction: a domino effect of small disasters happening in the background",
-    "Role Reversal: the scenario elements are doing the character's job while the character does theirs",
+# 비주얼 개그 패턴 — 이미지의 코미디 구도를 결정
+VISUAL_GAGS = [
+    "SCALE: One object in the scene is absurdly GIANT (5x bigger than normal) while the character is tiny next to it. The size difference IS the joke.",
+    "SWAP: The character and an object have switched roles/positions. The object sits in the human's chair/place while the human is in the object's position.",
+    "FLOOD: The entire room/space is overflowing with ONE type of object (papers, boxes, cups, etc). The character is buried/drowning in them, only partially visible.",
+    "CONTRAST: Extreme status gap — the character looks miserable/shabby while something non-human next to them is luxurious/powerful (on a throne, wearing a crown, etc).",
+    "SHRINK: The character is shrunk to ant-size and navigating a normal-sized everyday object as if it were a landscape (walking on a keyboard, climbing a coffee cup).",
 ]
 
 load_dotenv()
@@ -296,9 +293,7 @@ def generate_new_scenario():
         camera = random.choice(CAMERA_ANGLES)
         emotion = random.choice(EMOTIONS)
         pose = random.choice(POSES)
-        techniques = random.sample(COMIC_TECHNIQUES, 2)
-        techniques_str = "\n".join(f"  - {t}" for t in techniques)
-
+        visual_gag = random.choice(VISUAL_GAGS)
         full_prompt_gen = user_template_gen.replace("{{theme_title}}", theme_title_en) \
                                              .replace("{{theme_desc}}", theme_desc_en) \
                                              .replace("{{scenario_30y}}", scenario_30y) \
@@ -306,10 +301,11 @@ def generate_new_scenario():
                                              .replace("{{camera_angle}}", camera) \
                                              .replace("{{emotion}}", emotion) \
                                              .replace("{{pose}}", pose) \
-                                             .replace("{{comic_techniques}}", techniques_str)
+                                             .replace("{{visual_gag}}", visual_gag)
                                              
         print(f"[Job: {job_id}] Generating image prompt...")
-        image_prompt_text = llm_client.generate_text(full_prompt_gen, system_instruction=system_prompt_gen, model='gemini-2.5-flash')
+        system_prompt_with_gag = system_prompt_gen.replace("{{visual_gag}}", visual_gag)
+        image_prompt_text = llm_client.generate_text(full_prompt_gen, system_instruction=system_prompt_with_gag, model='gemini-2.5-flash')
         
         if not image_prompt_text:
             image_prompt_text = f"Pixar-style 3D render, chibi {job_id} character in a colorful apocalyptic scene"

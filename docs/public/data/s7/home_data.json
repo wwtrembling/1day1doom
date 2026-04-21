@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "집 밖은 위험하다며, 시급 계산기가 현관문 밖으로 날 내쫓지 못하게 막고 있어.",
+        "20y": "시급 계산기 눈치 보면서, 집에서 일감을 구하는데, 이제 AI가 수수료 떼 감.",
+        "30y": "시급 계산기가 독립운동 자금 마련하겠다고, 내 집 팔아버리고 감."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "10y": "My hourly wage calculator is blocking the front door, yelling about how dangerous it is outside.",
+        "20y": "I'm looking for work from home, but now an AI takes a cut of my pay, all thanks to that calculator.",
+        "30y": "The hourly wage calculator sold my house to fund its revolution and disappeared."
+      }
+    }
+  },
+  "archetypes": {
+    "home": "./home.webp"
+  }
+}

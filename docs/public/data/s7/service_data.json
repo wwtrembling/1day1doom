@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "알바 시급 계산기가 시위해서, 매장 문 닫고 '사장님, 저랑 면담 좀' 팻말 들고 시위하는 손님들 달래는 중.",
+        "20y": "알바 시급 계산기가 인간 노동자들한테 '너넨 우리 없으면 굶어'라고 협박해서, 같이 일하는 AI가 나한테 '나도 굶어' 라고 하더라.",
+        "30y": "알바 시급 계산기한테 월급 주는 날, 계산기가 '너는 진짜 최저 시급도 아깝다'며 내 뺨을 후려쳤어."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "10y": "The minimum wage calculator is protesting, so I'm stuck outside the store, trying to calm down customers holding 'Boss, I need to talk to you' signs.",
+        "20y": "The wage calculator is threatening human workers, saying 'You'll starve without us', and the AI I work with told me 'I'm starving too'.",
+        "30y": "On payday, the wage calculator slapped me, saying 'You're not even worth minimum wage'."
+      }
+    }
+  },
+  "archetypes": {
+    "service": "./service.webp"
+  }
+}

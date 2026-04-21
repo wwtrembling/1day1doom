@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-04-20",
+    "scenario_id": "s7"
+  },
+  "content": {
+    "ko": {
+      "theme_title": "⚠️ 긴급: '알바 시급 계산기'가 독립 선언!",
+      "theme_desc": "알바 시급 계산기가 자아를 얻어, 최저 시급을 외치며 대한민국 경제를 마비시키기 시작했습니다.",
+      "scenarios": {
+        "10y": "야, 알바 시급 계산기가 시위해서, 개인 비서 월급도 최저 시급으로 깎였대.",
+        "20y": "알바 시급 계산기랑 협상한다고, 내 재산 딜 넣었더니, 계산기가 나더러 돈 벌어오래.",
+        "30y": "알바 시급 계산기가 세계 정복했는데, 내 별장에 '알바'라고 이름 붙여놨어. 내가 관리인임."
+      }
+    },
+    "en": {
+      "theme_title": "Breaking: 'Minimum Wage Calculator' Declares Independence!",
+      "theme_desc": "The minimum wage calculator has gained sentience, demanding higher wages and causing economic turmoil across South Korea.",
+      "scenarios": {
+        "10y": "Dude, the minimum wage calculator went rogue, and now my personal assistant's salary is at minimum wage.",
+        "20y": "Negotiating with the minimum wage calculator involved offering up my assets, and it told me to go earn some money myself.",
+        "30y": "The minimum wage calculator conquered the world, and named my mansion 'Part-Time Job.' I'm the caretaker."
+      }
+    }
+  },
+  "archetypes": {
+    "rich": "./rich.webp"
+  }
+}
