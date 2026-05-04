@@ -1,0 +1,54 @@
+{
+  "job_id": "marketer",
+  "label_ko": "마케터",
+  "label_en": "Marketer",
+  "aliases_ko": ["퍼포먼스 마케터", "브랜드 마케터", "마케팅", "광고기획자"],
+  "share_caption": {
+    "ko": "AI가 카피 100개를 써도, 사람을 움직이는 한 줄은 내가 고른다.",
+    "en": "AI writes 100 lines. I pick the one that actually moves people."
+  },
+  "stages": [
+    {
+      "year": 0,
+      "image": "stage_0.webp",
+      "ko": {
+        "title": "마케터",
+        "skills": ["캠페인 기획", "퍼포먼스 분석", "카피라이팅"],
+        "description": "오늘의 너. 매주 새 캠페인을 띄우고, 매일 숫자를 본다."
+      },
+      "en": {
+        "title": "Marketer",
+        "skills": ["campaign planning", "performance analytics", "copywriting"],
+        "description": "You today. New campaigns every week, dashboards every day."
+      }
+    },
+    {
+      "year": 10,
+      "image": "stage_10.webp",
+      "ko": {
+        "title": "AI 캠페인 디렉터",
+        "skills": ["오디언스 큐레이션", "AI 에이전트 지휘", "브랜드 톤 설계"],
+        "description": "AI 에이전트가 1만 개의 마이크로 캠페인을 동시에 돌린다. 너는 그 방향을 정한다."
+      },
+      "en": {
+        "title": "AI Campaign Director",
+        "skills": ["audience curation", "AI agent direction", "brand voice design"],
+        "description": "AI runs 10,000 micro-campaigns. You decide the direction."
+      }
+    },
+    {
+      "year": 30,
+      "image": "stage_30.webp",
+      "ko": {
+        "title": "브랜드 어른",
+        "skills": ["문화 감각", "후배 양성", "브랜드 윤리"],
+        "description": "한 브랜드의 정신을 책임지는 어른. 위기의 순간 회사가 너를 찾는다."
+      },
+      "en": {
+        "title": "Brand Sage",
+        "skills": ["cultural intuition", "mentorship", "brand ethics"],
+        "description": "The keeper of a brand's soul. When things break, the company calls you."
+      }
+    }
+  ]
+}

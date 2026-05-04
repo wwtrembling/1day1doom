@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-04T00:00:00Z",
+  "note": "Hand-crafted sample manifest. Run batch-service/generator.py to regenerate from JOB_CATALOG.",
+  "jobs": [
+    {
+      "id": "backend_developer",
+      "label_ko": "백엔드 개발자",
+      "label_en": "Backend Developer",
+      "aliases_ko": ["서버 개발자", "API 개발자", "백엔드", "서버개발자"]
+    },
+    {
+      "id": "teacher",
+      "label_ko": "교사",
+      "label_en": "Teacher",
+      "aliases_ko": ["선생님", "교원", "학교 선생님", "교수"]
+    },
+    {
+      "id": "nurse",
+      "label_ko": "간호사",
+      "label_en": "Nurse",
+      "aliases_ko": ["간호", "병원 간호사", "임상간호사"]
+    },
+    {
+      "id": "delivery_rider",
+      "label_ko": "배달기사",
+      "label_en": "Delivery Rider",
+      "aliases_ko": ["라이더", "배달원", "택배기사"]
+    },
+    {
+      "id": "marketer",
+      "label_ko": "마케터",
+      "label_en": "Marketer",
+      "aliases_ko": ["퍼포먼스 마케터", "브랜드 마케터", "마케팅", "광고기획자"]
+    }
+  ]
+}

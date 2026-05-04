@@ -1,5 +1,5 @@
 Set-Location $PSScriptRoot
-Write-Host "Starting Doom Generator..."
+Write-Host "Starting Career Evolution Tree generator..."
 
 if (Test-Path .env) {
     Get-Content .env | ForEach-Object {

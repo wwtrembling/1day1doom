@@ -1,10 +1,9 @@
 #!/bin/bash
-echo "Starting Doom Generator..."
+echo "Starting Career Evolution Tree generator..."
 
-# Check if .env exists
 if [ -f .env ]; then
     export $(cat .env | xargs)
 fi
 
-python generator.py
+python generator.py "$@"
 echo "Done."

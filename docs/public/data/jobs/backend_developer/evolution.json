@@ -1,0 +1,54 @@
+{
+  "job_id": "backend_developer",
+  "label_ko": "백엔드 개발자",
+  "label_en": "Backend Developer",
+  "aliases_ko": ["서버 개발자", "API 개발자", "백엔드", "서버개발자"],
+  "share_caption": {
+    "ko": "AI가 코드를 짜도, 흐름은 내가 짠다.",
+    "en": "AI writes the code. I design the flow."
+  },
+  "stages": [
+    {
+      "year": 0,
+      "image": "stage_0.webp",
+      "ko": {
+        "title": "백엔드 개발자",
+        "skills": ["서버 아키텍처", "DB 설계", "API 설계"],
+        "description": "오늘의 너. 코드를 쓰고, 시스템을 세우고, 새벽에도 알람을 받는다."
+      },
+      "en": {
+        "title": "Backend Developer",
+        "skills": ["server architecture", "database design", "API design"],
+        "description": "You today. Writing code, building systems, getting paged at 3 AM."
+      }
+    },
+    {
+      "year": 10,
+      "image": "stage_10.webp",
+      "ko": {
+        "title": "AI 워크플로우 디자이너",
+        "skills": ["에이전트 오케스트레이션", "프롬프트 엔지니어링", "도메인 모델링"],
+        "description": "코드를 짜기보다 흐름을 설계하는 너. 여러 AI 에이전트가 너의 동료가 된다."
+      },
+      "en": {
+        "title": "AI Workflow Designer",
+        "skills": ["agent orchestration", "prompt engineering", "domain modeling"],
+        "description": "You design the flow more than the code. AI agents are now your teammates."
+      }
+    },
+    {
+      "year": 30,
+      "image": "stage_30.webp",
+      "ko": {
+        "title": "인간-AI 협업 컨설턴트",
+        "skills": ["윤리적 시스템 설계", "조직 변환", "기술 신뢰 설계"],
+        "description": "이제 너는 사람과 AI 사이의 다리. 후배들이 너에게 가장 어려운 결정을 묻는다."
+      },
+      "en": {
+        "title": "Human-AI Collaboration Consultant",
+        "skills": ["ethical system design", "org transformation", "trust architecture"],
+        "description": "You bridge humans and AI. The next generation comes to you with the hard calls."
+      }
+    }
+  ]
+}

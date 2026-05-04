@@ -1,0 +1,54 @@
+{
+  "job_id": "delivery_rider",
+  "label_ko": "배달기사",
+  "label_en": "Delivery Rider",
+  "aliases_ko": ["라이더", "배달원", "택배기사"],
+  "share_caption": {
+    "ko": "도시는 나를 모르지만, 도시의 길은 내가 가장 잘 안다.",
+    "en": "The city doesn't know me. But I know it best."
+  },
+  "stages": [
+    {
+      "year": 0,
+      "image": "stage_0.webp",
+      "ko": {
+        "title": "배달기사",
+        "skills": ["도시 지리", "고객 응대", "체력 관리"],
+        "description": "오늘의 너. 비 오는 날, 여섯 동네 길을 머릿속에 다 갖고 다닌다."
+      },
+      "en": {
+        "title": "Delivery Rider",
+        "skills": ["city geography", "customer service", "stamina"],
+        "description": "You today. In the rain, six neighborhoods live in your head."
+      }
+    },
+    {
+      "year": 10,
+      "image": "stage_10.webp",
+      "ko": {
+        "title": "도심 물류 코디네이터",
+        "skills": ["자율 배송 운영", "예외 상황 판단", "라이더 코칭"],
+        "description": "수십 대의 자율 배달 로봇을 한 사람이 지휘한다. 그 한 사람이 너다."
+      },
+      "en": {
+        "title": "Urban Logistics Coordinator",
+        "skills": ["autonomous fleet ops", "exception handling", "rider coaching"],
+        "description": "Dozens of autonomous delivery bots, one human conductor. That's you."
+      }
+    },
+    {
+      "year": 30,
+      "image": "stage_30.webp",
+      "ko": {
+        "title": "도시 물류 마스터",
+        "skills": ["도시 단위 운영", "정책 자문", "후배 양성"],
+        "description": "한 도시의 흐름을 설계하는 어른. 시청 회의에 너의 이름이 올라간다."
+      },
+      "en": {
+        "title": "City Logistics Master",
+        "skills": ["city-scale operations", "policy advisory", "mentorship"],
+        "description": "An elder shaping the flow of a whole city. Your name on the city council's agenda."
+      }
+    }
+  ]
+}

@@ -9,216 +9,159 @@ from google.genai import types
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# Initialize Client
 client = None
 if GEMINI_API_KEY:
     client = genai.Client(api_key=GEMINI_API_KEY)
 
+
 def parse_prompt_file(file_path):
-    """
-    Parses a JSON prompt file with 'systemPromopt' and 'userPromopt' keys.
-    Returns (system_prompt, user_prompt_template).
-    """
     with open(file_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    
-    system_prompt = data.get("systemPromopt", "")
-    user_prompt = data.get("userPromopt", "")
-    
-    return system_prompt, user_prompt
+    return data.get("systemPromopt", ""), data.get("userPromopt", "")
 
-def generate_scenario(date_str, scenario_id="s1", previous_themes=None):
-    """
-    Generates the daily scenario using Gemini via google-genai SDK.
-    """
-    if not client:
-        print("Error: GEMINI_API_KEY is missing.")
-        return None
 
-    # Load prompt template
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    prompt_path = os.path.join(base_dir, "prompt", "scenario.json")
-    
-    system_prompt, user_template = parse_prompt_file(prompt_path)
-    
-    # Fill User Template
-    full_user_prompt = user_template.replace("{{scenario_id}}", scenario_id)
-
-    # 이전 소재 목록 주입
-    if previous_themes:
-        themes_text = "🚫 아래는 이미 사용한 소재입니다. 이 소재들과 동일하거나 유사한 주제는 절대 사용하지 마세요:\n"
-        for i, title in enumerate(previous_themes, 1):
-            themes_text += f"  {i}. {title}\n"
-    else:
-        themes_text = ""
-    full_user_prompt = full_user_prompt.replace("{{previous_themes}}", themes_text)
-
+def _retry_call(fn, label):
     max_retries = 3
     for attempt in range(max_retries):
         try:
-            # Using generate_content from the new client
-            config = types.GenerateContentConfig(response_mime_type='application/json')
-            
-            if system_prompt:
-                config.system_instruction = system_prompt
-
-            response = client.models.generate_content(
-                model='gemini-2.0-flash-lite-001', 
-                contents=full_user_prompt,
-                config=config
-            )
-            
-            text = response.text
-            data = json.loads(text)
-            return data
+            return fn()
         except Exception as e:
             err = str(e)
             if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
-                wait_time = 30 * (attempt + 1)
-                print(f"[Warning] Retryable error. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
-                time.sleep(wait_time)
+                wait = 30 * (attempt + 1)
+                print(f"[Retry] {label}: {err[:80]}... waiting {wait}s ({attempt+1}/{max_retries})")
+                time.sleep(wait)
             else:
-                print(f"Error generating scenario: {e}")
+                print(f"[Error] {label}: {e}")
                 return None
-    
-    print("[Error] Max retries exceeded for scenario generation.")
+    print(f"[Error] {label}: max retries exceeded")
     return None
 
 
-def generate_job_data(theme_title, theme_desc, job):
+def generate_evolution_tree(job):
     """
-    Generates job-specific future scenarios (10y/20y/30y).
+    Generate a 3-stage career evolution tree for one job entry.
+    Input: job dict from JOB_CATALOG (has id, label_ko, label_en, description_en).
+    Output: dict matching the schema in evolution_tree.json prompt.
     """
     if not client:
         print("Error: GEMINI_API_KEY is missing.")
         return None
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    prompt_path = os.path.join(base_dir, "prompt", "job_scenario.json")
-    
+    prompt_path = os.path.join(base_dir, "prompt", "evolution_tree.json")
     system_prompt, user_template = parse_prompt_file(prompt_path)
 
-    full_user_prompt = user_template.replace("{{theme_title}}", theme_title) \
-                                 .replace("{{theme_desc}}", theme_desc) \
-                                 .replace("{{job}}", job)
+    full_prompt = (user_template
+                   .replace("{{job_id}}", job["id"])
+                   .replace("{{job_label_ko}}", job["label_ko"])
+                   .replace("{{job_description}}", job["description_en"]))
 
-    max_retries = 3
-    for attempt in range(max_retries):
-        try:
-            config = types.GenerateContentConfig(response_mime_type='application/json')
-            
-            if system_prompt:
-                config.system_instruction = system_prompt
+    def _call():
+        config = types.GenerateContentConfig(response_mime_type='application/json')
+        if system_prompt:
+            config.system_instruction = system_prompt
+        response = client.models.generate_content(
+            model='gemini-2.0-flash-lite-001',
+            contents=full_prompt,
+            config=config
+        )
+        return json.loads(response.text)
 
-            response = client.models.generate_content(
-                model='gemini-2.0-flash-lite-001', 
-                contents=full_user_prompt,
-                config=config
-            )
-            return json.loads(response.text)
-        except Exception as e:
-            err = str(e)
-            if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
-                wait_time = 30 * (attempt + 1)
-                print(f"[Warning] Retryable error for {job}. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
-                time.sleep(wait_time)
-            else:
-                print(f"Error generating job data for {job}: {e}")
-                return None
-    return None
+    return _retry_call(_call, f"evolution_tree({job['id']})")
 
-def generate_text(prompt, system_instruction=None, model='gemini-2.0-flash-lite-001'):
+
+def generate_image_prompt(job, stage, stage_tone, composition_directive):
     """
-    Generates text using Gemini.
+    Generate the Imagen-ready English prompt for a single evolution stage.
     """
     if not client:
-        print("Error: GEMINI_API_KEY is missing.")
         return None
 
-    max_retries = 3
-    for attempt in range(max_retries):
-        try:
-            config = types.GenerateContentConfig()
-            if system_instruction:
-                config.system_instruction = system_instruction
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    prompt_path = os.path.join(base_dir, "prompt", "image_prompt.json")
+    system_prompt, user_template = parse_prompt_file(prompt_path)
 
-            response = client.models.generate_content(
-                model=model,
-                contents=prompt,
-                config=config
-            )
-            return response.text.strip()
-        except Exception as e:
-            err = str(e)
-            if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
-                wait_time = 30 * (attempt + 1)
-                print(f"[Warning] Retryable error. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
-                time.sleep(wait_time)
-            else:
-                print(f"Error generating text: {e}")
-                return None
-    return None
+    en = stage.get("en", {})
+    full_prompt = (user_template
+                   .replace("{{job_label_en}}", job["label_en"])
+                   .replace("{{year}}", str(stage.get("year", 0)))
+                   .replace("{{stage_title_en}}", en.get("title", ""))
+                   .replace("{{stage_description_en}}", en.get("description", ""))
+                   .replace("{{stage_skills_en}}", ", ".join(en.get("skills", []) or []))
+                   .replace("{{character_seed}}", job["character_seed"])
+                   .replace("{{stage_tone}}", stage_tone)
+                   .replace("{{composition_directive}}", composition_directive))
 
-def generate_image_from_text(prompt, output_path):
+    def _call():
+        config = types.GenerateContentConfig()
+        if system_prompt:
+            config.system_instruction = system_prompt
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=full_prompt,
+            config=config
+        )
+        return response.text.strip()
+
+    return _retry_call(_call, f"image_prompt({job['id']}/y{stage.get('year')})")
+
+
+def generate_image_from_text(prompt, output_path, aspect_ratio="3:4"):
     """
-    Generates an image using Imagen 3 model via google-genai SDK using a direct text prompt.
+    Generate one image with Imagen and save it as a 1024x1280 webp (3:4 ratio).
     """
     if not client:
         print("Error: GEMINI_API_KEY is missing.")
         return False
 
-    print(f"[Image] Generating image...")
-    # print(f"[Image] Prompt: {prompt}") # Optional: Don't print full prompt to keep logs clean if long
-    
+    print(f"[Image] Generating image -> {output_path}")
+
     max_retries = 3
     for attempt in range(max_retries):
         try:
-            # Using models.generate_images
             response = client.models.generate_images(
                 model='imagen-4.0-fast-generate-001',
                 prompt=prompt,
                 config=types.GenerateImagesConfig(
                     number_of_images=1,
-                    aspect_ratio="1:1"
-                )
+                    aspect_ratio=aspect_ratio,
+                ),
             )
-            
-            # Response handling
-            if response.generated_images:
-                image = response.generated_images[0]
-                
-                # Check for PIL Image attribute (common in wrappers)
-                if hasattr(image, 'image') and hasattr(image.image, 'save'):
-                    image.image.save(output_path)
-                # Check for raw bytes (common in v1beta/v0)
-                elif hasattr(image, 'image_bytes'):
-                     with open(output_path, 'wb') as f:
-                         f.write(image.image_bytes)
-                else:
-                     print(f"[Image] Error: Cannot save image. Attributes: {dir(image)}")
-                     return False
-                     
-                # 리사이즈 + 압축 (웹 최적화)
-                try:
-                    with PILImage.open(output_path) as img:
-                        img = img.resize((1024, 1024), PILImage.LANCZOS)
-                        img.save(output_path, 'WEBP', quality=85)
-                    size_kb = os.path.getsize(output_path) // 1024
-                    print(f"[Image] Saved to {output_path} ({size_kb}KB)")
-                except Exception as resize_err:
-                    print(f"[Image] Saved (resize skipped: {resize_err})")
-                return True
-            else:
+
+            if not response.generated_images:
                 print("[Image] No image returned.")
                 return False
-                
+
+            image = response.generated_images[0]
+
+            if hasattr(image, 'image') and hasattr(image.image, 'save'):
+                image.image.save(output_path)
+            elif hasattr(image, 'image_bytes'):
+                with open(output_path, 'wb') as f:
+                    f.write(image.image_bytes)
+            else:
+                print(f"[Image] Cannot save image. Attributes: {dir(image)}")
+                return False
+
+            try:
+                with PILImage.open(output_path) as img:
+                    target = (1024, 1365) if aspect_ratio == "3:4" else (1024, 1024)
+                    img = img.resize(target, PILImage.LANCZOS)
+                    img.save(output_path, 'WEBP', quality=85)
+                size_kb = os.path.getsize(output_path) // 1024
+                print(f"[Image] Saved {output_path} ({size_kb}KB)")
+            except Exception as resize_err:
+                print(f"[Image] Saved (resize skipped: {resize_err})")
+            return True
+
         except Exception as e:
             err = str(e)
             if any(k in err for k in ["429", "Quota exceeded", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"]):
-                wait_time = 30 * (attempt + 1)
-                print(f"[Image] Retryable error. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
-                time.sleep(wait_time)
+                wait = 30 * (attempt + 1)
+                print(f"[Image] Retry in {wait}s ({attempt+1}/{max_retries}): {err[:80]}...")
+                time.sleep(wait)
             else:
-                print(f"[Image] Error generating image: {e}")
+                print(f"[Image] Error: {e}")
                 return False
     return False

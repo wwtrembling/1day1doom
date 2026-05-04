@@ -1,471 +1,335 @@
-const CONFIG = {
-    repoUrl: 'https://wwtrembling.github.io/1day1doom' // Placeholder
-};
+// 1day1evolve — Career Evolution Tree client
+//
+// Loads ../public/data/jobs.json (manifest), then loads
+// ../public/data/jobs/{id}/evolution.json on demand and renders
+// 3 evolution cards. Supports ?job=<id> deep links and clipboard share.
 
 const UI_TEXT = {
     ko: {
-        app_title: "1일 1멸망 🧟",
-        input_title: "생존자 등록",
-        label_name: "이름",
-        label_age: "나이",
-        label_job_cat: "직군",
-        cat_office: "사무직/IT",
-        cat_service: "서비스/자영업",
-        cat_professional: "전문직/의료",
-        cat_labor: "현장/운동",
-        cat_art: "예술/방송",
-        cat_student: "학생",
-        cat_influencer: "인플루언서",
-        cat_rich: "금수저/경영",
-        cat_gamer: "게이머/해커",
-        cat_home: "무직/백수",
-        btn_submit: "미래 확인하기",
-        btn_retry: "다시 하기",
-        btn_share: "공유하기",
-        slogan: "오늘의 멸망을 배달해드립니다.",
-        msg_calculating: "멸망 시나리오 생성 중...",
-        msg_wait: "당신의 미래를 불러오고 있습니다. 잠시만 기다려주세요.",
-        msg_share_done: "미래가 복사되었습니다! 친구들에게 경고하세요."
+        app_title: "1일 1진화",
+        slogan: "AI가 내 직업을 먹기 전에, 내가 먼저 진화한다.",
+        input_title: "내 직업 입력",
+        label_job: "직업",
+        placeholder_job: "예: 백엔드 개발자, 교사, 간호사…",
+        hint: "내 직업이 30년 동안 어떻게 진화할지, AI 시대에 어떻게 살아남을지 보여드려요.",
+        btn_submit: "진화 트리 보기",
+        btn_retry: "다른 직업으로",
+        btn_share: "친구에게 공유",
+        result_job_label: "내 직업",
+        msg_calculating: "진화 트리 분석 중…",
+        msg_share_done: "링크가 복사되었어요. 친구에게 자랑해보세요!",
+        msg_no_match: "아직 준비된 직업 카드가 없어요. 비슷한 직업으로 시도해 보세요.",
+        year_now: "지금",
+        year_10: "10년 후",
+        year_30: "30년 후",
+        skills_label: "핵심 역량"
     },
     en: {
-        app_title: "1 Day 1 Doom 🧟",
-        input_title: "Survivor Registration",
-        label_name: "Name",
-        label_age: "Age",
-        label_job_cat: "Category",
-        cat_office: "Office/IT",
-        cat_service: "Service/Retail",
-        cat_professional: "Professional/Medical",
-        cat_labor: "Labor/Sports",
-        cat_art: "Art/Media",
-        cat_student: "Student",
-        cat_influencer: "Influencer",
-        cat_rich: "Rich/Executive",
-        cat_gamer: "Gamer/Hacker",
-        cat_home: "Unemployed",
-        btn_submit: "Check Future",
-        btn_retry: "Try Again",
+        app_title: "1 Day 1 Evolve",
+        slogan: "Before AI eats your job, evolve first.",
+        input_title: "Your Job",
+        label_job: "Job",
+        placeholder_job: "e.g. Backend Developer, Teacher, Nurse…",
+        hint: "See how your career evolves over 30 years and how to thrive in the age of AI.",
+        btn_submit: "See My Evolution Tree",
+        btn_retry: "Try Another Job",
         btn_share: "Share",
-        slogan: "Your Daily Dose of Dystopia.",
-        msg_calculating: "Generating Scenario...",
-        msg_wait: "Loading your future. Please wait a moment.",
-        msg_share_done: "Future copied! Warn your friends."
+        result_job_label: "Your job",
+        msg_calculating: "Analyzing your evolution tree…",
+        msg_share_done: "Link copied! Share with friends.",
+        msg_no_match: "We don't have a card for that job yet. Try a similar one.",
+        year_now: "Now",
+        year_10: "10 years",
+        year_30: "30 years",
+        skills_label: "Key skills"
     }
 };
 
-let currentLang = 'ko';
-let currentThemeData = null; // Stores scenario.json data
-let currentJobData = null;   // Stores {job}_data.json data
+const DATA_BASE = "../public/data";
 
-let scenarios = [];
+let currentLang = "ko";
+let manifest = null;
+let currentEvolution = null;
 
-function updateLanguage(lang) {
-    currentLang = lang;
-
-    // Update active button
-    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-    // Update all data-i18n elements
-    const texts = UI_TEXT[lang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (texts[key]) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = texts[key];
-            } else {
-                el.textContent = texts[key];
-            }
-        }
-    });
-
-    // Update slogan
-    document.getElementById('slogan').textContent = texts.slogan;
-
-    // Re-render result if visible
-    if (currentJobData && !document.getElementById('result-section').classList.contains('hidden')) {
-        renderResultContent();
-    }
+function t(key) {
+    return UI_TEXT[currentLang][key] || key;
 }
 
-// Initialize
-document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Detect Language from HTML tag
-    const htmlLang = document.documentElement.lang;
-    if (htmlLang === 'en') {
-        currentLang = 'en';
-    } else {
-        currentLang = 'ko';
-    }
-    updateLanguage(currentLang);
+document.addEventListener("DOMContentLoaded", async () => {
+    currentLang = document.documentElement.lang === "en" ? "en" : "ko";
+    applyI18n();
 
-    // 2. Event Listeners
-    // Language buttons are now links, so no click listeners needed
+    document.getElementById("job-form").addEventListener("submit", onFormSubmit);
+    document.getElementById("btn-restart").addEventListener("click", resetView);
+    document.getElementById("btn-share").addEventListener("click", onShare);
 
-    document.getElementById('survival-form').addEventListener('submit', handleFormSubmit);
-    document.getElementById('btn-restart').addEventListener('click', resetForm);
-    document.getElementById('btn-share').addEventListener('click', shareResult);
+    const input = document.getElementById("job-input");
+    input.addEventListener("input", onInputChange);
+    input.addEventListener("focus", onInputChange);
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".form-group")) hideSuggestions();
+    });
 
-    // 3. Load Scenarios List
-    await fetchScenarioList();
+    await loadManifest();
 
-    // 4. Random job selection (default)
-    const jobSelect = document.getElementById('job-category');
-    const options = jobSelect.querySelectorAll('option');
-    jobSelect.selectedIndex = Math.floor(Math.random() * options.length);
-
-    // 5. Load Saved Data (overrides random if exists)
-    loadUserData();
-
-    // 5. Check Deep Link
-    const urlParams = new URLSearchParams(window.location.search);
-    const pName = urlParams.get('name');
-    const pAge = urlParams.get('age');
-    const pJob = urlParams.get('job');
-    const pScenario = urlParams.get('s'); // s=s1, s2 etc.
-
-    if (pName && pAge && pJob) {
-        // Auto-fill form
-        document.getElementById('name').value = pName;
-        document.getElementById('age').value = pAge;
-        document.getElementById('job-category').value = pJob;
-
-        // Auto-show result
-        try {
-            // Determine which scenario to load
-            let scenarioToLoad = pScenario;
-            if (!scenarioToLoad) {
-                // If no specific scenario in link, use the rotation logic or default to latest
-                // effectively acting like a new submission but skipping the click
-                scenarioToLoad = getNextScenario(pJob);
-            }
-
-            await loadScenarioData(scenarioToLoad, pJob);
-
-            if (currentJobData) {
-                // Hide Input, Show Result directly
-                document.getElementById('input-section').classList.add('hidden');
-                document.getElementById('loading-section').classList.add('hidden');
-
-                renderResultContent();
-
-                document.getElementById('result-section').classList.remove('hidden');
-            }
-        } catch (e) {
-            console.error("Deep link render failed:", e);
-            document.getElementById('input-section').classList.remove('hidden');
+    const params = new URLSearchParams(window.location.search);
+    const deepJob = params.get("job");
+    if (deepJob) {
+        const entry = findJob(deepJob);
+        if (entry) {
+            input.value = currentLang === "ko" ? entry.label_ko : entry.label_en;
+            await showEvolution(entry.id);
         }
+    } else {
+        const saved = localStorage.getItem("evo_last_input");
+        if (saved) input.value = saved;
     }
 });
 
-async function fetchScenarioList() {
+function applyI18n() {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const txt = UI_TEXT[currentLang][key];
+        if (txt) el.textContent = txt;
+    });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        const txt = UI_TEXT[currentLang][key];
+        if (txt) el.placeholder = txt;
+    });
+    document.title = t("app_title") + " — " + t("slogan");
+}
+
+async function loadManifest() {
     try {
-        const response = await fetch('../public/data/scenarios.json');
-        if (!response.ok) throw new Error("Failed to load scenarios.json");
-        scenarios = await response.json();
-        console.log("Loaded scenarios:", scenarios);
+        const res = await fetch(`${DATA_BASE}/jobs.json`, { cache: "no-store" });
+        if (!res.ok) throw new Error("manifest fetch failed");
+        manifest = await res.json();
     } catch (e) {
-        console.error("Error loading scenarios:", e);
-        // Fallback or Alert?
-        scenarios = ['s1']; // Minimal fallback
+        console.error("Failed to load manifest:", e);
+        manifest = { jobs: [] };
     }
 }
 
-function getNextScenario(jobCat) {
-    if (!scenarios || scenarios.length === 0) return 's1';
+function normalize(s) {
+    return (s || "").toLowerCase().replace(/\s+/g, "").trim();
+}
 
-    // 1. Get history from LocalStorage
-    // Key: odod_scenario_history (JSON object: { "office": "s3", "gamer": "s1" ... })
-    let history = {};
-    const savedHistory = localStorage.getItem('odod_scenario_history');
-    if (savedHistory) {
-        try { history = JSON.parse(savedHistory); } catch (e) { }
-    }
-
-    const lastSeen = history[jobCat];
-
-    // Logic: Latest -> ... -> First -> Latest
-    // Sort scenarios purely to establish order? Assuming scenarios.json is ordered [s1, s2, s3...].
-    // If not, we might want to sort them. Let's assume they are sorted or we rely on the list order.
-    // Latest = last element.
-
-    let nextScenario = '';
-
-    if (!lastSeen) {
-        // First time for this job: Show Latest
-        nextScenario = scenarios[scenarios.length - 1];
-    } else {
-        // Find index of last seen
-        const lastIndex = scenarios.indexOf(lastSeen);
-        if (lastIndex === -1) {
-            // Unknown scenario (maybe deleted), reset to Latest
-            nextScenario = scenarios[scenarios.length - 1];
-        } else {
-            // Previous index
-            let nextIndex = lastIndex - 1;
-            if (nextIndex < 0) {
-                // Wrap to Latest (End of array)
-                nextIndex = scenarios.length - 1;
-            }
-            nextScenario = scenarios[nextIndex];
+function findJob(query) {
+    if (!manifest || !manifest.jobs) return null;
+    const q = normalize(query);
+    if (!q) return null;
+    for (const j of manifest.jobs) {
+        if (j.id === query) return j;
+        if (normalize(j.label_ko) === q) return j;
+        if (normalize(j.label_en) === q) return j;
+        for (const a of (j.aliases_ko || [])) {
+            if (normalize(a) === q) return j;
         }
     }
-
-    // Save decision implies we "viewed" it? 
-    // Actually, we should probably save it when we actually render or just here.
-    // Let's save here because this function determines what WE WILL SHOW.
-    history[jobCat] = nextScenario;
-    localStorage.setItem('odod_scenario_history', JSON.stringify(history));
-
-    return nextScenario;
+    return null;
 }
 
-async function loadScenarioData(scenarioId, jobCat) {
-    console.log(`Loading scenario: ${scenarioId} for job: ${jobCat}`);
-    try {
-        // 1. Load Master Scenario (Theme) - Cache if possible or just fetch
-        // We could optimize to not fetch if already loaded for same scenarioId
-        if (!currentThemeData || currentThemeData.meta.scenario_id !== scenarioId) {
-            const themeUrl = `../public/data/${scenarioId}/scenario.json`;
-            const themeRes = await fetch(themeUrl);
-            if (!themeRes.ok) throw new Error(`Theme data not found for ${scenarioId}`);
-            currentThemeData = await themeRes.json();
-            // Ensure meta has scenario_id if missing (legacy support)
-            if (!currentThemeData.meta.scenario_id) currentThemeData.meta.scenario_id = scenarioId;
+function suggestJobs(query) {
+    if (!manifest || !manifest.jobs) return [];
+    const q = normalize(query);
+    if (!q) return manifest.jobs.slice(0, 8);
+    const scored = [];
+    for (const j of manifest.jobs) {
+        const labels = [j.label_ko, j.label_en, ...(j.aliases_ko || [])].map(normalize);
+        let score = 0;
+        for (const lab of labels) {
+            if (lab === q) score = Math.max(score, 100);
+            else if (lab.startsWith(q)) score = Math.max(score, 60);
+            else if (lab.includes(q)) score = Math.max(score, 30);
         }
-
-        // 2. Load Job Data
-        const jobUrl = `../public/data/${scenarioId}/${jobCat}_data.json`;
-        const jobRes = await fetch(jobUrl);
-        if (!jobRes.ok) throw new Error(`Job data not found for ${scenarioId} / ${jobCat}`);
-
-        currentJobData = await jobRes.json();
-
-        // Setup helper paths
-        currentJobData._basePath = `../public/data/${scenarioId}/`;
-        currentJobData.id = scenarioId;
-
-        updateSEO();
-        return true;
-    } catch (e) {
-        console.error("Failed to load scenario data:", e);
-        alert(`데이터를 불러올 수 없습니다: ${scenarioId} (${jobCat})`);
-        return false;
+        if (score > 0) scored.push({ j, score });
     }
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, 8).map(x => x.j);
 }
 
-function updateSEO() {
-    if (!currentThemeData) return;
-    const content = currentThemeData.content[currentLang] || currentThemeData.content; // Fallback structure
-    const desc = content.theme_desc;
-
-
-    document.querySelector('meta[name="description"]').setAttribute("content", desc);
-    document.querySelector('meta[property="og:description"]').setAttribute("content", desc);
-    document.title = UI_TEXT[currentLang].slogan;
+function onInputChange(e) {
+    const q = e.target.value;
+    const matches = suggestJobs(q);
+    const list = document.getElementById("job-suggestions");
+    list.innerHTML = "";
+    if (!matches.length) {
+        list.style.display = "none";
+        return;
+    }
+    for (const j of matches) {
+        const li = document.createElement("li");
+        li.textContent = currentLang === "ko" ? j.label_ko : j.label_en;
+        li.addEventListener("mousedown", (ev) => {
+            ev.preventDefault();
+            document.getElementById("job-input").value = li.textContent;
+            hideSuggestions();
+        });
+        list.appendChild(li);
+    }
+    list.style.display = "block";
 }
 
-async function handleFormSubmit(e) {
+function hideSuggestions() {
+    const list = document.getElementById("job-suggestions");
+    list.style.display = "none";
+    list.innerHTML = "";
+}
+
+async function onFormSubmit(e) {
     e.preventDefault();
+    const raw = document.getElementById("job-input").value.trim();
+    if (!raw) return;
+    localStorage.setItem("evo_last_input", raw);
 
-    // 1. Determine next scenario
-    const jobCat = document.getElementById('job-category').value;
-    const nextScenario = getNextScenario(jobCat);
+    let entry = findJob(raw);
+    if (!entry) {
+        const sugg = suggestJobs(raw);
+        if (sugg.length) entry = sugg[0];
+    }
+    if (!entry) {
+        alert(t("msg_no_match"));
+        return;
+    }
+    await showEvolution(entry.id);
+}
+
+async function showEvolution(jobId) {
+    document.getElementById("input-section").classList.add("hidden");
+    document.getElementById("result-section").classList.add("hidden");
+    document.getElementById("loading-section").classList.remove("hidden");
 
     try {
-        // 2. Save Data
-        saveUserData();
+        const res = await fetch(`${DATA_BASE}/jobs/${jobId}/evolution.json`, { cache: "no-store" });
+        if (!res.ok) throw new Error("evolution fetch failed");
+        currentEvolution = await res.json();
+        currentEvolution._jobId = jobId;
 
-        // 3. Hide Input, Show Loading
-        document.getElementById('input-section').classList.add('hidden');
-        document.getElementById('loading-section').classList.remove('hidden');
+        // small delay so the loading state is perceptible
+        await new Promise(r => setTimeout(r, 600));
 
-        // 4. Preload Data while waiting
-        await loadScenarioData(nextScenario, jobCat);
+        renderResult();
 
-        // 5. Wait 3 seconds for effect
-        setTimeout(() => {
-            try {
-                if (!currentJobData) {
-                    throw new Error("Scenario data not loaded");
-                }
-
-                // 6. Hide Loading, Show Result
-                document.getElementById('loading-section').classList.add('hidden');
-                renderResultContent();
-                document.getElementById('result-section').classList.remove('hidden');
-            } catch (err) {
-                console.error("Error rendering result:", err);
-                alert("결과를 표시하는 중 오류가 발생했습니다: " + err.message);
-                document.getElementById('input-section').classList.remove('hidden');
-            }
-        }, 3000);
-    } catch (err) {
-        console.error("Error in form submission:", err);
-        alert("오류가 발생했습니다: " + err.message);
-        document.getElementById('input-section').classList.remove('hidden');
+        const url = new URL(window.location.href);
+        url.searchParams.set("job", jobId);
+        history.replaceState(null, "", url);
+    } catch (e) {
+        console.error(e);
+        alert(t("msg_no_match"));
+        resetView();
+    } finally {
+        document.getElementById("loading-section").classList.add("hidden");
     }
 }
 
-function saveUserData() {
-    const userData = {
-        name: document.getElementById('name').value,
-        age: document.getElementById('age').value,
-        jobCat: document.getElementById('job-category').value
-    };
-    localStorage.setItem('odod_user_data', JSON.stringify(userData));
-}
+function renderResult() {
+    const ev = currentEvolution;
+    const lang = currentLang;
+    if (!ev) return;
 
-function loadUserData() {
-    const saved = localStorage.getItem('odod_user_data');
-    if (saved) {
-        try {
-            const data = JSON.parse(saved);
-            if (data.name) document.getElementById('name').value = data.name;
-            if (data.age) document.getElementById('age').value = data.age;
-            // gender removed
-            if (data.jobCat) document.getElementById('job-category').value = data.jobCat;
-        } catch (e) {
-            console.error("Failed to load saved data", e);
+    document.getElementById("result-job-name").textContent =
+        lang === "ko" ? ev.label_ko : ev.label_en;
+    document.getElementById("result-caption").textContent =
+        (ev.share_caption && ev.share_caption[lang]) || "";
+
+    const container = document.getElementById("evolution-cards");
+    container.innerHTML = "";
+
+    const stages = (ev.stages || []).slice().sort((a, b) => a.year - b.year);
+
+    stages.forEach((stage, idx) => {
+        const card = document.createElement("div");
+        card.className = `evo-card stage-${stage.year}`;
+
+        const yearLabel =
+            stage.year === 0 ? t("year_now") :
+            stage.year === 10 ? t("year_10") :
+            t("year_30");
+
+        const sl = stage[lang] || stage.ko || stage.en || {};
+        const skills = Array.isArray(sl.skills) ? sl.skills : [];
+        const imgFile = stage.image || `stage_${stage.year}.webp`;
+        const imgSrc = `${DATA_BASE}/jobs/${ev._jobId}/${imgFile}`;
+
+        card.innerHTML = `
+            <div class="evo-card-year">${yearLabel}</div>
+            <div class="evo-card-img-wrap">
+                <img class="evo-card-img" src="${imgSrc}" alt="${sl.title || ""}"
+                     onerror="this.onerror=null; this.classList.add('img-missing'); this.removeAttribute('src');">
+            </div>
+            <h3 class="evo-card-title">${escapeHtml(sl.title || "")}</h3>
+            <p class="evo-card-desc">${escapeHtml(sl.description || "")}</p>
+            <div class="evo-card-skills">
+                <div class="evo-card-skills-label">${t("skills_label")}</div>
+                <ul>
+                    ${skills.map(s => `<li>${escapeHtml(s)}</li>`).join("")}
+                </ul>
+            </div>
+        `;
+
+        container.appendChild(card);
+        if (idx < stages.length - 1) {
+            const arrow = document.createElement("div");
+            arrow.className = "evo-arrow";
+            arrow.textContent = "→";
+            container.appendChild(arrow);
         }
-    }
+    });
+
+    document.getElementById("result-section").classList.remove("hidden");
+    document.getElementById("input-section").classList.add("hidden");
 }
 
-function renderResultContent() {
-    // Get Inputs
-    const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-    const jobCat = document.getElementById('job-category').value;
-
-    // Check if element exists
-    const optionEl = document.querySelector(`#job-category option[value="${jobCat}"]`);
-    if (!optionEl) {
-        throw new Error(`직군 선택을 찾을 수 없습니다: ${jobCat}`);
-    }
-    const jobCatText = optionEl.textContent;
-
-    if (!currentJobData || !currentThemeData) {
-        throw new Error("데이터가 로드되지 않았습니다.");
-    }
-
-    // Theme Info from currentThemeData
-    const themeContent = currentThemeData.content[currentLang] || currentThemeData.content;
-    if (!themeContent) throw new Error(`테마 데이터 오류: ${currentLang}`);
-
-    // Job Info from currentJobData
-    // Note: currentJobData might still have content.ko.scenarios OR it might rely on us merging?
-    // In our generator/conversion, we stuck with structure: jobData.content.ko.scenarios...
-    // But themes are also in jobData currently (duplicates).
-    // We should prefer currentThemeData for Title/Desc, and currentJobData for Scenarios.
-
-    const jobContent = currentJobData.content[currentLang] || currentJobData.content;
-
-    // 1. Text Content
-    document.getElementById('theme-title').textContent = themeContent.theme_title;
-    document.getElementById('theme-desc').textContent = themeContent.theme_desc;
-
-    // genderText removed
-
-    const processScenario = (text) => {
-        return text
-            .replace(/\$\{name\}/g, name)
-            .replace(/\{\{name\}\}/g, name)
-            .replace(/\$\{age\}/g, age)
-            .replace(/\{\{age\}\}/g, age)
-            .replace(/\$\{job\}/g, jobCatText)
-            .replace(/\{\{job\}\}/g, jobCatText);
-    };
-
-    document.getElementById('text-10y').textContent = processScenario(jobContent.scenarios['10y']);
-    document.getElementById('text-20y').textContent = processScenario(jobContent.scenarios['20y']);
-    document.getElementById('text-30y').textContent = processScenario(jobContent.scenarios['30y']);
-
-    // 2. Image
-    // Key: office, gamer etc.
-    const imgKey = jobCat;
-    const imgSrc = currentJobData.archetypes[imgKey];
-    const imgEl = document.getElementById('result-image');
-    const imgContainer = imgEl.closest('.image-container');
-
-    if (imgSrc) {
-        // Resolve relative path if needed
-        let finalSrc = imgSrc;
-        if (imgSrc.startsWith('./') && currentJobData._basePath) {
-            finalSrc = currentJobData._basePath + imgSrc.substring(2);
-        }
-        imgEl.src = finalSrc;
-        if (imgContainer) imgContainer.style.display = '';
-    } else {
-        imgEl.src = '';
-        if (imgContainer) imgContainer.style.display = 'none';
-    }
+function escapeHtml(s) {
+    return String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
 }
 
-async function shareResult() {
-    let shareUrl = window.location.href;
+function resetView() {
+    document.getElementById("result-section").classList.add("hidden");
+    document.getElementById("loading-section").classList.add("hidden");
+    document.getElementById("input-section").classList.remove("hidden");
+    const url = new URL(window.location.href);
+    url.searchParams.delete("job");
+    history.replaceState(null, "", url);
+}
 
-    // Clean existing search params to avoid duplication
-    const urlObj = new URL(window.location.href);
+async function onShare() {
+    if (!currentEvolution) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set("job", currentEvolution._jobId);
+    const shareUrl = url.toString();
 
-    // 1. Scenario Param
-    if (currentJobData && currentJobData.id) {
-        urlObj.searchParams.set('s', currentJobData.id);
-    }
-
-    // 2. User Params (Deep Linking)
-    const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-    const jobCat = document.getElementById('job-category').value;
-
-    if (name) urlObj.searchParams.set('name', name);
-    if (age) urlObj.searchParams.set('age', age);
-    // gender removed
-    if (jobCat) urlObj.searchParams.set('job', jobCat);
-
-    shareUrl = urlObj.toString();
-
-    const text = UI_TEXT[currentLang].slogan + "\n\n" +
-        document.getElementById('theme-title').textContent + "\n" +
-        document.getElementById('theme-desc').textContent + "\n\n" +
-        shareUrl;
+    const lang = currentLang;
+    const text =
+        ((currentEvolution.share_caption && currentEvolution.share_caption[lang]) || t("slogan"))
+        + "\n\n" + shareUrl;
 
     if (navigator.share) {
         try {
-            await navigator.share({
-                title: document.title,
-                text: text,
-                url: shareUrl,
-            });
-        } catch (err) {
-            console.log('Share canceled');
+            await navigator.share({ title: t("app_title"), text, url: shareUrl });
+            return;
+        } catch (e) { /* user canceled */ }
+    }
+    try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+        } else {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
         }
-    } else {
-        // Fallback: Copy to clipboard
-        try {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                await navigator.clipboard.writeText(text);
-            } else {
-                // Legacy fallback for insecure contexts (HTTP)
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                textarea.style.position = 'fixed';
-                textarea.style.opacity = '0';
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-            }
-            alert(UI_TEXT[currentLang].msg_share_done);
-        } catch (err) {
-            console.error('Failed to copy', err);
-        }
+        alert(t("msg_share_done"));
+    } catch (e) {
+        console.error("share failed", e);
     }
 }
-
-function resetForm() {
-    document.getElementById('result-section').classList.add('hidden');
-    document.getElementById('input-section').classList.remove('hidden');
-}
-
-
-

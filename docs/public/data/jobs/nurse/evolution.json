@@ -1,0 +1,54 @@
+{
+  "job_id": "nurse",
+  "label_ko": "간호사",
+  "label_en": "Nurse",
+  "aliases_ko": ["간호", "병원 간호사", "임상간호사"],
+  "share_caption": {
+    "ko": "기계가 신호를 읽어도, 손은 내가 잡는다.",
+    "en": "Machines read the signals. I hold the hand."
+  },
+  "stages": [
+    {
+      "year": 0,
+      "image": "stage_0.webp",
+      "ko": {
+        "title": "간호사",
+        "skills": ["환자 케어", "응급 대응", "팀 협력"],
+        "description": "오늘의 너. 12시간 교대 끝에도 환자의 이름을 기억하는 사람."
+      },
+      "en": {
+        "title": "Nurse",
+        "skills": ["patient care", "emergency response", "team coordination"],
+        "description": "You today. After a 12-hour shift, you still remember every patient's name."
+      }
+    },
+    {
+      "year": 10,
+      "image": "stage_10.webp",
+      "ko": {
+        "title": "케어 코디네이터",
+        "skills": ["AI 모니터링 통합", "케이스 판단", "환자 커뮤니케이션"],
+        "description": "AI가 바이탈을 살피는 동안 너는 사람을 본다. 결정은 여전히 너의 몫."
+      },
+      "en": {
+        "title": "Care Coordinator",
+        "skills": ["AI monitoring oversight", "case judgment", "patient communication"],
+        "description": "AI watches the vitals. You watch the human. The judgment is still yours."
+      }
+    },
+    {
+      "year": 30,
+      "image": "stage_30.webp",
+      "ko": {
+        "title": "케어 디렉터",
+        "skills": ["케어 윤리", "후배 멘토링", "병원 운영"],
+        "description": "한 병동을 책임지는 어른. 어려운 가족과의 대화는 늘 네가 들어간다."
+      },
+      "en": {
+        "title": "Care Director",
+        "skills": ["care ethics", "mentoring nurses", "ward leadership"],
+        "description": "The elder of a whole ward. The hardest family conversations always go through you."
+      }
+    }
+  ]
+}

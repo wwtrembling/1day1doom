@@ -1,0 +1,54 @@
+{
+  "job_id": "teacher",
+  "label_ko": "교사",
+  "label_en": "Teacher",
+  "aliases_ko": ["선생님", "교원", "학교 선생님", "교수"],
+  "share_caption": {
+    "ko": "AI가 답을 알려줘도, 사람을 키우는 건 결국 사람.",
+    "en": "AI knows the answers. Only humans raise humans."
+  },
+  "stages": [
+    {
+      "year": 0,
+      "image": "stage_0.webp",
+      "ko": {
+        "title": "교사",
+        "skills": ["교과 전문성", "학생 이해", "수업 설계"],
+        "description": "오늘의 너. 30명의 표정을 한 번에 읽고, 한 명 한 명을 챙긴다."
+      },
+      "en": {
+        "title": "Teacher",
+        "skills": ["subject mastery", "reading students", "lesson design"],
+        "description": "You today. Reading 30 faces at once, looking after each one."
+      }
+    },
+    {
+      "year": 10,
+      "image": "stage_10.webp",
+      "ko": {
+        "title": "학습 경로 설계자",
+        "skills": ["AI 튜터 큐레이션", "맞춤 학습 설계", "학습 데이터 해석"],
+        "description": "AI 튜터가 개별 지도를 맡고, 너는 아이들의 길을 함께 그린다."
+      },
+      "en": {
+        "title": "Learning Path Architect",
+        "skills": ["AI tutor curation", "personalized pathways", "learning analytics"],
+        "description": "AI tutors handle the drilling. You map each child's path with them."
+      }
+    },
+    {
+      "year": 30,
+      "image": "stage_30.webp",
+      "ko": {
+        "title": "성장 멘토 마스터",
+        "skills": ["가치관 코칭", "교사 양성", "교육 철학"],
+        "description": "한 세대를 키워낸 어른. 후배 교사들과 졸업생들이 모두 너를 찾는다."
+      },
+      "en": {
+        "title": "Master Growth Mentor",
+        "skills": ["values coaching", "training new teachers", "educational philosophy"],
+        "description": "An elder who raised a generation. Both new teachers and your former students return to you."
+      }
+    }
+  ]
+}
