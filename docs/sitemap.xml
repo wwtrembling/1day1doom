@@ -1,33 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://example.com/?date=2026-01-31</loc>
-    <lastmod>2026-01-31</lastmod>
+    <loc>https://1day1doom.com/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://1day1doom.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://1day1doom.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://1day1doom.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://1day1doom.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://1day1doom.com/zh-tw/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://1day1doom.com/es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://1day1doom.com/de/" />
   </url>
 
   <url>
-    <loc>https://example.com/?date=2026-02-03</loc>
-    <lastmod>2026-02-03</lastmod>
+    <loc>https://1day1doom.com/ko/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://1day1doom.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://1day1doom.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://1day1doom.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://1day1doom.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://1day1doom.com/zh-tw/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://1day1doom.com/es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://1day1doom.com/de/" />
   </url>
 
   <url>
-    <loc>https://example.com/?date=2026-W06</loc>
-    <lastmod>2026-W06</lastmod>
+    <loc>https://1day1doom.com/en/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://1day1doom.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://1day1doom.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://1day1doom.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://1day1doom.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://1day1doom.com/zh-tw/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://1day1doom.com/es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://1day1doom.com/de/" />
   </url>
 
   <url>
-    <loc>https://example.com/?date=2026-W07</loc>
-    <lastmod>2026-W07</lastmod>
+    <loc>https://1day1doom.com/ja/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://1day1doom.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://1day1doom.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://1day1doom.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://1day1doom.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://1day1doom.com/zh-tw/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://1day1doom.com/es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://1day1doom.com/de/" />
   </url>
 
   <url>
-    <loc>https://example.com/?date=2026-W08</loc>
-    <lastmod>2026-W08</lastmod>
+    <loc>https://1day1doom.com/zh-tw/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://1day1doom.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://1day1doom.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://1day1doom.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://1day1doom.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://1day1doom.com/zh-tw/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://1day1doom.com/es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://1day1doom.com/de/" />
   </url>
 
   <url>
-    <loc>https://example.com/?date=2026-W09</loc>
-    <lastmod>2026-W09</lastmod>
+    <loc>https://1day1doom.com/es/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://1day1doom.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://1day1doom.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://1day1doom.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://1day1doom.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://1day1doom.com/zh-tw/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://1day1doom.com/es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://1day1doom.com/de/" />
   </url>
+
+  <url>
+    <loc>https://1day1doom.com/de/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://1day1doom.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://1day1doom.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://1day1doom.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://1day1doom.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://1day1doom.com/zh-tw/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://1day1doom.com/es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://1day1doom.com/de/" />
+  </url>
+
 </urlset>
