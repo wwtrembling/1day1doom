@@ -407,11 +407,86 @@ JOB_CATALOG = [
 
 
 # Stage tone directives — used by the image prompt template.
-# These are static across jobs and define the visual mood per evolution year.
+# Six keys: bloom_{0,10,30} + doom_{0,10,30}. Year 0 is shared across both
+# paths visually (same image), but tone keys exist for prompt symmetry.
 STAGE_TONES = {
-    0:  "year 0 — present, grounded, neutral cool daylight, modern workspace, character is competent and steady, background is clean and recognizable",
-    10: "year 10 — near-future, soft warm afternoon light, holographic UI elements floating in the air, character is confidently directing AI agents (visualized as glowing geometric companions or soft floating screens), no clutter",
-    30: "year 30 — far-future master, golden-hour glow, mentor energy, the character is the still center while ambient AI systems orbit gently around them; environment hints at legacy (books, awards, or a small cluster of soft-focus trainees)"
+    "bloom_0":  "year 0 — present, grounded, neutral cool daylight, modern workspace, character is competent and steady, background is clean and recognizable",
+    "bloom_10": "year 10 BLOOM — near-future, soft warm afternoon light, holographic UI elements floating in the air, character is confidently directing AI agents (visualized as glowing geometric companions or soft floating screens), no clutter",
+    "bloom_30": "year 30 BLOOM — far-future master, golden-hour glow, mentor energy, the character is the still center while ambient AI systems orbit gently around them; environment hints at legacy (books, awards, or a small cluster of soft-focus trainees)",
+    "doom_0":   "year 0 — present, grounded, neutral cool daylight, modern workspace, character is competent and steady, background is clean and recognizable",
+    "doom_10":  "year 10 DOOM — informational, neutral cool overcast light, the AI systems have taken the central role and the character has been pushed into a smaller supporting position; calm matter-of-fact expression, NO despair, NO mockery, NO dystopian filth, just a clear honest depiction of being sidelined; muted but clean color palette",
+    "doom_30":  "year 30 DOOM — quiet, distant overcast afternoon light, the character is now a peripheral figure in an environment fully run by AI systems; expression is composed and accepting, NOT bitter, NOT broken; a small dignified human presence amid an automated world; cool palette, no warm golden hour"
+}
+
+
+# 4 persona codes for the 5-question quiz.
+# Axis AR: A=Adaptive (adopts AI fast), R=Resistant (skeptical, traditional)
+# Axis SC: S=Solo (works alone), C=Collab (works with teams/AI agents)
+# bias: which path is the persona's "natural ending" highlighted on the result page.
+PERSONA_CATALOG = [
+    {"code": "AS", "axis_ar": "A", "axis_sc": "S", "bias": "bloom",
+     "label_ko": "AI 적응 + 솔로", "label_en": "Adaptive + Solo"},
+    {"code": "AC", "axis_ar": "A", "axis_sc": "C", "bias": "bloom",
+     "label_ko": "AI 적응 + 협업", "label_en": "Adaptive + Collab"},
+    {"code": "RS", "axis_ar": "R", "axis_sc": "S", "bias": "doom",
+     "label_ko": "AI 저항 + 솔로", "label_en": "Resistant + Solo"},
+    {"code": "RC", "axis_ar": "R", "axis_sc": "C", "bias": "doom",
+     "label_ko": "AI 저항 + 협업", "label_en": "Resistant + Collab"},
+]
+
+
+# Default 5-question quiz. Written once into docs/public/data/quiz.json by
+# generator.py via update_manifest(). Hand-edit afterwards if you want.
+QUIZ_QUESTIONS_DEFAULT = {
+    "version": 1,
+    "axes": {
+        "AR": {"label_ko": "AI 적응 성향", "label_en": "AI adaptation",
+               "positive": "A", "negative": "R"},
+        "SC": {"label_ko": "협업 성향",     "label_en": "Collaboration",
+               "positive": "C", "negative": "S"}
+    },
+    "questions": [
+        {
+            "id": "q1", "axis": "AR",
+            "ko": "새 AI 도구가 나오면?", "en": "When a new AI tool drops, you...",
+            "options": [
+                {"value": "A", "ko": "일단 깔아본다",     "en": "install it now"},
+                {"value": "R", "ko": "검증 후 결정한다",  "en": "wait for proof"}
+            ]
+        },
+        {
+            "id": "q2", "axis": "SC",
+            "ko": "어려운 문제를 만나면?", "en": "Stuck on a hard problem?",
+            "options": [
+                {"value": "S", "ko": "혼자 끝까지 파본다", "en": "dig in alone"},
+                {"value": "C", "ko": "동료와 같이 푼다",   "en": "loop in teammates"}
+            ]
+        },
+        {
+            "id": "q3", "axis": "AR",
+            "ko": "AI가 내 일을 대신하면?", "en": "If AI handles your task?",
+            "options": [
+                {"value": "A", "ko": "남는 시간에 더 큰 일", "en": "tackle bigger work"},
+                {"value": "R", "ko": "내 손맛이 사라진다",   "en": "I lose my touch"}
+            ]
+        },
+        {
+            "id": "q4", "axis": "SC",
+            "ko": "프로젝트 진행 방식은?", "en": "How you run a project?",
+            "options": [
+                {"value": "S", "ko": "내가 다 만든다",       "en": "build it myself"},
+                {"value": "C", "ko": "역할 나눠서 굴린다",   "en": "delegate and steer"}
+            ]
+        },
+        {
+            "id": "q5", "axis": "AR",
+            "ko": "10년 뒤 가장 두려운 것?", "en": "Biggest fear in 10 years?",
+            "options": [
+                {"value": "A", "ko": "변화에 못 따라가는 것", "en": "falling behind change"},
+                {"value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing"}
+            ]
+        }
+    ]
 }
 
 
@@ -419,4 +494,11 @@ def find_job_by_id(job_id):
     for job in JOB_CATALOG:
         if job["id"] == job_id:
             return job
+    return None
+
+
+def find_persona_by_code(code):
+    for p in PERSONA_CATALOG:
+        if p["code"] == code:
+            return p
     return None

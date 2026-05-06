@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1 Day 1 Evolve — Your Career, 30 Years From Now</title>
+    <title>1Day1Doom — Will AI eat your job? 30-year split-fate diagnosis</title>
 
-    <meta name="description" content="In the age of AI, how will your career evolve? Get your 3-stage evolution card.">
+    <meta name="description" content="Will AI eat your job? 5 questions to diagnose your 30-year split fate. Doom Path or Bloom Path — which one is yours?">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1day1doom.com/en/">
-    <meta property="og:title" content="1 Day 1 Evolve — Your Career, 30 Years From Now">
-    <meta property="og:description" content="In the age of AI, how will your career evolve? Get your 3-stage evolution card.">
+    <meta property="og:title" content="Will AI eat your job? — 30-year split-fate diagnosis">
+    <meta property="og:description" content="5 questions to diagnose where your career splits. Are you Doom or Bloom?">
     <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -25,8 +25,8 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="evo-title" data-i18n="app_title">1 Day 1 Evolve</h1>
-            <p id="slogan" class="evo-subtitle" data-i18n="slogan">Before AI eats your job, evolve first.</p>
+            <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
+            <p id="slogan" class="evo-subtitle" data-i18n="slogan">Will AI eat my job? — Diagnose your 30-year split fate in 5 questions.</p>
             <div class="lang-switch">
                 <a href="../ko/index.html" id="btn-ko" class="evo-btn-mini">KO</a>
                 <a href="../en/index.html" id="btn-en" class="evo-btn-mini active">EN</a>
@@ -44,46 +44,123 @@
                                data-i18n-placeholder="placeholder_job">
                         <ul id="job-suggestions" class="suggest-list"></ul>
                     </div>
-                    <button type="submit" class="evo-btn primary" data-i18n="btn_submit">See My Evolution Tree</button>
+                    <button type="submit" class="evo-btn primary" data-i18n="btn_submit">Start</button>
                 </form>
                 <p class="hint" data-i18n="hint">
-                    See how your career evolves over 30 years and how to thrive in the age of AI.
+                    Pick a job → 5 questions → see your 30-year split fate.
                 </p>
             </section>
 
-            <section id="loading-section" class="panel hidden">
-                <div class="loading-content">
-                    <h2 class="animate-pulse" data-i18n="msg_calculating">Analyzing your evolution tree…</h2>
-                    <div class="evo-spinner">✨</div>
+            <section id="quiz-section" class="panel hidden">
+                <p class="quiz-intro" data-i18n="quiz_intro">In the age of AI, where do you stand?</p>
+                <div id="quiz-card" class="quiz-card"></div>
+                <div class="ad-slot ad-slot-quiz" aria-hidden="true">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6334819180242631"
+                         data-ad-slot="0000000001"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
                 </div>
             </section>
 
             <section id="result-section" class="panel hidden">
-                <div class="result-header">
-                    <p class="result-job-label">
-                        <span data-i18n="result_job_label">Your job</span>:
-                        <strong id="result-job-name">…</strong>
-                    </p>
-                    <h2 id="result-caption" class="result-caption">…</h2>
+                <div id="result-loading" class="loading-content hidden">
+                    <h2 class="animate-pulse" data-i18n="msg_loading_evolution">Analyzing…</h2>
+                    <div class="evo-spinner">✨</div>
                 </div>
 
-                <div id="evolution-cards" class="evolution-cards">
-                    <!-- 3 cards injected by JS -->
-                </div>
+                <div id="result-content">
+                    <div class="result-header">
+                        <p class="result-job-label">
+                            <span data-i18n="result_job_label">Your job</span>:
+                            <strong id="result-job-name">…</strong>
+                        </p>
+                        <h2 id="hook-copy" class="result-caption">…</h2>
+                    </div>
 
-                <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Share</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_retry">Try Another Job</button>
+                    <div class="persona-card">
+                        <div class="persona-card-label" data-i18n="persona_card_title">Your alter-ego</div>
+                        <h3 id="persona-nickname" class="persona-nickname">…</h3>
+                        <p id="persona-blurb" class="persona-blurb">…</p>
+                        <p class="persona-bias">
+                            <span data-i18n="bias_label">Your natural ending</span>:
+                            <strong id="persona-bias-path">…</strong>
+                        </p>
+                    </div>
+
+                    <div class="ad-slot ad-slot-result-top" aria-hidden="true">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-6334819180242631"
+                             data-ad-slot="0000000002"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                    </div>
+
+                    <div class="year0-frame">
+                        <div id="year0-card" class="evo-card stage-0 path-year0"></div>
+                    </div>
+
+                    <div class="dual-tree">
+                        <div id="doom-tree-wrap" class="path-tree path-tree-doom">
+                            <div class="path-tree-header">
+                                <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
+                                <p id="doom-tree-desc" class="path-tree-desc">Where AI takes the seat</p>
+                            </div>
+                            <div id="doom-tree" class="path-tree-stages"></div>
+                        </div>
+
+                        <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
+                            <div class="path-tree-header">
+                                <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
+                                <p id="bloom-tree-desc" class="path-tree-desc">Where you evolve with AI</p>
+                            </div>
+                            <div id="bloom-tree" class="path-tree-stages"></div>
+                        </div>
+                    </div>
+
+                    <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-6334819180242631"
+                             data-ad-slot="0000000003"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Share Result</button>
+                        <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">See another persona</button>
+                        <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">Try another job</button>
+                    </div>
+
+                    <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-6334819180242631"
+                             data-ad-slot="0000000004"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>© 1 Day 1 Evolve · Made with care for the AI generation</p>
+            <p>© 1Day1Doom · Career diagnosis for the AI era</p>
         </footer>
     </div>
 
     <script src="../app.js"></script>
+    <script>
+      (function pushAds(){
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+      })();
+    </script>
 </body>
 
 </html>

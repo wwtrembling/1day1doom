@@ -1,54 +1,130 @@
 {
+  "schema_version": 2,
   "job_id": "backend_developer",
   "label_ko": "백엔드 개발자",
   "label_en": "Backend Developer",
   "aliases_ko": ["서버 개발자", "API 개발자", "백엔드", "서버개발자"],
   "share_caption": {
-    "ko": "AI가 코드를 짜도, 흐름은 내가 짠다.",
-    "en": "AI writes the code. I design the flow."
+    "ko": "AI가 내 직업을 잡아먹나? — 30년 두 갈래 운명을 진단했다",
+    "en": "Will AI eat my job? — I diagnosed my 30-year split fate"
   },
-  "stages": [
-    {
-      "year": 0,
-      "image": "stage_0.webp",
-      "ko": {
-        "title": "백엔드 개발자",
-        "skills": ["서버 아키텍처", "DB 설계", "API 설계"],
-        "description": "오늘의 너. 코드를 쓰고, 시스템을 세우고, 새벽에도 알람을 받는다."
-      },
-      "en": {
-        "title": "Backend Developer",
-        "skills": ["server architecture", "database design", "API design"],
-        "description": "You today. Writing code, building systems, getting paged at 3 AM."
-      }
+  "hook_copy": {
+    "bloom": {
+      "ko": "코드를 쓰던 너는, 이제 흐름을 짠다.",
+      "en": "You used to write code. Now you write the flow."
     },
-    {
-      "year": 10,
-      "image": "stage_10.webp",
-      "ko": {
-        "title": "AI 워크플로우 디자이너",
-        "skills": ["에이전트 오케스트레이션", "프롬프트 엔지니어링", "도메인 모델링"],
-        "description": "코드를 짜기보다 흐름을 설계하는 너. 여러 AI 에이전트가 너의 동료가 된다."
-      },
-      "en": {
-        "title": "AI Workflow Designer",
-        "skills": ["agent orchestration", "prompt engineering", "domain modeling"],
-        "description": "You design the flow more than the code. AI agents are now your teammates."
-      }
-    },
-    {
-      "year": 30,
-      "image": "stage_30.webp",
-      "ko": {
-        "title": "인간-AI 협업 컨설턴트",
-        "skills": ["윤리적 시스템 설계", "조직 변환", "기술 신뢰 설계"],
-        "description": "이제 너는 사람과 AI 사이의 다리. 후배들이 너에게 가장 어려운 결정을 묻는다."
-      },
-      "en": {
-        "title": "Human-AI Collaboration Consultant",
-        "skills": ["ethical system design", "org transformation", "trust architecture"],
-        "description": "You bridge humans and AI. The next generation comes to you with the hard calls."
-      }
+    "doom": {
+      "ko": "AI가 코드를 짜고, 너는 가장자리로 밀린다.",
+      "en": "AI writes the code. You drift to the edge."
     }
-  ]
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "백엔드 개발자",
+      "skills": ["서버 아키텍처", "DB 설계", "API 설계"],
+      "description": "오늘의 너. 코드를 쓰고, 시스템을 세우고, 새벽에도 알람을 받는다."
+    },
+    "en": {
+      "title": "Backend Developer",
+      "skills": ["server architecture", "database design", "API design"],
+      "description": "You today. Writing code, building systems, getting paged at 3 AM."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 워크플로우 디자이너",
+            "skills": ["에이전트 오케스트레이션", "프롬프트 엔지니어링", "도메인 모델링"],
+            "description": "코드를 짜기보다 흐름을 설계하는 너. 여러 AI 에이전트가 너의 동료가 된다."
+          },
+          "en": {
+            "title": "AI Workflow Designer",
+            "skills": ["agent orchestration", "prompt engineering", "domain modeling"],
+            "description": "You design the flow more than the code. AI agents are now your teammates."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "인간-AI 협업 컨설턴트",
+            "skills": ["윤리적 시스템 설계", "조직 변환", "기술 신뢰 설계"],
+            "description": "이제 너는 사람과 AI 사이의 다리. 후배들이 너에게 가장 어려운 결정을 묻는다."
+          },
+          "en": {
+            "title": "Human-AI Collaboration Consultant",
+            "skills": ["ethical system design", "org transformation", "trust architecture"],
+            "description": "You bridge humans and AI. The next generation comes to you with the hard calls."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "코드 리뷰어",
+            "skills": ["AI 결과 검수", "버그 수정", "변경 기록 관리"],
+            "description": "코드는 대부분 자동 생성기가 만들고, 너는 마지막에 점검하는 자리에 머문다. 시스템 방향은 다른 팀이 정한다."
+          },
+          "en": {
+            "title": "Code Reviewer",
+            "skills": ["reviewing AI output", "bug fixing", "change tracking"],
+            "description": "Most code now comes from automated generators. You sit at the final-check seat. The system direction is decided elsewhere."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "유지보수 담당",
+            "skills": ["레거시 시스템 점검", "수동 절차 관리", "기록 보존"],
+            "description": "대부분의 운영은 자동화 시스템이 맡는다. 너는 사람이 꼭 필요한 좁은 영역을 묵묵히 지킨다."
+          },
+          "en": {
+            "title": "Legacy Maintainer",
+            "skills": ["legacy upkeep", "manual procedures", "record keeping"],
+            "description": "Operations run on automation. You quietly hold the narrow corner where a human is still required."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI를 길들인 솔로 아키텍트",
+      "nickname_en": "Solo Architect Who Tamed the AI",
+      "blurb_ko": "AI를 일찍 받아들이고 혼자서 깊게 파고드는 사람. 거대한 시스템을 한 사람이 설계할 수 있는 미래를 자기 손으로 당긴다.",
+      "blurb_en": "Adopts AI early and digs in alone. Pulls forward the future where one person can architect whole systems.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "팀과 AI를 동시에 굴리는 지휘자",
+      "nickname_en": "Conductor of Humans and Agents",
+      "blurb_ko": "사람과 에이전트를 함께 조율하는 사람. 새 도구가 나오면 팀 전체에 빠르게 녹여 넣어 베이스라인을 끌어올린다.",
+      "blurb_en": "Orchestrates humans and agents together. New tools land in the team fast, raising the whole baseline.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "본질을 지키는 코드 장인",
+      "nickname_en": "Craftsman Who Holds the Core",
+      "blurb_ko": "정통 방식을 신뢰하고 손으로 코드를 짜며 깊이를 쌓는 사람. 자기 영역에서는 단단하지만, 그 영역이 점차 좁아진다.",
+      "blurb_en": "Trusts the traditional craft. Writes code by hand and accumulates depth. Solid in their lane — but the lane keeps narrowing.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "전통 팀워크를 지키는 매니저",
+      "nickname_en": "Keeper of the Old Team",
+      "blurb_ko": "AI 도입에 신중하고 사람 사이의 신뢰를 더 믿는 사람. 팀의 결을 지키지만, 자동화 흐름과 거리는 점차 벌어진다.",
+      "blurb_en": "Cautious about AI, leans on human trust. Holds the team's grain — but drifts from the automated current.",
+      "bias": "doom"
+    }
+  }
 }

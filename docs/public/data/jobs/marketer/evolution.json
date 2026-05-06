@@ -1,54 +1,130 @@
 {
+  "schema_version": 2,
   "job_id": "marketer",
   "label_ko": "마케터",
   "label_en": "Marketer",
   "aliases_ko": ["퍼포먼스 마케터", "브랜드 마케터", "마케팅", "광고기획자"],
   "share_caption": {
-    "ko": "AI가 카피 100개를 써도, 사람을 움직이는 한 줄은 내가 고른다.",
-    "en": "AI writes 100 lines. I pick the one that actually moves people."
+    "ko": "AI가 캠페인을 짜는 시대, 마케터의 30년 두 갈래 운명을 진단했다",
+    "en": "When AI runs the campaigns — a marketer's 30-year split fate"
   },
-  "stages": [
-    {
-      "year": 0,
-      "image": "stage_0.webp",
-      "ko": {
-        "title": "마케터",
-        "skills": ["캠페인 기획", "퍼포먼스 분석", "카피라이팅"],
-        "description": "오늘의 너. 매주 새 캠페인을 띄우고, 매일 숫자를 본다."
-      },
-      "en": {
-        "title": "Marketer",
-        "skills": ["campaign planning", "performance analytics", "copywriting"],
-        "description": "You today. New campaigns every week, dashboards every day."
-      }
+  "hook_copy": {
+    "bloom": {
+      "ko": "AI가 카피 100개를 써도, 한 줄은 네가 고른다.",
+      "en": "AI writes 100 lines. You pick the one."
     },
-    {
-      "year": 10,
-      "image": "stage_10.webp",
-      "ko": {
-        "title": "AI 캠페인 디렉터",
-        "skills": ["오디언스 큐레이션", "AI 에이전트 지휘", "브랜드 톤 설계"],
-        "description": "AI 에이전트가 1만 개의 마이크로 캠페인을 동시에 돌린다. 너는 그 방향을 정한다."
-      },
-      "en": {
-        "title": "AI Campaign Director",
-        "skills": ["audience curation", "AI agent direction", "brand voice design"],
-        "description": "AI runs 10,000 micro-campaigns. You decide the direction."
-      }
-    },
-    {
-      "year": 30,
-      "image": "stage_30.webp",
-      "ko": {
-        "title": "브랜드 어른",
-        "skills": ["문화 감각", "후배 양성", "브랜드 윤리"],
-        "description": "한 브랜드의 정신을 책임지는 어른. 위기의 순간 회사가 너를 찾는다."
-      },
-      "en": {
-        "title": "Brand Sage",
-        "skills": ["cultural intuition", "mentorship", "brand ethics"],
-        "description": "The keeper of a brand's soul. When things break, the company calls you."
-      }
+    "doom": {
+      "ko": "AI가 캠페인을 돌리고, 너는 OK 사인만 누른다.",
+      "en": "AI runs the campaign. You just press OK."
     }
-  ]
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "마케터",
+      "skills": ["캠페인 기획", "퍼포먼스 분석", "카피라이팅"],
+      "description": "오늘의 너. 매주 새 캠페인을 띄우고, 매일 숫자를 본다."
+    },
+    "en": {
+      "title": "Marketer",
+      "skills": ["campaign planning", "performance analytics", "copywriting"],
+      "description": "You today. New campaigns every week, dashboards every day."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 캠페인 디렉터",
+            "skills": ["오디언스 큐레이션", "AI 에이전트 지휘", "브랜드 톤 설계"],
+            "description": "AI 에이전트가 1만 개의 마이크로 캠페인을 동시에 돌린다. 너는 그 방향을 정한다."
+          },
+          "en": {
+            "title": "AI Campaign Director",
+            "skills": ["audience curation", "AI agent direction", "brand voice design"],
+            "description": "AI runs 10,000 micro-campaigns. You decide the direction."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "브랜드 어른",
+            "skills": ["문화 감각", "후배 양성", "브랜드 윤리"],
+            "description": "한 브랜드의 정신을 책임지는 어른. 위기의 순간 회사가 너를 찾는다."
+          },
+          "en": {
+            "title": "Brand Sage",
+            "skills": ["cultural intuition", "mentorship", "brand ethics"],
+            "description": "The keeper of a brand's soul. When things break, the company calls you."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "캠페인 검수자",
+            "skills": ["AI 결과 검수", "예외 응대", "결제 처리"],
+            "description": "캠페인 기획과 카피는 대부분 AI가 만든다. 너는 마지막에 OK 사인을 누르고, 예외 케이스만 직접 본다."
+          },
+          "en": {
+            "title": "Campaign Approver",
+            "skills": ["reviewing AI output", "edge-case handling", "billing"],
+            "description": "Most planning and copy now comes from AI. You sign off at the end and handle the edge cases by hand."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "남은 검수 인력",
+            "skills": ["승인 절차", "법무 협의", "기록 보관"],
+            "description": "캠페인은 거의 자동으로 돌아간다. 너는 법적·윤리적 결정에서 사람이 한 번 들어가야 하는 자리를 지킨다."
+          },
+          "en": {
+            "title": "Remaining Reviewer",
+            "skills": ["approvals", "legal liaison", "recordkeeping"],
+            "description": "Campaigns now run almost on their own. You hold the seat where a human is still required for legal and ethical calls."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI 카피를 길들인 1인 마케터",
+      "nickname_en": "Solo Marketer Who Runs AI Copy",
+      "blurb_ko": "AI 카피와 분석 도구를 일찍 받아들이고 혼자서 한 브랜드를 책임지는 사람. 한 명의 마케터가 한 회사 전체를 움직이는 미래를 만든다.",
+      "blurb_en": "Adopts AI copy and analytics early, runs a whole brand alone. Builds a future where one marketer can move a whole company.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "팀과 AI 캠페인을 함께 굴리는 캡틴",
+      "nickname_en": "Campaign Captain of Team and AI",
+      "blurb_ko": "동료 마케터와 AI 에이전트를 동시에 조율하는 사람. 브랜드 전체의 캠페인 결을 다 같이 끌어올린다.",
+      "blurb_en": "Coordinates teammates and AI agents at the same time. Lifts the whole brand's campaign rhythm as one team.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "사람 마음 한 줄을 아는 카피 장인",
+      "nickname_en": "Craftsman of the Human Line",
+      "blurb_ko": "정통 카피라이팅을 신뢰하며 혼자 한 줄을 끝까지 다듬는 사람. 자기 카피에는 단단하지만, AI가 만드는 대량 흐름과 거리가 벌어진다.",
+      "blurb_en": "Trusts the old copywriting craft, polishes a single line alone. Solid in their lane — but drifts from the AI-driven volume.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "브랜드 사람들과 신뢰를 쌓는 매니저",
+      "nickname_en": "Trust-Builder of the Brand Team",
+      "blurb_ko": "AI 도입에 신중하고 사람들 사이의 신뢰를 더 믿는 사람. 브랜드 팀의 결을 지키지만, 자동화된 캠페인 흐름과 점차 멀어진다.",
+      "blurb_en": "Cautious about AI, leans on the people. Keeps the brand team's grain — but drifts from the automated campaign current.",
+      "bias": "doom"
+    }
+  }
 }

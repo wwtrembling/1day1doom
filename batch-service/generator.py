@@ -1,17 +1,21 @@
 """
-Career Evolution Tree generator.
+Career Evolution Tree generator (schema v2 — dual path, 4 personas).
 
 For each job in JOB_CATALOG:
-  1. Ask Gemini for a 3-stage evolution tree (year 0 / 10 / 30) in ko + en.
-  2. For each stage, ask Gemini to write an Imagen-ready prompt.
-  3. Call Imagen to render the stage illustration.
-  4. Write evolution.json + stage_{0,10,30}.webp into docs/public/data/jobs/{job_id}/.
-  5. Refresh docs/public/data/jobs.json manifest.
+  1. Ask Gemini for a dual-path tree + 4 persona blurbs + hook copy in ONE call.
+  2. For each of 5 images (year0 + bloom_{10,30} + doom_{10,30}), ask Gemini
+     to write an Imagen-ready prompt, then call Imagen.
+  3. Write evolution.json (schema_version: 2) + 5 webps into
+     docs/public/data/jobs/{job_id}/.
+  4. Refresh docs/public/data/jobs.json manifest.
+  5. Refresh docs/public/data/quiz.json (only if missing — the quiz is
+     hand-tuned and shouldn't be silently overwritten).
 
 Usage:
   python generator.py                    # generate every job in JOB_CATALOG
   python generator.py --job teacher      # one job only
   python generator.py --list             # list all job ids
+  python generator.py --regenerate       # force re-gen even if already exists
 """
 import os
 import re
@@ -24,7 +28,8 @@ import concurrent.futures
 from dotenv import load_dotenv
 
 import llm_client
-from config import JOB_CATALOG, STAGE_TONES, find_job_by_id
+from config import (JOB_CATALOG, STAGE_TONES, QUIZ_QUESTIONS_DEFAULT,
+                    PERSONA_CATALOG, find_job_by_id)
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -38,6 +43,17 @@ WEB_CLIENT_PATH = os.path.join(PROJECT_ROOT, 'docs')
 PUBLIC_DATA_ROOT = os.path.join(WEB_CLIENT_PATH, 'public', 'data')
 JOBS_DIR = os.path.join(PUBLIC_DATA_ROOT, 'jobs')
 JOBS_MANIFEST_PATH = os.path.join(PUBLIC_DATA_ROOT, 'jobs.json')
+QUIZ_PATH = os.path.join(PUBLIC_DATA_ROOT, 'quiz.json')
+
+SCHEMA_VERSION = 2
+
+# Doom-path compositions are intentionally generic and quiet — the per-job
+# `composition.year_*` entries in JOB_CATALOG are bloom-themed (mentor energy,
+# golden hour) and don't fit a sidelined doom narrative. We override them.
+DOOM_COMPOSITIONS = {
+    10: "in a quiet office or workspace where automated systems and AI agents handle most of the visible work; the character is positioned slightly to the side, calmly handling the smaller remaining manual tasks; cool overcast daylight, dignified posture",
+    30: "in an environment that runs almost entirely on automation; the character is a peripheral, dignified, composed presence on the edge of the frame; soft neutral overcast light, no golden hour, no clutter, no dystopian decay"
+}
 
 
 def sanitize_image_prompt(prompt):
@@ -59,16 +75,44 @@ def sanitize_image_prompt(prompt):
     return prompt
 
 
+def _build_image_tasks(job, tree):
+    """Return list of (path, year, image_filename, stage_dict) tuples for the 5 images per job."""
+    year0 = tree.get("year0", {})
+    year0_stage = {"year": 0, "ko": year0.get("ko", {}), "en": year0.get("en", {})}
+
+    tasks = [("bloom", 0, "stage_0.webp", year0_stage)]
+
+    bloom_stages = (tree.get("paths", {}).get("bloom", {}).get("stages", []))
+    for st in bloom_stages:
+        y = st.get("year")
+        if y in (10, 30):
+            tasks.append(("bloom", y, f"bloom_{y}.webp", st))
+
+    doom_stages = (tree.get("paths", {}).get("doom", {}).get("stages", []))
+    for st in doom_stages:
+        y = st.get("year")
+        if y in (10, 30):
+            tasks.append(("doom", y, f"doom_{y}.webp", st))
+
+    return tasks
+
+
+def _composition_for(job, path, year):
+    if path == "doom" and year in DOOM_COMPOSITIONS:
+        return DOOM_COMPOSITIONS[year]
+    return job.get("composition", {}).get(f"year_{year}", "")
+
+
 def generate_one_job(job, dry_run=False):
-    """Generate full evolution tree (data + 3 images) for a single job."""
+    """Generate full evolution tree (data + 5 images) for a single job."""
     job_id = job["id"]
     out_dir = os.path.join(JOBS_DIR, job_id)
     os.makedirs(out_dir, exist_ok=True)
 
-    print(f"\n[Job: {job_id}] Generating evolution tree...")
+    print(f"\n[Job: {job_id}] Generating dual-path evolution tree (schema v{SCHEMA_VERSION})...")
 
     if dry_run:
-        print(f"  (dry-run) would generate evolution.json + 3 webps under {out_dir}")
+        print(f"  (dry-run) would generate evolution.json + 5 webps under {out_dir}")
         return True
 
     tree = llm_client.generate_evolution_tree(job)
@@ -76,39 +120,52 @@ def generate_one_job(job, dry_run=False):
         print(f"[Job: {job_id}] FAILED to get evolution tree from LLM.")
         return False
 
+    tree["schema_version"] = SCHEMA_VERSION
     tree["job_id"] = job_id
     tree["label_ko"] = job["label_ko"]
     tree["label_en"] = job["label_en"]
     tree["aliases_ko"] = job.get("aliases_ko", [])
     tree["generated_at"] = datetime.datetime.utcnow().isoformat() + "Z"
 
-    stages = tree.get("stages", [])
-    if len(stages) != 3:
-        print(f"[Job: {job_id}] WARNING: expected 3 stages, got {len(stages)}.")
+    # Validate persona block — keep going even if partially missing, but warn.
+    personas = tree.get("personas", {})
+    for p in PERSONA_CATALOG:
+        code = p["code"]
+        if code not in personas:
+            print(f"[Job: {job_id}] WARNING: persona {code} missing in LLM output.")
+        else:
+            # Stamp deterministic bias from catalog (never trust LLM).
+            personas[code]["bias"] = p["bias"]
 
-    composition = job.get("composition", {})
+    image_tasks = _build_image_tasks(job, tree)
+    if len(image_tasks) != 5:
+        print(f"[Job: {job_id}] WARNING: expected 5 image tasks, got {len(image_tasks)}. "
+              f"Tree paths may be malformed.")
 
-    def render_stage(stage):
-        year = stage.get("year", 0)
-        comp = composition.get(f"year_{year}", "")
-        tone = STAGE_TONES.get(year, "")
-        prompt = llm_client.generate_image_prompt(job, stage, tone, comp)
+    def render_one(task):
+        path, year, fname, stage = task
+        tone_key = f"{path}_{year}" if year > 0 else "bloom_0"
+        tone = STAGE_TONES.get(tone_key, "")
+        comp = _composition_for(job, path, year)
+        prompt = llm_client.generate_image_prompt(job, stage, tone, comp, path=path)
         if not prompt:
             prompt = (f"Pixar-style 3D render, {job['character_seed']}, "
                       f"as {stage.get('en', {}).get('title', job['label_en'])}, "
                       f"warm cinematic lighting")
         prompt = sanitize_image_prompt(prompt)
-        with open(os.path.join(out_dir, f"stage_{year}_prompt.txt"), "w",
-                  encoding="utf-8") as f:
+        debug_name = f"{fname.replace('.webp', '')}_prompt.txt"
+        with open(os.path.join(out_dir, debug_name), "w", encoding="utf-8") as f:
             f.write(prompt)
-        img_path = os.path.join(out_dir, f"stage_{year}.webp")
+        img_path = os.path.join(out_dir, fname)
         ok = llm_client.generate_image_from_text(prompt, img_path,
                                                  aspect_ratio="3:4")
-        stage["image"] = f"stage_{year}.webp" if ok else None
-        return ok
+        return (fname, ok)
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:
-        list(ex.map(render_stage, stages))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as ex:
+        results = list(ex.map(render_one, image_tasks))
+
+    successes = sum(1 for _, ok in results if ok)
+    print(f"[Job: {job_id}] {successes}/{len(results)} images rendered.")
 
     out_path = os.path.join(out_dir, "evolution.json")
     with open(out_path, "w", encoding="utf-8") as f:
@@ -138,13 +195,38 @@ def update_manifest():
             })
 
     manifest = {
-        "version": 1,
+        "version": 2,
+        "schema_version": SCHEMA_VERSION,
+        "quiz_version": QUIZ_QUESTIONS_DEFAULT["version"],
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "jobs": jobs,
     }
     with open(JOBS_MANIFEST_PATH, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
     print(f"[Manifest] Wrote {JOBS_MANIFEST_PATH} ({len(jobs)} jobs)")
+
+
+def write_quiz_if_missing():
+    """Write the default quiz file, but never overwrite an existing hand-tuned one."""
+    if os.path.isfile(QUIZ_PATH):
+        print(f"[Quiz] {QUIZ_PATH} already exists, leaving untouched.")
+        return
+    os.makedirs(PUBLIC_DATA_ROOT, exist_ok=True)
+    with open(QUIZ_PATH, "w", encoding="utf-8") as f:
+        json.dump(QUIZ_QUESTIONS_DEFAULT, f, indent=2, ensure_ascii=False)
+    print(f"[Quiz] Wrote {QUIZ_PATH}")
+
+
+def _is_schema_v2(job_id):
+    p = os.path.join(JOBS_DIR, job_id, "evolution.json")
+    if not os.path.isfile(p):
+        return False
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("schema_version") == SCHEMA_VERSION
+    except Exception:
+        return False
 
 
 def main():
@@ -154,13 +236,17 @@ def main():
     parser.add_argument("--dry-run", action="store_true",
                         help="don't call any API, just verify config")
     parser.add_argument("--skip-existing", action="store_true",
-                        help="skip jobs that already have evolution.json")
+                        help="skip jobs already at schema v2")
+    parser.add_argument("--regenerate", action="store_true",
+                        help="force re-gen everything (override --skip-existing)")
     args = parser.parse_args()
 
     if args.list:
         for j in JOB_CATALOG:
             print(f"  {j['id']:24s} {j['label_ko']}")
         return
+
+    write_quiz_if_missing()
 
     if args.job:
         job = find_job_by_id(args.job)
@@ -172,11 +258,10 @@ def main():
         return
 
     targets = JOB_CATALOG
-    if args.skip_existing:
-        targets = [j for j in targets
-                   if not os.path.isfile(os.path.join(JOBS_DIR, j["id"], "evolution.json"))]
+    if args.skip_existing and not args.regenerate:
+        targets = [j for j in targets if not _is_schema_v2(j["id"])]
         print(f"[Plan] {len(targets)} job(s) to generate "
-              f"(skipping {len(JOB_CATALOG) - len(targets)} already done).")
+              f"(skipping {len(JOB_CATALOG) - len(targets)} already at v{SCHEMA_VERSION}).")
 
     for j in targets:
         try:

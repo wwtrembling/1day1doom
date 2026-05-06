@@ -1,54 +1,130 @@
 {
+  "schema_version": 2,
   "job_id": "nurse",
   "label_ko": "간호사",
   "label_en": "Nurse",
   "aliases_ko": ["간호", "병원 간호사", "임상간호사"],
   "share_caption": {
-    "ko": "기계가 신호를 읽어도, 손은 내가 잡는다.",
-    "en": "Machines read the signals. I hold the hand."
+    "ko": "AI가 환자를 보는 시대, 간호사의 30년 두 갈래 운명을 진단했다",
+    "en": "When AI watches the patient — a nurse's 30-year split fate"
   },
-  "stages": [
-    {
-      "year": 0,
-      "image": "stage_0.webp",
-      "ko": {
-        "title": "간호사",
-        "skills": ["환자 케어", "응급 대응", "팀 협력"],
-        "description": "오늘의 너. 12시간 교대 끝에도 환자의 이름을 기억하는 사람."
-      },
-      "en": {
-        "title": "Nurse",
-        "skills": ["patient care", "emergency response", "team coordination"],
-        "description": "You today. After a 12-hour shift, you still remember every patient's name."
-      }
+  "hook_copy": {
+    "bloom": {
+      "ko": "기계가 신호를 읽어도, 손은 네가 잡는다.",
+      "en": "Machines read the signal. You hold the hand."
     },
-    {
-      "year": 10,
-      "image": "stage_10.webp",
-      "ko": {
-        "title": "케어 코디네이터",
-        "skills": ["AI 모니터링 통합", "케이스 판단", "환자 커뮤니케이션"],
-        "description": "AI가 바이탈을 살피는 동안 너는 사람을 본다. 결정은 여전히 너의 몫."
-      },
-      "en": {
-        "title": "Care Coordinator",
-        "skills": ["AI monitoring oversight", "case judgment", "patient communication"],
-        "description": "AI watches the vitals. You watch the human. The judgment is still yours."
-      }
-    },
-    {
-      "year": 30,
-      "image": "stage_30.webp",
-      "ko": {
-        "title": "케어 디렉터",
-        "skills": ["케어 윤리", "후배 멘토링", "병원 운영"],
-        "description": "한 병동을 책임지는 어른. 어려운 가족과의 대화는 늘 네가 들어간다."
-      },
-      "en": {
-        "title": "Care Director",
-        "skills": ["care ethics", "mentoring nurses", "ward leadership"],
-        "description": "The elder of a whole ward. The hardest family conversations always go through you."
-      }
+    "doom": {
+      "ko": "기계가 환자를 보고, 너는 옆에 선다.",
+      "en": "Machines watch the patient. You stand to the side."
     }
-  ]
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "간호사",
+      "skills": ["환자 케어", "응급 대응", "팀 협력"],
+      "description": "오늘의 너. 12시간 교대 끝에도 환자의 이름을 기억하는 사람."
+    },
+    "en": {
+      "title": "Nurse",
+      "skills": ["patient care", "emergency response", "team coordination"],
+      "description": "You today. After a 12-hour shift, you still remember every patient's name."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "케어 코디네이터",
+            "skills": ["AI 모니터링 통합", "케이스 판단", "환자 커뮤니케이션"],
+            "description": "AI가 바이탈을 살피는 동안 너는 사람을 본다. 결정은 여전히 너의 몫."
+          },
+          "en": {
+            "title": "Care Coordinator",
+            "skills": ["AI monitoring oversight", "case judgment", "patient communication"],
+            "description": "AI watches the vitals. You watch the human. The judgment is still yours."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "케어 디렉터",
+            "skills": ["케어 윤리", "후배 멘토링", "병동 운영"],
+            "description": "한 병동을 책임지는 어른. 어려운 가족과의 대화는 늘 네가 들어간다."
+          },
+          "en": {
+            "title": "Care Director",
+            "skills": ["care ethics", "mentoring nurses", "ward leadership"],
+            "description": "The elder of a whole ward. The hardest family conversations always go through you."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "케어 보조",
+            "skills": ["AI 알람 확인", "기록 입력", "환자 안내"],
+            "description": "기계가 환자의 상태를 살피고, 너는 알람을 확인하고 기록을 옮기는 일에 시간을 쓴다."
+          },
+          "en": {
+            "title": "Care Assistant",
+            "skills": ["AI alert checks", "data entry", "patient guidance"],
+            "description": "Machines watch the patients. Your time goes to confirming alerts and moving records."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "남은 케어 인력",
+            "skills": ["기록 보조", "응급 시 대기", "기계 점검"],
+            "description": "대부분의 케어는 자동화 시스템이 맡는다. 너는 손이 한 번씩 필요한 자리에 차분히 머문다."
+          },
+          "en": {
+            "title": "Remaining Care Staff",
+            "skills": ["record support", "emergency standby", "device checks"],
+            "description": "Most care now runs on automated systems. You calmly hold the spot where a human hand is still needed."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI 모니터를 길들인 케어 어른",
+      "nickname_en": "Care Elder Who Runs the Monitors",
+      "blurb_ko": "AI 모니터링을 일찍 받아들이고 혼자서 한 구역의 환자를 책임지는 사람. 한 명의 간호사가 더 많은 사람을 더 깊이 돌볼 수 있는 미래를 만든다.",
+      "blurb_en": "Adopts AI monitoring early and runs a whole zone alone. Builds a future where one nurse cares deeper for more people.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "팀과 AI를 함께 굴리는 병동 캡틴",
+      "nickname_en": "Ward Captain Who Pairs Team and AI",
+      "blurb_ko": "동료 간호사와 AI 시스템을 함께 조율하는 사람. 병동 전체의 케어 수준을 다 같이 끌어올린다.",
+      "blurb_en": "Pairs fellow nurses and AI systems together. Lifts the entire ward's level of care as one team.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "환자 손을 직접 잡는 베테랑",
+      "nickname_en": "Veteran of the Hand-Held Bedside",
+      "blurb_ko": "정통 케어를 신뢰하며 환자 옆에 직접 머무는 사람. 자기 환자에게는 단단하지만, 자동화 흐름과 점차 거리가 생긴다.",
+      "blurb_en": "Trusts the bedside craft, stays next to the patient. Solid for their own patients — but drifts from the automated flow.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "사람 간호의 결을 지키는 매니저",
+      "nickname_en": "Keeper of the Human Touch",
+      "blurb_ko": "AI 도입에 신중하고 동료들 사이의 신뢰를 더 믿는 사람. 사람 케어의 결을 지키지만, 자동화된 병동 흐름과 거리는 벌어진다.",
+      "blurb_en": "Cautious about AI, leans on the team's trust. Keeps the human touch alive — but drifts from the automated ward.",
+      "bias": "doom"
+    }
+  }
 }

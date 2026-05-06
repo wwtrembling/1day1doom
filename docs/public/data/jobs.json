@@ -1,7 +1,9 @@
 {
-  "version": 1,
-  "generated_at": "2026-05-04T00:00:00Z",
-  "note": "Hand-crafted sample manifest. Run batch-service/generator.py to regenerate from JOB_CATALOG.",
+  "version": 2,
+  "schema_version": 2,
+  "quiz_version": 1,
+  "generated_at": "2026-05-06T00:00:00Z",
+  "note": "Hand-crafted sample manifest (schema v2: dual-path + 4 personas). Run batch-service/generator.py to regenerate from JOB_CATALOG with images.",
   "jobs": [
     {
       "id": "backend_developer",

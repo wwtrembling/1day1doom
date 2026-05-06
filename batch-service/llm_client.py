@@ -71,9 +71,11 @@ def generate_evolution_tree(job):
     return _retry_call(_call, f"evolution_tree({job['id']})")
 
 
-def generate_image_prompt(job, stage, stage_tone, composition_directive):
+def generate_image_prompt(job, stage, stage_tone, composition_directive, path="bloom"):
     """
     Generate the Imagen-ready English prompt for a single evolution stage.
+    `path` is "bloom" or "doom"; year-0 callers may pass "bloom" since both paths
+    share the same year-0 image.
     """
     if not client:
         return None
@@ -85,6 +87,7 @@ def generate_image_prompt(job, stage, stage_tone, composition_directive):
     en = stage.get("en", {})
     full_prompt = (user_template
                    .replace("{{job_label_en}}", job["label_en"])
+                   .replace("{{path}}", path)
                    .replace("{{year}}", str(stage.get("year", 0)))
                    .replace("{{stage_title_en}}", en.get("title", ""))
                    .replace("{{stage_description_en}}", en.get("description", ""))
@@ -104,7 +107,7 @@ def generate_image_prompt(job, stage, stage_tone, composition_directive):
         )
         return response.text.strip()
 
-    return _retry_call(_call, f"image_prompt({job['id']}/y{stage.get('year')})")
+    return _retry_call(_call, f"image_prompt({job['id']}/{path}/y{stage.get('year')})")
 
 
 def generate_image_from_text(prompt, output_path, aspect_ratio="3:4"):

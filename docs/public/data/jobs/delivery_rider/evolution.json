@@ -1,54 +1,130 @@
 {
+  "schema_version": 2,
   "job_id": "delivery_rider",
   "label_ko": "배달기사",
   "label_en": "Delivery Rider",
   "aliases_ko": ["라이더", "배달원", "택배기사"],
   "share_caption": {
-    "ko": "도시는 나를 모르지만, 도시의 길은 내가 가장 잘 안다.",
-    "en": "The city doesn't know me. But I know it best."
+    "ko": "자율 배달의 시대, 라이더의 30년 두 갈래 운명을 진단했다",
+    "en": "When robots deliver — a rider's 30-year split fate"
   },
-  "stages": [
-    {
-      "year": 0,
-      "image": "stage_0.webp",
-      "ko": {
-        "title": "배달기사",
-        "skills": ["도시 지리", "고객 응대", "체력 관리"],
-        "description": "오늘의 너. 비 오는 날, 여섯 동네 길을 머릿속에 다 갖고 다닌다."
-      },
-      "en": {
-        "title": "Delivery Rider",
-        "skills": ["city geography", "customer service", "stamina"],
-        "description": "You today. In the rain, six neighborhoods live in your head."
-      }
+  "hook_copy": {
+    "bloom": {
+      "ko": "로봇이 달려도, 골목은 네가 안다.",
+      "en": "Robots run the routes. You know the alleys."
     },
-    {
-      "year": 10,
-      "image": "stage_10.webp",
-      "ko": {
-        "title": "도심 물류 코디네이터",
-        "skills": ["자율 배송 운영", "예외 상황 판단", "라이더 코칭"],
-        "description": "수십 대의 자율 배달 로봇을 한 사람이 지휘한다. 그 한 사람이 너다."
-      },
-      "en": {
-        "title": "Urban Logistics Coordinator",
-        "skills": ["autonomous fleet ops", "exception handling", "rider coaching"],
-        "description": "Dozens of autonomous delivery bots, one human conductor. That's you."
-      }
-    },
-    {
-      "year": 30,
-      "image": "stage_30.webp",
-      "ko": {
-        "title": "도시 물류 마스터",
-        "skills": ["도시 단위 운영", "정책 자문", "후배 양성"],
-        "description": "한 도시의 흐름을 설계하는 어른. 시청 회의에 너의 이름이 올라간다."
-      },
-      "en": {
-        "title": "City Logistics Master",
-        "skills": ["city-scale operations", "policy advisory", "mentorship"],
-        "description": "An elder shaping the flow of a whole city. Your name on the city council's agenda."
-      }
+    "doom": {
+      "ko": "로봇이 달리고, 너는 골목 입구에 선다.",
+      "en": "Robots run. You stand at the alley's mouth."
     }
-  ]
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "배달기사",
+      "skills": ["도시 지리", "고객 응대", "체력 관리"],
+      "description": "오늘의 너. 비 오는 날, 여섯 동네 길을 머릿속에 다 갖고 다닌다."
+    },
+    "en": {
+      "title": "Delivery Rider",
+      "skills": ["city geography", "customer service", "stamina"],
+      "description": "You today. In the rain, six neighborhoods live in your head."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "도심 물류 코디네이터",
+            "skills": ["자율 배송 운영", "예외 상황 판단", "라이더 코칭"],
+            "description": "수십 대의 자율 배달 로봇을 한 사람이 지휘한다. 그 한 사람이 너다."
+          },
+          "en": {
+            "title": "Urban Logistics Coordinator",
+            "skills": ["autonomous fleet ops", "exception handling", "rider coaching"],
+            "description": "Dozens of autonomous delivery bots, one human conductor. That's you."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "도시 물류 마스터",
+            "skills": ["도시 단위 운영", "정책 자문", "후배 양성"],
+            "description": "한 도시의 흐름을 설계하는 어른. 시청 회의에 너의 이름이 올라간다."
+          },
+          "en": {
+            "title": "City Logistics Master",
+            "skills": ["city-scale operations", "policy advisory", "mentorship"],
+            "description": "An elder shaping the flow of a whole city. Your name on the city council's agenda."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "배달 보조",
+            "skills": ["로봇 점검", "예외 케이스 처리", "포장 작업"],
+            "description": "배달은 자율 시스템이 거의 다 한다. 너는 로봇이 막히는 곳에서 사람의 손이 필요한 일을 맡는다."
+          },
+          "en": {
+            "title": "Delivery Assistant",
+            "skills": ["robot checks", "edge-case handling", "packing"],
+            "description": "Most runs are made by autonomous systems. You step in where the robots get stuck and a human hand is still needed."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "마지막 도보 배달자",
+            "skills": ["골목 배달", "기계 정비", "현장 응대"],
+            "description": "대형 흐름은 자동화가 다 가져갔다. 너는 좁은 골목과 사람이 한 번 들어가야 하는 자리를 맡는다."
+          },
+          "en": {
+            "title": "Last Foot Courier",
+            "skills": ["alley delivery", "device maintenance", "on-site response"],
+            "description": "The big flow is owned by automation. You take the narrow alleys and the spots where a person still has to walk in."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "자율 시스템을 길들인 1인 코디네이터",
+      "nickname_en": "Solo Conductor of the Autonomous Fleet",
+      "blurb_ko": "자율 시스템을 일찍 받아들이고 혼자서 한 구역을 책임지는 사람. 한 명이 도시 한 조각을 통째로 움직이게 만든다.",
+      "blurb_en": "Adopts autonomous systems early and runs a whole zone alone. Moves a slice of the city by themselves.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "라이더 팀과 로봇을 함께 굴리는 디렉터",
+      "nickname_en": "Director of Riders and Robots",
+      "blurb_ko": "동료 라이더와 로봇 함대를 함께 조율하는 사람. 도시 전체 배달의 결을 다 같이 끌어올린다.",
+      "blurb_en": "Coordinates fellow riders and robot fleets together. Raises the whole city's delivery rhythm as a team.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "오토바이 한 대로 도시를 누비는 베테랑",
+      "nickname_en": "Veteran on a Single Bike",
+      "blurb_ko": "정통 라이더의 길을 지키며 혼자 도시를 돈다. 자기 동선에서는 누구보다 빠르지만, 자동화된 흐름과는 점차 거리가 벌어진다.",
+      "blurb_en": "Holds the rider's old craft, runs the city solo. Fastest in their lane — but the lane keeps narrowing.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "라이더 동료들과 함께 가는 형님",
+      "nickname_en": "Big Brother of the Crew",
+      "blurb_ko": "자동화 도입에 신중하고 동료 라이더 간 신뢰를 더 믿는 사람. 크루의 정을 지키지만, 자동화 물류 흐름과 거리는 벌어진다.",
+      "blurb_en": "Cautious about automation, leans on the crew's bond. Keeps the brotherhood — but drifts from the automated current.",
+      "bias": "doom"
+    }
+  }
 }
