@@ -31,7 +31,7 @@
       "en": "AI writes the code. You drift to the edge.",
       "ja": "AIがコードを書き、君は端に追いやられる。",
       "zh-tw": "AI 寫程式碼，你被擠到邊緣。",
-      "es": "La IA escribe el código. Tú te corres al borde.",
+      "es": "La IA escribe el código. Tú te desplazas al borde.",
       "de": "Die KI schreibt den Code. Du rutschst an den Rand."
     }
   },
@@ -50,7 +50,7 @@
     "ja": {
       "title": "バックエンド開発者",
       "skills": ["サーバー設計", "DB設計", "API設計"],
-      "description": "今の君。コードを書き、システムを立て、深夜にもアラートを受ける。"
+      "description": "今の君。コードを書き、システムを立て、深夜にも呼び出される。"
     },
     "zh-tw": {
       "title": "後端工程師",
@@ -206,7 +206,7 @@
             "description": "Las operaciones corren solas. Tú sostienes en silencio el rincón estrecho donde todavía hace falta un humano."
           },
           "de": {
-            "title": "Legacy-Wart",
+            "title": "Legacy-Verwalter",
             "skills": ["Legacy-Pflege", "manuelle Prozesse", "Dokumentation"],
             "description": "Der Betrieb läuft automatisiert. Du hältst still die schmale Ecke, in der ein Mensch noch gebraucht wird."
           }

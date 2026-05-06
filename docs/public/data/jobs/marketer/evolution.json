@@ -23,7 +23,7 @@
       "en": "AI writes 100 lines. You pick the one.",
       "ja": "AIが100本のコピーを書いても、選ぶのは君。",
       "zh-tw": "AI 一次寫 100 條文案，挑那一句的還是你。",
-      "es": "La IA escribe 100 líneas. La una la eliges tú.",
+      "es": "La IA escribe 100 líneas. Tú eliges la ganadora.",
       "de": "Die KI tippt 100 Zeilen. Die eine wählst du."
     },
     "doom": {
@@ -55,7 +55,7 @@
     "zh-tw": {
       "title": "行銷人員",
       "skills": ["活動企劃", "成效分析", "文案撰寫"],
-      "description": "今天的你。每週上一檔新活動，每天盯數字。"
+      "description": "今天的你。每週推一檔新活動，每天盯著數字。"
     },
     "es": {
       "title": "Marketer",

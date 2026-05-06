@@ -25,16 +25,23 @@
 <body>
     <div class="container">
         <header>
+            <div class="lang-switch" id="lang-switch">
+                <button class="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="lang-globe" aria-hidden="true">🌐</span>
+                    <span class="lang-current">日本語</span>
+                    <span class="lang-caret" aria-hidden="true">▾</span>
+                </button>
+                <ul class="lang-menu" hidden>
+                    <li><a href="../ko/index.html">한국어</a></li>
+                    <li><a href="../en/index.html">English</a></li>
+                    <li><a href="../ja/index.html" class="active">日本語</a></li>
+                    <li><a href="../zh-tw/index.html">繁體中文</a></li>
+                    <li><a href="../es/index.html">Español</a></li>
+                    <li><a href="../de/index.html">Deutsch</a></li>
+                </ul>
+            </div>
             <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
             <p id="slogan" class="evo-subtitle" data-i18n="slogan">AIに仕事を奪われる？ 5問で30年後の二択運命を診断する</p>
-            <div class="lang-switch">
-                <a href="../ko/index.html" class="evo-btn-mini">KO</a>
-                <a href="../en/index.html" class="evo-btn-mini">EN</a>
-                <a href="../ja/index.html" class="evo-btn-mini active">JA</a>
-                <a href="../zh-tw/index.html" class="evo-btn-mini">繁</a>
-                <a href="../es/index.html" class="evo-btn-mini">ES</a>
-                <a href="../de/index.html" class="evo-btn-mini">DE</a>
-            </div>
         </header>
 
         <main>

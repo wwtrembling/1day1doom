@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;600;700&family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+TC:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Inter:wght@400;600;700;800&family=Inter+Tight:wght@700;800;900&family=DM+Sans:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;600;700&family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap');
 
 :root {
     --bg-cream: #fff7ec;
@@ -56,6 +56,8 @@ body {
 header {
     text-align: center;
     margin-bottom: 28px;
+    position: relative;
+    padding-top: 8px;
 }
 
 .evo-title {
@@ -72,30 +74,66 @@ header {
 .evo-subtitle {
     font-size: 1.05rem;
     color: var(--ink-soft);
-    margin: 8px 0 12px;
+    margin: 8px 0 0;
 }
 
+/* Lang switch — globe dropdown, top-right corner */
 .lang-switch {
-    margin-top: 6px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 20;
+    text-align: left;
 }
-
-.evo-btn-mini {
-    display: inline-block;
-    padding: 4px 12px;
-    margin: 0 3px;
-    background: white;
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.85);
     border: 1.5px solid var(--ink);
     border-radius: 999px;
     color: var(--ink);
+    font-family: inherit;
     font-size: 0.85rem;
-    text-decoration: none;
     font-weight: 600;
+    cursor: pointer;
+    line-height: 1.2;
 }
-.evo-btn-mini.active { background: var(--ink); color: white; }
+.lang-toggle:hover { background: white; }
+.lang-toggle[aria-expanded="true"] { background: var(--ink); color: white; }
+.lang-globe { font-size: 0.95rem; }
+.lang-caret { font-size: 0.7rem; opacity: 0.6; }
+.lang-menu {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 6px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 160px;
+    background: white;
+    border: 1.5px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+.lang-menu li { list-style: none; }
+.lang-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--ink);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+.lang-menu a:hover { background: var(--bg-cream-2); }
+.lang-menu a.active { background: var(--ink); color: white; font-weight: 700; }
+@media (max-width: 480px) {
+    .lang-toggle { padding: 5px 8px; font-size: 0.78rem; }
+    .lang-toggle .lang-current { max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .lang-menu { min-width: 140px; }
+}
 
 .panel { margin-bottom: 18px; }
 .hidden { display: none !important; }
@@ -906,3 +944,175 @@ html[lang="ja"] .persona-card {
 }
 html[lang="ja"] .persona-bias strong { background: rgba(214, 51, 74, 0.15); color: var(--accent-rose); }
 html[lang="ja"] .path-tree.path-bias::before { background: var(--accent-rose); }
+
+/* ======================================================================
+   Spanish: Latin modernism — magenta + mustard, DM Sans, warm white
+   ====================================================================== */
+html[lang="es"] {
+    --bg-cream: #fffbf2;
+    --bg-cream-2: #fde8c4;
+    --ink: #1a1a1a;
+    --ink-soft: #5a5a5a;
+    --accent-now: #c8366d;
+    --accent-10: #d4a017;
+    --accent-30: #f59e0b;
+    --accent-rose: #c8366d;
+    --bloom-tint: #fff0f5;
+    --bloom-border: #c8366d;
+    --doom-tint: #faf0e0;
+    --doom-border: #b8954c;
+    --doom-ink: #2a2a2a;
+    --doom-ink-soft: #6a5a3a;
+    --shadow: 0 4px 0 rgba(200, 54, 109, 0.15);
+    --border: 1.5px solid #1a1a1a;
+    --radius: 14px;
+    --bias-glow: 0 0 0 3px rgba(200, 54, 109, 0.25);
+}
+html[lang="es"] body {
+    font-family: 'DM Sans', 'Inter', -apple-system, sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%, #fde8c4 0%, transparent 45%),
+        radial-gradient(circle at 80% 90%, #fed4e4 0%, transparent 50%),
+        linear-gradient(180deg, var(--bg-cream) 0%, #fde8c4 100%);
+}
+html[lang="es"] .evo-title,
+html[lang="es"] .quiz-question,
+html[lang="es"] .persona-nickname,
+html[lang="es"] .quiz-title,
+html[lang="es"] .path-tree-title,
+html[lang="es"] .evo-card-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+html[lang="es"] .evo-title {
+    background: linear-gradient(90deg, #c8366d 0%, #d4a017 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+html[lang="es"] .container { background: white; border-radius: 16px; }
+html[lang="es"] .evo-btn.primary { background: var(--accent-now); border-color: var(--accent-now); color: white; }
+html[lang="es"] .evo-btn.secondary { background: var(--accent-10); border-color: var(--accent-10); color: white; }
+html[lang="es"] .quiz-option:hover { background: #fff0f5; border-color: var(--accent-now); }
+html[lang="es"] .quiz-option.selected { background: var(--accent-now); border-color: var(--accent-now); color: white; }
+html[lang="es"] .persona-card { background: linear-gradient(180deg, #ffffff 0%, #fff0f5 100%); border-left: 4px solid var(--accent-now); }
+html[lang="es"] .persona-bias strong { background: rgba(212, 160, 23, 0.2); color: #8b6914; padding: 2px 8px; border-radius: 4px; }
+html[lang="es"] .lang-menu a.active { background: var(--accent-now); }
+
+/* ======================================================================
+   German: Swiss / Bauhaus — vivid red + black, Inter Tight, sharp grid
+   ====================================================================== */
+html[lang="de"] {
+    --bg-cream: #ffffff;
+    --bg-cream-2: #f2f2f2;
+    --ink: #000000;
+    --ink-soft: #404040;
+    --accent-now: #d62828;
+    --accent-10: #d62828;
+    --accent-30: #000000;
+    --accent-rose: #d62828;
+    --bloom-tint: #fff0f0;
+    --bloom-border: #000000;
+    --doom-tint: #f0f0f0;
+    --doom-border: #404040;
+    --doom-ink: #000000;
+    --doom-ink-soft: #555555;
+    --shadow: 4px 4px 0 #000000;
+    --border: 2px solid #000000;
+    --radius: 0;
+    --bias-glow: 0 0 0 4px #d62828;
+}
+html[lang="de"] body {
+    font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+    background: linear-gradient(180deg, #ffffff 0%, #f2f2f2 100%);
+    font-weight: 500;
+}
+html[lang="de"] .evo-title,
+html[lang="de"] .quiz-question,
+html[lang="de"] .persona-nickname,
+html[lang="de"] .quiz-title,
+html[lang="de"] .path-tree-title,
+html[lang="de"] .evo-card-title {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+html[lang="de"] .evo-title {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--ink);
+    border-bottom: 4px solid #d62828;
+    display: inline-block;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+}
+html[lang="de"] .container { background: white; border-radius: 0; border: 2px solid #000; }
+html[lang="de"] .evo-card,
+html[lang="de"] .quiz-card,
+html[lang="de"] .persona-card,
+html[lang="de"] .path-tree { border-radius: 0; border-width: 2px; border-color: #000; }
+html[lang="de"] .evo-btn { border-radius: 0; border-width: 2px; border-color: #000; box-shadow: 4px 4px 0 #000; }
+html[lang="de"] .evo-btn.primary { background: #d62828; border-color: #000; color: white; }
+html[lang="de"] .evo-btn.secondary { background: #000; border-color: #000; color: white; }
+html[lang="de"] .evo-btn.ghost { background: white; border-color: #000; color: #000; }
+html[lang="de"] .quiz-option { border-radius: 0; border-width: 2px; border-color: #000; }
+html[lang="de"] .quiz-option:hover { background: #fff0f0; }
+html[lang="de"] .quiz-option.selected { background: #d62828; color: white; border-color: #000; }
+html[lang="de"] .persona-card { background: white; border-left: 6px solid #d62828; }
+html[lang="de"] .persona-bias strong { background: #d62828; color: white; padding: 2px 8px; border-radius: 0; }
+html[lang="de"] .lang-toggle { border-radius: 0; border-color: #000; border-width: 2px; }
+html[lang="de"] .lang-menu { border-radius: 0; border-color: #000; border-width: 2px; box-shadow: 4px 4px 0 #000; }
+html[lang="de"] .lang-menu a { border-radius: 0; }
+html[lang="de"] .lang-menu a.active { background: #d62828; }
+html[lang="de"] .suggest-list { border-radius: 0; border: 2px solid #000; }
+
+/* ======================================================================
+   Traditional Chinese: Taiwan indie magazine — dark green + paper beige
+   Override of the ja/zh-tw shared block above
+   ====================================================================== */
+html[lang="zh-tw"] {
+    --bg-cream: #f7f1e3;
+    --bg-cream-2: #e8dcc0;
+    --ink: #1d2924;
+    --ink-soft: #4a5550;
+    --accent-now: #2d5a4a;
+    --accent-10: #8b6914;
+    --accent-30: #d4a017;
+    --accent-rose: #2d5a4a;
+    --bloom-tint: #e8f0ec;
+    --bloom-border: #2d5a4a;
+    --doom-tint: #ebe5d3;
+    --doom-border: #8b7d50;
+    --doom-ink: #1d2924;
+    --doom-ink-soft: #5a5040;
+    --shadow: 0 2px 0 rgba(45, 90, 74, 0.18);
+    --border: 1px solid #2d5a4a;
+    --radius: 8px;
+    --bias-glow: 0 0 0 3px rgba(45, 90, 74, 0.3);
+}
+html[lang="zh-tw"] body {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    background:
+        linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-cream-2) 100%);
+}
+html[lang="zh-tw"] .evo-title,
+html[lang="zh-tw"] .path-tree-title,
+html[lang="zh-tw"] .persona-nickname {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+    font-weight: 700;
+}
+html[lang="zh-tw"] .evo-title {
+    border-bottom-color: var(--accent-now);
+    color: var(--ink);
+}
+html[lang="zh-tw"] .container { background: #fffaee; border: 1px solid #c0b48e; }
+html[lang="zh-tw"] .evo-btn.primary { background: var(--accent-now); border-color: var(--accent-now); color: white; }
+html[lang="zh-tw"] .evo-btn.secondary { background: var(--accent-10); border-color: var(--accent-10); color: white; }
+html[lang="zh-tw"] .quiz-option:hover { background: var(--bloom-tint); border-color: var(--accent-now); }
+html[lang="zh-tw"] .quiz-option.selected { background: var(--accent-now); border-color: var(--accent-now); color: white; }
+html[lang="zh-tw"] .persona-card { background: #fffaee; border-left: 4px solid var(--accent-now); }
+html[lang="zh-tw"] .persona-bias strong { background: rgba(45, 90, 74, 0.15); color: var(--accent-now); }
+html[lang="zh-tw"] .path-tree.path-bias::before { background: var(--accent-now); }
+html[lang="zh-tw"] .lang-menu a.active { background: var(--accent-now); }

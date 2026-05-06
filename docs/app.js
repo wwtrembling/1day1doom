@@ -68,7 +68,7 @@ const UI_TEXT = {
         btn_other_persona: "別のペルソナも見る",
         btn_restart_quiz: "別の職業でやり直す",
         result_job_label: "あなたの職業",
-        msg_share_done: "リンクをコピーしました。SNSに貼り付けてください。",
+        msg_share_done: "リンクをコピーしました。どこにでも貼り付けてOK。",
         msg_no_match: "まだ用意されていません。似た職業を選んでください。",
         year_now: "今",
         year_10: "10年後",
@@ -245,6 +245,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!e.target.closest(".form-group")) hideSuggestions();
     });
 
+    setupLangSwitch();
+
     await Promise.all([loadManifest(), loadQuiz()]);
 
     const params = new URLSearchParams(window.location.search);
@@ -290,10 +292,48 @@ async function loadManifest() {
         const res = await fetch(`${DATA_BASE}/jobs.json`, { cache: "no-store" });
         if (!res.ok) throw new Error("manifest fetch failed");
         manifest = await res.json();
+        const hot = manifest.jobs.filter(j => j.hot);
+        const cold = manifest.jobs.filter(j => !j.hot);
+        manifest.jobs = [...shuffle(hot), ...shuffle(cold)];
     } catch (e) {
         console.error("Failed to load manifest:", e);
         manifest = { jobs: [] };
     }
+}
+
+function setupLangSwitch() {
+    const wrap = document.getElementById("lang-switch");
+    if (!wrap) return;
+    const toggle = wrap.querySelector(".lang-toggle");
+    const menu = wrap.querySelector(".lang-menu");
+    if (!toggle || !menu) return;
+    const close = () => {
+        menu.hidden = true;
+        toggle.setAttribute("aria-expanded", "false");
+    };
+    const open = () => {
+        menu.hidden = false;
+        toggle.setAttribute("aria-expanded", "true");
+    };
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (menu.hidden) open(); else close();
+    });
+    document.addEventListener("click", (e) => {
+        if (!wrap.contains(e.target)) close();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") close();
+    });
+}
+
+function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }
 
 async function loadQuiz() {

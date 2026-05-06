@@ -206,7 +206,7 @@
             "description": "Casi todo el diseño está automatizado. Tú tomas los retoques que aún piden ojo humano."
           },
           "de": {
-            "title": "Resterampen-Designer",
+            "title": "Rest-Designer",
             "skills": ["User-nahe Anpassungen", "Edge-Cases", "Feinkorrekturen"],
             "description": "Das meiste Design läuft automatisch. Du übernimmst die Feinheiten, die ein menschliches Auge brauchen."
           }
