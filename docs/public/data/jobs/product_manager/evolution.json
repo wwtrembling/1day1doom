@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "job_id": "product_manager",
+  "label_ko": "프로덕트 매니저",
+  "label_en": "Product Manager",
+  "aliases_ko": ["PM", "기획자", "프로덕트매니저", "서비스 기획자"],
+  "emoji": "📋",
+  "share_caption": {
+    "ko": "AI가 결정을 내리는 시대, PM의 30년 두 갈래 운명",
+    "en": "When AI makes the calls — a PM's 30-year split fate"
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "데이터는 AI가 봐도, 방향은 네가 정한다.",
+      "en": "AI reads the data. You set the direction."
+    },
+    "doom": {
+      "ko": "AI가 결정하고, 너는 회의록만 정리한다.",
+      "en": "AI decides. You take the meeting notes."
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "프로덕트 매니저",
+      "skills": ["우선순위 결정", "사용자 인터뷰", "팀 조율"],
+      "description": "오늘의 너. 무엇을 만들지 정하고, 디자이너·개발자·경영진을 한 방향으로 모은다."
+    },
+    "en": {
+      "title": "Product Manager",
+      "skills": ["prioritization", "user interviews", "team alignment"],
+      "description": "You today. Deciding what to build, aligning designers, engineers, and leadership."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 프로덕트 디렉터",
+            "skills": ["AI 실험 큐레이션", "전략 의사결정", "스토리텔링"],
+            "description": "AI 에이전트가 데이터·실험을 돌린다. 너는 그 위에서 어디로 갈지를 정한다."
+          },
+          "en": {
+            "title": "AI Product Director",
+            "skills": ["AI experiment curation", "strategic decisions", "storytelling"],
+            "description": "AI agents run data and experiments. You decide where the product is going."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "프로덕트 어른",
+            "skills": ["프로덕트 철학", "후배 양성", "조직 문화"],
+            "description": "한 회사 제품의 방향을 책임지는 어른. 위기에 모두가 너를 찾는다."
+          },
+          "en": {
+            "title": "Product Sage",
+            "skills": ["product philosophy", "mentorship", "company culture"],
+            "description": "The keeper of a company's product compass. When things get hard, everyone calls you."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "프로젝트 운영자",
+            "skills": ["일정 관리", "회의 진행", "보고서 정리"],
+            "description": "큰 결정은 AI 분석이 내리고, 너는 일정·회의록·중간 보고를 챙긴다."
+          },
+          "en": {
+            "title": "Project Operator",
+            "skills": ["schedule tracking", "meeting facilitation", "reporting"],
+            "description": "AI analytics drive the big calls. Your time goes to schedules, notes, and status updates."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "남은 조율 인력",
+            "skills": ["사람 응대", "예외 케이스", "문서화"],
+            "description": "프로덕트 결정은 자동화된다. 너는 사람이 한 번 들어가야 하는 자리를 차분히 지킨다."
+          },
+          "en": {
+            "title": "Remaining Coordinator",
+            "skills": ["human handling", "edge cases", "documentation"],
+            "description": "Product calls are automated. You hold the seat where a person is still required."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI와 함께 1인 PM으로 한 프로덕트를 끝까지 끌고 가는 사람",
+      "nickname_en": "Solo PM Who Ships With AI",
+      "blurb_ko": "AI 분석·자동화 도구를 적극 활용해 혼자서 한 프로덕트를 책임지는 사람. 한 명의 PM이 작은 회사 한 개를 통째로 굴리는 미래를 만든다.",
+      "blurb_en": "Adopts AI analytics and automation early, runs a whole product alone. Builds a future where one PM can run a whole small company.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "팀과 AI를 동시에 오케스트레이션하는 디렉터",
+      "nickname_en": "Director Who Pairs Team and AI",
+      "blurb_ko": "사람 팀과 AI 시스템을 함께 조율하는 사람. 한 회사의 프로덕트 결을 다 같이 끌어올린다.",
+      "blurb_en": "Pairs human team and AI systems together. Lifts the whole company's product craft as one.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "사용자 인터뷰를 직접 하는 PM 장인",
+      "nickname_en": "Hands-On Interview Craftsman",
+      "blurb_ko": "정통 PM 방식과 사용자와의 1대1 대화를 신뢰하는 사람. 자기 인사이트는 단단하지만, 데이터·자동화 흐름과 거리가 벌어진다.",
+      "blurb_en": "Trusts the old PM craft and direct user conversations. Solid in their insight — but drifts from the data current.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "팀 신뢰를 만드는 PM",
+      "nickname_en": "Trust-Builder PM",
+      "blurb_ko": "AI 도입에 신중하고 사람 사이의 신뢰를 더 믿는 사람. 팀의 결을 지키지만, 자동화된 의사결정 흐름과 멀어진다.",
+      "blurb_en": "Cautious about AI, leans on team trust. Keeps the team's grain — but drifts from automated decisions.",
+      "bias": "doom"
+    }
+  }
+}

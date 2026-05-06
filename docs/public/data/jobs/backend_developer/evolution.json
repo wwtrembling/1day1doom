@@ -4,6 +4,7 @@
   "label_ko": "백엔드 개발자",
   "label_en": "Backend Developer",
   "aliases_ko": ["서버 개발자", "API 개발자", "백엔드", "서버개발자"],
+  "emoji": "💾",
   "share_caption": {
     "ko": "AI가 내 직업을 잡아먹나? — 30년 두 갈래 운명을 진단했다",
     "en": "Will AI eat my job? — I diagnosed my 30-year split fate"

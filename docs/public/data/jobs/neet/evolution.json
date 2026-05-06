@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "job_id": "neet",
+  "label_ko": "백수/취준생",
+  "label_en": "Job Seeker",
+  "aliases_ko": ["백수", "취준생", "무직", "구직자", "휴직"],
+  "emoji": "🛋️",
+  "share_caption": {
+    "ko": "AI가 자리를 가져가는 시대, 길 찾는 너의 30년 두 갈래 운명",
+    "en": "When AI takes the seats — a job seeker's 30-year split fate"
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "지금은 표류 중. 30년 뒤엔 여러 길을 살아낸다.",
+      "en": "Drifting now. In 30 years, you'll have lived many paths."
+    },
+    "doom": {
+      "ko": "AI가 자리를 가져가고, 너는 계속 길을 찾는다.",
+      "en": "AI takes the seats. You keep looking for yours."
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "지금의 너",
+      "skills": ["탐색", "학습", "기다림"],
+      "description": "오늘의 너. 어디로 가야 할지 아직 정하지 못했다. 모든 가능성이 열려 있다."
+    },
+    "en": {
+      "title": "You Right Now",
+      "skills": ["exploring", "learning", "waiting"],
+      "description": "You today. Haven't decided where you're heading yet. Every possibility is still open."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "다중 경로 실험자",
+            "skills": ["AI 도구 활용", "1인 프로젝트", "포트폴리오"],
+            "description": "AI 도구로 여러 작은 프로젝트를 직접 굴린다. 한 회사 입사가 아니라 자기 자리를 만드는 길을 간다."
+          },
+          "en": {
+            "title": "Multi-Path Experimenter",
+            "skills": ["AI tooling", "solo projects", "portfolio"],
+            "description": "You run small projects yourself with AI tools. You're not joining a company; you're building your own seat."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "여러 길을 살아본 멘토",
+            "skills": ["다중 직업 경험", "후배 코칭", "삶의 철학"],
+            "description": "한 직업에 매이지 않고 여러 길을 살아본 어른. 후배들이 인생의 갈림길을 들고 너를 찾는다."
+          },
+          "en": {
+            "title": "Mentor of Many Lives",
+            "skills": ["multi-career wisdom", "coaching", "life philosophy"],
+            "description": "An elder who lived many lives instead of one career. Young people bring you their crossroads."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "긴 표류",
+            "skills": ["입사 지원", "단기 알바", "버티기"],
+            "description": "AI가 신입 자리를 대부분 가져갔다. 너는 계속 입사할 자리를 찾으며 단기 일을 이어간다."
+          },
+          "en": {
+            "title": "The Long Drift",
+            "skills": ["job applications", "gig work", "holding on"],
+            "description": "AI has taken most entry-level seats. You keep applying, stitching together short-term gigs in between."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "기본소득 시대의 관조자",
+            "skills": ["자기 시간 관리", "취미 깊이 파기", "조용한 관찰"],
+            "description": "자동화 사회에서 기본소득으로 살며 자기 속도로 시간을 보낸다. 일이 사라진 시대를 조용히 관찰한다."
+          },
+          "en": {
+            "title": "Observer of the UBI Era",
+            "skills": ["managing your own time", "deep hobbies", "quiet observation"],
+            "description": "In an automated society, you live on basic income at your own pace. You quietly observe an era where work has faded."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI로 1인 부업을 시작하는 사람",
+      "nickname_en": "Solo Builder With AI",
+      "blurb_ko": "AI 도구를 일찍 받아들이고 혼자서 작은 프로젝트부터 시작하는 사람. 입사가 아니라 자기 자리를 만드는 길을 일찍 골랐다.",
+      "blurb_en": "Adopts AI early and starts small projects alone. Chose to build their own seat instead of waiting for one.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "온라인 커뮤니티에서 함께 길을 찾는 사람",
+      "nickname_en": "Path-Finder of the Online Crowd",
+      "blurb_ko": "비슷한 처지의 사람들과 정보·도구를 함께 나누는 사람. 한 명이 아니라 여럿이 함께 새 길을 만든다.",
+      "blurb_en": "Shares tools and info with others in the same boat. Builds new paths with the crowd, not alone.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "전통적인 취업을 끝까지 추구하는 사람",
+      "nickname_en": "Traditional Path Seeker",
+      "blurb_ko": "기존 입사 트랙을 끝까지 추구하는 사람. 자기 길에는 단단하지만, AI가 가져가는 자리 수와 거리가 벌어진다.",
+      "blurb_en": "Holds the traditional employment path to the end. Solid in their direction — but drifts from the seats AI is taking.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "동료 취준생들과 정보를 나누는 사람",
+      "nickname_en": "Information-Sharer",
+      "blurb_ko": "AI 도입에 신중하고 동료 취준생들과의 정보 공유에 더 의지하는 사람. 커뮤니티의 결을 지키지만, 자동화 흐름과 멀어진다.",
+      "blurb_en": "Cautious about AI, leans on fellow seekers for info. Keeps the community's grain — but drifts from the automated current.",
+      "bias": "doom"
+    }
+  }
+}

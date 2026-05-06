@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "job_id": "doctor",
+  "label_ko": "의사",
+  "label_en": "Doctor",
+  "aliases_ko": ["의사", "전문의", "내과의사", "외과의사"],
+  "emoji": "🩺",
+  "share_caption": {
+    "ko": "AI가 진단을 내리는 시대, 의사의 30년 두 갈래 운명",
+    "en": "When AI reads the scans — a doctor's 30-year split fate"
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "AI가 영상을 읽어도, 환자에게 말하는 건 너.",
+      "en": "AI reads the scans. You speak to the patient."
+    },
+    "doom": {
+      "ko": "AI가 진단하고, 너는 결과지를 전달한다.",
+      "en": "AI diagnoses. You hand over the printout."
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "의사",
+      "skills": ["진단", "치료 결정", "환자 커뮤니케이션"],
+      "description": "오늘의 너. 환자를 보고, 판단하고, 결과를 직접 설명한다."
+    },
+    "en": {
+      "title": "Doctor",
+      "skills": ["diagnosis", "treatment decisions", "patient communication"],
+      "description": "You today. Examining patients, making the calls, explaining the results yourself."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 보조 진단의",
+            "skills": ["AI 분석 해석", "치료 전략", "환자 신뢰 형성"],
+            "description": "AI가 영상·기록을 분석한다. 너는 환자와 대화하며 마지막 결정을 내린다."
+          },
+          "en": {
+            "title": "AI-Assisted Physician",
+            "skills": ["interpreting AI analysis", "treatment strategy", "patient trust"],
+            "description": "AI analyzes the scans and records. You speak with the patient and make the call."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "환자 신뢰의 마스터",
+            "skills": ["윤리적 결정", "후배 양성", "의료 철학"],
+            "description": "어려운 결정에서 마지막 판단을 내리는 어른. 환자와 후배 모두가 너를 찾는다."
+          },
+          "en": {
+            "title": "Master of Patient Trust",
+            "skills": ["ethical decisions", "mentorship", "medical philosophy"],
+            "description": "The elder who makes the final call on the hardest cases. Patients and young doctors both come to you."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "진단 전달자",
+            "skills": ["AI 결과 설명", "처방 입력", "환자 안내"],
+            "description": "진단은 AI가 내린다. 너는 환자에게 결과를 설명하고 처방을 입력한다."
+          },
+          "en": {
+            "title": "Diagnosis Messenger",
+            "skills": ["explaining AI results", "prescription entry", "patient guidance"],
+            "description": "Diagnoses come from AI. You explain the result to the patient and enter the prescription."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "남은 진료 인력",
+            "skills": ["사람 응대", "응급 시 대기", "기록 보조"],
+            "description": "대부분의 진료는 자동화된다. 너는 사람이 한 번 들어가야 하는 자리를 차분히 지킨다."
+          },
+          "en": {
+            "title": "Remaining Care Provider",
+            "skills": ["human-facing tasks", "emergency standby", "records support"],
+            "description": "Most consultations are automated. You hold the seat where a human is still required."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI 진단을 활용하는 1인 동네 의원",
+      "nickname_en": "Solo Practice With AI",
+      "blurb_ko": "AI 진단 도구를 일찍 받아들이고 혼자서 한 동네를 책임지는 사람. 한 명의 의사가 더 많은 사람을 더 깊이 돌볼 수 있는 미래를 만든다.",
+      "blurb_en": "Adopts AI diagnostics early and runs a neighborhood clinic alone. Builds a future where one doctor cares deeper for more people.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "AI와 의료팀을 함께 굴리는 진료 디렉터",
+      "nickname_en": "Clinical Director of AI and Team",
+      "blurb_ko": "AI 시스템과 의료팀을 함께 조율하는 사람. 병원 전체의 진료 수준을 다 같이 끌어올린다.",
+      "blurb_en": "Coordinates AI systems and medical staff together. Lifts the whole hospital's care level as one team.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "직접 환자를 보는 베테랑",
+      "nickname_en": "Hands-On Veteran",
+      "blurb_ko": "정통 진료 방식과 환자와의 직접 대화를 신뢰하는 사람. 자기 진료에는 단단하지만, 자동화 흐름과 거리가 벌어진다.",
+      "blurb_en": "Trusts the bedside craft and direct patient conversation. Solid in their practice — but drifts from the automated current.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "환자·동료 신뢰를 쌓는 매니저",
+      "nickname_en": "Trust-Builder of Patients and Team",
+      "blurb_ko": "AI 도입에 신중하고 사람 신뢰를 더 믿는 사람. 진료실의 결을 지키지만, 자동화된 의료 흐름과 멀어진다.",
+      "blurb_en": "Cautious about AI, leans on patient and team trust. Keeps the clinic's grain — but drifts from the automated current.",
+      "bias": "doom"
+    }
+  }
+}

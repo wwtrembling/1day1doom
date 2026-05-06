@@ -4,6 +4,7 @@
   "label_ko": "간호사",
   "label_en": "Nurse",
   "aliases_ko": ["간호", "병원 간호사", "임상간호사"],
+  "emoji": "💉",
   "share_caption": {
     "ko": "AI가 환자를 보는 시대, 간호사의 30년 두 갈래 운명을 진단했다",
     "en": "When AI watches the patient — a nurse's 30-year split fate"

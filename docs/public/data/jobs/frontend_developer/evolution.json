@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "job_id": "frontend_developer",
+  "label_ko": "프론트엔드 개발자",
+  "label_en": "Frontend Developer",
+  "aliases_ko": ["프론트엔드", "웹 개발자", "UI 개발자", "프론트개발자"],
+  "emoji": "💻",
+  "share_caption": {
+    "ko": "AI가 화면을 그리는 시대, 프론트엔드 개발자의 30년 두 갈래 운명",
+    "en": "When AI paints the UI — a frontend dev's 30-year split fate"
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "AI가 컴포넌트를 짜도, 흐름은 네가 그린다.",
+      "en": "AI ships components. You design the flow."
+    },
+    "doom": {
+      "ko": "AI가 화면을 만들고, 너는 모서리만 다듬는다.",
+      "en": "AI draws the screens. You polish the edges."
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "프론트엔드 개발자",
+      "skills": ["UI 구현", "상태 관리", "성능 최적화"],
+      "description": "오늘의 너. 화면을 만들고, 사용자 한 번의 탭을 끝까지 책임진다."
+    },
+    "en": {
+      "title": "Frontend Developer",
+      "skills": ["UI implementation", "state management", "performance"],
+      "description": "You today. Building screens, owning every tap a user makes."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 인터페이스 디자이너",
+            "skills": ["사용자 흐름 설계", "AI 컴포넌트 큐레이션", "디자인 시스템"],
+            "description": "코드는 AI가 짜고, 너는 사용자가 어디로 가야 하는지를 정한다."
+          },
+          "en": {
+            "title": "AI Interface Designer",
+            "skills": ["user flow design", "AI component curation", "design systems"],
+            "description": "AI writes the code. You decide where the user should go."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "사용자 경험 마스터",
+            "skills": ["서비스 결 설계", "후배 양성", "디자인 철학"],
+            "description": "한 서비스의 첫인상을 책임지는 어른. 신입 디자이너들이 너의 결을 배운다."
+          },
+          "en": {
+            "title": "Master of Experience",
+            "skills": ["service feel", "mentorship", "design philosophy"],
+            "description": "The keeper of a service's first impression. Young designers learn your taste."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "디자인 시스템 검수자",
+            "skills": ["AI 화면 검토", "디테일 수정", "버그 리포트"],
+            "description": "화면은 자동 생성기가 만든다. 너는 마지막에 색·간격·정렬을 점검한다."
+          },
+          "en": {
+            "title": "Design System Reviewer",
+            "skills": ["reviewing AI screens", "fine-tuning details", "bug reporting"],
+            "description": "Screens come from generators now. You check the colors, spacing, and alignment at the end."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "남은 화면 정리자",
+            "skills": ["엣지 케이스 보정", "수동 절차", "기록 보존"],
+            "description": "대부분 인터페이스는 자동 생성된다. 너는 사람이 한 번 봐야 하는 화면의 모서리를 다듬는다."
+          },
+          "en": {
+            "title": "Edge-Case Polisher",
+            "skills": ["edge case fixes", "manual procedures", "record keeping"],
+            "description": "Most interfaces are now auto-generated. You polish the corners that still need a human eye."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI를 길들인 1인 인디 풀스택",
+      "nickname_en": "Solo Indie Full-Stack Who Tamed the AI",
+      "blurb_ko": "AI 도구를 일찍 받아들이고 혼자서 한 앱을 처음부터 끝까지 만드는 사람. 한 명이 한 서비스를 통째로 굴리는 미래를 자기 손으로 당긴다.",
+      "blurb_en": "Adopts AI early and ships entire apps alone. Pulls forward the future where one person runs a whole service.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "디자이너·AI를 함께 굴리는 디렉터",
+      "nickname_en": "Director of Designers and AI",
+      "blurb_ko": "디자이너 팀과 AI 도구를 함께 조율하는 사람. 서비스 전체의 결을 다 같이 끌어올린다.",
+      "blurb_en": "Coordinates designers and AI tools together. Lifts the whole service's craft as one team.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "픽셀 단위 손맛을 지키는 장인",
+      "nickname_en": "Pixel-Level Craftsman",
+      "blurb_ko": "정통 손코딩과 픽셀 단위 디테일을 신뢰하는 사람. 자기 화면에서는 단단하지만, 자동 생성 흐름과 점차 거리가 벌어진다.",
+      "blurb_en": "Trusts hand-coded craft and pixel-level detail. Solid in their own screens — but drifts from the auto-generated current.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "팀 디자인 결을 지키는 매니저",
+      "nickname_en": "Keeper of the Team's Craft",
+      "blurb_ko": "AI 도입에 신중하고 디자이너 동료들 사이의 신뢰를 더 믿는 사람. 팀의 결을 지키지만, 자동화 흐름과 멀어진다.",
+      "blurb_en": "Cautious about AI, leans on the designers' bond. Keeps the team craft — but drifts from the automated current.",
+      "bias": "doom"
+    }
+  }
+}

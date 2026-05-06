@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Day One Doom</title>
+    <title>1Day1Doom — Will AI eat your job?</title>
 
-    <!-- Default OG Tags (Generic/English) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1day1doom.com/">
-    <meta property="og:title" content="1 Day 1 Doom 🧟">
-    <meta property="og:description" content="Your Daily Dose of Dystopia. Delivering your doom today.">
+    <meta property="og:title" content="1Day1Doom — Will AI eat your job?">
+    <meta property="og:description" content="Diagnose your 30-year split fate in 5 questions. Doom or Bloom?">
     <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,18 +18,20 @@
         crossorigin="anonymous"></script>
 
     <script>
-        // Redirect based on browser language
-        const lang = navigator.language || navigator.userLanguage;
-        if (lang.toLowerCase().startsWith('ko')) {
-            window.location.replace('./ko/');
-        } else {
-            window.location.replace('./en/');
-        }
+        // Redirect based on browser language. Preserve any URL query params (?job=&persona=)
+        // so deep links from share land on the right localized page with correct state.
+        (function () {
+            const lang = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+            let target = "./en/";
+            if (lang.startsWith("ko")) target = "./ko/";
+            else if (lang.startsWith("ja")) target = "./ja/";
+            window.location.replace(target + window.location.search + window.location.hash);
+        })();
     </script>
 </head>
 
 <body>
-    <p>Redirecting to your language...</p>
+    <p>Redirecting to your language…</p>
 </body>
 
 </html>

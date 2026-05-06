@@ -4,12 +4,14 @@
     "AR": {
       "label_ko": "AI 적응 성향",
       "label_en": "AI adaptation",
+      "label_ja": "AI適応",
       "positive": "A",
       "negative": "R"
     },
     "SC": {
       "label_ko": "협업 성향",
       "label_en": "Collaboration",
+      "label_ja": "協業スタイル",
       "positive": "C",
       "negative": "S"
     }
@@ -20,9 +22,10 @@
       "axis": "AR",
       "ko": "새 AI 도구가 나오면?",
       "en": "When a new AI tool drops, you...",
+      "ja": "新しいAIツールが出たら？",
       "options": [
-        { "value": "A", "ko": "일단 깔아본다",     "en": "install it now" },
-        { "value": "R", "ko": "검증 후 결정한다",  "en": "wait for proof" }
+        { "value": "A", "ko": "일단 깔아본다",   "en": "install it now",  "ja": "とりあえず使ってみる" },
+        { "value": "R", "ko": "검증 후 결정한다", "en": "wait for proof",   "ja": "まず様子を見る" }
       ]
     },
     {
@@ -30,9 +33,10 @@
       "axis": "SC",
       "ko": "어려운 문제를 만나면?",
       "en": "Stuck on a hard problem?",
+      "ja": "難しい問題に直面したら？",
       "options": [
-        { "value": "S", "ko": "혼자 끝까지 파본다", "en": "dig in alone" },
-        { "value": "C", "ko": "동료와 같이 푼다",   "en": "loop in teammates" }
+        { "value": "S", "ko": "혼자 끝까지 파본다", "en": "dig in alone",     "ja": "一人で最後まで掘る" },
+        { "value": "C", "ko": "동료와 같이 푼다",  "en": "loop in teammates", "ja": "仲間と一緒に解く" }
       ]
     },
     {
@@ -40,9 +44,10 @@
       "axis": "AR",
       "ko": "AI가 내 일을 대신하면?",
       "en": "If AI handles your task?",
+      "ja": "AIが自分の仕事を代行したら？",
       "options": [
-        { "value": "A", "ko": "남는 시간에 더 큰 일", "en": "tackle bigger work" },
-        { "value": "R", "ko": "내 손맛이 사라진다",   "en": "I lose my touch" }
+        { "value": "A", "ko": "남는 시간에 더 큰 일", "en": "tackle bigger work", "ja": "空いた時間でもっと大きな仕事" },
+        { "value": "R", "ko": "내 손맛이 사라진다",   "en": "I lose my touch",     "ja": "自分の手触りが消える" }
       ]
     },
     {
@@ -50,9 +55,10 @@
       "axis": "SC",
       "ko": "프로젝트 진행 방식은?",
       "en": "How you run a project?",
+      "ja": "プロジェクトの進め方は？",
       "options": [
-        { "value": "S", "ko": "내가 다 만든다",       "en": "build it myself" },
-        { "value": "C", "ko": "역할 나눠서 굴린다",   "en": "delegate and steer" }
+        { "value": "S", "ko": "내가 다 만든다",     "en": "build it myself",   "ja": "自分で全部作る" },
+        { "value": "C", "ko": "역할 나눠서 굴린다", "en": "delegate and steer", "ja": "役割を分けて回す" }
       ]
     },
     {
@@ -60,9 +66,10 @@
       "axis": "AR",
       "ko": "10년 뒤 가장 두려운 것?",
       "en": "Biggest fear in 10 years?",
+      "ja": "10年後に一番怖いこと？",
       "options": [
-        { "value": "A", "ko": "변화에 못 따라가는 것", "en": "falling behind change" },
-        { "value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing" }
+        { "value": "A", "ko": "변화에 못 따라가는 것",     "en": "falling behind change",   "ja": "変化についていけないこと" },
+        { "value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing",    "ja": "今の仕事が消えること" }
       ]
     }
   ]

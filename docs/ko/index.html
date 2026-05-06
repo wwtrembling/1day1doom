@@ -28,8 +28,9 @@
             <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
             <p id="slogan" class="evo-subtitle" data-i18n="slogan">AI가 내 직업을 잡아먹나? — 5문항으로 30년 두 갈래 운명을 본다</p>
             <div class="lang-switch">
-                <a href="../ko/index.html" id="btn-ko" class="evo-btn-mini active">KO</a>
-                <a href="../en/index.html" id="btn-en" class="evo-btn-mini">EN</a>
+                <a href="../ko/index.html" class="evo-btn-mini active">KO</a>
+                <a href="../en/index.html" class="evo-btn-mini">EN</a>
+                <a href="../ja/index.html" class="evo-btn-mini">JA</a>
             </div>
         </header>
 
@@ -44,16 +45,16 @@
                                data-i18n-placeholder="placeholder_job">
                         <ul id="job-suggestions" class="suggest-list"></ul>
                     </div>
-                    <button type="submit" class="evo-btn primary" data-i18n="btn_submit">시작하기</button>
                 </form>
                 <p class="hint" data-i18n="hint">
-                    직업 선택 → 5문항 → 30년 후 두 갈래 운명 카드.
+                    직업을 고르면 5문항이 나오고, 모두 답하면 결과가 같은 페이지에 나타나요.
                 </p>
             </section>
 
             <section id="quiz-section" class="panel hidden">
+                <h2 class="quiz-title" data-i18n="quiz_title">5문항 진단</h2>
                 <p class="quiz-intro" data-i18n="quiz_intro">AI 시대, 당신은 어디에 서 있나요?</p>
-                <div id="quiz-card" class="quiz-card"></div>
+                <div id="quiz-questions"></div>
                 <div class="ad-slot ad-slot-quiz" aria-hidden="true">
                     <ins class="adsbygoogle"
                          style="display:block"
@@ -65,84 +66,78 @@
             </section>
 
             <section id="result-section" class="panel hidden">
-                <div id="result-loading" class="loading-content hidden">
-                    <h2 class="animate-pulse" data-i18n="msg_loading_evolution">분석 중…</h2>
-                    <div class="evo-spinner">✨</div>
+                <div class="result-header">
+                    <p class="result-job-label">
+                        <span data-i18n="result_job_label">내 직업</span>:
+                        <strong id="result-job-name">…</strong>
+                    </p>
+                    <h2 id="hook-copy" class="result-caption">…</h2>
                 </div>
 
-                <div id="result-content">
-                    <div class="result-header">
-                        <p class="result-job-label">
-                            <span data-i18n="result_job_label">내 직업</span>:
-                            <strong id="result-job-name">…</strong>
-                        </p>
-                        <h2 id="hook-copy" class="result-caption">…</h2>
-                    </div>
+                <div class="persona-card">
+                    <div class="persona-card-label" data-i18n="persona_card_title">당신의 부캐</div>
+                    <div class="persona-emoji-big" id="persona-emoji">✨</div>
+                    <h3 id="persona-nickname" class="persona-nickname">…</h3>
+                    <p id="persona-blurb" class="persona-blurb">…</p>
+                    <p class="persona-bias">
+                        <span data-i18n="bias_label">당신의 자연 결말</span>:
+                        <strong id="persona-bias-path">…</strong>
+                    </p>
+                </div>
 
-                    <div class="persona-card">
-                        <div class="persona-card-label" data-i18n="persona_card_title">당신의 부캐</div>
-                        <h3 id="persona-nickname" class="persona-nickname">…</h3>
-                        <p id="persona-blurb" class="persona-blurb">…</p>
-                        <p class="persona-bias">
-                            <span data-i18n="bias_label">당신의 자연 결말</span>:
-                            <strong id="persona-bias-path">…</strong>
-                        </p>
-                    </div>
+                <div class="ad-slot ad-slot-result-top" aria-hidden="true">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6334819180242631"
+                         data-ad-slot="0000000002"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                </div>
 
-                    <div class="ad-slot ad-slot-result-top" aria-hidden="true">
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-6334819180242631"
-                             data-ad-slot="0000000002"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                    </div>
+                <div class="year0-frame">
+                    <div id="year0-card" class="evo-card stage-0 path-year0"></div>
+                </div>
 
-                    <div class="year0-frame">
-                        <div id="year0-card" class="evo-card stage-0 path-year0"></div>
-                    </div>
-
-                    <div class="dual-tree">
-                        <div id="doom-tree-wrap" class="path-tree path-tree-doom">
-                            <div class="path-tree-header">
-                                <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                                <p id="doom-tree-desc" class="path-tree-desc">AI에 자리를 내주는 경로</p>
-                            </div>
-                            <div id="doom-tree" class="path-tree-stages"></div>
+                <div class="dual-tree">
+                    <div id="doom-tree-wrap" class="path-tree path-tree-doom">
+                        <div class="path-tree-header">
+                            <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
+                            <p id="doom-tree-desc" class="path-tree-desc">AI에 자리를 내주는 경로</p>
                         </div>
+                        <div id="doom-tree" class="path-tree-stages"></div>
+                    </div>
 
-                        <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
-                            <div class="path-tree-header">
-                                <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                                <p id="bloom-tree-desc" class="path-tree-desc">AI와 함께 진화하는 경로</p>
-                            </div>
-                            <div id="bloom-tree" class="path-tree-stages"></div>
+                    <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
+                        <div class="path-tree-header">
+                            <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
+                            <p id="bloom-tree-desc" class="path-tree-desc">AI와 함께 진화하는 경로</p>
                         </div>
+                        <div id="bloom-tree" class="path-tree-stages"></div>
                     </div>
+                </div>
 
-                    <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-6334819180242631"
-                             data-ad-slot="0000000003"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                    </div>
+                <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6334819180242631"
+                         data-ad-slot="0000000003"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                </div>
 
-                    <div class="action-buttons">
-                        <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">결과 공유</button>
-                        <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">다른 페르소나도 보기</button>
-                        <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">다른 직업으로 다시</button>
-                    </div>
+                <div class="action-buttons">
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">결과 공유</button>
+                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">다른 페르소나도 보기</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">다른 직업으로 다시</button>
+                </div>
 
-                    <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-6334819180242631"
-                             data-ad-slot="0000000004"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                    </div>
+                <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6334819180242631"
+                         data-ad-slot="0000000004"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
                 </div>
             </section>
         </main>
@@ -155,10 +150,9 @@
     <script src="../app.js"></script>
     <script>
       (function pushAds(){
-        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
-        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
-        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
-        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        for (var i = 0; i < 4; i++) {
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        }
       })();
     </script>
 </body>

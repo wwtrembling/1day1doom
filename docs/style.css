@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;600;700&family=Zen+Maru+Gothic:wght@500;700&display=swap');
 
 :root {
     --bg-cream: #fff7ec;
@@ -270,30 +270,40 @@ input[type="text"]:focus {
 .stage-10 .evo-card-year { background: var(--accent-10); }
 .stage-30 .evo-card-year { background: linear-gradient(90deg, var(--accent-30), var(--accent-rose)); }
 
-.evo-card-img-wrap {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    border-radius: 14px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #ffe6c4, #ffd1a8);
-    margin-bottom: 14px;
+.evo-card-head {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
 }
-.evo-card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.evo-card-path-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--ink-soft);
 }
-.evo-card-img.img-missing {
-    display: none;
+.evo-card.path-doom .evo-card-path-badge {
+    background: var(--doom-border);
+    color: white;
 }
-.evo-card-img-wrap:has(.img-missing)::before {
-    content: "✨";
-    font-size: 3rem;
-    opacity: 0.5;
+.evo-card.path-bloom .evo-card-path-badge {
+    background: var(--bloom-border);
+    color: white;
+}
+
+.evo-card-emoji {
+    font-size: 3.5rem;
+    line-height: 1;
+    text-align: center;
+    margin: 4px 0 16px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+.evo-card.path-doom .evo-card-emoji {
+    filter: grayscale(0.45) brightness(0.9) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
 }
 
 .evo-card-title {
@@ -440,6 +450,48 @@ footer {
     box-shadow: 0 2px 0 rgba(26, 26, 26, 0.12);
 }
 
+.quiz-option.selected {
+    background: var(--ink);
+    color: white;
+    box-shadow: 0 2px 0 rgba(26, 26, 26, 0.12);
+}
+
+.quiz-card.answered {
+    opacity: 0.7;
+    transform: scale(0.985);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.quiz-card.answered:hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.quiz-title {
+    text-align: center;
+    margin: 0 0 6px;
+    font-family: 'Jua', sans-serif;
+    font-size: 1.5rem;
+}
+
+.suggest-emoji {
+    font-size: 1.1rem;
+    margin-right: 4px;
+}
+
+.persona-emoji-big {
+    font-size: 4.5rem;
+    line-height: 1;
+    margin: 6px 0 8px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Deep-link arrival: hide everything except result for clean shared landing */
+body.result-only #input-section,
+body.result-only #quiz-section,
+body.result-only header .lang-switch {
+    display: none !important;
+}
+
 /* ======================================================================
    Persona reveal card
    ====================================================================== */
@@ -571,10 +623,6 @@ footer {
 .evo-card.path-doom .evo-card-desc {
     color: var(--doom-ink-soft);
 }
-.evo-card.path-doom .evo-card-img-wrap {
-    background: linear-gradient(135deg, #d8dde5, #c0c8d3);
-    filter: saturate(0.7) brightness(0.95);
-}
 .evo-card.path-doom .evo-card-skills li {
     background: #e6ebf2;
     color: var(--doom-ink);
@@ -592,9 +640,6 @@ footer {
     background: #fffaf0;
     border-color: var(--bloom-border);
     border-width: 3px;
-}
-.evo-card.path-bloom .evo-card-img-wrap {
-    background: linear-gradient(135deg, #ffe6c4, #ffd1a8);
 }
 
 /* Highlighted "bias" path — the user's natural ending */
@@ -654,3 +699,133 @@ footer {
     .persona-nickname { font-size: 2rem; }
     .quiz-card { padding: 36px 28px; min-height: 320px; }
 }
+
+/* ======================================================================
+   Per-locale visual identity
+   Same UX, three flavors. Matches what each market's users find familiar.
+   ko: 케이테스트/푸망 — 따뜻한 베이지 + 통통한 라운드 + 두꺼운 테두리 (default).
+   en: Linear/Notion/16Personalities — clean white + cool blue + soft shadow.
+   ja: note.com / JP editorial — off-white + 적색 액센트 + 샤프한 에지.
+   ====================================================================== */
+
+/* === English: clean and minimal === */
+html[lang="en"] {
+    --bg-cream: #f7f8fb;
+    --bg-cream-2: #e9edf5;
+    --ink: #1a2233;
+    --ink-soft: #5b6478;
+    --accent-now: #5b8def;
+    --accent-10: #4eb39c;
+    --accent-30: #f59e0b;
+    --accent-rose: #ef4f6b;
+    --bloom-tint: #f0f7ff;
+    --bloom-border: #5b8def;
+    --doom-tint: #f1f3f8;
+    --doom-border: #94a0b3;
+    --doom-ink: #1a2233;
+    --doom-ink-soft: #6b7488;
+    --shadow: 0 4px 14px rgba(20, 30, 60, 0.08);
+    --border: 1px solid #dfe3eb;
+    --radius: 12px;
+    --bias-glow: 0 0 0 3px rgba(91, 141, 239, 0.25);
+}
+html[lang="en"] body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%, #e9edf5 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, #d8e0f0 0%, transparent 50%),
+        linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-cream-2) 100%);
+}
+html[lang="en"] .evo-title,
+html[lang="en"] .quiz-question,
+html[lang="en"] .persona-nickname,
+html[lang="en"] .quiz-title,
+html[lang="en"] .path-tree-title,
+html[lang="en"] .evo-card-title {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+html[lang="en"] .container { background: white; border-radius: 16px; }
+html[lang="en"] .evo-card,
+html[lang="en"] .quiz-card,
+html[lang="en"] .persona-card,
+html[lang="en"] .path-tree { border-width: 1px; }
+html[lang="en"] .evo-btn { border-width: 1px; border-color: #c8cfdb; }
+html[lang="en"] .evo-btn.primary {
+    background: var(--accent-now);
+    border-color: var(--accent-now);
+}
+html[lang="en"] .quiz-option { border-color: #dfe3eb; }
+html[lang="en"] .quiz-option:hover { background: #f0f4fc; border-color: var(--accent-now); }
+html[lang="en"] .quiz-option.selected { background: var(--accent-now); border-color: var(--accent-now); }
+html[lang="en"] .persona-card { background: linear-gradient(180deg, #ffffff 0%, #f0f4fc 100%); }
+
+/* === Japanese: note.com modern editorial === */
+html[lang="ja"] {
+    --bg-cream: #fafafa;
+    --bg-cream-2: #efefef;
+    --ink: #1a1a1a;
+    --ink-soft: #555555;
+    --accent-now: #2a6df5;
+    --accent-10: #ff8c42;
+    --accent-30: #d4a017;
+    --accent-rose: #d6334a;
+    --bloom-tint: #fef5f1;
+    --bloom-border: #d6334a;
+    --doom-tint: #f4f4f4;
+    --doom-border: #999999;
+    --doom-ink: #2a2a2a;
+    --doom-ink-soft: #666666;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --border: 1px solid #e5e5e5;
+    --radius: 6px;
+    --bias-glow: 0 0 0 2px var(--accent-rose);
+}
+html[lang="ja"] body {
+    font-family: 'Noto Sans JP', -apple-system, 'Hiragino Kaku Gothic ProN', sans-serif;
+    background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-cream-2) 100%);
+}
+html[lang="ja"] .evo-title,
+html[lang="ja"] .quiz-question,
+html[lang="ja"] .persona-nickname,
+html[lang="ja"] .quiz-title,
+html[lang="ja"] .path-tree-title,
+html[lang="ja"] .evo-card-title {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+}
+html[lang="ja"] .evo-title {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--ink);
+    border-bottom: 3px solid var(--accent-rose);
+    display: inline-block;
+    padding-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+html[lang="ja"] .container { background: white; border-radius: 8px; }
+html[lang="ja"] .evo-card,
+html[lang="ja"] .quiz-card,
+html[lang="ja"] .persona-card,
+html[lang="ja"] .path-tree { border-radius: 6px; border-width: 1px; }
+html[lang="ja"] .quiz-progress,
+html[lang="ja"] .persona-card-label,
+html[lang="ja"] .evo-card-year,
+html[lang="ja"] .evo-card-path-badge,
+html[lang="ja"] .evo-card-skills li {
+    border-radius: 3px;
+}
+html[lang="ja"] .evo-btn { border-radius: 4px; border-width: 1px; }
+html[lang="ja"] .evo-btn.primary { background: var(--accent-rose); border-color: var(--accent-rose); }
+html[lang="ja"] .evo-btn.secondary { background: var(--accent-now); border-color: var(--accent-now); }
+html[lang="ja"] .quiz-option { border-radius: 4px; border-width: 1px; border-color: #e5e5e5; }
+html[lang="ja"] .quiz-option:hover { background: #fef5f1; border-color: var(--accent-rose); }
+html[lang="ja"] .quiz-option.selected { background: var(--accent-rose); border-color: var(--accent-rose); }
+html[lang="ja"] .persona-card {
+    background: white;
+    border-left: 4px solid var(--accent-rose);
+}
+html[lang="ja"] .persona-bias strong { background: rgba(214, 51, 74, 0.15); color: var(--accent-rose); }
+html[lang="ja"] .path-tree.path-bias::before { background: var(--accent-rose); }

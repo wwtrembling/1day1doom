@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "job_id": "ux_designer",
+  "label_ko": "UX 디자이너",
+  "label_en": "UX Designer",
+  "aliases_ko": ["UI 디자이너", "디자이너", "UX/UI 디자이너", "프로덕트 디자이너"],
+  "emoji": "🎨",
+  "share_caption": {
+    "ko": "AI가 디자인을 변형하는 시대, 디자이너의 30년 두 갈래 운명",
+    "en": "When AI iterates designs — a designer's 30-year split fate"
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "AI가 100가지 변형을 만들어도, 본질은 네가 정한다.",
+      "en": "AI ships 100 variations. You decide the essence."
+    },
+    "doom": {
+      "ko": "AI가 디자인을 짜고, 너는 색만 고른다.",
+      "en": "AI designs. You pick the colors."
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "UX 디자이너",
+      "skills": ["사용자 리서치", "와이어프레임", "프로토타이핑"],
+      "description": "오늘의 너. 사용자가 어떤 길로 도달하는지 그리고, 픽셀 하나하나를 살핀다."
+    },
+    "en": {
+      "title": "UX Designer",
+      "skills": ["user research", "wireframing", "prototyping"],
+      "description": "You today. Mapping how users get there, watching every pixel."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "경험 아키텍트",
+            "skills": ["AI 변형 큐레이션", "사용자 흐름 설계", "디자인 결정"],
+            "description": "AI가 수백 가지 변형을 만든다. 너는 그중 본질을 골라낸다."
+          },
+          "en": {
+            "title": "Experience Architect",
+            "skills": ["AI variation curation", "flow design", "design decisions"],
+            "description": "AI generates hundreds of variations. You pick out the essence."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "디자인 마스터",
+            "skills": ["디자인 철학", "후배 양성", "브랜드 결"],
+            "description": "한 서비스의 결을 만든 어른. 너의 디자인 언어가 후배들에게 전수된다."
+          },
+          "en": {
+            "title": "Master Designer",
+            "skills": ["design philosophy", "mentorship", "brand feel"],
+            "description": "The maker of a service's grain. Your design language passes to the next generation."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "디자인 결과 검수자",
+            "skills": ["AI 출력 검수", "사소한 수정", "에셋 정리"],
+            "description": "디자인은 자동 생성기가 만든다. 너는 색·정렬·일관성을 마지막에 점검한다."
+          },
+          "en": {
+            "title": "Design Output Reviewer",
+            "skills": ["reviewing AI output", "minor tweaks", "asset organization"],
+            "description": "Designs come from generators. You check colors, alignment, and consistency at the end."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "남은 디자이너",
+            "skills": ["사용자 응대", "엣지 케이스", "디자인 보정"],
+            "description": "대부분 디자인은 자동화된다. 너는 사람이 한 번 봐야 하는 미세한 조정을 맡는다."
+          },
+          "en": {
+            "title": "Remaining Designer",
+            "skills": ["user-facing tweaks", "edge cases", "fine corrections"],
+            "description": "Most design is automated now. You handle the small adjustments that still need a human eye."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI 변형 도구를 길들인 1인 디자이너",
+      "nickname_en": "Solo Designer Who Runs AI Variations",
+      "blurb_ko": "AI 도구를 일찍 받아들이고 혼자서 한 브랜드의 디자인을 책임지는 사람. 한 명의 디자이너가 한 회사의 결을 만드는 미래를 만든다.",
+      "blurb_en": "Adopts AI tools early, runs a whole brand's design alone. Builds a future where one designer shapes a whole company's craft.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "팀과 AI를 함께 굴리는 디자인 디렉터",
+      "nickname_en": "Design Director of Team and AI",
+      "blurb_ko": "디자이너 팀과 AI 시스템을 함께 조율하는 사람. 서비스 전체의 디자인 결을 다 같이 끌어올린다.",
+      "blurb_en": "Coordinates designers and AI together. Lifts the whole service's design craft as a team.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "직접 손으로 디자인하는 장인",
+      "nickname_en": "Hand-Design Craftsman",
+      "blurb_ko": "정통 디자인 방식과 직접 그리는 손맛을 신뢰하는 사람. 자기 작업물에는 단단하지만, 자동 변형 흐름과 점차 거리가 벌어진다.",
+      "blurb_en": "Trusts hand-drawn craft. Solid in their own work — but drifts from the auto-variation current.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "디자인 팀을 지키는 매니저",
+      "nickname_en": "Keeper of the Design Team",
+      "blurb_ko": "AI 도입에 신중하고 디자이너 동료들 사이의 신뢰를 더 믿는 사람. 팀의 결을 지키지만, 자동화 흐름과 멀어진다.",
+      "blurb_en": "Cautious about AI, leans on the team's bond. Keeps the team craft — but drifts from the automated current.",
+      "bias": "doom"
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "job_id": "youtuber",
+  "label_ko": "유튜버",
+  "label_en": "YouTuber",
+  "aliases_ko": ["유튜버", "크리에이터", "콘텐츠 크리에이터", "스트리머"],
+  "emoji": "🎬",
+  "share_caption": {
+    "ko": "AI가 영상을 만드는 시대, 크리에이터의 30년 두 갈래 운명",
+    "en": "When AI cuts the video — a creator's 30-year split fate"
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "AI가 편집해도, 카메라 앞에 서는 건 너.",
+      "en": "AI edits. You stand in front of the camera."
+    },
+    "doom": {
+      "ko": "AI가 콘텐츠를 만들고, 너는 업로드만 누른다.",
+      "en": "AI makes the videos. You hit upload."
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "크리에이터",
+      "skills": ["기획", "촬영", "편집"],
+      "description": "오늘의 너. 카메라 앞에서 너 자신의 이야기를 만들고, 늦은 밤까지 편집한다."
+    },
+    "en": {
+      "title": "Creator",
+      "skills": ["planning", "filming", "editing"],
+      "description": "You today. In front of the camera with your own story, editing until late at night."
+    }
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 활용 크리에이터",
+            "skills": ["AI 편집 큐레이션", "메시지 설계", "팬 커뮤니티"],
+            "description": "AI가 편집·자막·번역을 처리한다. 너는 무엇을 말할지를 정한다."
+          },
+          "en": {
+            "title": "AI-Powered Creator",
+            "skills": ["AI editing curation", "message design", "fan community"],
+            "description": "AI handles cuts, subtitles, and translation. You decide what to say."
+          }
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "콘텐츠 어른",
+            "skills": ["문화 감각", "후배 양성", "콘텐츠 철학"],
+            "description": "한 채널이 한 세대의 시각을 만든 어른. 신입 크리에이터들이 너의 결을 배운다."
+          },
+          "en": {
+            "title": "Content Sage",
+            "skills": ["cultural intuition", "mentorship", "content philosophy"],
+            "description": "A channel that shaped a generation's perspective. Young creators learn your taste."
+          }
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "콘텐츠 운영 보조",
+            "skills": ["업로드 일정 관리", "AI 결과 검수", "댓글 관리"],
+            "description": "영상은 AI가 만든다. 너는 업로드 일정과 댓글을 챙긴다."
+          },
+          "en": {
+            "title": "Channel Operator",
+            "skills": ["upload scheduling", "reviewing AI output", "comment moderation"],
+            "description": "Videos come from AI. You manage the upload schedule and comments."
+          }
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "남은 채널 지킴이",
+            "skills": ["커뮤니티 응대", "수동 절차", "기록 보존"],
+            "description": "대부분 콘텐츠는 자동 생성된다. 너는 작은 채널의 결을 조용히 지킨다."
+          },
+          "en": {
+            "title": "Channel Keeper",
+            "skills": ["community handling", "manual procedures", "record keeping"],
+            "description": "Most content is auto-generated now. You quietly hold the corner of a small, human channel."
+          }
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI 편집과 함께 1인 채널을 굴리는 크리에이터",
+      "nickname_en": "Solo Creator With AI Editor",
+      "blurb_ko": "AI 편집·번역 도구를 일찍 받아들이고 혼자서 한 채널을 책임지는 사람. 한 명이 글로벌 팬덤을 만드는 미래를 자기 손으로 당긴다.",
+      "blurb_en": "Adopts AI editing and translation early, runs a whole channel alone. Pulls forward the future where one creator builds a global fandom.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "팀과 AI를 동시에 굴리는 미디어 디렉터",
+      "nickname_en": "Media Director of Team and AI",
+      "blurb_ko": "동료 크리에이터·편집자와 AI를 함께 조율하는 사람. 채널 전체의 결을 다 같이 끌어올린다.",
+      "blurb_en": "Coordinates fellow creators, editors, and AI together. Lifts the whole channel's craft as one team.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "직접 카메라 앞에 서는 베테랑",
+      "nickname_en": "Hands-On Camera Veteran",
+      "blurb_ko": "정통 1인 제작 방식을 신뢰하며 직접 촬영·편집을 끝까지 가져가는 사람. 자기 영상에는 단단하지만, 자동화 흐름과 거리가 벌어진다.",
+      "blurb_en": "Trusts the solo-production craft, films and edits to the end. Solid in their videos — but drifts from the automated current.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "팬 커뮤니티를 키우는 매니저",
+      "nickname_en": "Community-Builder",
+      "blurb_ko": "AI 도입에 신중하고 팬·동료 크리에이터 사이의 신뢰를 더 믿는 사람. 커뮤니티의 결을 지키지만, 자동화된 콘텐츠 흐름과 멀어진다.",
+      "blurb_en": "Cautious about AI, leans on the fan and creator bonds. Keeps the community's grain — but drifts from the automated current.",
+      "bias": "doom"
+    }
+  }
+}

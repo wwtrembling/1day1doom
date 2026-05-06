@@ -1,9 +1,8 @@
-// 1Day1Doom — dual-path × persona evolution diagnostic
+// 1Day1Doom — single-page dual-path × persona diagnostic.
 //
-// Phases: job_select → quiz (5 questions) → result (persona + Doom/Bloom tree)
-// URL params:
-//   ?job=<id>                  → preselects job, starts quiz
-//   ?job=<id>&persona=<code>   → jumps directly to result page (share link)
+// Layout: one HTML page with three vertically-stacked sections that reveal
+// progressively as the user fills in their job and answers all 5 quiz questions.
+// Deep-link `?job=<id>&persona=<code>` skips the form and renders the result only.
 
 const UI_TEXT = {
     ko: {
@@ -12,14 +11,11 @@ const UI_TEXT = {
         input_title: "내 직업 입력",
         label_job: "직업",
         placeholder_job: "예: 백엔드 개발자, 교사, 간호사…",
-        hint: "직업 선택 → 5문항 → 30년 후 두 갈래 운명 카드.",
-        btn_submit: "시작하기",
-        btn_retry: "다른 직업으로",
+        hint: "직업을 고르면 5문항이 나오고, 모두 답하면 결과가 같은 페이지에 나타나요.",
         btn_share: "결과 공유",
         btn_other_persona: "다른 페르소나도 보기",
         btn_restart_quiz: "다른 직업으로 다시",
         result_job_label: "내 직업",
-        msg_loading_evolution: "분석 중…",
         msg_share_done: "링크가 복사됐어요. SNS에 붙여넣기!",
         msg_no_match: "준비된 직업이 아니에요. 비슷한 직업을 골라주세요.",
         year_now: "지금",
@@ -31,10 +27,9 @@ const UI_TEXT = {
         path_doom_desc: "AI에 자리를 내주는 경로",
         path_bloom_desc: "AI와 함께 진화하는 경로",
         bias_label: "당신의 자연 결말",
-        quiz_progress: "{n} / {total}",
         quiz_intro: "AI 시대, 당신은 어디에 서 있나요?",
         persona_card_title: "당신의 부캐",
-        compare_others: "다른 페르소나 결과 보기"
+        quiz_title: "5문항 진단"
     },
     en: {
         app_title: "1Day1Doom",
@@ -42,14 +37,11 @@ const UI_TEXT = {
         input_title: "Your Job",
         label_job: "Job",
         placeholder_job: "e.g. Backend Developer, Teacher, Nurse…",
-        hint: "Pick a job → 5 questions → see your 30-year split fate.",
-        btn_submit: "Start",
-        btn_retry: "Try Another Job",
+        hint: "Pick a job, answer 5 questions, and the result appears on the same page.",
         btn_share: "Share Result",
         btn_other_persona: "See another persona",
         btn_restart_quiz: "Try another job",
         result_job_label: "Your job",
-        msg_loading_evolution: "Analyzing…",
         msg_share_done: "Link copied! Paste it anywhere.",
         msg_no_match: "We don't have that one yet. Pick a similar job.",
         year_now: "Now",
@@ -61,11 +53,42 @@ const UI_TEXT = {
         path_doom_desc: "Where AI takes the seat",
         path_bloom_desc: "Where you evolve with AI",
         bias_label: "Your natural ending",
-        quiz_progress: "{n} / {total}",
         quiz_intro: "In the age of AI, where do you stand?",
         persona_card_title: "Your alter-ego",
-        compare_others: "See other personas"
+        quiz_title: "5-question diagnosis"
+    },
+    ja: {
+        app_title: "1Day1Doom",
+        slogan: "AIに仕事を奪われる？ 5問で30年後の二択運命を診断する",
+        input_title: "あなたの職業",
+        label_job: "職業",
+        placeholder_job: "例: バックエンド開発者、教師、看護師…",
+        hint: "職業を選び、5問に答えると、結果が同じページに表示されます。",
+        btn_share: "結果を共有",
+        btn_other_persona: "別のペルソナも見る",
+        btn_restart_quiz: "別の職業でやり直す",
+        result_job_label: "あなたの職業",
+        msg_share_done: "リンクをコピーしました。SNSに貼り付けてください。",
+        msg_no_match: "まだ用意されていません。似た職業を選んでください。",
+        year_now: "今",
+        year_10: "10年後",
+        year_30: "30年後",
+        skills_label: "コアスキル",
+        path_doom_title: "DOOM PATH",
+        path_bloom_title: "BLOOM PATH",
+        path_doom_desc: "AIに席を譲る道",
+        path_bloom_desc: "AIと共に進化する道",
+        bias_label: "あなたの自然な結末",
+        quiz_intro: "AI時代、あなたはどこに立っている？",
+        persona_card_title: "あなたの分身",
+        quiz_title: "5問診断"
     }
+};
+
+const FALLBACK_CHAIN = {
+    ko: ["ko", "en"],
+    en: ["en", "ko"],
+    ja: ["ja", "en", "ko"]
 };
 
 const DATA_BASE = "../public/data";
@@ -74,21 +97,58 @@ const PERSONA_CODES = ["AS", "AC", "RS", "RC"];
 let currentLang = "ko";
 let manifest = null;
 let quiz = null;
-let evolution = null;          // currently-loaded evolution.json
+let evolution = null;
 let state = {
-    phase: "job_select",       // job_select | quiz | result
     jobId: null,
-    answers: [],               // array of answer values, indexed by question
-    questionIdx: 0,
-    persona: null              // "AS" | "AC" | "RS" | "RC"
+    answers: [],
+    persona: null,
+    phase: "input"     // "input" | "quiz" | "result"
 };
 
 function t(key) {
-    return UI_TEXT[currentLang][key] || key;
+    return UI_TEXT[currentLang][key] || UI_TEXT.en[key] || key;
+}
+
+function pick(obj, ...candidateKeys) {
+    if (!obj) return "";
+    for (const k of candidateKeys) {
+        const v = obj[k];
+        if (v !== undefined && v !== null && v !== "") return v;
+    }
+    return "";
+}
+
+function localized(obj) {
+    if (!obj) return "";
+    const chain = FALLBACK_CHAIN[currentLang] || ["en", "ko"];
+    for (const k of chain) {
+        if (obj[k] !== undefined && obj[k] !== null && obj[k] !== "") return obj[k];
+    }
+    return "";
+}
+
+function localizedField(obj, prefix) {
+    if (!obj) return "";
+    const chain = FALLBACK_CHAIN[currentLang] || ["en", "ko"];
+    for (const k of chain) {
+        const v = obj[`${prefix}_${k}`];
+        if (v !== undefined && v !== null && v !== "") return v;
+    }
+    return "";
+}
+
+function localizedStage(stage) {
+    if (!stage) return {};
+    const chain = FALLBACK_CHAIN[currentLang] || ["en", "ko"];
+    for (const k of chain) {
+        if (stage[k]) return stage[k];
+    }
+    return {};
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    currentLang = document.documentElement.lang === "en" ? "en" : "ko";
+    currentLang = document.documentElement.lang || "ko";
+    if (!UI_TEXT[currentLang]) currentLang = "ko";
     applyI18n();
 
     document.getElementById("job-form").addEventListener("submit", onJobSubmit);
@@ -113,32 +173,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (deepJob && PERSONA_CODES.includes(deepPersona)) {
         const entry = findJob(deepJob);
         if (entry) {
-            await goResult(entry.id, deepPersona);
+            await goResult(entry.id, deepPersona, { fromDeepLink: true });
             return;
         }
     }
     if (deepJob) {
         const entry = findJob(deepJob);
         if (entry) {
-            input.value = currentLang === "ko" ? entry.label_ko : entry.label_en;
-            startQuiz(entry.id);
+            input.value = pick(entry, `label_${currentLang}`, "label_en", "label_ko");
+            await startQuiz(entry.id);
             return;
         }
     }
     const saved = localStorage.getItem("evo_last_input");
     if (saved) input.value = saved;
-    showPhase("job_select");
+    setPhase("input");
 });
 
 function applyI18n() {
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        const txt = UI_TEXT[currentLang][key];
+        const txt = t(key);
         if (txt) el.textContent = txt;
     });
     document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
         const key = el.getAttribute("data-i18n-placeholder");
-        const txt = UI_TEXT[currentLang][key];
+        const txt = t(key);
         if (txt) el.placeholder = txt;
     });
     document.title = t("app_title") + " — " + t("slogan");
@@ -178,6 +238,7 @@ function findJob(query) {
         if (j.id === query) return j;
         if (normalize(j.label_ko) === q) return j;
         if (normalize(j.label_en) === q) return j;
+        if (normalize(j.label_ja || "") === q) return j;
         for (const a of (j.aliases_ko || [])) {
             if (normalize(a) === q) return j;
         }
@@ -188,12 +249,13 @@ function findJob(query) {
 function suggestJobs(query) {
     if (!manifest || !manifest.jobs) return [];
     const q = normalize(query);
-    if (!q) return manifest.jobs.slice(0, 8);
+    if (!q) return manifest.jobs.slice(0, 12);
     const scored = [];
     for (const j of manifest.jobs) {
-        const labels = [j.label_ko, j.label_en, ...(j.aliases_ko || [])].map(normalize);
+        const labels = [j.label_ko, j.label_en, j.label_ja || "", ...(j.aliases_ko || [])].map(normalize);
         let score = 0;
         for (const lab of labels) {
+            if (!lab) continue;
             if (lab === q) score = Math.max(score, 100);
             else if (lab.startsWith(q)) score = Math.max(score, 60);
             else if (lab.includes(q)) score = Math.max(score, 30);
@@ -201,7 +263,11 @@ function suggestJobs(query) {
         if (score > 0) scored.push({ j, score });
     }
     scored.sort((a, b) => b.score - a.score);
-    return scored.slice(0, 8).map(x => x.j);
+    return scored.slice(0, 12).map(x => x.j);
+}
+
+function jobLabel(j) {
+    return pick(j, `label_${currentLang}`, "label_en", "label_ko");
 }
 
 function onInputChange(e) {
@@ -215,10 +281,10 @@ function onInputChange(e) {
     }
     for (const j of matches) {
         const li = document.createElement("li");
-        li.textContent = currentLang === "ko" ? j.label_ko : j.label_en;
+        li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> ${escapeHtml(jobLabel(j))}`;
         li.addEventListener("mousedown", (ev) => {
             ev.preventDefault();
-            document.getElementById("job-input").value = li.textContent;
+            document.getElementById("job-input").value = jobLabel(j);
             hideSuggestions();
         });
         list.appendChild(li);
@@ -232,11 +298,20 @@ function hideSuggestions() {
     list.innerHTML = "";
 }
 
-function showPhase(phase) {
+function setPhase(phase) {
     state.phase = phase;
-    document.getElementById("input-section").classList.toggle("hidden", phase !== "job_select");
-    document.getElementById("quiz-section").classList.toggle("hidden", phase !== "quiz");
-    document.getElementById("result-section").classList.toggle("hidden", phase !== "result");
+    const inputSec = document.getElementById("input-section");
+    const quizSec = document.getElementById("quiz-section");
+    const resultSec = document.getElementById("result-section");
+    inputSec.classList.toggle("hidden", phase === "result-only");
+    quizSec.classList.toggle("hidden", phase === "input" || phase === "result-only");
+    resultSec.classList.toggle("hidden", phase !== "result" && phase !== "result-only");
+    if (phase === "result-only") {
+        // deep-link arrival: hide everything except result for clean share landing
+        document.body.classList.add("result-only");
+    } else {
+        document.body.classList.remove("result-only");
+    }
 }
 
 async function onJobSubmit(e) {
@@ -254,58 +329,87 @@ async function onJobSubmit(e) {
         alert(t("msg_no_match"));
         return;
     }
-    startQuiz(entry.id);
+    await startQuiz(entry.id);
 }
 
-function startQuiz(jobId) {
+async function startQuiz(jobId) {
     state.jobId = jobId;
     state.answers = new Array((quiz.questions || []).length).fill(null);
-    state.questionIdx = 0;
     state.persona = null;
-    evolution = null;
-    showPhase("quiz");
-    renderQuestion();
+
+    // Clear any previous result
+    document.getElementById("result-section").classList.add("hidden");
+    state.phase = "quiz";
+    setPhase("quiz");
+
+    renderAllQuestions();
 
     const url = new URL(window.location.href);
     url.searchParams.set("job", jobId);
     url.searchParams.delete("persona");
     history.replaceState(null, "", url);
+
+    // Smooth scroll to quiz section
+    smoothScrollTo("quiz-section", "start");
 }
 
-function renderQuestion() {
-    const idx = state.questionIdx;
+function renderAllQuestions() {
+    const container = document.getElementById("quiz-questions");
+    container.innerHTML = "";
     const total = (quiz.questions || []).length;
-    if (idx >= total) {
-        finalizeQuiz();
-        return;
-    }
-    const q = quiz.questions[idx];
-    const card = document.getElementById("quiz-card");
-    const progress = t("quiz_progress").replace("{n}", idx + 1).replace("{total}", total);
 
-    const text = q[currentLang] || q.ko;
-    const opts = (q.options || []).map((o, i) => {
-        const label = o[currentLang] || o.ko;
-        return `<button type="button" class="quiz-option" data-value="${escapeHtml(o.value)}" data-idx="${i}">${escapeHtml(label)}</button>`;
-    }).join("");
+    quiz.questions.forEach((q, idx) => {
+        const text = pick(q, currentLang, "en", "ko");
+        const optsHtml = (q.options || []).map((o) => {
+            const label = pick(o, currentLang, "en", "ko");
+            return `<button type="button" class="quiz-option" data-q="${idx}" data-value="${escapeHtml(o.value)}">${escapeHtml(label)}</button>`;
+        }).join("");
 
-    card.innerHTML = `
-        <div class="quiz-progress">${escapeHtml(progress)}</div>
-        <h3 class="quiz-question">${escapeHtml(text)}</h3>
-        <div class="quiz-options">${opts}</div>
-    `;
-    card.querySelectorAll(".quiz-option").forEach(btn => {
-        btn.addEventListener("click", () => {
-            state.answers[idx] = btn.getAttribute("data-value");
-            state.questionIdx += 1;
-            renderQuestion();
-        });
+        const card = document.createElement("div");
+        card.className = "quiz-card";
+        card.id = `q-${idx}`;
+        card.innerHTML = `
+            <div class="quiz-progress">${idx + 1} / ${total}</div>
+            <h3 class="quiz-question">${escapeHtml(text)}</h3>
+            <div class="quiz-options">${optsHtml}</div>
+        `;
+        container.appendChild(card);
+    });
+
+    container.querySelectorAll(".quiz-option").forEach(btn => {
+        btn.addEventListener("click", () => onAnswerSelected(parseInt(btn.dataset.q, 10), btn.dataset.value));
     });
 }
 
+function onAnswerSelected(qIdx, value) {
+    state.answers[qIdx] = value;
+
+    // Mark this question's selected option
+    const card = document.getElementById(`q-${qIdx}`);
+    if (card) {
+        card.querySelectorAll(".quiz-option").forEach(btn => {
+            btn.classList.toggle("selected", btn.dataset.value === value);
+        });
+        card.classList.add("answered");
+    }
+
+    // If not yet last question, scroll to next unanswered question
+    const next = state.answers.findIndex((a, i) => a === null && i > qIdx);
+    if (next !== -1) {
+        smoothScrollTo(`q-${next}`, "center");
+        return;
+    }
+
+    // All answered → compute persona, render result
+    if (state.answers.every(a => a !== null)) {
+        const persona = calculatePersona();
+        goResult(state.jobId, persona);
+    }
+}
+
 function calculatePersona() {
-    let arSum = 0; // A=+1, R=-1
-    let scSum = 0; // C=+1, S=-1
+    let arSum = 0;
+    let scSum = 0;
     (quiz.questions || []).forEach((q, i) => {
         const ans = state.answers[i];
         if (!ans) return;
@@ -317,24 +421,21 @@ function calculatePersona() {
             else if (ans === "S") scSum -= 1;
         }
     });
-    const ar = arSum > 0 ? "A" : "R";  // 3 AR questions, can't tie at 0
-    const sc = scSum > 0 ? "C" : "S";  // 2 SC questions, tie → S (solo)
+    const ar = arSum > 0 ? "A" : "R";
+    const sc = scSum > 0 ? "C" : "S";
     const code = ar + sc;
     return PERSONA_CODES.includes(code) ? code : "AS";
 }
 
-async function finalizeQuiz() {
-    state.persona = calculatePersona();
-    await goResult(state.jobId, state.persona);
-}
-
-async function goResult(jobId, personaCode) {
+async function goResult(jobId, personaCode, { fromDeepLink = false } = {}) {
     state.jobId = jobId;
     state.persona = personaCode;
-    showPhase("result");
 
-    document.getElementById("result-loading").classList.remove("hidden");
-    document.getElementById("result-content").classList.add("hidden");
+    if (fromDeepLink) {
+        setPhase("result-only");
+    } else {
+        setPhase("result");
+    }
 
     try {
         if (!evolution || evolution.job_id !== jobId) {
@@ -343,79 +444,78 @@ async function goResult(jobId, personaCode) {
             evolution = await res.json();
         }
         renderResult();
+
         const url = new URL(window.location.href);
         url.searchParams.set("job", jobId);
         url.searchParams.set("persona", personaCode);
         history.replaceState(null, "", url);
+
+        smoothScrollTo("result-section", "start");
     } catch (e) {
         console.error(e);
         alert(t("msg_no_match"));
         restartFlow();
-    } finally {
-        document.getElementById("result-loading").classList.add("hidden");
-        document.getElementById("result-content").classList.remove("hidden");
     }
 }
 
 function renderResult() {
     const ev = evolution;
     if (!ev) return;
-    const lang = currentLang;
     const code = state.persona;
     const persona = (ev.personas || {})[code] || {};
     const bias = persona.bias === "doom" ? "doom" : "bloom";
+    const emoji = ev.emoji || "✨";
 
-    // Header: nickname + blurb + bias hint
-    const nickname = persona["nickname_" + lang] || persona.nickname_ko || code;
-    const blurb = persona["blurb_" + lang] || persona.blurb_ko || "";
-    const jobLabel = lang === "ko" ? ev.label_ko : ev.label_en;
-    const hookCopy = (ev.hook_copy && ev.hook_copy[bias] && ev.hook_copy[bias][lang]) || "";
+    const jobLabelText = localized({
+        ko: ev.label_ko, en: ev.label_en, ja: ev.label_ja
+    }) || ev.label_en || ev.label_ko;
 
-    document.getElementById("result-job-name").textContent = jobLabel;
+    const nickname = localizedField(persona, "nickname") || code;
+    const blurb = localizedField(persona, "blurb") || "";
+    const hookCopy = localized((ev.hook_copy || {})[bias] || {}) || "";
+
+    document.getElementById("result-job-name").textContent = jobLabelText;
+    document.getElementById("persona-emoji").textContent = emoji;
     document.getElementById("persona-nickname").textContent = nickname;
     document.getElementById("persona-blurb").textContent = blurb;
     document.getElementById("persona-bias-path").textContent =
         bias === "doom" ? t("path_doom_title") : t("path_bloom_title");
     document.getElementById("hook-copy").textContent = hookCopy;
 
-    // Dual tree
-    const year0 = ev.year0 || {};
+    // Year 0 — shared across paths
+    const year0Card = document.getElementById("year0-card");
+    year0Card.innerHTML = renderStageInner(ev.year0, 0, emoji, "year0");
+
+    // Bloom + Doom paths
     const bloomStages = ((ev.paths && ev.paths.bloom && ev.paths.bloom.stages) || []).slice().sort((a, b) => a.year - b.year);
     const doomStages = ((ev.paths && ev.paths.doom && ev.paths.doom.stages) || []).slice().sort((a, b) => a.year - b.year);
 
-    const year0Card = document.getElementById("year0-card");
-    year0Card.innerHTML = renderStageCardInner(year0, 0, "year0");
-
-    const bloomTree = document.getElementById("bloom-tree");
-    bloomTree.innerHTML = bloomStages.map(s => `<div class="evo-card stage-${s.year} path-bloom">${renderStageCardInner(s, s.year, "bloom")}</div>`).join("");
+    document.getElementById("bloom-tree").innerHTML = bloomStages.map(s =>
+        `<div class="evo-card stage-${s.year} path-bloom">${renderStageInner(s, s.year, emoji, "bloom")}</div>`
+    ).join("");
     document.getElementById("bloom-tree-wrap").classList.toggle("path-bias", bias === "bloom");
     document.getElementById("bloom-tree-title").textContent = t("path_bloom_title");
     document.getElementById("bloom-tree-desc").textContent = t("path_bloom_desc");
 
-    const doomTree = document.getElementById("doom-tree");
-    doomTree.innerHTML = doomStages.map(s => `<div class="evo-card stage-${s.year} path-doom">${renderStageCardInner(s, s.year, "doom")}</div>`).join("");
+    document.getElementById("doom-tree").innerHTML = doomStages.map(s =>
+        `<div class="evo-card stage-${s.year} path-doom">${renderStageInner(s, s.year, emoji, "doom")}</div>`
+    ).join("");
     document.getElementById("doom-tree-wrap").classList.toggle("path-bias", bias === "doom");
     document.getElementById("doom-tree-title").textContent = t("path_doom_title");
     document.getElementById("doom-tree-desc").textContent = t("path_doom_desc");
 }
 
-function renderStageCardInner(stage, year, pathKey) {
-    const lang = currentLang;
-    const sl = (stage && stage[lang]) || (stage && stage.ko) || (stage && stage.en) || {};
+function renderStageInner(stage, year, emoji, pathKey) {
+    const sl = localizedStage(stage);
     const skills = Array.isArray(sl.skills) ? sl.skills : [];
-    let imgFile;
-    if (pathKey === "year0") imgFile = "stage_0.webp";
-    else if (pathKey === "bloom") imgFile = `bloom_${year}.webp`;
-    else if (pathKey === "doom") imgFile = `doom_${year}.webp`;
-    else imgFile = stage.image || `stage_${year}.webp`;
-    const imgSrc = `${DATA_BASE}/jobs/${state.jobId}/${imgFile}`;
     const yearLabel = year === 0 ? t("year_now") : year === 10 ? t("year_10") : t("year_30");
+    const pathBadge = pathKey === "doom" ? "DOOM" : pathKey === "bloom" ? "BLOOM" : "";
     return `
-        <div class="evo-card-year">${escapeHtml(yearLabel)}</div>
-        <div class="evo-card-img-wrap">
-            <img class="evo-card-img" src="${imgSrc}" alt="${escapeHtml(sl.title || "")}"
-                 onerror="this.onerror=null; this.classList.add('img-missing'); this.removeAttribute('src');">
+        <div class="evo-card-head">
+            <div class="evo-card-year">${escapeHtml(yearLabel)}</div>
+            ${pathBadge ? `<div class="evo-card-path-badge">${escapeHtml(pathBadge)}</div>` : ""}
         </div>
+        <div class="evo-card-emoji">${escapeHtml(emoji)}</div>
         <h3 class="evo-card-title">${escapeHtml(sl.title || "")}</h3>
         <p class="evo-card-desc">${escapeHtml(sl.description || "")}</p>
         <div class="evo-card-skills">
@@ -427,6 +527,16 @@ function renderStageCardInner(stage, year, pathKey) {
     `;
 }
 
+function smoothScrollTo(id, block) {
+    requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (typeof el.scrollIntoView === "function") {
+            el.scrollIntoView({ behavior: "smooth", block: block || "start" });
+        }
+    });
+}
+
 function escapeHtml(s) {
     return String(s)
         .replaceAll("&", "&amp;")
@@ -436,13 +546,15 @@ function escapeHtml(s) {
 }
 
 function restartFlow() {
-    state = { phase: "job_select", jobId: null, answers: [], questionIdx: 0, persona: null };
+    state = { jobId: null, answers: [], persona: null, phase: "input" };
     evolution = null;
-    showPhase("job_select");
+    document.getElementById("quiz-questions").innerHTML = "";
+    setPhase("input");
     const url = new URL(window.location.href);
     url.searchParams.delete("job");
     url.searchParams.delete("persona");
     history.replaceState(null, "", url);
+    smoothScrollTo("input-section", "start");
 }
 
 async function cycleNextPersona() {
@@ -459,8 +571,7 @@ async function onShare() {
     url.searchParams.set("persona", state.persona);
     const shareUrl = url.toString();
 
-    const lang = currentLang;
-    const caption = (evolution.share_caption && evolution.share_caption[lang]) || t("slogan");
+    const caption = localized(evolution.share_caption || {}) || t("slogan");
     const text = caption + "\n\n" + shareUrl;
 
     if (navigator.share) {
