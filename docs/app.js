@@ -82,13 +82,94 @@ const UI_TEXT = {
         quiz_intro: "AI時代、あなたはどこに立っている？",
         persona_card_title: "あなたの分身",
         quiz_title: "5問診断"
+    },
+    "zh-tw": {
+        app_title: "1Day1Doom",
+        slogan: "AI 會吃掉你的工作嗎？— 5 題診斷你 30 年後的兩條命運",
+        input_title: "輸入你的職業",
+        label_job: "職業",
+        placeholder_job: "例：後端工程師、教師、護理師…",
+        hint: "選擇職業，回答 5 題，結果會在同一頁顯示。",
+        btn_share: "分享結果",
+        btn_other_persona: "看其他角色",
+        btn_restart_quiz: "換一個職業",
+        result_job_label: "你的職業",
+        msg_share_done: "連結已複製。貼到任何地方都可以分享。",
+        msg_no_match: "還沒有這個職業。請選一個相近的。",
+        year_now: "現在",
+        year_10: "10 年後",
+        year_30: "30 年後",
+        skills_label: "核心技能",
+        path_doom_title: "DOOM PATH",
+        path_bloom_title: "BLOOM PATH",
+        path_doom_desc: "AI 接手位置的路徑",
+        path_bloom_desc: "與 AI 共同進化的路徑",
+        bias_label: "你的自然結局",
+        quiz_intro: "AI 時代，你站在哪裡？",
+        persona_card_title: "你的分身",
+        quiz_title: "5 題診斷"
+    },
+    es: {
+        app_title: "1Day1Doom",
+        slogan: "¿La IA se comerá tu trabajo? — Diagnostica tu destino bifurcado a 30 años en 5 preguntas",
+        input_title: "Tu trabajo",
+        label_job: "Trabajo",
+        placeholder_job: "ej. Desarrollador Backend, Profesor, Enfermera…",
+        hint: "Elige un trabajo, responde 5 preguntas y el resultado aparece en la misma página.",
+        btn_share: "Compartir resultado",
+        btn_other_persona: "Ver otra persona",
+        btn_restart_quiz: "Probar otro trabajo",
+        result_job_label: "Tu trabajo",
+        msg_share_done: "¡Enlace copiado! Pégalo donde quieras.",
+        msg_no_match: "Aún no lo tenemos. Elige un trabajo similar.",
+        year_now: "Ahora",
+        year_10: "10 años",
+        year_30: "30 años",
+        skills_label: "Habilidades clave",
+        path_doom_title: "DOOM PATH",
+        path_bloom_title: "BLOOM PATH",
+        path_doom_desc: "Donde la IA toma el asiento",
+        path_bloom_desc: "Donde evolucionas con la IA",
+        bias_label: "Tu final natural",
+        quiz_intro: "En la era de la IA, ¿dónde estás?",
+        persona_card_title: "Tu alter ego",
+        quiz_title: "Diagnóstico de 5 preguntas"
+    },
+    de: {
+        app_title: "1Day1Doom",
+        slogan: "Frisst KI deinen Job? — Diagnostiziere dein 30-Jahre-Schicksal in 5 Fragen",
+        input_title: "Dein Beruf",
+        label_job: "Beruf",
+        placeholder_job: "z. B. Backend-Entwickler, Lehrer, Krankenpfleger…",
+        hint: "Beruf wählen, 5 Fragen beantworten — das Ergebnis erscheint auf derselben Seite.",
+        btn_share: "Ergebnis teilen",
+        btn_other_persona: "Andere Persona ansehen",
+        btn_restart_quiz: "Anderen Beruf versuchen",
+        result_job_label: "Dein Beruf",
+        msg_share_done: "Link kopiert. Einfach einfügen.",
+        msg_no_match: "Den haben wir noch nicht. Wähl einen ähnlichen.",
+        year_now: "Jetzt",
+        year_10: "in 10 Jahren",
+        year_30: "in 30 Jahren",
+        skills_label: "Kernkompetenzen",
+        path_doom_title: "DOOM PATH",
+        path_bloom_title: "BLOOM PATH",
+        path_doom_desc: "Wo die KI den Platz übernimmt",
+        path_bloom_desc: "Wo du mit der KI mitwächst",
+        bias_label: "Dein natürliches Ende",
+        quiz_intro: "Im KI-Zeitalter — wo stehst du?",
+        persona_card_title: "Dein Alter Ego",
+        quiz_title: "5-Fragen-Diagnose"
     }
 };
 
 const FALLBACK_CHAIN = {
     ko: ["ko", "en"],
     en: ["en", "ko"],
-    ja: ["ja", "en", "ko"]
+    ja: ["ja", "en", "ko"],
+    "zh-tw": ["zh-tw", "en", "ko"],
+    es: ["es", "en", "ko"],
+    de: ["de", "en", "ko"]
 };
 
 const DATA_BASE = "../public/data";
@@ -147,7 +228,7 @@ function localizedStage(stage) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    currentLang = document.documentElement.lang || "ko";
+    currentLang = (document.documentElement.lang || "ko").toLowerCase();
     if (!UI_TEXT[currentLang]) currentLang = "ko";
     applyI18n();
 
@@ -230,17 +311,25 @@ function normalize(s) {
     return (s || "").toLowerCase().replace(/\s+/g, "").trim();
 }
 
+function jobAllLabels(j) {
+    const locales = (manifest && manifest.locales) || ["ko", "en", "ja", "zh-tw", "es", "de"];
+    const out = [];
+    for (const loc of locales) {
+        const v = j["label_" + loc];
+        if (v) out.push(v);
+    }
+    for (const a of (j.aliases_ko || [])) out.push(a);
+    return out;
+}
+
 function findJob(query) {
     if (!manifest || !manifest.jobs) return null;
     const q = normalize(query);
     if (!q) return null;
     for (const j of manifest.jobs) {
         if (j.id === query) return j;
-        if (normalize(j.label_ko) === q) return j;
-        if (normalize(j.label_en) === q) return j;
-        if (normalize(j.label_ja || "") === q) return j;
-        for (const a of (j.aliases_ko || [])) {
-            if (normalize(a) === q) return j;
+        for (const lab of jobAllLabels(j)) {
+            if (normalize(lab) === q) return j;
         }
     }
     return null;
@@ -252,7 +341,7 @@ function suggestJobs(query) {
     if (!q) return manifest.jobs.slice(0, 12);
     const scored = [];
     for (const j of manifest.jobs) {
-        const labels = [j.label_ko, j.label_en, j.label_ja || "", ...(j.aliases_ko || [])].map(normalize);
+        const labels = jobAllLabels(j).map(normalize);
         let score = 0;
         for (const lab of labels) {
             if (!lab) continue;
@@ -267,7 +356,7 @@ function suggestJobs(query) {
 }
 
 function jobLabel(j) {
-    return pick(j, `label_${currentLang}`, "label_en", "label_ko");
+    return pick(j, `label_${currentLang}`, "label_en", "label_ko") || j.id;
 }
 
 function onInputChange(e) {
@@ -466,9 +555,11 @@ function renderResult() {
     const bias = persona.bias === "doom" ? "doom" : "bloom";
     const emoji = ev.emoji || "✨";
 
-    const jobLabelText = localized({
-        ko: ev.label_ko, en: ev.label_en, ja: ev.label_ja
-    }) || ev.label_en || ev.label_ko;
+    const evLabelObj = {
+        ko: ev.label_ko, en: ev.label_en, ja: ev.label_ja,
+        "zh-tw": ev["label_zh-tw"], es: ev.label_es, de: ev.label_de
+    };
+    const jobLabelText = localized(evLabelObj) || ev.label_en || ev.label_ko;
 
     const nickname = localizedField(persona, "nickname") || code;
     const blurb = localizedField(persona, "blurb") || "";

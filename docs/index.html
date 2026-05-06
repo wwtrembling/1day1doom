@@ -25,6 +25,9 @@
             let target = "./en/";
             if (lang.startsWith("ko")) target = "./ko/";
             else if (lang.startsWith("ja")) target = "./ja/";
+            else if (lang.startsWith("zh-tw") || lang.startsWith("zh-hk") || lang.startsWith("zh-mo")) target = "./zh-tw/";
+            else if (lang.startsWith("es")) target = "./es/";
+            else if (lang.startsWith("de")) target = "./de/";
             window.location.replace(target + window.location.search + window.location.hash);
         })();
     </script>

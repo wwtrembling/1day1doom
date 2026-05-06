@@ -5,6 +5,9 @@
       "label_ko": "AI 적응 성향",
       "label_en": "AI adaptation",
       "label_ja": "AI適応",
+      "label_zh-tw": "AI 適應傾向",
+      "label_es": "Adaptación a la IA",
+      "label_de": "KI-Anpassung",
       "positive": "A",
       "negative": "R"
     },
@@ -12,6 +15,9 @@
       "label_ko": "협업 성향",
       "label_en": "Collaboration",
       "label_ja": "協業スタイル",
+      "label_zh-tw": "協作傾向",
+      "label_es": "Colaboración",
+      "label_de": "Zusammenarbeit",
       "positive": "C",
       "negative": "S"
     }
@@ -23,9 +29,12 @@
       "ko": "새 AI 도구가 나오면?",
       "en": "When a new AI tool drops, you...",
       "ja": "新しいAIツールが出たら？",
+      "zh-tw": "新的 AI 工具出現時，你會？",
+      "es": "Cuando aparece una nueva herramienta de IA...",
+      "de": "Wenn ein neues KI-Tool herauskommt?",
       "options": [
-        { "value": "A", "ko": "일단 깔아본다",   "en": "install it now",  "ja": "とりあえず使ってみる" },
-        { "value": "R", "ko": "검증 후 결정한다", "en": "wait for proof",   "ja": "まず様子を見る" }
+        { "value": "A", "ko": "일단 깔아본다",   "en": "install it now",  "ja": "とりあえず使ってみる", "zh-tw": "馬上安裝試試",   "es": "la instalas al momento", "de": "sofort ausprobieren" },
+        { "value": "R", "ko": "검증 후 결정한다", "en": "wait for proof",   "ja": "まず様子を見る",       "zh-tw": "先觀望再說",     "es": "esperas a ver",          "de": "erst abwarten" }
       ]
     },
     {
@@ -34,9 +43,12 @@
       "ko": "어려운 문제를 만나면?",
       "en": "Stuck on a hard problem?",
       "ja": "難しい問題に直面したら？",
+      "zh-tw": "遇到難題時？",
+      "es": "¿Atascado en un problema difícil?",
+      "de": "Bei einem schwierigen Problem?",
       "options": [
-        { "value": "S", "ko": "혼자 끝까지 파본다", "en": "dig in alone",     "ja": "一人で最後まで掘る" },
-        { "value": "C", "ko": "동료와 같이 푼다",  "en": "loop in teammates", "ja": "仲間と一緒に解く" }
+        { "value": "S", "ko": "혼자 끝까지 파본다", "en": "dig in alone",     "ja": "一人で最後まで掘る", "zh-tw": "一個人鑽到底",   "es": "cavas en solitario",   "de": "allein durchkämpfen" },
+        { "value": "C", "ko": "동료와 같이 푼다",  "en": "loop in teammates", "ja": "仲間と一緒に解く",   "zh-tw": "找同事一起解",   "es": "llamas al equipo",      "de": "Team einbinden" }
       ]
     },
     {
@@ -45,9 +57,12 @@
       "ko": "AI가 내 일을 대신하면?",
       "en": "If AI handles your task?",
       "ja": "AIが自分の仕事を代行したら？",
+      "zh-tw": "如果 AI 代替你做事？",
+      "es": "¿Si la IA hace tu tarea?",
+      "de": "Wenn KI deine Aufgaben übernimmt?",
       "options": [
-        { "value": "A", "ko": "남는 시간에 더 큰 일", "en": "tackle bigger work", "ja": "空いた時間でもっと大きな仕事" },
-        { "value": "R", "ko": "내 손맛이 사라진다",   "en": "I lose my touch",     "ja": "自分の手触りが消える" }
+        { "value": "A", "ko": "남는 시간에 더 큰 일", "en": "tackle bigger work", "ja": "空いた時間でもっと大きな仕事", "zh-tw": "用空出的時間做更大的事", "es": "te dedicas a algo más grande", "de": "größere Sachen anpacken" },
+        { "value": "R", "ko": "내 손맛이 사라진다",   "en": "I lose my touch",     "ja": "自分の手触りが消える",          "zh-tw": "我的手感會消失",       "es": "pierdes tu toque",                "de": "mein Handwerk geht verloren" }
       ]
     },
     {
@@ -56,9 +71,12 @@
       "ko": "프로젝트 진행 방식은?",
       "en": "How you run a project?",
       "ja": "プロジェクトの進め方は？",
+      "zh-tw": "專案如何推進？",
+      "es": "¿Cómo gestionas un proyecto?",
+      "de": "Wie führst du ein Projekt?",
       "options": [
-        { "value": "S", "ko": "내가 다 만든다",     "en": "build it myself",   "ja": "自分で全部作る" },
-        { "value": "C", "ko": "역할 나눠서 굴린다", "en": "delegate and steer", "ja": "役割を分けて回す" }
+        { "value": "S", "ko": "내가 다 만든다",     "en": "build it myself",   "ja": "自分で全部作る", "zh-tw": "自己全部完成", "es": "lo construyes tú mismo", "de": "selbst alles bauen" },
+        { "value": "C", "ko": "역할 나눠서 굴린다", "en": "delegate and steer", "ja": "役割を分けて回す", "zh-tw": "分工進行",     "es": "delegas y diriges",       "de": "delegieren und steuern" }
       ]
     },
     {
@@ -67,9 +85,12 @@
       "ko": "10년 뒤 가장 두려운 것?",
       "en": "Biggest fear in 10 years?",
       "ja": "10年後に一番怖いこと？",
+      "zh-tw": "10 年後最害怕的事？",
+      "es": "¿Tu mayor miedo en 10 años?",
+      "de": "Größte Angst in 10 Jahren?",
       "options": [
-        { "value": "A", "ko": "변화에 못 따라가는 것",     "en": "falling behind change",   "ja": "変化についていけないこと" },
-        { "value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing",    "ja": "今の仕事が消えること" }
+        { "value": "A", "ko": "변화에 못 따라가는 것",     "en": "falling behind change",   "ja": "変化についていけないこと", "zh-tw": "跟不上變化",     "es": "no seguir el cambio",                 "de": "nicht Schritt halten" },
+        { "value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing",    "ja": "今の仕事が消えること",      "zh-tw": "我的工作消失",   "es": "que tu profesión desaparezca",         "de": "mein Beruf verschwindet" }
       ]
     }
   ]
