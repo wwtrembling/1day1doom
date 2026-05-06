@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Day1Doom — AIに仕事を奪われる？ 30年後の二択運命を診断</title>
+    <title>1Day1Doom — AIに仕事を奪われる？ 30年後の運命が二択に分かれる</title>
 
-    <meta name="description" content="AIに仕事を奪われる？ 5問で30年後の二択運命を診断。Doom Path と Bloom Path、あなたはどちら？">
+    <meta name="description" content="AIに仕事を奪われる？ 5問で30年後の運命が二択に分かれる。Doom Path と Bloom Path、あなたはどちら？">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1day1doom.com/ja/">
-    <meta property="og:title" content="AIに仕事を奪われる？ — 30年後の二択運命診断">
-    <meta property="og:description" content="5問で診断する、職業の30年分岐。あなたは Doom か、Bloom か？">
+    <meta property="og:title" content="AIに仕事を奪われる？ — 30年後の運命が二択に分かれる">
+    <meta property="og:description" content="5問で見える、職業の30年分岐。あなたは Doom か、Bloom か？">
     <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,6 +19,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6334819180242631"
      crossorigin="anonymous"></script>
 
+    <link rel="icon" type="image/svg+xml" href="../public/favicon.svg">
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -41,29 +42,29 @@
                 </ul>
             </div>
             <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
-            <p id="slogan" class="evo-subtitle" data-i18n="slogan">AIに仕事を奪われる？ 5問で30年後の二択運命を診断する</p>
+            <p id="slogan" class="evo-subtitle" data-i18n="slogan">AIに仕事を奪われる？ 5問で30年後の運命が二択に分かれる。</p>
         </header>
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">あなたの職業</h2>
+                <h2 data-i18n="input_title">まず、職業を教えてください</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
                         <label for="job-input" data-i18n="label_job">職業</label>
                         <input type="text" id="job-input" required
-                               placeholder="例: バックエンド開発者、教師、看護師…"
+                               placeholder="例：バックエンド開発者、教師、看護師…"
                                data-i18n-placeholder="placeholder_job">
                         <ul id="job-suggestions" class="suggest-list"></ul>
                     </div>
                 </form>
                 <p class="hint" data-i18n="hint">
-                    職業を選び、5問に答えると、結果が同じページに表示されます。
+                    職業を選んで5問に答えると、このページに結果が表示されます。
                 </p>
             </section>
 
             <section id="quiz-section" class="panel hidden">
                 <h2 class="quiz-title" data-i18n="quiz_title">5問診断</h2>
-                <p class="quiz-intro" data-i18n="quiz_intro">AI時代、あなたはどこに立っている？</p>
+                <p class="quiz-intro" data-i18n="quiz_intro">AI時代、あなたはどこに立っていますか？</p>
                 <div id="quiz-questions"></div>
                 <div class="ad-slot ad-slot-quiz" aria-hidden="true">
                     <ins class="adsbygoogle"
@@ -90,7 +91,7 @@
                     <h3 id="persona-nickname" class="persona-nickname">…</h3>
                     <p id="persona-blurb" class="persona-blurb">…</p>
                     <p class="persona-bias">
-                        <span data-i18n="bias_label">あなたの自然な結末</span>:
+                        <span data-i18n="bias_label">今の傾向の行き先</span>:
                         <strong id="persona-bias-path">…</strong>
                     </p>
                 </div>
@@ -112,7 +113,7 @@
                     <div id="doom-tree-wrap" class="path-tree path-tree-doom">
                         <div class="path-tree-header">
                             <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">AIに席を譲る道</p>
+                            <p id="doom-tree-desc" class="path-tree-desc">AIに席を譲る未来</p>
                         </div>
                         <div id="doom-tree" class="path-tree-stages"></div>
                     </div>
@@ -120,7 +121,7 @@
                     <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
                         <div class="path-tree-header">
                             <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">AIと共に進化する道</p>
+                            <p id="bloom-tree-desc" class="path-tree-desc">AIと共に進化する未来</p>
                         </div>
                         <div id="bloom-tree" class="path-tree-stages"></div>
                     </div>
@@ -136,9 +137,9 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">結果を共有</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">別のペルソナも見る</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">別の職業でやり直す</button>
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">結果をシェアする</button>
+                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">他のペルソナも見てみる</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">他の職業でやり直す</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">

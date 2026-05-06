@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Day1Doom — AI 會吃掉你的工作嗎？30 年後的兩條命運診斷</title>
+    <title>1Day1Doom — AI 會吃掉你的工作嗎？5 題看見 30 年後的你</title>
 
-    <meta name="description" content="AI 會吃掉你的工作嗎？5 題診斷你 30 年後的兩條命運。Doom Path 還是 Bloom Path？">
+    <meta name="description" content="AI 會吃掉你的工作嗎？5 題，看見 30 年後的你。Doom Path 還是 Bloom Path？">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1day1doom.com/zh-tw/">
-    <meta property="og:title" content="AI 會吃掉你的工作嗎？— 30 年後兩條命運診斷">
-    <meta property="og:description" content="5 題診斷職業的 30 年分歧。你是 Doom 還是 Bloom？">
+    <meta property="og:title" content="AI 會吃掉你的工作嗎？— 5 題，看見 30 年後的你">
+    <meta property="og:description" content="5 題看見職業的 30 年分歧。你是 Doom 還是 Bloom？">
     <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,6 +19,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6334819180242631"
      crossorigin="anonymous"></script>
 
+    <link rel="icon" type="image/svg+xml" href="../public/favicon.svg">
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -41,29 +42,29 @@
                 </ul>
             </div>
             <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
-            <p id="slogan" class="evo-subtitle" data-i18n="slogan">AI 會吃掉你的工作嗎？— 5 題診斷你 30 年後的兩條命運</p>
+            <p id="slogan" class="evo-subtitle" data-i18n="slogan">AI 會吃掉你的工作嗎？5 題，看見 30 年後的你</p>
         </header>
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">輸入你的職業</h2>
+                <h2 data-i18n="input_title">你的職業是？</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
                         <label for="job-input" data-i18n="label_job">職業</label>
                         <input type="text" id="job-input" required
-                               placeholder="例：後端工程師、教師、護理師…"
+                               placeholder="例如：後端工程師、老師、護理師⋯"
                                data-i18n-placeholder="placeholder_job">
                         <ul id="job-suggestions" class="suggest-list"></ul>
                     </div>
                 </form>
                 <p class="hint" data-i18n="hint">
-                    選擇職業，回答 5 題，結果會在同一頁顯示。
+                    選好職業、答完 5 題，結果會直接出現在同一頁。
                 </p>
             </section>
 
             <section id="quiz-section" class="panel hidden">
-                <h2 class="quiz-title" data-i18n="quiz_title">5 題診斷</h2>
-                <p class="quiz-intro" data-i18n="quiz_intro">AI 時代，你站在哪裡？</p>
+                <h2 class="quiz-title" data-i18n="quiz_title">5 題快測</h2>
+                <p class="quiz-intro" data-i18n="quiz_intro">AI 時代，你站在哪一邊？</p>
                 <div id="quiz-questions"></div>
                 <div class="ad-slot ad-slot-quiz" aria-hidden="true">
                     <ins class="adsbygoogle"
@@ -90,7 +91,7 @@
                     <h3 id="persona-nickname" class="persona-nickname">…</h3>
                     <p id="persona-blurb" class="persona-blurb">…</p>
                     <p class="persona-bias">
-                        <span data-i18n="bias_label">你的自然結局</span>:
+                        <span data-i18n="bias_label">你目前傾向的去向</span>:
                         <strong id="persona-bias-path">…</strong>
                     </p>
                 </div>
@@ -112,7 +113,7 @@
                     <div id="doom-tree-wrap" class="path-tree path-tree-doom">
                         <div class="path-tree-header">
                             <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">AI 接手位置的路徑</p>
+                            <p id="doom-tree-desc" class="path-tree-desc">AI 接手你位置的那條路</p>
                         </div>
                         <div id="doom-tree" class="path-tree-stages"></div>
                     </div>
@@ -120,7 +121,7 @@
                     <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
                         <div class="path-tree-header">
                             <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">與 AI 共同進化的路徑</p>
+                            <p id="bloom-tree-desc" class="path-tree-desc">跟 AI 一起進化的那條路</p>
                         </div>
                         <div id="bloom-tree" class="path-tree-stages"></div>
                     </div>
@@ -136,9 +137,9 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">分享結果</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">看其他角色</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">換一個職業</button>
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">分享我的結果</button>
+                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">看看其他分身</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">換個職業再測</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">

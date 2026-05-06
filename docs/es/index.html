@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Day1Doom — ¿La IA se comerá tu trabajo? Diagnóstico de destino bifurcado a 30 años</title>
+    <title>1Day1Doom — ¿La IA se comerá tu trabajo? Tus dos finales a 30 años en 5 preguntas</title>
 
-    <meta name="description" content="¿La IA se comerá tu trabajo? Diagnostica tu destino bifurcado a 30 años en 5 preguntas. ¿Doom Path o Bloom Path?">
+    <meta name="description" content="¿La IA se comerá tu trabajo? Mira tus dos finales a 30 años en 5 preguntas. ¿Doom Path o Bloom Path?">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1day1doom.com/es/">
-    <meta property="og:title" content="¿La IA se comerá tu trabajo? — Destino a 30 años en 5 preguntas">
-    <meta property="og:description" content="5 preguntas para diagnosticar dónde se bifurca tu carrera. ¿Eres Doom o Bloom?">
+    <meta property="og:title" content="¿La IA se comerá tu trabajo? — Tus dos finales a 30 años">
+    <meta property="og:description" content="5 preguntas, dos finales. ¿Eres Doom o Bloom?">
     <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,6 +19,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6334819180242631"
      crossorigin="anonymous"></script>
 
+    <link rel="icon" type="image/svg+xml" href="../public/favicon.svg">
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -41,29 +42,29 @@
                 </ul>
             </div>
             <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
-            <p id="slogan" class="evo-subtitle" data-i18n="slogan">¿La IA se comerá tu trabajo? — Diagnostica tu destino bifurcado a 30 años en 5 preguntas</p>
+            <p id="slogan" class="evo-subtitle" data-i18n="slogan">¿La IA se comerá tu trabajo? Mira tus dos finales a 30 años — en 5 preguntas.</p>
         </header>
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">Tu trabajo</h2>
+                <h2 data-i18n="input_title">Empezamos por tu trabajo</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
                         <label for="job-input" data-i18n="label_job">Trabajo</label>
                         <input type="text" id="job-input" required
-                               placeholder="ej. Desarrollador Backend, Profesor, Enfermera…"
+                               placeholder="p. ej. desarrollador backend, profesora, enfermero…"
                                data-i18n-placeholder="placeholder_job">
                         <ul id="job-suggestions" class="suggest-list"></ul>
                     </div>
                 </form>
                 <p class="hint" data-i18n="hint">
-                    Elige un trabajo, responde 5 preguntas y el resultado aparece en la misma página.
+                    Pones tu trabajo, contestas 5 preguntas y ves el resultado aquí mismo.
                 </p>
             </section>
 
             <section id="quiz-section" class="panel hidden">
-                <h2 class="quiz-title" data-i18n="quiz_title">Diagnóstico de 5 preguntas</h2>
-                <p class="quiz-intro" data-i18n="quiz_intro">En la era de la IA, ¿dónde estás?</p>
+                <h2 class="quiz-title" data-i18n="quiz_title">5 preguntas, dos finales</h2>
+                <p class="quiz-intro" data-i18n="quiz_intro">En la era de la IA, ¿de qué lado caes?</p>
                 <div id="quiz-questions"></div>
                 <div class="ad-slot ad-slot-quiz" aria-hidden="true">
                     <ins class="adsbygoogle"
@@ -90,7 +91,7 @@
                     <h3 id="persona-nickname" class="persona-nickname">…</h3>
                     <p id="persona-blurb" class="persona-blurb">…</p>
                     <p class="persona-bias">
-                        <span data-i18n="bias_label">Tu final natural</span>:
+                        <span data-i18n="bias_label">Hacia donde te lleva esto</span>:
                         <strong id="persona-bias-path">…</strong>
                     </p>
                 </div>
@@ -112,7 +113,7 @@
                     <div id="doom-tree-wrap" class="path-tree path-tree-doom">
                         <div class="path-tree-header">
                             <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">Donde la IA toma el asiento</p>
+                            <p id="doom-tree-desc" class="path-tree-desc">Cuando la IA se sienta en tu silla</p>
                         </div>
                         <div id="doom-tree" class="path-tree-stages"></div>
                     </div>
@@ -120,7 +121,7 @@
                     <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
                         <div class="path-tree-header">
                             <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">Donde evolucionas con la IA</p>
+                            <p id="bloom-tree-desc" class="path-tree-desc">Cuando evolucionas junto a la IA</p>
                         </div>
                         <div id="bloom-tree" class="path-tree-stages"></div>
                     </div>
@@ -136,9 +137,9 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Compartir resultado</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">Ver otra persona</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">Probar otro trabajo</button>
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Compartir mi resultado</button>
+                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">Ver otro alter ego</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">Probar con otro trabajo</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">

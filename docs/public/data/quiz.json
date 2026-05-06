@@ -26,71 +26,71 @@
     {
       "id": "q1",
       "axis": "AR",
-      "ko": "새 AI 도구가 나오면?",
+      "ko": "새 AI 도구가 나왔어요. 당신은?",
       "en": "When a new AI tool drops, you...",
       "ja": "新しいAIツールが出たら？",
-      "zh-tw": "新的 AI 工具出現時，你會？",
-      "es": "Cuando aparece una nueva herramienta de IA...",
-      "de": "Wenn ein neues KI-Tool herauskommt?",
+      "zh-tw": "新的 AI 工具上線，你會⋯？",
+      "es": "Sale una nueva herramienta de IA. Tú…",
+      "de": "Neues KI-Tool ist da — und du?",
       "options": [
-        { "value": "A", "ko": "일단 깔아본다",   "en": "install it now",  "ja": "とりあえず使ってみる", "zh-tw": "馬上安裝試試",   "es": "la instalas al momento", "de": "sofort ausprobieren" },
-        { "value": "R", "ko": "검증 후 결정한다", "en": "wait for proof",   "ja": "まず様子を見る",       "zh-tw": "先觀望再說",     "es": "esperas a ver",          "de": "erst abwarten" }
+        { "value": "A", "ko": "일단 깔아 본다",   "en": "install it now",  "ja": "とりあえず触ってみる", "zh-tw": "馬上裝來玩玩",   "es": "la instalas al momento", "de": "sofort installieren" },
+        { "value": "R", "ko": "검증부터 해 본다", "en": "wait for proof",   "ja": "まず様子を見る",       "zh-tw": "先觀望再說",     "es": "esperas a ver qué tal",  "de": "erstmal abwarten" }
       ]
     },
     {
       "id": "q2",
       "axis": "SC",
-      "ko": "어려운 문제를 만나면?",
+      "ko": "어려운 문제를 만났어요. 당신은?",
       "en": "Stuck on a hard problem?",
-      "ja": "難しい問題に直面したら？",
-      "zh-tw": "遇到難題時？",
-      "es": "¿Atascado en un problema difícil?",
-      "de": "Bei einem schwierigen Problem?",
+      "ja": "難問にぶつかったら？",
+      "zh-tw": "卡關的時候，你會⋯？",
+      "es": "Te atascas en un problema duro. ¿Qué haces?",
+      "de": "Festgefahren bei einem harten Problem?",
       "options": [
-        { "value": "S", "ko": "혼자 끝까지 파본다", "en": "dig in alone",     "ja": "一人で最後まで掘る", "zh-tw": "一個人鑽到底",   "es": "cavas en solitario",   "de": "allein durchkämpfen" },
-        { "value": "C", "ko": "동료와 같이 푼다",  "en": "loop in teammates", "ja": "仲間と一緒に解く",   "zh-tw": "找同事一起解",   "es": "llamas al equipo",      "de": "Team einbinden" }
+        { "value": "S", "ko": "혼자 끝까지 파 본다", "en": "dig in alone",     "ja": "一人で最後まで粘る", "zh-tw": "一個人鑽到底",   "es": "te lo comes tú solo",   "de": "allein reinbeißen" },
+        { "value": "C", "ko": "동료를 부른다",      "en": "loop in teammates", "ja": "仲間を巻き込んで解く", "zh-tw": "拉同事一起解",   "es": "tiras del equipo",       "de": "Team dazuholen" }
       ]
     },
     {
       "id": "q3",
       "axis": "AR",
-      "ko": "AI가 내 일을 대신하면?",
-      "en": "If AI handles your task?",
-      "ja": "AIが自分の仕事を代行したら？",
-      "zh-tw": "如果 AI 代替你做事？",
-      "es": "¿Si la IA hace tu tarea?",
-      "de": "Wenn KI deine Aufgaben übernimmt?",
+      "ko": "AI가 내 일을 대신해 줘요. 당신은?",
+      "en": "If AI takes the task?",
+      "ja": "AIが自分の仕事を肩代わりしたら？",
+      "zh-tw": "如果 AI 接手你的工作？",
+      "es": "La IA te quita una tarea. ¿Y tú?",
+      "de": "KI übernimmt deinen Job — und du?",
       "options": [
-        { "value": "A", "ko": "남는 시간에 더 큰 일", "en": "tackle bigger work", "ja": "空いた時間でもっと大きな仕事", "zh-tw": "用空出的時間做更大的事", "es": "te dedicas a algo más grande", "de": "größere Sachen anpacken" },
-        { "value": "R", "ko": "내 손맛이 사라진다",   "en": "I lose my touch",     "ja": "自分の手触りが消える",          "zh-tw": "我的手感會消失",       "es": "pierdes tu toque",                "de": "mein Handwerk geht verloren" }
+        { "value": "A", "ko": "남는 시간에 더 큰 일을", "en": "tackle bigger work", "ja": "空いた時間でもっと大きな仕事に挑む", "zh-tw": "多出來的時間，拿來做更大的事", "es": "vas a por algo más grande", "de": "Größeres anpacken" },
+        { "value": "R", "ko": "내 손맛이 사라진다",     "en": "you lose your touch", "ja": "自分の手応えが消える",                "zh-tw": "我的手感會不見",         "es": "pierdes tu chispa",         "de": "mir geht das Handwerk flöten" }
       ]
     },
     {
       "id": "q4",
       "axis": "SC",
-      "ko": "프로젝트 진행 방식은?",
-      "en": "How you run a project?",
+      "ko": "프로젝트는 어떻게 굴려요?",
+      "en": "How do you run a project?",
       "ja": "プロジェクトの進め方は？",
-      "zh-tw": "專案如何推進？",
-      "es": "¿Cómo gestionas un proyecto?",
-      "de": "Wie führst du ein Projekt?",
+      "zh-tw": "專案要怎麼跑？",
+      "es": "Tienes un proyecto entre manos. ¿Cómo lo sacas?",
+      "de": "Dein Projekt-Modus?",
       "options": [
-        { "value": "S", "ko": "내가 다 만든다",     "en": "build it myself",   "ja": "自分で全部作る", "zh-tw": "自己全部完成", "es": "lo construyes tú mismo", "de": "selbst alles bauen" },
-        { "value": "C", "ko": "역할 나눠서 굴린다", "en": "delegate and steer", "ja": "役割を分けて回す", "zh-tw": "分工進行",     "es": "delegas y diriges",       "de": "delegieren und steuern" }
+        { "value": "S", "ko": "내가 다 만든다",     "en": "build it myself",   "ja": "自分で全部やりきる", "zh-tw": "自己一手包辦",   "es": "lo sacas tú solo",       "de": "mach ich selbst" },
+        { "value": "C", "ko": "역할을 나눠서 굴린다", "en": "delegate and steer", "ja": "役割を分担して回す", "zh-tw": "分工合作",       "es": "repartes y diriges",     "de": "aufteilen und lenken" }
       ]
     },
     {
       "id": "q5",
       "axis": "AR",
-      "ko": "10년 뒤 가장 두려운 것?",
+      "ko": "10년 뒤, 가장 두려운 건?",
       "en": "Biggest fear in 10 years?",
-      "ja": "10年後に一番怖いこと？",
-      "zh-tw": "10 年後最害怕的事？",
-      "es": "¿Tu mayor miedo en 10 años?",
-      "de": "Größte Angst in 10 Jahren?",
+      "ja": "10年後、一番怖いことは？",
+      "zh-tw": "10 年後，你最怕什麼？",
+      "es": "¿Qué te da más miedo en 10 años?",
+      "de": "Was macht dir in 10 Jahren am meisten Angst?",
       "options": [
-        { "value": "A", "ko": "변화에 못 따라가는 것",     "en": "falling behind change",   "ja": "変化についていけないこと", "zh-tw": "跟不上變化",     "es": "no seguir el cambio",                 "de": "nicht Schritt halten" },
-        { "value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing",    "ja": "今の仕事が消えること",      "zh-tw": "我的工作消失",   "es": "que tu profesión desaparezca",         "de": "mein Beruf verschwindet" }
+        { "value": "A", "ko": "변화에 못 따라가는 것",     "en": "falling behind",          "ja": "変化に置いていかれること", "zh-tw": "跟不上時代",     "es": "quedarte atrás",                       "de": "abgehängt werden" },
+        { "value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing",    "ja": "今の仕事が消えること",      "zh-tw": "我做的事不見了", "es": "que tu oficio se extinga",             "de": "dass mein Beruf verschwindet" }
       ]
     }
   ]

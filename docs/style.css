@@ -711,7 +711,7 @@ body.result-only header .lang-switch {
     border-width: 3px;
 }
 
-/* Highlighted "bias" path — the user's natural ending */
+/* Highlighted "bias" path — where the persona currently leans */
 .path-tree.path-bias {
     box-shadow: var(--shadow), var(--bias-glow);
     transform: translateY(-2px);
