@@ -3,20 +3,36 @@
   "job_id": "ux_designer",
   "label_ko": "UX 디자이너",
   "label_en": "UX Designer",
+  "label_ja": "UXデザイナー",
+  "label_zh-tw": "UX 設計師",
+  "label_es": "Diseñador UX",
+  "label_de": "UX-Designer",
   "aliases_ko": ["UI 디자이너", "디자이너", "UX/UI 디자이너", "프로덕트 디자이너"],
   "emoji": "🎨",
   "share_caption": {
     "ko": "AI가 디자인을 변형하는 시대, 디자이너의 30년 두 갈래 운명",
-    "en": "When AI iterates designs — a designer's 30-year split fate"
+    "en": "When AI iterates designs — a designer's 30-year split fate",
+    "ja": "AIがデザインを量産する時代、デザイナーの30年二択運命",
+    "zh-tw": "AI 一秒生 100 種版本，設計師 30 年的兩條命運",
+    "es": "Cuando la IA itera diseños — el destino bifurcado a 30 años de un diseñador",
+    "de": "Wenn die KI Designs iteriert — das 30-Jahre-Schicksal eines Designers"
   },
   "hook_copy": {
     "bloom": {
       "ko": "AI가 100가지 변형을 만들어도, 본질은 네가 정한다.",
-      "en": "AI ships 100 variations. You decide the essence."
+      "en": "AI ships 100 variations. You decide the essence.",
+      "ja": "AIが100案を出しても、本質を決めるのは君。",
+      "zh-tw": "AI 一次給你 100 版，但本質還是你定。",
+      "es": "La IA suelta 100 variantes. La esencia la decides tú.",
+      "de": "Die KI liefert 100 Varianten. Das Wesen entscheidest du."
     },
     "doom": {
       "ko": "AI가 디자인을 짜고, 너는 색만 고른다.",
-      "en": "AI designs. You pick the colors."
+      "en": "AI designs. You pick the colors.",
+      "ja": "AIがデザインし、君は色を選ぶだけ。",
+      "zh-tw": "AI 把設計做完，你只挑顏色。",
+      "es": "La IA diseña. Tú eliges colores.",
+      "de": "Die KI designt. Du suchst die Farben aus."
     }
   },
   "year0": {
@@ -30,6 +46,26 @@
       "title": "UX Designer",
       "skills": ["user research", "wireframing", "prototyping"],
       "description": "You today. Mapping how users get there, watching every pixel."
+    },
+    "ja": {
+      "title": "UXデザイナー",
+      "skills": ["ユーザーリサーチ", "ワイヤーフレーム", "プロトタイピング"],
+      "description": "今の君。ユーザーがどこを通って辿り着くかを描き、ピクセル一つずつを見守る。"
+    },
+    "zh-tw": {
+      "title": "UX 設計師",
+      "skills": ["使用者研究", "線框圖", "原型設計"],
+      "description": "今天的你。畫使用者怎麼走過來，盯每一顆像素。"
+    },
+    "es": {
+      "title": "Diseñador UX",
+      "skills": ["investigación de usuario", "wireframes", "prototipado"],
+      "description": "Tú hoy. Trazas el camino del usuario y vigilas cada píxel."
+    },
+    "de": {
+      "title": "UX-Designer",
+      "skills": ["User Research", "Wireframing", "Prototyping"],
+      "description": "Du heute. Zeichnest, wie der User dorthin kommt — und prüfst jeden Pixel."
     }
   },
   "paths": {
@@ -47,6 +83,26 @@
             "title": "Experience Architect",
             "skills": ["AI variation curation", "flow design", "design decisions"],
             "description": "AI generates hundreds of variations. You pick out the essence."
+          },
+          "ja": {
+            "title": "体験アーキテクト",
+            "skills": ["AI案のキュレーション", "ユーザーフロー設計", "デザイン判断"],
+            "description": "AIが数百案を出す。その中から本質を選ぶのが君。"
+          },
+          "zh-tw": {
+            "title": "體驗架構師",
+            "skills": ["AI 版本策展", "使用者流程設計", "設計決策"],
+            "description": "AI 一次出幾百個版本，從中挑出本質的人是你。"
+          },
+          "es": {
+            "title": "Arquitecto de Experiencia",
+            "skills": ["curaduría de variantes IA", "diseño de flujo", "decisión de diseño"],
+            "description": "La IA dispara cientos de variantes. Tú escoges la esencia."
+          },
+          "de": {
+            "title": "Experience-Architekt",
+            "skills": ["KI-Varianten-Kuration", "Flow-Design", "Design-Entscheidungen"],
+            "description": "Die KI wirft hunderte Varianten aus. Du holst das Wesentliche raus."
           }
         },
         {
@@ -61,6 +117,26 @@
             "title": "Master Designer",
             "skills": ["design philosophy", "mentorship", "brand feel"],
             "description": "The maker of a service's grain. Your design language passes to the next generation."
+          },
+          "ja": {
+            "title": "デザインマスター",
+            "skills": ["デザイン哲学", "後輩育成", "ブランドの肌触り"],
+            "description": "サービスの肌触りを作った大人。君のデザイン言語が後輩に受け継がれる。"
+          },
+          "zh-tw": {
+            "title": "設計大師",
+            "skills": ["設計哲學", "後輩培養", "品牌手感"],
+            "description": "你定下了一個服務的氣質。你的設計語言被後輩繼承。"
+          },
+          "es": {
+            "title": "Maestro Diseñador",
+            "skills": ["filosofía de diseño", "mentoría", "alma de marca"],
+            "description": "El que talló el carácter de un servicio. Tu lenguaje de diseño pasa a la siguiente generación."
+          },
+          "de": {
+            "title": "Master Designer",
+            "skills": ["Designphilosophie", "Mentoring", "Markengefühl"],
+            "description": "Du hast den Charakter eines Produkts geprägt. Deine Designsprache wird weitergegeben."
           }
         }
       ]
@@ -79,6 +155,26 @@
             "title": "Design Output Reviewer",
             "skills": ["reviewing AI output", "minor tweaks", "asset organization"],
             "description": "Designs come from generators. You check colors, alignment, and consistency at the end."
+          },
+          "ja": {
+            "title": "デザイン成果物レビュアー",
+            "skills": ["AI出力の検査", "細かな修正", "アセット整理"],
+            "description": "デザインは生成器が作る。色・整列・一貫性を最後に確かめるのが君。"
+          },
+          "zh-tw": {
+            "title": "設計成果檢查員",
+            "skills": ["AI 輸出檢查", "小修小補", "素材整理"],
+            "description": "設計都由生成器做完。你只負責最後檢查顏色、對齊、一致性。"
+          },
+          "es": {
+            "title": "Revisor de Salida de Diseño",
+            "skills": ["revisión de salida IA", "ajustes menores", "organización de assets"],
+            "description": "Los diseños salen de generadores. Tú revisas color, alineación y consistencia al final."
+          },
+          "de": {
+            "title": "Design-Output-Prüfer",
+            "skills": ["KI-Output prüfen", "kleine Tweaks", "Asset-Pflege"],
+            "description": "Designs kommen aus Generatoren. Du checkst zum Schluss Farbe, Ausrichtung und Konsistenz."
           }
         },
         {
@@ -93,6 +189,26 @@
             "title": "Remaining Designer",
             "skills": ["user-facing tweaks", "edge cases", "fine corrections"],
             "description": "Most design is automated now. You handle the small adjustments that still need a human eye."
+          },
+          "ja": {
+            "title": "残ったデザイナー",
+            "skills": ["ユーザー対応", "エッジケース", "微調整"],
+            "description": "デザインの多くは自動化される。君は人の目が必要な微調整を引き受ける。"
+          },
+          "zh-tw": {
+            "title": "留下的設計師",
+            "skills": ["使用者應對", "邊角案例", "細部修正"],
+            "description": "大部分設計都自動化了。你負責還需要人眼盯一下的微調。"
+          },
+          "es": {
+            "title": "Diseñador Residual",
+            "skills": ["ajustes de cara al usuario", "casos límite", "correcciones finas"],
+            "description": "Casi todo el diseño está automatizado. Tú tomas los retoques que aún piden ojo humano."
+          },
+          "de": {
+            "title": "Resterampen-Designer",
+            "skills": ["User-nahe Anpassungen", "Edge-Cases", "Feinkorrekturen"],
+            "description": "Das meiste Design läuft automatisch. Du übernimmst die Feinheiten, die ein menschliches Auge brauchen."
           }
         }
       ]
@@ -102,29 +218,61 @@
     "AS": {
       "nickname_ko": "AI 변형 도구를 길들인 1인 디자이너",
       "nickname_en": "Solo Designer Who Runs AI Variations",
+      "nickname_ja": "AI量産ツールを飼いならした一人デザイナー",
+      "nickname_zh-tw": "馴服 AI 量產工具的單兵設計師",
+      "nickname_es": "Diseñadora Solitaria que Maneja la IA",
+      "nickname_de": "Solo-Designer, der die KI-Varianten zähmt",
       "blurb_ko": "AI 도구를 일찍 받아들이고 혼자서 한 브랜드의 디자인을 책임지는 사람. 한 명의 디자이너가 한 회사의 결을 만드는 미래를 만든다.",
       "blurb_en": "Adopts AI tools early, runs a whole brand's design alone. Builds a future where one designer shapes a whole company's craft.",
+      "blurb_ja": "AI道具を早く受け入れ、一人で一つのブランドのデザインを引き受ける人。一人のデザイナーが会社全体の手触りを作る未来を引き寄せる。",
+      "blurb_zh-tw": "早早擁抱 AI 工具，一個人扛起一個品牌的設計。一名設計師決定整家公司氣質的未來，被你提前。",
+      "blurb_es": "Adopta la IA pronto y se hace cargo del diseño de toda una marca en solitario. Acerca el futuro donde un solo diseñador da forma al carácter de toda una empresa.",
+      "blurb_de": "Nimmt KI früh an und stemmt das Design einer ganzen Marke allein. Holt die Zukunft heran, in der ein Designer den Charakter eines ganzen Unternehmens prägt.",
       "bias": "bloom"
     },
     "AC": {
       "nickname_ko": "팀과 AI를 함께 굴리는 디자인 디렉터",
       "nickname_en": "Design Director of Team and AI",
+      "nickname_ja": "チームとAIを束ねるデザインディレクター",
+      "nickname_zh-tw": "同時調度團隊與 AI 的設計總監",
+      "nickname_es": "Director de Diseño con Equipo e IA",
+      "nickname_de": "Design-Direktor von Team und KI",
       "blurb_ko": "디자이너 팀과 AI 시스템을 함께 조율하는 사람. 서비스 전체의 디자인 결을 다 같이 끌어올린다.",
       "blurb_en": "Coordinates designers and AI together. Lifts the whole service's design craft as a team.",
+      "blurb_ja": "デザイナーチームとAIシステムを一緒に動かす人。サービス全体のデザインの質を皆で引き上げる。",
+      "blurb_zh-tw": "把設計團隊和 AI 系統一起調度。整個產品的設計手感，被你和團隊一起拉上去。",
+      "blurb_es": "Coordina al equipo de diseño y a los sistemas de IA. Sube el oficio del servicio entero como equipo.",
+      "blurb_de": "Bringt Designer-Team und KI-Systeme zusammen. Hebt die Designqualität des ganzen Produkts gemeinsam.",
       "bias": "bloom"
     },
     "RS": {
       "nickname_ko": "직접 손으로 디자인하는 장인",
       "nickname_en": "Hand-Design Craftsman",
+      "nickname_ja": "手で描くデザイン職人",
+      "nickname_zh-tw": "親手畫設計的工匠",
+      "nickname_es": "Artesano del Diseño a Mano",
+      "nickname_de": "Handzeichner-Designer",
       "blurb_ko": "정통 디자인 방식과 직접 그리는 손맛을 신뢰하는 사람. 자기 작업물에는 단단하지만, 자동 변형 흐름과 점차 거리가 벌어진다.",
       "blurb_en": "Trusts hand-drawn craft. Solid in their own work — but drifts from the auto-variation current.",
+      "blurb_ja": "正統な手法と手で描く感覚を信じる人。自分の仕事は揺るがないが、自動量産の流れとは距離が開く。",
+      "blurb_zh-tw": "相信正統設計方法、相信手感。自己的作品很穩，但和 AI 量產的主流越走越遠。",
+      "blurb_es": "Cree en el oficio dibujado a mano. Sólido en su trabajo — pero se aleja de la corriente de auto-variación.",
+      "blurb_de": "Vertraut dem handgezeichneten Handwerk. Stark in der eigenen Arbeit — driftet aber vom KI-Variantenstrom weg.",
       "bias": "doom"
     },
     "RC": {
       "nickname_ko": "디자인 팀을 지키는 매니저",
       "nickname_en": "Keeper of the Design Team",
+      "nickname_ja": "デザインチームを守るマネージャー",
+      "nickname_zh-tw": "守住設計團隊的主管",
+      "nickname_es": "Guardián del Equipo de Diseño",
+      "nickname_de": "Hüter des Design-Teams",
       "blurb_ko": "AI 도입에 신중하고 디자이너 동료들 사이의 신뢰를 더 믿는 사람. 팀의 결을 지키지만, 자동화 흐름과 멀어진다.",
       "blurb_en": "Cautious about AI, leans on the team's bond. Keeps the team craft — but drifts from the automated current.",
+      "blurb_ja": "AI導入に慎重で、デザイナー同士の信頼を重んじる人。チームの感覚は守るが、自動化の流れからは離れていく。",
+      "blurb_zh-tw": "對導入 AI 謹慎，更相信設計團隊之間的信任。守住團隊手感，但離自動化越來越遠。",
+      "blurb_es": "Prudente con la IA, se apoya en el lazo del equipo. Cuida el oficio del equipo — pero se aleja de la corriente automatizada.",
+      "blurb_de": "Vorsichtig bei KI, vertraut auf den Team-Zusammenhalt. Bewahrt die Teamhandschrift — driftet aber von der Automatisierung weg.",
       "bias": "doom"
     }
   }

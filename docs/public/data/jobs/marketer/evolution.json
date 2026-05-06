@@ -3,20 +3,36 @@
   "job_id": "marketer",
   "label_ko": "마케터",
   "label_en": "Marketer",
+  "label_ja": "マーケター",
+  "label_zh-tw": "行銷人員",
+  "label_es": "Marketer",
+  "label_de": "Marketing-Manager",
   "aliases_ko": ["퍼포먼스 마케터", "브랜드 마케터", "마케팅", "광고기획자"],
   "emoji": "📣",
   "share_caption": {
     "ko": "AI가 캠페인을 짜는 시대, 마케터의 30년 두 갈래 운명을 진단했다",
-    "en": "When AI runs the campaigns — a marketer's 30-year split fate"
+    "en": "When AI runs the campaigns — a marketer's 30-year split fate",
+    "ja": "AIがキャンペーンを回す時代、マーケターの30年二択運命",
+    "zh-tw": "AI 自己跑廣告活動的時代，行銷人 30 年兩條命運",
+    "es": "Cuando la IA mueve las campañas — destino bifurcado a 30 años de un marketer",
+    "de": "Wenn die KI die Kampagnen fährt — 30-Jahre-Schicksal eines Marketers"
   },
   "hook_copy": {
     "bloom": {
       "ko": "AI가 카피 100개를 써도, 한 줄은 네가 고른다.",
-      "en": "AI writes 100 lines. You pick the one."
+      "en": "AI writes 100 lines. You pick the one.",
+      "ja": "AIが100本のコピーを書いても、選ぶのは君。",
+      "zh-tw": "AI 一次寫 100 條文案，挑那一句的還是你。",
+      "es": "La IA escribe 100 líneas. La una la eliges tú.",
+      "de": "Die KI tippt 100 Zeilen. Die eine wählst du."
     },
     "doom": {
       "ko": "AI가 캠페인을 돌리고, 너는 OK 사인만 누른다.",
-      "en": "AI runs the campaign. You just press OK."
+      "en": "AI runs the campaign. You just press OK.",
+      "ja": "AIがキャンペーンを回し、君はOKを押すだけ。",
+      "zh-tw": "AI 跑活動，你只負責按確認。",
+      "es": "La IA mueve la campaña. Tú solo le das OK.",
+      "de": "Die KI fährt die Kampagne. Du klickst nur OK."
     }
   },
   "year0": {
@@ -30,6 +46,26 @@
       "title": "Marketer",
       "skills": ["campaign planning", "performance analytics", "copywriting"],
       "description": "You today. New campaigns every week, dashboards every day."
+    },
+    "ja": {
+      "title": "マーケター",
+      "skills": ["キャンペーン企画", "パフォーマンス分析", "コピーライティング"],
+      "description": "今の君。毎週新しいキャンペーンを上げ、毎日数字を見る。"
+    },
+    "zh-tw": {
+      "title": "行銷人員",
+      "skills": ["活動企劃", "成效分析", "文案撰寫"],
+      "description": "今天的你。每週上一檔新活動，每天盯數字。"
+    },
+    "es": {
+      "title": "Marketer",
+      "skills": ["planificación de campañas", "analítica de performance", "copywriting"],
+      "description": "Tú hoy. Lanzas una campaña nueva cada semana y miras los dashboards cada día."
+    },
+    "de": {
+      "title": "Marketing-Manager",
+      "skills": ["Kampagnenplanung", "Performance-Analyse", "Copywriting"],
+      "description": "Du heute. Jede Woche eine neue Kampagne, jeden Tag aufs Dashboard."
     }
   },
   "paths": {
@@ -47,6 +83,26 @@
             "title": "AI Campaign Director",
             "skills": ["audience curation", "AI agent direction", "brand voice design"],
             "description": "AI runs 10,000 micro-campaigns. You decide the direction."
+          },
+          "ja": {
+            "title": "AIキャンペーンディレクター",
+            "skills": ["オーディエンスキュレーション", "AIエージェント指揮", "ブランドトーン設計"],
+            "description": "AIエージェントが1万のマイクロキャンペーンを同時に回す。方向を決めるのは君。"
+          },
+          "zh-tw": {
+            "title": "AI 廣告活動總監",
+            "skills": ["受眾策展", "AI 代理指揮", "品牌語調設計"],
+            "description": "AI 代理同時跑一萬個微型活動。決定方向的人是你。"
+          },
+          "es": {
+            "title": "Director de Campañas con IA",
+            "skills": ["curaduría de audiencia", "dirección de agentes IA", "diseño de voz de marca"],
+            "description": "La IA mueve 10.000 microcampañas a la vez. La dirección la pones tú."
+          },
+          "de": {
+            "title": "KI-Kampagnenchef",
+            "skills": ["Audience-Kuration", "KI-Agenten-Steuerung", "Brand-Voice-Design"],
+            "description": "KI-Agenten fahren 10.000 Mikro-Kampagnen parallel. Die Richtung gibst du vor."
           }
         },
         {
@@ -61,6 +117,26 @@
             "title": "Brand Sage",
             "skills": ["cultural intuition", "mentorship", "brand ethics"],
             "description": "The keeper of a brand's soul. When things break, the company calls you."
+          },
+          "ja": {
+            "title": "ブランドの大人",
+            "skills": ["文化感覚", "後輩育成", "ブランド倫理"],
+            "description": "ブランドの精神を引き受ける大人。危機の瞬間、会社は君を呼ぶ。"
+          },
+          "zh-tw": {
+            "title": "品牌的大人",
+            "skills": ["文化感受", "後輩培養", "品牌倫理"],
+            "description": "你撐起一個品牌的精神。危機時刻，公司會來找你。"
+          },
+          "es": {
+            "title": "Sabio de Marca",
+            "skills": ["intuición cultural", "mentoría", "ética de marca"],
+            "description": "Custodias el alma de una marca. Cuando algo se rompe, la empresa te llama a ti."
+          },
+          "de": {
+            "title": "Brand-Sage",
+            "skills": ["Kulturgespür", "Mentoring", "Markenethik"],
+            "description": "Du hütest die Seele einer Marke. Wenn es brennt, ruft das Unternehmen dich."
           }
         }
       ]
@@ -79,6 +155,26 @@
             "title": "Campaign Approver",
             "skills": ["reviewing AI output", "edge-case handling", "billing"],
             "description": "Most planning and copy now comes from AI. You sign off at the end and handle the edge cases by hand."
+          },
+          "ja": {
+            "title": "キャンペーン承認者",
+            "skills": ["AI出力の検査", "例外対応", "請求処理"],
+            "description": "企画もコピーもほぼAIが出す。君は最後にOKを押し、例外だけを自分で見る。"
+          },
+          "zh-tw": {
+            "title": "活動審核員",
+            "skills": ["AI 輸出檢查", "例外處理", "請款"],
+            "description": "企劃和文案幾乎都 AI 出。你只負責最後按確認，例外案件才親自看。"
+          },
+          "es": {
+            "title": "Aprobador de Campañas",
+            "skills": ["revisión de salida IA", "casos excepcionales", "facturación"],
+            "description": "El planning y la copy salen casi todos de la IA. Tú firmas al final y solo tocas los casos raros."
+          },
+          "de": {
+            "title": "Kampagnen-Freigeber",
+            "skills": ["KI-Output prüfen", "Ausnahmen", "Abrechnung"],
+            "description": "Planung und Copy kommen fast nur noch aus der KI. Du gibst am Ende frei und nimmst die Sonderfälle selbst."
           }
         },
         {
@@ -93,6 +189,26 @@
             "title": "Remaining Reviewer",
             "skills": ["approvals", "legal liaison", "recordkeeping"],
             "description": "Campaigns now run almost on their own. You hold the seat where a human is still required for legal and ethical calls."
+          },
+          "ja": {
+            "title": "残った確認担当",
+            "skills": ["承認手続き", "法務連携", "記録保管"],
+            "description": "キャンペーンはほぼ自動で回る。君は法務・倫理の判断で人が一度入らなければならない席を守る。"
+          },
+          "zh-tw": {
+            "title": "留下的審核人力",
+            "skills": ["核可流程", "法務聯繫", "紀錄保存"],
+            "description": "活動幾乎全自動。你守住法律和倫理判斷上人類還必須出現的位置。"
+          },
+          "es": {
+            "title": "Revisor Residual",
+            "skills": ["aprobaciones", "enlace legal", "registro histórico"],
+            "description": "Las campañas casi se mueven solas. Tú ocupas el asiento donde aún hace falta un humano para lo legal y lo ético."
+          },
+          "de": {
+            "title": "Rest-Prüfer",
+            "skills": ["Freigaben", "Legal-Liaison", "Dokumentation"],
+            "description": "Kampagnen laufen fast von selbst. Du hältst den Platz, an dem ein Mensch für Rechts- und Ethikfragen noch ran muss."
           }
         }
       ]
@@ -102,29 +218,61 @@
     "AS": {
       "nickname_ko": "AI 카피를 길들인 1인 마케터",
       "nickname_en": "Solo Marketer Who Runs AI Copy",
+      "nickname_ja": "AIコピーを飼いならした一人マーケター",
+      "nickname_zh-tw": "馴服 AI 文案的單兵行銷人",
+      "nickname_es": "Marketer Solitaria que Maneja la IA",
+      "nickname_de": "Solo-Marketer, der die KI-Copy zähmt",
       "blurb_ko": "AI 카피와 분석 도구를 일찍 받아들이고 혼자서 한 브랜드를 책임지는 사람. 한 명의 마케터가 한 회사 전체를 움직이는 미래를 만든다.",
       "blurb_en": "Adopts AI copy and analytics early, runs a whole brand alone. Builds a future where one marketer can move a whole company.",
+      "blurb_ja": "AIコピーと分析ツールを早く受け入れ、一人で一つのブランドを引き受ける人。一人のマーケターが会社全体を動かす未来を作る。",
+      "blurb_zh-tw": "早早擁抱 AI 文案與分析工具，一個人扛起一個品牌。一名行銷人能撬動整家公司的未來，被你建立。",
+      "blurb_es": "Adopta la IA pronto y se hace cargo de toda una marca en solitario. Construye un futuro donde un solo marketer puede mover una empresa entera.",
+      "blurb_de": "Nimmt KI-Copy und Analytics früh an und stemmt eine ganze Marke allein. Baut die Zukunft, in der ein Marketer ein ganzes Unternehmen bewegt.",
       "bias": "bloom"
     },
     "AC": {
       "nickname_ko": "팀과 AI 캠페인을 함께 굴리는 캡틴",
       "nickname_en": "Campaign Captain of Team and AI",
+      "nickname_ja": "チームとAIキャンペーンを束ねるキャプテン",
+      "nickname_zh-tw": "同時調度團隊與 AI 活動的隊長",
+      "nickname_es": "Capitán de Campañas con Equipo e IA",
+      "nickname_de": "Kampagnen-Captain von Team und KI",
       "blurb_ko": "동료 마케터와 AI 에이전트를 동시에 조율하는 사람. 브랜드 전체의 캠페인 결을 다 같이 끌어올린다.",
       "blurb_en": "Coordinates teammates and AI agents at the same time. Lifts the whole brand's campaign rhythm as one team.",
+      "blurb_ja": "同僚マーケターとAIエージェントを同時に動かす人。ブランド全体のキャンペーンのリズムを皆で引き上げる。",
+      "blurb_zh-tw": "把同事和 AI 代理一起調度。整個品牌的活動節奏，被你和團隊一起拉上去。",
+      "blurb_es": "Coordina a la vez al equipo y a los agentes de IA. Sube el ritmo de campañas de toda la marca como equipo.",
+      "blurb_de": "Bringt Team und KI-Agenten parallel ans Laufen. Hebt den Kampagnen-Rhythmus der ganzen Marke gemeinsam.",
       "bias": "bloom"
     },
     "RS": {
       "nickname_ko": "사람 마음 한 줄을 아는 카피 장인",
       "nickname_en": "Craftsman of the Human Line",
+      "nickname_ja": "人の心に届く一行を知るコピー職人",
+      "nickname_zh-tw": "懂打進人心一句話的文案工匠",
+      "nickname_es": "Artesano de la Línea Humana",
+      "nickname_de": "Handwerker der einen menschlichen Zeile",
       "blurb_ko": "정통 카피라이팅을 신뢰하며 혼자 한 줄을 끝까지 다듬는 사람. 자기 카피에는 단단하지만, AI가 만드는 대량 흐름과 거리가 벌어진다.",
       "blurb_en": "Trusts the old copywriting craft, polishes a single line alone. Solid in their lane — but drifts from the AI-driven volume.",
+      "blurb_ja": "正統なコピーを信じ、一行を一人で磨ききる人。自分のコピーは揺るがないが、AIの大量生成の流れとは距離が開く。",
+      "blurb_zh-tw": "相信正統文案、一個人把一句話磨到底。自己的文案很穩，但和 AI 量產的主流越走越遠。",
+      "blurb_es": "Cree en el oficio del copywriting, pule una sola línea en soledad. Sólido en lo suyo — pero se aleja del volumen impulsado por la IA.",
+      "blurb_de": "Glaubt an klassische Copy, schleift eine einzige Zeile bis zum Ende. Stark in seiner Spur — driftet aber von der KI-Massenproduktion weg.",
       "bias": "doom"
     },
     "RC": {
       "nickname_ko": "브랜드 사람들과 신뢰를 쌓는 매니저",
       "nickname_en": "Trust-Builder of the Brand Team",
+      "nickname_ja": "ブランドチームと信頼を築くマネージャー",
+      "nickname_zh-tw": "和品牌團隊建立信任的主管",
+      "nickname_es": "Constructor de Confianza del Equipo de Marca",
+      "nickname_de": "Vertrauensaufbauer im Markenteam",
       "blurb_ko": "AI 도입에 신중하고 사람들 사이의 신뢰를 더 믿는 사람. 브랜드 팀의 결을 지키지만, 자동화된 캠페인 흐름과 점차 멀어진다.",
       "blurb_en": "Cautious about AI, leans on the people. Keeps the brand team's grain — but drifts from the automated campaign current.",
+      "blurb_ja": "AI導入に慎重で、人と人の信頼を重んじる人。ブランドチームの空気は守るが、自動化キャンペーンの流れからは遠ざかる。",
+      "blurb_zh-tw": "對導入 AI 謹慎，更相信人和人之間的信任。守住品牌團隊的氣，但離自動化活動的主流越來越遠。",
+      "blurb_es": "Prudente con la IA, se apoya en las personas. Cuida el tejido del equipo de marca — pero se aleja de la corriente automatizada.",
+      "blurb_de": "Vorsichtig bei KI, vertraut auf Menschen. Bewahrt die Handschrift des Markenteams — driftet aber von der automatisierten Kampagnenwelt weg.",
       "bias": "doom"
     }
   }

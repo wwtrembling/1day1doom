@@ -3,20 +3,36 @@
   "job_id": "neet",
   "label_ko": "백수/취준생",
   "label_en": "Job Seeker",
+  "label_ja": "就活生",
+  "label_zh-tw": "求職者",
+  "label_es": "Buscador de empleo",
+  "label_de": "Arbeitssuchender",
   "aliases_ko": ["백수", "취준생", "무직", "구직자", "휴직"],
   "emoji": "🛋️",
   "share_caption": {
     "ko": "AI가 자리를 가져가는 시대, 길 찾는 너의 30년 두 갈래 운명",
-    "en": "When AI takes the seats — a job seeker's 30-year split fate"
+    "en": "When AI takes the seats — a job seeker's 30-year split fate",
+    "ja": "AIが席を奪う時代、道を探す君の30年二択運命",
+    "zh-tw": "AI 把位子拿走的時代，還在找路的你 30 年兩條命運",
+    "es": "Cuando la IA se queda con los asientos — destino bifurcado a 30 años del que aún busca",
+    "de": "Wenn die KI die Plätze nimmt — 30-Jahre-Schicksal eines Suchenden"
   },
   "hook_copy": {
     "bloom": {
       "ko": "지금은 표류 중. 30년 뒤엔 여러 길을 살아낸다.",
-      "en": "Drifting now. In 30 years, you'll have lived many paths."
+      "en": "Drifting now. In 30 years, you'll have lived many paths.",
+      "ja": "今は漂流中。30年後、君は幾つもの道を生き抜いている。",
+      "zh-tw": "現在還在漂。30 年後，你會走過好幾條路。",
+      "es": "Ahora a la deriva. En 30 años habrás vivido muchos caminos.",
+      "de": "Jetzt im Treibgut. In 30 Jahren hast du viele Wege gelebt."
     },
     "doom": {
       "ko": "AI가 자리를 가져가고, 너는 계속 길을 찾는다.",
-      "en": "AI takes the seats. You keep looking for yours."
+      "en": "AI takes the seats. You keep looking for yours.",
+      "ja": "AIが席を奪い、君はずっと自分の場所を探し続ける。",
+      "zh-tw": "AI 把位子拿走，你還在找自己的位子。",
+      "es": "La IA se queda con los asientos. Tú sigues buscando el tuyo.",
+      "de": "Die KI nimmt die Plätze. Du suchst weiter deinen."
     }
   },
   "year0": {
@@ -30,6 +46,26 @@
       "title": "You Right Now",
       "skills": ["exploring", "learning", "waiting"],
       "description": "You today. Haven't decided where you're heading yet. Every possibility is still open."
+    },
+    "ja": {
+      "title": "今の君",
+      "skills": ["探索", "学習", "待つこと"],
+      "description": "今の君。どこへ行くかまだ決めていない。あらゆる可能性が開いている。"
+    },
+    "zh-tw": {
+      "title": "現在的你",
+      "skills": ["摸索", "學習", "等待"],
+      "description": "今天的你。還沒決定要往哪裡走。所有可能都還開著。"
+    },
+    "es": {
+      "title": "Tú ahora mismo",
+      "skills": ["explorar", "aprender", "esperar"],
+      "description": "Tú hoy. Aún no decidiste hacia dónde vas. Todas las posibilidades siguen abiertas."
+    },
+    "de": {
+      "title": "Du jetzt",
+      "skills": ["Erkunden", "Lernen", "Warten"],
+      "description": "Du heute. Hast noch nicht entschieden, wohin. Jede Möglichkeit ist offen."
     }
   },
   "paths": {
@@ -47,6 +83,26 @@
             "title": "Multi-Path Experimenter",
             "skills": ["AI tooling", "solo projects", "portfolio"],
             "description": "You run small projects yourself with AI tools. You're not joining a company; you're building your own seat."
+          },
+          "ja": {
+            "title": "複数ルートの実験者",
+            "skills": ["AIツール活用", "一人プロジェクト", "ポートフォリオ"],
+            "description": "AI道具で小さなプロジェクトを自分で回す。会社に入るのではなく、自分の場所を自分で作る道を行く。"
+          },
+          "zh-tw": {
+            "title": "多路徑實驗者",
+            "skills": ["AI 工具運用", "個人專案", "作品集"],
+            "description": "你用 AI 工具自己跑幾個小專案。不是要進公司，而是自己造一個位子。"
+          },
+          "es": {
+            "title": "Experimentadora de Múltiples Caminos",
+            "skills": ["uso de IA", "proyectos solo", "portafolio"],
+            "description": "Sacas adelante pequeños proyectos por tu cuenta con herramientas de IA. No te incorporas a una empresa: te haces tu propio asiento."
+          },
+          "de": {
+            "title": "Mehrwege-Experimentator",
+            "skills": ["KI-Werkzeuge", "Solo-Projekte", "Portfolio"],
+            "description": "Du fährst kleine Projekte selbst mit KI-Tools. Du wirst nicht angestellt — du baust dir deinen eigenen Platz."
           }
         },
         {
@@ -61,6 +117,26 @@
             "title": "Mentor of Many Lives",
             "skills": ["multi-career wisdom", "coaching", "life philosophy"],
             "description": "An elder who lived many lives instead of one career. Young people bring you their crossroads."
+          },
+          "ja": {
+            "title": "幾つもの道を生きたメンター",
+            "skills": ["複数キャリアの知恵", "コーチング", "人生哲学"],
+            "description": "一つの職業に縛られず、幾つもの道を生きた大人。若い人が人生の分かれ道を持って君を訪ねる。"
+          },
+          "zh-tw": {
+            "title": "走過好幾條路的導師",
+            "skills": ["多重職涯經驗", "後輩教練", "人生哲學"],
+            "description": "你沒被一份職業綁住，活過好幾條路。年輕人帶著人生的岔路來找你。"
+          },
+          "es": {
+            "title": "Mentora de Muchas Vidas",
+            "skills": ["sabiduría multi-carrera", "coaching", "filosofía de vida"],
+            "description": "Una figura que vivió muchas vidas en vez de una sola carrera. Los jóvenes te traen sus encrucijadas."
+          },
+          "de": {
+            "title": "Mentor vieler Leben",
+            "skills": ["Multi-Karriere-Erfahrung", "Coaching", "Lebensphilosophie"],
+            "description": "Du hast viele Leben gelebt statt einer einzigen Karriere. Junge Leute bringen dir ihre Wegkreuze."
           }
         }
       ]
@@ -79,6 +155,26 @@
             "title": "The Long Drift",
             "skills": ["job applications", "gig work", "holding on"],
             "description": "AI has taken most entry-level seats. You keep applying, stitching together short-term gigs in between."
+          },
+          "ja": {
+            "title": "長い漂流",
+            "skills": ["応募", "短期バイト", "持ちこたえる"],
+            "description": "AIが新人の席をほとんど奪った。君は応募を続けながら、間に短期の仕事をつなぐ。"
+          },
+          "zh-tw": {
+            "title": "長期漂流",
+            "skills": ["投履歷", "短期打工", "撐著"],
+            "description": "新鮮人的位子大多被 AI 拿走了。你不停投履歷，中間靠短期打工接著。"
+          },
+          "es": {
+            "title": "La Deriva Larga",
+            "skills": ["postulaciones", "trabajos por horas", "aguantar"],
+            "description": "La IA ya se quedó con casi todos los puestos junior. Tú sigues postulando y empalmas trabajitos cortos en medio."
+          },
+          "de": {
+            "title": "Das lange Treiben",
+            "skills": ["Bewerbungen", "Gig-Jobs", "Durchhalten"],
+            "description": "Die KI hat fast alle Einstiegsplätze geschluckt. Du bewirbst dich weiter und hältst dich mit Kurzjobs über Wasser."
           }
         },
         {
@@ -93,6 +189,26 @@
             "title": "Observer of the UBI Era",
             "skills": ["managing your own time", "deep hobbies", "quiet observation"],
             "description": "In an automated society, you live on basic income at your own pace. You quietly observe an era where work has faded."
+          },
+          "ja": {
+            "title": "ベーシックインカム時代の観察者",
+            "skills": ["自分の時間管理", "趣味を深掘り", "静かな観察"],
+            "description": "自動化された社会の中で、ベーシックインカムを受け、自分のペースで時間を使う。仕事が薄れた時代を静かに見つめる。"
+          },
+          "zh-tw": {
+            "title": "基本收入時代的旁觀者",
+            "skills": ["自我時間管理", "興趣深耕", "安靜觀察"],
+            "description": "在自動化社會裡靠基本收入過日子，照自己的節奏過。你安靜地看著一個工作慢慢消失的時代。"
+          },
+          "es": {
+            "title": "Observador de la Era del Ingreso Básico",
+            "skills": ["gestionar tu propio tiempo", "hobbies profundos", "observación tranquila"],
+            "description": "En una sociedad automatizada, vives con renta básica a tu ritmo. Miras en silencio una era en la que el trabajo se borró."
+          },
+          "de": {
+            "title": "Beobachter der Grundeinkommens-Ära",
+            "skills": ["eigene Zeit gestalten", "Hobbys vertiefen", "ruhiges Beobachten"],
+            "description": "In einer automatisierten Gesellschaft lebst du vom Grundeinkommen, im eigenen Tempo. Du schaust still einer Zeit zu, in der Arbeit verblasst."
           }
         }
       ]
@@ -102,29 +218,61 @@
     "AS": {
       "nickname_ko": "AI로 1인 부업을 시작하는 사람",
       "nickname_en": "Solo Builder With AI",
+      "nickname_ja": "AIで一人副業を始める人",
+      "nickname_zh-tw": "用 AI 開始單兵副業的人",
+      "nickname_es": "Constructora Solitaria con IA",
+      "nickname_de": "Solo-Builder mit KI",
       "blurb_ko": "AI 도구를 일찍 받아들이고 혼자서 작은 프로젝트부터 시작하는 사람. 입사가 아니라 자기 자리를 만드는 길을 일찍 골랐다.",
       "blurb_en": "Adopts AI early and starts small projects alone. Chose to build their own seat instead of waiting for one.",
+      "blurb_ja": "AIを早く受け入れ、一人で小さなプロジェクトから始める人。会社に入るのではなく、自分の場所を作る道を早く選んだ。",
+      "blurb_zh-tw": "早早擁抱 AI，一個人從小專案做起。沒有等位子，而是自己造位子。",
+      "blurb_es": "Adopta la IA pronto y arranca proyectos pequeños en solitario. Eligió hacerse su propio asiento en vez de esperar uno.",
+      "blurb_de": "Nimmt KI früh an und startet kleine Projekte allein. Hat sich entschieden, den eigenen Platz zu bauen, statt zu warten.",
       "bias": "bloom"
     },
     "AC": {
       "nickname_ko": "온라인 커뮤니티에서 함께 길을 찾는 사람",
       "nickname_en": "Path-Finder of the Online Crowd",
+      "nickname_ja": "オンラインコミュニティで一緒に道を探す人",
+      "nickname_zh-tw": "在網路社群裡一起找路的人",
+      "nickname_es": "Buscadora de Camino de la Comunidad Online",
+      "nickname_de": "Wegfinder der Online-Community",
       "blurb_ko": "비슷한 처지의 사람들과 정보·도구를 함께 나누는 사람. 한 명이 아니라 여럿이 함께 새 길을 만든다.",
       "blurb_en": "Shares tools and info with others in the same boat. Builds new paths with the crowd, not alone.",
+      "blurb_ja": "似た立場の人たちと情報と道具を一緒に共有する人。一人ではなく、皆で新しい道を作る。",
+      "blurb_zh-tw": "和處境相同的人一起分享工具和資訊。不是一個人，而是和大家一起踩出新路。",
+      "blurb_es": "Comparte herramientas e info con otros en la misma situación. Hace caminos nuevos con la gente, no en solitario.",
+      "blurb_de": "Teilt Tools und Infos mit Leuten im selben Boot. Baut neue Wege gemeinsam mit der Menge, nicht allein.",
       "bias": "bloom"
     },
     "RS": {
       "nickname_ko": "전통적인 취업을 끝까지 추구하는 사람",
       "nickname_en": "Traditional Path Seeker",
+      "nickname_ja": "伝統的な就職を最後まで追う人",
+      "nickname_zh-tw": "堅持走傳統就業路的人",
+      "nickname_es": "Buscador del Camino Tradicional",
+      "nickname_de": "Verfolger des klassischen Wegs",
       "blurb_ko": "기존 입사 트랙을 끝까지 추구하는 사람. 자기 길에는 단단하지만, AI가 가져가는 자리 수와 거리가 벌어진다.",
       "blurb_en": "Holds the traditional employment path to the end. Solid in their direction — but drifts from the seats AI is taking.",
+      "blurb_ja": "従来の就職ルートを最後まで追う人。自分の方向には揺るがないが、AIに奪われていく席との距離は広がっていく。",
+      "blurb_zh-tw": "堅持走原本的就業路。對自己的方向很穩，但 AI 拿走的位子越來越多。",
+      "blurb_es": "Sigue la vía clásica de empleo hasta el final. Sólido en su dirección — pero se aleja de los asientos que se queda la IA.",
+      "blurb_de": "Hält am klassischen Anstellungspfad fest. Stark in seiner Richtung — driftet aber von den Plätzen weg, die die KI nimmt.",
       "bias": "doom"
     },
     "RC": {
       "nickname_ko": "동료 취준생들과 정보를 나누는 사람",
       "nickname_en": "Information-Sharer",
+      "nickname_ja": "就活仲間と情報を分かち合う人",
+      "nickname_zh-tw": "和求職同伴交換情報的人",
+      "nickname_es": "Compartidora de Información",
+      "nickname_de": "Info-Teiler",
       "blurb_ko": "AI 도입에 신중하고 동료 취준생들과의 정보 공유에 더 의지하는 사람. 커뮤니티의 결을 지키지만, 자동화 흐름과 멀어진다.",
       "blurb_en": "Cautious about AI, leans on fellow seekers for info. Keeps the community's grain — but drifts from the automated current.",
+      "blurb_ja": "AI導入に慎重で、就活仲間との情報共有に頼る人。コミュニティの空気は守るが、自動化の流れからは離れていく。",
+      "blurb_zh-tw": "對 AI 謹慎，更靠和求職同伴交換情報。守住社群的氣，但和自動化主流越走越遠。",
+      "blurb_es": "Prudente con la IA, se apoya en otros que buscan trabajo para compartir info. Cuida el tejido de la comunidad — pero se aleja de la corriente automatizada.",
+      "blurb_de": "Vorsichtig bei KI, verlässt sich auf Mit-Suchende für Infos. Bewahrt das Gemeinschaftsgefühl — driftet aber vom automatisierten Strom weg.",
       "bias": "doom"
     }
   }

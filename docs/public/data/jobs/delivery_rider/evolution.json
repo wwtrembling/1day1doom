@@ -3,20 +3,36 @@
   "job_id": "delivery_rider",
   "label_ko": "배달기사",
   "label_en": "Delivery Rider",
+  "label_ja": "配達員",
+  "label_zh-tw": "外送員",
+  "label_es": "Repartidor",
+  "label_de": "Lieferfahrer",
   "aliases_ko": ["라이더", "배달원", "택배기사"],
   "emoji": "🛵",
   "share_caption": {
     "ko": "자율 배달의 시대, 라이더의 30년 두 갈래 운명을 진단했다",
-    "en": "When robots deliver — a rider's 30-year split fate"
+    "en": "When robots deliver — a rider's 30-year split fate",
+    "ja": "ロボットが配達する時代、ライダーの30年二択運命",
+    "zh-tw": "機器人送外送的時代，外送員 30 年的兩條命運",
+    "es": "Cuando los robots reparten — destino bifurcado a 30 años de un repartidor",
+    "de": "Wenn Roboter liefern — 30-Jahre-Schicksal eines Lieferfahrers"
   },
   "hook_copy": {
     "bloom": {
       "ko": "로봇이 달려도, 골목은 네가 안다.",
-      "en": "Robots run the routes. You know the alleys."
+      "en": "Robots run the routes. You know the alleys.",
+      "ja": "ロボットが走っても、路地を知っているのは君。",
+      "zh-tw": "機器人跑路線，但巷子是你熟。",
+      "es": "Los robots van por la calle. Los callejones los conoces tú.",
+      "de": "Roboter fahren die Routen. Die Gassen kennst du."
     },
     "doom": {
       "ko": "로봇이 달리고, 너는 골목 입구에 선다.",
-      "en": "Robots run. You stand at the alley's mouth."
+      "en": "Robots run. You stand at the alley's mouth.",
+      "ja": "ロボットが走り、君は路地の入口に立つ。",
+      "zh-tw": "機器人在跑，你站在巷口看。",
+      "es": "Los robots van. Tú te quedas en la boca del callejón.",
+      "de": "Roboter fahren. Du stehst am Eingang der Gasse."
     }
   },
   "year0": {
@@ -30,6 +46,26 @@
       "title": "Delivery Rider",
       "skills": ["city geography", "customer service", "stamina"],
       "description": "You today. In the rain, six neighborhoods live in your head."
+    },
+    "ja": {
+      "title": "配達員",
+      "skills": ["都市の土地勘", "顧客対応", "体力管理"],
+      "description": "今の君。雨の日でも、六つの町の道を頭に全部持っている。"
+    },
+    "zh-tw": {
+      "title": "外送員",
+      "skills": ["都市地理", "客戶應對", "體力管理"],
+      "description": "今天的你。下雨天，六個社區的路都裝在你腦袋裡。"
+    },
+    "es": {
+      "title": "Repartidor",
+      "skills": ["geografía de la ciudad", "atención al cliente", "resistencia"],
+      "description": "Tú hoy. Bajo la lluvia, seis barrios te caben en la cabeza."
+    },
+    "de": {
+      "title": "Lieferfahrer",
+      "skills": ["Stadtgeografie", "Kundenservice", "Ausdauer"],
+      "description": "Du heute. Im Regen hast du sechs Viertel komplett im Kopf."
     }
   },
   "paths": {
@@ -47,6 +83,26 @@
             "title": "Urban Logistics Coordinator",
             "skills": ["autonomous fleet ops", "exception handling", "rider coaching"],
             "description": "Dozens of autonomous delivery bots, one human conductor. That's you."
+          },
+          "ja": {
+            "title": "都市物流コーディネーター",
+            "skills": ["自律配送運用", "例外判断", "ライダーコーチング"],
+            "description": "数十台の自律配達ロボットを一人が指揮する。その一人が君。"
+          },
+          "zh-tw": {
+            "title": "都市物流協調員",
+            "skills": ["自駕車隊運作", "例外判斷", "外送員教練"],
+            "description": "幾十台自駕外送車，由一個人在指揮。那個人就是你。"
+          },
+          "es": {
+            "title": "Coordinador de Logística Urbana",
+            "skills": ["operación de flota autónoma", "gestión de excepciones", "coaching a riders"],
+            "description": "Decenas de bots autónomos, un solo director humano. Ese eres tú."
+          },
+          "de": {
+            "title": "Urban-Logistik-Koordinator",
+            "skills": ["autonomer Flottenbetrieb", "Ausnahmen", "Rider-Coaching"],
+            "description": "Dutzende autonome Lieferroboter, ein menschlicher Dirigent. Das bist du."
           }
         },
         {
@@ -61,6 +117,26 @@
             "title": "City Logistics Master",
             "skills": ["city-scale operations", "policy advisory", "mentorship"],
             "description": "An elder shaping the flow of a whole city. Your name on the city council's agenda."
+          },
+          "ja": {
+            "title": "都市物流マスター",
+            "skills": ["都市規模の運営", "政策助言", "後輩育成"],
+            "description": "一つの都市の流れを設計する大人。市役所の会議に君の名前が上がる。"
+          },
+          "zh-tw": {
+            "title": "城市物流大師",
+            "skills": ["城市級運作", "政策諮詢", "後輩培養"],
+            "description": "你撐起一座城市的物流節奏。市政會議上會出現你的名字。"
+          },
+          "es": {
+            "title": "Maestro de Logística Urbana",
+            "skills": ["operación a escala de ciudad", "asesoría a gobierno", "mentoría"],
+            "description": "Una figura que diseña el flujo de toda una ciudad. Tu nombre aparece en la agenda del ayuntamiento."
+          },
+          "de": {
+            "title": "Stadt-Logistik-Meister",
+            "skills": ["Stadt-weiter Betrieb", "Politikberatung", "Mentoring"],
+            "description": "Du gestaltest den Fluss einer ganzen Stadt. Dein Name landet in der Sitzung des Stadtrats."
           }
         }
       ]
@@ -79,6 +155,26 @@
             "title": "Delivery Assistant",
             "skills": ["robot checks", "edge-case handling", "packing"],
             "description": "Most runs are made by autonomous systems. You step in where the robots get stuck and a human hand is still needed."
+          },
+          "ja": {
+            "title": "配達補助",
+            "skills": ["ロボット点検", "例外処理", "梱包作業"],
+            "description": "配達は自律システムがほぼ全部やる。君はロボットが詰まる場所で人の手が必要な仕事を引き受ける。"
+          },
+          "zh-tw": {
+            "title": "外送輔助員",
+            "skills": ["機器檢查", "例外處理", "包裝"],
+            "description": "外送幾乎都自駕在跑。你負責機器卡住的地方，那些還需要人手的活。"
+          },
+          "es": {
+            "title": "Asistente de Reparto",
+            "skills": ["revisión de robots", "casos excepcionales", "empaquetado"],
+            "description": "Casi todos los repartos los hacen sistemas autónomos. Tú entras donde los robots se atascan y aún hace falta una mano."
+          },
+          "de": {
+            "title": "Liefer-Assistent",
+            "skills": ["Roboter-Checks", "Ausnahmen", "Verpacken"],
+            "description": "Die Touren fahren fast alle autonom. Du springst dort ein, wo die Roboter steckenbleiben und eine Hand gebraucht wird."
           }
         },
         {
@@ -93,6 +189,26 @@
             "title": "Last Foot Courier",
             "skills": ["alley delivery", "device maintenance", "on-site response"],
             "description": "The big flow is owned by automation. You take the narrow alleys and the spots where a person still has to walk in."
+          },
+          "ja": {
+            "title": "最後の徒歩配達",
+            "skills": ["路地配達", "機器整備", "現場対応"],
+            "description": "大きな流れは自動化に持っていかれた。君は狭い路地と、人が一度入らなければならない場所を引き受ける。"
+          },
+          "zh-tw": {
+            "title": "最後的步送員",
+            "skills": ["巷弄配送", "機器維護", "現場應對"],
+            "description": "大宗流量都被自動化吃了。你只剩下窄巷子和那些還必須人走進去的地方。"
+          },
+          "es": {
+            "title": "Último Repartidor a Pie",
+            "skills": ["entrega en callejones", "mantenimiento de equipos", "respuesta en sitio"],
+            "description": "El grueso del flujo lo tiene la automatización. Tú haces los callejones y los sitios donde aún tiene que entrar una persona."
+          },
+          "de": {
+            "title": "Letzter Fußkurier",
+            "skills": ["Gassen-Lieferung", "Gerätewartung", "Vor-Ort-Einsatz"],
+            "description": "Den großen Fluss hat die Automatisierung. Du übernimmst die engen Gassen und die Orte, in die noch ein Mensch laufen muss."
           }
         }
       ]
@@ -102,29 +218,61 @@
     "AS": {
       "nickname_ko": "자율 시스템을 길들인 1인 코디네이터",
       "nickname_en": "Solo Conductor of the Autonomous Fleet",
+      "nickname_ja": "自律システムを飼いならした一人コーディネーター",
+      "nickname_zh-tw": "馴服自駕車隊的單兵調度員",
+      "nickname_es": "Director Solitario de la Flota Autónoma",
+      "nickname_de": "Solo-Dirigent der autonomen Flotte",
       "blurb_ko": "자율 시스템을 일찍 받아들이고 혼자서 한 구역을 책임지는 사람. 한 명이 도시 한 조각을 통째로 움직이게 만든다.",
       "blurb_en": "Adopts autonomous systems early and runs a whole zone alone. Moves a slice of the city by themselves.",
+      "blurb_ja": "自律システムを早く受け入れ、一人で一区画を引き受ける人。一人で街の一片を丸ごと動かす。",
+      "blurb_zh-tw": "早早擁抱自駕系統，一個人扛起一個區。靠一個人讓一塊城市運轉起來。",
+      "blurb_es": "Adopta los sistemas autónomos pronto y se hace cargo de toda una zona en solitario. Mueve una porción de la ciudad él solo.",
+      "blurb_de": "Nimmt autonome Systeme früh an und betreut eine ganze Zone allein. Bewegt ein Stück Stadt im Alleingang.",
       "bias": "bloom"
     },
     "AC": {
       "nickname_ko": "라이더 팀과 로봇을 함께 굴리는 디렉터",
       "nickname_en": "Director of Riders and Robots",
+      "nickname_ja": "ライダーとロボットを束ねるディレクター",
+      "nickname_zh-tw": "同時調度外送團隊與機器人的總監",
+      "nickname_es": "Directora de Riders y Robots",
+      "nickname_de": "Direktor von Ridern und Robotern",
       "blurb_ko": "동료 라이더와 로봇 함대를 함께 조율하는 사람. 도시 전체 배달의 결을 다 같이 끌어올린다.",
       "blurb_en": "Coordinates fellow riders and robot fleets together. Raises the whole city's delivery rhythm as a team.",
+      "blurb_ja": "同僚ライダーとロボット艦隊を同時に動かす人。街全体の配達リズムを皆で引き上げる。",
+      "blurb_zh-tw": "把外送同事和機器人車隊一起調度。整座城市的配送節奏，被你和大家一起拉上去。",
+      "blurb_es": "Coordina a la vez a los riders y a las flotas de robots. Sube el ritmo de reparto de toda la ciudad como equipo.",
+      "blurb_de": "Bringt Rider und Roboter-Flotte zusammen. Hebt den Lieferrhythmus der ganzen Stadt gemeinsam.",
       "bias": "bloom"
     },
     "RS": {
       "nickname_ko": "오토바이 한 대로 도시를 누비는 베테랑",
       "nickname_en": "Veteran on a Single Bike",
+      "nickname_ja": "バイク一台で街を走るベテラン",
+      "nickname_zh-tw": "靠一台車跑遍全城的資深外送員",
+      "nickname_es": "Veterano de una Sola Moto",
+      "nickname_de": "Veteran auf einem Bike",
       "blurb_ko": "정통 라이더의 길을 지키며 혼자 도시를 돈다. 자기 동선에서는 누구보다 빠르지만, 자동화된 흐름과는 점차 거리가 벌어진다.",
       "blurb_en": "Holds the rider's old craft, runs the city solo. Fastest in their lane — but the lane keeps narrowing.",
+      "blurb_ja": "正統なライダーの道を守り、一人で街を走る。自分のルートでは誰より速いが、自動化の流れとは距離が開いていく。",
+      "blurb_zh-tw": "守住傳統外送員的路，一個人跑全城。在自己的動線上沒人比你快，但和自動化主流越走越遠。",
+      "blurb_es": "Mantiene el oficio del rider de siempre y recorre la ciudad solo. Más rápido que nadie en su carril — pero el carril se estrecha.",
+      "blurb_de": "Hält am alten Rider-Handwerk fest und fährt die Stadt solo. Auf seiner Strecke schneller als alle — aber die Spur wird enger.",
       "bias": "doom"
     },
     "RC": {
       "nickname_ko": "라이더 동료들과 함께 가는 형님",
       "nickname_en": "Big Brother of the Crew",
+      "nickname_ja": "クルーと一緒に走る兄貴",
+      "nickname_zh-tw": "和外送同事一起跑的大哥",
+      "nickname_es": "Hermano Mayor de la Cuadrilla",
+      "nickname_de": "Großer Bruder der Crew",
       "blurb_ko": "자동화 도입에 신중하고 동료 라이더 간 신뢰를 더 믿는 사람. 크루의 정을 지키지만, 자동화 물류 흐름과 거리는 벌어진다.",
       "blurb_en": "Cautious about automation, leans on the crew's bond. Keeps the brotherhood — but drifts from the automated current.",
+      "blurb_ja": "自動化導入に慎重で、ライダー同士の信頼を重んじる人。クルーの絆は守るが、自動化物流の流れとは距離が開いていく。",
+      "blurb_zh-tw": "對自動化謹慎，更相信外送員之間的義氣。守住兄弟情，但和自動化物流越走越遠。",
+      "blurb_es": "Prudente con la automatización, se apoya en el lazo de la crew. Cuida la hermandad — pero se aleja de la corriente automatizada.",
+      "blurb_de": "Vorsichtig bei Automatisierung, vertraut auf den Zusammenhalt der Crew. Bewahrt die Bruderschaft — driftet aber von der Automatik weg.",
       "bias": "doom"
     }
   }

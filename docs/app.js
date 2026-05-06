@@ -370,7 +370,9 @@ function onInputChange(e) {
     }
     for (const j of matches) {
         const li = document.createElement("li");
-        li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> ${escapeHtml(jobLabel(j))}`;
+        const hotBadge = j.hot ? `<span class="suggest-hot" aria-label="hot">🔥</span>` : "";
+        li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> <span class="suggest-label">${escapeHtml(jobLabel(j))}</span>${hotBadge}`;
+        if (j.hot) li.classList.add("is-hot");
         li.addEventListener("mousedown", (ev) => {
             ev.preventDefault();
             document.getElementById("job-input").value = jobLabel(j);

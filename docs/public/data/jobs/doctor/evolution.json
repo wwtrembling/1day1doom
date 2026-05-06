@@ -3,20 +3,36 @@
   "job_id": "doctor",
   "label_ko": "의사",
   "label_en": "Doctor",
+  "label_ja": "医師",
+  "label_zh-tw": "醫師",
+  "label_es": "Médico",
+  "label_de": "Arzt",
   "aliases_ko": ["의사", "전문의", "내과의사", "외과의사"],
   "emoji": "🩺",
   "share_caption": {
     "ko": "AI가 진단을 내리는 시대, 의사의 30년 두 갈래 운명",
-    "en": "When AI reads the scans — a doctor's 30-year split fate"
+    "en": "When AI reads the scans — a doctor's 30-year split fate",
+    "ja": "AIが画像を読む時代、医師の30年二択運命",
+    "zh-tw": "AI 看影像下診斷的時代，醫師 30 年的兩條命運",
+    "es": "Cuando la IA lee las imágenes — destino bifurcado a 30 años de un médico",
+    "de": "Wenn die KI die Aufnahmen liest — 30-Jahre-Schicksal eines Arztes"
   },
   "hook_copy": {
     "bloom": {
       "ko": "AI가 영상을 읽어도, 환자에게 말하는 건 너.",
-      "en": "AI reads the scans. You speak to the patient."
+      "en": "AI reads the scans. You speak to the patient.",
+      "ja": "AIが画像を読んでも、患者に話すのは君。",
+      "zh-tw": "AI 看影像，但跟病人說話的還是你。",
+      "es": "La IA lee las imágenes. Hablar con el paciente te toca a ti.",
+      "de": "Die KI liest die Bilder. Mit dem Patienten sprichst du."
     },
     "doom": {
       "ko": "AI가 진단하고, 너는 결과지를 전달한다.",
-      "en": "AI diagnoses. You hand over the printout."
+      "en": "AI diagnoses. You hand over the printout.",
+      "ja": "AIが診断し、君は結果用紙を渡す。",
+      "zh-tw": "AI 下診斷，你只負責把報告交給病人。",
+      "es": "La IA diagnostica. Tú entregas la hoja.",
+      "de": "Die KI diagnostiziert. Du reichst den Ausdruck weiter."
     }
   },
   "year0": {
@@ -30,6 +46,26 @@
       "title": "Doctor",
       "skills": ["diagnosis", "treatment decisions", "patient communication"],
       "description": "You today. Examining patients, making the calls, explaining the results yourself."
+    },
+    "ja": {
+      "title": "医師",
+      "skills": ["診断", "治療判断", "患者コミュニケーション"],
+      "description": "今の君。患者を診て、判断し、結果を自分の口で伝える。"
+    },
+    "zh-tw": {
+      "title": "醫師",
+      "skills": ["診斷", "治療決策", "病人溝通"],
+      "description": "今天的你。看病人、做判斷，結果由你親口說明。"
+    },
+    "es": {
+      "title": "Médico",
+      "skills": ["diagnóstico", "decisiones terapéuticas", "comunicación con paciente"],
+      "description": "Tú hoy. Examinas, decides y explicas los resultados con tu propia voz."
+    },
+    "de": {
+      "title": "Arzt",
+      "skills": ["Diagnose", "Therapieentscheidungen", "Patientenkommunikation"],
+      "description": "Du heute. Untersuchst, entscheidest und erklärst die Ergebnisse selbst."
     }
   },
   "paths": {
@@ -47,6 +83,26 @@
             "title": "AI-Assisted Physician",
             "skills": ["interpreting AI analysis", "treatment strategy", "patient trust"],
             "description": "AI analyzes the scans and records. You speak with the patient and make the call."
+          },
+          "ja": {
+            "title": "AI支援の臨床医",
+            "skills": ["AI解析の読み解き", "治療戦略", "患者の信頼づくり"],
+            "description": "AIが画像と記録を分析する。君は患者と話しながら最後の判断を下す。"
+          },
+          "zh-tw": {
+            "title": "AI 輔助臨床醫師",
+            "skills": ["AI 分析解讀", "治療策略", "建立病人信任"],
+            "description": "AI 分析影像和病歷。你和病人對話，最後一錘由你下。"
+          },
+          "es": {
+            "title": "Médico con Asistencia de IA",
+            "skills": ["interpretación de análisis IA", "estrategia terapéutica", "confianza del paciente"],
+            "description": "La IA analiza imágenes e historia. Tú hablas con el paciente y tomas la decisión final."
+          },
+          "de": {
+            "title": "KI-gestützter Arzt",
+            "skills": ["KI-Analyse interpretieren", "Therapiestrategie", "Patientenvertrauen"],
+            "description": "Die KI analysiert Bilder und Akten. Du sprichst mit dem Patienten und triffst die Entscheidung."
           }
         },
         {
@@ -61,6 +117,26 @@
             "title": "Master of Patient Trust",
             "skills": ["ethical decisions", "mentorship", "medical philosophy"],
             "description": "The elder who makes the final call on the hardest cases. Patients and young doctors both come to you."
+          },
+          "ja": {
+            "title": "患者の信頼を担うマスター",
+            "skills": ["倫理判断", "後輩育成", "医療哲学"],
+            "description": "難しい局面で最後の判断を下す大人。患者も後輩も君を訪ねる。"
+          },
+          "zh-tw": {
+            "title": "病人信任的大師",
+            "skills": ["倫理判斷", "後輩培養", "醫療哲學"],
+            "description": "最難的案子，最後一刀由你下。病人和後輩都會回來找你。"
+          },
+          "es": {
+            "title": "Maestro de la Confianza del Paciente",
+            "skills": ["decisiones éticas", "mentoría", "filosofía médica"],
+            "description": "La figura mayor que toma la decisión final en los casos más duros. Vuelven a ti pacientes y médicos jóvenes."
+          },
+          "de": {
+            "title": "Meister des Patientenvertrauens",
+            "skills": ["Ethik-Entscheidungen", "Mentoring", "Medizinphilosophie"],
+            "description": "Die Instanz, die in den härtesten Fällen entscheidet. Patienten und junge Ärzte kommen zu dir."
           }
         }
       ]
@@ -79,6 +155,26 @@
             "title": "Diagnosis Messenger",
             "skills": ["explaining AI results", "prescription entry", "patient guidance"],
             "description": "Diagnoses come from AI. You explain the result to the patient and enter the prescription."
+          },
+          "ja": {
+            "title": "診断の伝達役",
+            "skills": ["AI結果の説明", "処方入力", "患者案内"],
+            "description": "診断はAIが下す。君は患者に結果を説明し、処方を入力する。"
+          },
+          "zh-tw": {
+            "title": "診斷傳達員",
+            "skills": ["AI 結果說明", "處方輸入", "病人引導"],
+            "description": "診斷由 AI 下。你向病人解釋結果、輸入處方。"
+          },
+          "es": {
+            "title": "Mensajero del Diagnóstico",
+            "skills": ["explicación de resultados IA", "carga de receta", "orientación al paciente"],
+            "description": "Los diagnósticos los da la IA. Tú le explicas el resultado al paciente y cargas la receta."
+          },
+          "de": {
+            "title": "Diagnose-Bote",
+            "skills": ["KI-Ergebnisse erklären", "Rezept eingeben", "Patientenführung"],
+            "description": "Die Diagnose liefert die KI. Du erklärst dem Patienten das Ergebnis und tippst das Rezept."
           }
         },
         {
@@ -93,6 +189,26 @@
             "title": "Remaining Care Provider",
             "skills": ["human-facing tasks", "emergency standby", "records support"],
             "description": "Most consultations are automated. You hold the seat where a human is still required."
+          },
+          "ja": {
+            "title": "残った診療人員",
+            "skills": ["対人対応", "救急時の待機", "記録補助"],
+            "description": "診療の多くは自動化される。君は人が一度入らなければならない席を静かに守る。"
+          },
+          "zh-tw": {
+            "title": "留下的看診人力",
+            "skills": ["對人應對", "緊急時待命", "紀錄協助"],
+            "description": "看診大多自動化了。你安靜守住那塊還必須有人類進去的位置。"
+          },
+          "es": {
+            "title": "Médico Residual",
+            "skills": ["tareas de cara al paciente", "guardia de emergencia", "apoyo a registros"],
+            "description": "Casi todas las consultas están automatizadas. Tú ocupas el asiento donde aún hace falta un humano."
+          },
+          "de": {
+            "title": "Rest-Mediziner",
+            "skills": ["menschennahe Aufgaben", "Notfall-Bereitschaft", "Dokumentation"],
+            "description": "Die meisten Sprechstunden sind automatisiert. Du hältst den Platz, an dem noch ein Mensch sein muss."
           }
         }
       ]
@@ -102,29 +218,61 @@
     "AS": {
       "nickname_ko": "AI 진단을 활용하는 1인 동네 의원",
       "nickname_en": "Solo Practice With AI",
+      "nickname_ja": "AI診断を使いこなす一人町医者",
+      "nickname_zh-tw": "用 AI 診斷的單兵社區診所",
+      "nickname_es": "Consultorio Solitario con IA",
+      "nickname_de": "Einzelpraxis mit KI",
       "blurb_ko": "AI 진단 도구를 일찍 받아들이고 혼자서 한 동네를 책임지는 사람. 한 명의 의사가 더 많은 사람을 더 깊이 돌볼 수 있는 미래를 만든다.",
       "blurb_en": "Adopts AI diagnostics early and runs a neighborhood clinic alone. Builds a future where one doctor cares deeper for more people.",
+      "blurb_ja": "AI診断を早く受け入れ、一人で町を引き受ける人。一人の医師がより多くの人をより深くケアできる未来を作る。",
+      "blurb_zh-tw": "早早擁抱 AI 診斷，一個人撐起一個社區。一名醫師能照顧更多人、照得更深的未來，由你建立。",
+      "blurb_es": "Adopta el diagnóstico por IA pronto y lleva una clínica de barrio en solitario. Construye el futuro donde un solo médico cuida a más gente y más hondo.",
+      "blurb_de": "Nimmt KI-Diagnostik früh an und führt eine Quartierspraxis allein. Baut die Zukunft, in der ein Arzt mehr Menschen tiefer versorgt.",
       "bias": "bloom"
     },
     "AC": {
       "nickname_ko": "AI와 의료팀을 함께 굴리는 진료 디렉터",
       "nickname_en": "Clinical Director of AI and Team",
+      "nickname_ja": "AIと医療チームを束ねる診療ディレクター",
+      "nickname_zh-tw": "同時調度 AI 和醫療團隊的臨床總監",
+      "nickname_es": "Director Clínico con IA y Equipo",
+      "nickname_de": "Klinischer Direktor von KI und Team",
       "blurb_ko": "AI 시스템과 의료팀을 함께 조율하는 사람. 병원 전체의 진료 수준을 다 같이 끌어올린다.",
       "blurb_en": "Coordinates AI systems and medical staff together. Lifts the whole hospital's care level as one team.",
+      "blurb_ja": "AIシステムと医療チームを同時に動かす人。病院全体の診療水準を皆で引き上げる。",
+      "blurb_zh-tw": "把 AI 系統和醫療團隊一起調度。整間醫院的看診水準，被你和大家一起拉上去。",
+      "blurb_es": "Coordina los sistemas de IA y al equipo médico al mismo tiempo. Sube el nivel de atención de todo el hospital como equipo.",
+      "blurb_de": "Koordiniert KI-Systeme und das medizinische Team. Hebt das Versorgungsniveau des ganzen Hauses gemeinsam.",
       "bias": "bloom"
     },
     "RS": {
       "nickname_ko": "직접 환자를 보는 베테랑",
       "nickname_en": "Hands-On Veteran",
+      "nickname_ja": "自分で患者を診るベテラン",
+      "nickname_zh-tw": "親自看診的資深醫師",
+      "nickname_es": "Veterano de la Consulta",
+      "nickname_de": "Veteran am Untersuchungsstuhl",
       "blurb_ko": "정통 진료 방식과 환자와의 직접 대화를 신뢰하는 사람. 자기 진료에는 단단하지만, 자동화 흐름과 거리가 벌어진다.",
       "blurb_en": "Trusts the bedside craft and direct patient conversation. Solid in their practice — but drifts from the automated current.",
+      "blurb_ja": "正統な診療と患者との直接の対話を信じる人。自分の診療は揺るがないが、自動化の流れとは距離が開く。",
+      "blurb_zh-tw": "相信正統看診、相信和病人直接對話。在自己的看診室很穩，但和自動化主流越走越遠。",
+      "blurb_es": "Confía en el oficio en consulta y en hablar de tú a tú con el paciente. Sólido en lo suyo — pero se aleja de la corriente automatizada.",
+      "blurb_de": "Vertraut der klassischen Sprechstunde und dem direkten Gespräch. Stark in der eigenen Praxis — driftet aber von der Automatisierung weg.",
       "bias": "doom"
     },
     "RC": {
       "nickname_ko": "환자·동료 신뢰를 쌓는 매니저",
       "nickname_en": "Trust-Builder of Patients and Team",
+      "nickname_ja": "患者・同僚の信頼を築くマネージャー",
+      "nickname_zh-tw": "和病人、同事建立信任的主管",
+      "nickname_es": "Constructor de Confianza con Pacientes y Equipo",
+      "nickname_de": "Vertrauensaufbauer für Patienten und Team",
       "blurb_ko": "AI 도입에 신중하고 사람 신뢰를 더 믿는 사람. 진료실의 결을 지키지만, 자동화된 의료 흐름과 멀어진다.",
       "blurb_en": "Cautious about AI, leans on patient and team trust. Keeps the clinic's grain — but drifts from the automated current.",
+      "blurb_ja": "AI導入に慎重で、人と人の信頼を重んじる人。診療室の空気は守るが、自動化された医療の流れからは離れていく。",
+      "blurb_zh-tw": "對導入 AI 謹慎，更相信人和人之間的信任。守住看診室的氣，但和自動化醫療越走越遠。",
+      "blurb_es": "Prudente con la IA, se apoya en la confianza de pacientes y equipo. Cuida el carácter de la consulta — pero se aleja de la corriente automatizada.",
+      "blurb_de": "Vorsichtig bei KI, vertraut auf Patient und Team. Bewahrt den Charakter der Praxis — driftet aber von der automatisierten Medizin weg.",
       "bias": "doom"
     }
   }

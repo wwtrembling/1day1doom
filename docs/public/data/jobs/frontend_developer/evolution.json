@@ -3,20 +3,36 @@
   "job_id": "frontend_developer",
   "label_ko": "프론트엔드 개발자",
   "label_en": "Frontend Developer",
+  "label_ja": "フロントエンド開発者",
+  "label_zh-tw": "前端工程師",
+  "label_es": "Desarrollador Frontend",
+  "label_de": "Frontend-Entwickler",
   "aliases_ko": ["프론트엔드", "웹 개발자", "UI 개발자", "프론트개발자"],
   "emoji": "💻",
   "share_caption": {
     "ko": "AI가 화면을 그리는 시대, 프론트엔드 개발자의 30년 두 갈래 운명",
-    "en": "When AI paints the UI — a frontend dev's 30-year split fate"
+    "en": "When AI paints the UI — a frontend dev's 30-year split fate",
+    "ja": "AIが画面を描く時代、フロントエンド開発者の30年二択運命",
+    "zh-tw": "AI 把畫面都畫了，前端工程師 30 年的兩條命運",
+    "es": "Cuando la IA pinta la UI — el destino bifurcado a 30 años de un frontend",
+    "de": "Wenn die KI das UI malt — das 30-Jahre-Schicksal eines Frontend-Devs"
   },
   "hook_copy": {
     "bloom": {
       "ko": "AI가 컴포넌트를 짜도, 흐름은 네가 그린다.",
-      "en": "AI ships components. You design the flow."
+      "en": "AI ships components. You design the flow.",
+      "ja": "AIがコンポーネントを出しても、流れを描くのは君。",
+      "zh-tw": "AI 出元件，但流程是你畫的。",
+      "es": "La IA suelta componentes. Tú diseñas el recorrido.",
+      "de": "Die KI liefert Komponenten. Du zeichnest den Ablauf."
     },
     "doom": {
       "ko": "AI가 화면을 만들고, 너는 모서리만 다듬는다.",
-      "en": "AI draws the screens. You polish the edges."
+      "en": "AI draws the screens. You polish the edges.",
+      "ja": "AIが画面を作り、君は端だけ整える。",
+      "zh-tw": "AI 把畫面做完，你只負責修邊。",
+      "es": "La IA dibuja las pantallas. Tú lijas los bordes.",
+      "de": "Die KI zeichnet die Screens. Du polierst die Kanten."
     }
   },
   "year0": {
@@ -30,6 +46,26 @@
       "title": "Frontend Developer",
       "skills": ["UI implementation", "state management", "performance"],
       "description": "You today. Building screens, owning every tap a user makes."
+    },
+    "ja": {
+      "title": "フロントエンド開発者",
+      "skills": ["UI実装", "状態管理", "パフォーマンス最適化"],
+      "description": "今の君。画面を作り、ユーザーの一つのタップを最後まで責任を持つ。"
+    },
+    "zh-tw": {
+      "title": "前端工程師",
+      "skills": ["UI 實作", "狀態管理", "效能最佳化"],
+      "description": "今天的你。把畫面做出來，使用者每一次點擊都由你負責到最後。"
+    },
+    "es": {
+      "title": "Desarrollador Frontend",
+      "skills": ["implementación de UI", "gestión de estado", "rendimiento"],
+      "description": "Tú hoy. Construyes pantallas y te haces dueño de cada tap del usuario."
+    },
+    "de": {
+      "title": "Frontend-Entwickler",
+      "skills": ["UI-Umsetzung", "State Management", "Performance"],
+      "description": "Du heute. Baust Screens und stehst für jeden Tap der User gerade."
     }
   },
   "paths": {
@@ -47,6 +83,26 @@
             "title": "AI Interface Designer",
             "skills": ["user flow design", "AI component curation", "design systems"],
             "description": "AI writes the code. You decide where the user should go."
+          },
+          "ja": {
+            "title": "AIインターフェース設計者",
+            "skills": ["ユーザーフロー設計", "AIコンポーネントキュレーション", "デザインシステム"],
+            "description": "コードはAIが書く。ユーザーをどこへ連れていくかを決めるのが君。"
+          },
+          "zh-tw": {
+            "title": "AI 介面設計師",
+            "skills": ["使用者流程設計", "AI 元件策展", "設計系統"],
+            "description": "程式碼交給 AI 寫，你決定使用者該往哪裡走。"
+          },
+          "es": {
+            "title": "Diseñador de Interfaces con IA",
+            "skills": ["diseño de flujos de usuario", "curaduría de componentes IA", "design systems"],
+            "description": "La IA escribe el código. Tú decides hacia dónde tiene que ir el usuario."
+          },
+          "de": {
+            "title": "KI-Interface-Designer",
+            "skills": ["User-Flow-Design", "KI-Komponenten-Kuration", "Design Systems"],
+            "description": "Den Code schreibt die KI. Wohin der User soll, entscheidest du."
           }
         },
         {
@@ -61,6 +117,26 @@
             "title": "Master of Experience",
             "skills": ["service feel", "mentorship", "design philosophy"],
             "description": "The keeper of a service's first impression. Young designers learn your taste."
+          },
+          "ja": {
+            "title": "ユーザー体験マスター",
+            "skills": ["サービスの肌触り", "後輩育成", "デザイン哲学"],
+            "description": "サービスの第一印象を引き受ける大人。新人デザイナーは君の感覚から学ぶ。"
+          },
+          "zh-tw": {
+            "title": "使用者體驗大師",
+            "skills": ["產品手感設計", "後輩培養", "設計哲學"],
+            "description": "你撐起一個產品的第一印象。新進設計師都來學你的味道。"
+          },
+          "es": {
+            "title": "Maestro de la Experiencia",
+            "skills": ["alma del producto", "mentoría", "filosofía de diseño"],
+            "description": "Cuidas la primera impresión de un servicio entero. Los diseñadores nuevos aprenden tu mano."
+          },
+          "de": {
+            "title": "Meister der Experience",
+            "skills": ["Produkt-Feeling", "Mentoring", "Designphilosophie"],
+            "description": "Du trägst den ersten Eindruck eines ganzen Produkts. Junge Designer lernen deine Handschrift."
           }
         }
       ]
@@ -79,6 +155,26 @@
             "title": "Design System Reviewer",
             "skills": ["reviewing AI screens", "fine-tuning details", "bug reporting"],
             "description": "Screens come from generators now. You check the colors, spacing, and alignment at the end."
+          },
+          "ja": {
+            "title": "デザインシステム検査担当",
+            "skills": ["AI画面の検査", "細部の微調整", "バグ報告"],
+            "description": "画面は生成器が作る。最後に色・余白・整列を確認するのが君。"
+          },
+          "zh-tw": {
+            "title": "設計系統檢查員",
+            "skills": ["AI 畫面檢查", "細節微調", "回報 Bug"],
+            "description": "畫面都是自動生成。你只剩下檢查顏色、間距、對齊的位置。"
+          },
+          "es": {
+            "title": "Revisor de Design System",
+            "skills": ["revisión de pantallas IA", "ajustes finos", "reporte de bugs"],
+            "description": "Las pantallas las arman los generadores. Tú revisas color, espaciado y alineación al final."
+          },
+          "de": {
+            "title": "Design-System-Prüfer",
+            "skills": ["KI-Screens prüfen", "Detail-Tuning", "Bug-Reports"],
+            "description": "Screens kommen aus Generatoren. Du checkst am Ende Farbe, Abstand, Ausrichtung."
           }
         },
         {
@@ -93,6 +189,26 @@
             "title": "Edge-Case Polisher",
             "skills": ["edge case fixes", "manual procedures", "record keeping"],
             "description": "Most interfaces are now auto-generated. You polish the corners that still need a human eye."
+          },
+          "ja": {
+            "title": "残った画面の整え役",
+            "skills": ["エッジケース修正", "手動手順", "記録保存"],
+            "description": "ほとんどのUIは自動生成される。君は人の目が必要な画面の隅を整える。"
+          },
+          "zh-tw": {
+            "title": "剩餘畫面整理員",
+            "skills": ["邊角案例修正", "手動流程", "紀錄保存"],
+            "description": "幾乎所有介面都自動生成。你只負責還需要人眼盯一下的角落。"
+          },
+          "es": {
+            "title": "Pulidor de Casos Extremos",
+            "skills": ["casos límite", "procedimientos manuales", "registro histórico"],
+            "description": "Casi todas las interfaces salen solas. Tú lijas los rincones que aún piden ojo humano."
+          },
+          "de": {
+            "title": "Randfall-Polierer",
+            "skills": ["Edge-Cases", "manuelle Prozesse", "Dokumentation"],
+            "description": "Fast alle Interfaces entstehen automatisch. Du polierst die Ecken, die ein menschliches Auge noch brauchen."
           }
         }
       ]
@@ -102,29 +218,61 @@
     "AS": {
       "nickname_ko": "AI를 길들인 1인 인디 풀스택",
       "nickname_en": "Solo Indie Full-Stack Who Tamed the AI",
+      "nickname_ja": "AIを飼いならしたインディー一人フルスタック",
+      "nickname_zh-tw": "馴服 AI 的單兵全端",
+      "nickname_es": "Full-Stack Indie que Domó la IA",
+      "nickname_de": "Indie-Solo-Full-Stack, der die KI gezähmt hat",
       "blurb_ko": "AI 도구를 일찍 받아들이고 혼자서 한 앱을 처음부터 끝까지 만드는 사람. 한 명이 한 서비스를 통째로 굴리는 미래를 자기 손으로 당긴다.",
       "blurb_en": "Adopts AI early and ships entire apps alone. Pulls forward the future where one person runs a whole service.",
+      "blurb_ja": "AI道具を早く受け入れ、一人でアプリを一本まるごと作る人。一人で一つのサービスを回す未来を、自分の手で引き寄せる。",
+      "blurb_zh-tw": "早早擁抱 AI 工具，一個人從頭做到尾。一人撐起整個產品的未來，被你親手提前。",
+      "blurb_es": "Adopta la IA pronto y suelta apps enteras en solitario. Acerca el futuro donde una sola persona gestiona todo un servicio.",
+      "blurb_de": "Nimmt KI früh an und liefert ganze Apps allein. Holt die Zukunft heran, in der ein Mensch ein ganzes Produkt fährt.",
       "bias": "bloom"
     },
     "AC": {
       "nickname_ko": "디자이너·AI를 함께 굴리는 디렉터",
       "nickname_en": "Director of Designers and AI",
+      "nickname_ja": "デザイナーとAIを束ねるディレクター",
+      "nickname_zh-tw": "同時調度設計師與 AI 的總監",
+      "nickname_es": "Director de Diseñadores y de la IA",
+      "nickname_de": "Direktor von Designern und KI",
       "blurb_ko": "디자이너 팀과 AI 도구를 함께 조율하는 사람. 서비스 전체의 결을 다 같이 끌어올린다.",
       "blurb_en": "Coordinates designers and AI tools together. Lifts the whole service's craft as one team.",
+      "blurb_ja": "デザイナーチームとAI道具を一緒に動かす人。サービス全体の質を皆で引き上げる。",
+      "blurb_zh-tw": "把設計團隊和 AI 工具一起調度。整個產品的手感，被你和團隊一起拉上去。",
+      "blurb_es": "Coordina a los diseñadores y a las herramientas de IA a la vez. Sube el oficio de todo el servicio en equipo.",
+      "blurb_de": "Bringt das Design-Team und KI-Tools zusammen. Hebt die Qualität des ganzen Produkts gemeinsam.",
       "bias": "bloom"
     },
     "RS": {
       "nickname_ko": "픽셀 단위 손맛을 지키는 장인",
       "nickname_en": "Pixel-Level Craftsman",
+      "nickname_ja": "ピクセル単位の手仕事を守る職人",
+      "nickname_zh-tw": "守住像素手感的工匠",
+      "nickname_es": "Artesano del Píxel",
+      "nickname_de": "Pixelhandwerker",
       "blurb_ko": "정통 손코딩과 픽셀 단위 디테일을 신뢰하는 사람. 자기 화면에서는 단단하지만, 자동 생성 흐름과 점차 거리가 벌어진다.",
       "blurb_en": "Trusts hand-coded craft and pixel-level detail. Solid in their own screens — but drifts from the auto-generated current.",
+      "blurb_ja": "手書きコーディングとピクセル単位の細部を信じる人。自分の画面では揺るがないが、自動生成の流れとは距離が開く。",
+      "blurb_zh-tw": "相信手刻、相信像素級的細節。自己的畫面很穩，但和自動生成的主流越走越遠。",
+      "blurb_es": "Cree en el código a mano y en el píxel exacto. Sólido en sus pantallas — pero se aleja de la corriente auto-generada.",
+      "blurb_de": "Glaubt an handgeschriebenen Code und pixelgenaue Details. Stark auf seinen Screens — driftet aber vom Auto-Generieren weg.",
       "bias": "doom"
     },
     "RC": {
       "nickname_ko": "팀 디자인 결을 지키는 매니저",
       "nickname_en": "Keeper of the Team's Craft",
+      "nickname_ja": "チームのデザイン感を守るマネージャー",
+      "nickname_zh-tw": "守住團隊設計手感的主管",
+      "nickname_es": "Guardián del Oficio del Equipo",
+      "nickname_de": "Hüter der Team-Handschrift",
       "blurb_ko": "AI 도입에 신중하고 디자이너 동료들 사이의 신뢰를 더 믿는 사람. 팀의 결을 지키지만, 자동화 흐름과 멀어진다.",
       "blurb_en": "Cautious about AI, leans on the designers' bond. Keeps the team craft — but drifts from the automated current.",
+      "blurb_ja": "AI導入に慎重で、デザイナー同士の信頼を重んじる人。チームの感覚は守るが、自動化の流れからは遠ざかる。",
+      "blurb_zh-tw": "對導入 AI 謹慎，更相信設計師之間的默契。守住團隊的手感，但離自動化越來越遠。",
+      "blurb_es": "Prudente con la IA, se apoya en el lazo entre diseñadores. Cuida el oficio del equipo — pero se aleja de la corriente automatizada.",
+      "blurb_de": "Vorsichtig bei KI, vertraut auf den Zusammenhalt der Designer. Bewahrt die Team-Handschrift — driftet aber von der Automatisierung weg.",
       "bias": "doom"
     }
   }
