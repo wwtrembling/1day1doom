@@ -285,6 +285,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const input = document.getElementById("job-input");
     input.addEventListener("input", onInputChange);
+    input.addEventListener("focus", onInputFocus);
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".form-group")) hideSuggestions();
     });
@@ -312,8 +313,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
     }
-    const saved = localStorage.getItem("evo_last_input");
-    if (saved) input.value = saved;
     setPhase("input");
 });
 
@@ -432,15 +431,25 @@ function jobLabel(j) {
 }
 
 function onInputChange(e) {
-    const q = e.target.value;
-    const matches = suggestJobs(q);
+    const q = e.target.value.trim();
+    const jobs = q ? suggestJobs(q) : (manifest && manifest.jobs ? manifest.jobs : []);
+    renderJobList(jobs);
+}
+
+function onInputFocus(e) {
+    const q = e.target.value.trim();
+    const jobs = q ? suggestJobs(q) : (manifest && manifest.jobs ? manifest.jobs : []);
+    renderJobList(jobs);
+}
+
+function renderJobList(jobs) {
     const list = document.getElementById("job-suggestions");
     list.innerHTML = "";
-    if (!matches.length) {
+    if (!jobs.length) {
         list.style.display = "none";
         return;
     }
-    for (const j of matches) {
+    for (const j of jobs) {
         const li = document.createElement("li");
         li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> <span class="suggest-label">${escapeHtml(jobLabel(j))}</span>`;
         li.addEventListener("mousedown", (ev) => {
