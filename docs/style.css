@@ -190,28 +190,7 @@ input[type="text"]:focus {
     gap: 8px;
 }
 .suggest-list li:hover { background: var(--bg-cream-2); }
-.suggest-list li.is-hot { background: linear-gradient(90deg, rgba(255, 99, 71, 0.06), transparent 40%); }
-.suggest-list li.is-hot:hover { background: linear-gradient(90deg, rgba(255, 99, 71, 0.14), var(--bg-cream-2)); }
 .suggest-list .suggest-label { flex: 1; }
-.suggest-hot {
-    font-size: 0.78rem;
-    padding: 2px 8px;
-    border-radius: 999px;
-    background: rgba(255, 99, 71, 0.12);
-    color: #c0392b;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    line-height: 1.4;
-    flex-shrink: 0;
-}
-html[lang="ja"] .suggest-hot, html[lang="zh-tw"] .suggest-hot {
-    background: rgba(214, 51, 74, 0.12);
-    color: var(--accent-rose);
-}
-html[lang="en"] .suggest-hot, html[lang="es"] .suggest-hot, html[lang="de"] .suggest-hot {
-    background: rgba(229, 62, 62, 0.1);
-    color: #c53030;
-}
 
 .evo-btn {
     display: inline-block;
