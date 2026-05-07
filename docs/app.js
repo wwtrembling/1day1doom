@@ -7,7 +7,7 @@
 const UI_TEXT = {
     ko: {
         app_title: "1Day1Doom",
-        slogan: "AI가 내 직업을 잡아먹을까? 5문항으로 보는 30년 두 갈래 운명",
+        slogan: "AI가 내 직업을 잡아먹을까? 5문항으로 30년 후 두 갈래 미래를 봐요.",
         input_title: "직업을 알려주세요",
         label_job: "직업",
         placeholder_job: "예: 백엔드 개발자, 교사, 간호사…",
@@ -97,7 +97,7 @@ const UI_TEXT = {
     },
     "zh-tw": {
         app_title: "1Day1Doom",
-        slogan: "AI 會吃掉你的工作嗎？5 題，看見 30 年後的你",
+        slogan: "AI 會吃掉你的工作嗎？5 題看見 30 年後的兩條路。",
         input_title: "你的職業是？",
         label_job: "職業",
         placeholder_job: "例如：後端工程師、老師、護理師⋯",
@@ -157,7 +157,7 @@ const UI_TEXT = {
     },
     de: {
         app_title: "1Day1Doom",
-        slogan: "Frisst KI deinen Job? — 5 Fragen, 30 Jahre Zukunft.",
+        slogan: "Frisst KI deinen Job? 5 Fragen, 30 Jahre, zwei Wege.",
         input_title: "Was machst du beruflich?",
         label_job: "Beruf",
         placeholder_job: "z. B. Backend-Entwickler, Lehrerin, Pfleger…",
@@ -264,7 +264,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const input = document.getElementById("job-input");
     input.addEventListener("input", onInputChange);
-    input.addEventListener("focus", onInputChange);
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".form-group")) hideSuggestions();
     });
@@ -316,9 +315,6 @@ async function loadManifest() {
         const res = await fetch(`${DATA_BASE}/jobs.json`, { cache: "no-store" });
         if (!res.ok) throw new Error("manifest fetch failed");
         manifest = await res.json();
-        const hot = manifest.jobs.filter(j => j.hot);
-        const cold = manifest.jobs.filter(j => !j.hot);
-        manifest.jobs = [...shuffle(hot), ...shuffle(cold)];
     } catch (e) {
         console.error("Failed to load manifest:", e);
         manifest = { jobs: [] };
@@ -349,15 +345,6 @@ function setupLangSwitch() {
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") close();
     });
-}
-
-function shuffle(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
 }
 
 async function loadQuiz() {
@@ -402,7 +389,7 @@ function findJob(query) {
 function suggestJobs(query) {
     if (!manifest || !manifest.jobs) return [];
     const q = normalize(query);
-    if (!q) return manifest.jobs.slice(0, 12);
+    if (!q) return [];
     const scored = [];
     for (const j of manifest.jobs) {
         const labels = jobAllLabels(j).map(normalize);
@@ -434,9 +421,7 @@ function onInputChange(e) {
     }
     for (const j of matches) {
         const li = document.createElement("li");
-        const hotBadge = j.hot ? `<span class="suggest-hot" aria-label="hot">🔥</span>` : "";
-        li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> <span class="suggest-label">${escapeHtml(jobLabel(j))}</span>${hotBadge}`;
-        if (j.hot) li.classList.add("is-hot");
+        li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> <span class="suggest-label">${escapeHtml(jobLabel(j))}</span>`;
         li.addEventListener("mousedown", (ev) => {
             ev.preventDefault();
             document.getElementById("job-input").value = jobLabel(j);
