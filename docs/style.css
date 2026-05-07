@@ -698,6 +698,38 @@ body.result-only header .lang-switch {
     order: -1;
 }
 
+/* Non-bias path renders below the agency note + alt-toggle button,
+   collapsed by default. Toggle reveals it. */
+.path-tree:not(.path-bias) { order: 1; }
+.path-tree.is-collapsed { display: none; }
+
+/* Alt-path toggle button — pushes user to opt-in to the second tree. */
+.alt-toggle {
+    order: 0;
+    background: transparent;
+    border: 2px dashed var(--ink-soft);
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+.alt-toggle:hover {
+    background: var(--bg-cream-2);
+    border-color: var(--ink);
+}
+.alt-toggle::after {
+    content: " ↓";
+    display: inline-block;
+}
+.alt-toggle[aria-expanded="true"]::after {
+    content: " ↑";
+}
+
 /* Path badges — labeled tags replacing the old star.
    Bias path = "Your path", non-bias path = "Other path". */
 .path-tree-badge {
