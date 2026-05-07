@@ -29,7 +29,10 @@ const UI_TEXT = {
         bias_label: "지금 성향의 도착지",
         quiz_intro: "AI 시대, 당신은 어디쯤 서 있나요?",
         persona_card_title: "당신의 부캐",
-        quiz_title: "5문항으로 진단하기"
+        quiz_title: "5문항으로 진단하기",
+        your_path_badge: "당신의 길",
+        other_path_label: "다른 선택",
+        agency_note: "이 길은 지금 성향의 도착지일 뿐이에요. 오늘부터의 선택이 다시 그릴 수 있어요."
     },
     en: {
         app_title: "1Day1Doom",
@@ -55,7 +58,10 @@ const UI_TEXT = {
         bias_label: "Where this leans today",
         quiz_intro: "In the age of AI, where do you stand?",
         persona_card_title: "Your alter-ego",
-        quiz_title: "5-question diagnosis"
+        quiz_title: "5-question diagnosis",
+        your_path_badge: "Your path",
+        other_path_label: "The other path",
+        agency_note: "This is just where today's tendency leads. The choices you make from now on can redraw it."
     },
     ja: {
         app_title: "1Day1Doom",
@@ -81,7 +87,10 @@ const UI_TEXT = {
         bias_label: "今の傾向の行き先",
         quiz_intro: "AI時代、あなたはどこに立っていますか？",
         persona_card_title: "あなたの分身",
-        quiz_title: "5問診断"
+        quiz_title: "5問診断",
+        your_path_badge: "あなたの道",
+        other_path_label: "別の道",
+        agency_note: "これは今の傾向の行き先にすぎません。今日からの選択が、これを描き直せます。"
     },
     "zh-tw": {
         app_title: "1Day1Doom",
@@ -107,7 +116,10 @@ const UI_TEXT = {
         bias_label: "你目前傾向的去向",
         quiz_intro: "AI 時代，你站在哪一邊？",
         persona_card_title: "你的分身",
-        quiz_title: "5 題快測"
+        quiz_title: "5 題快測",
+        your_path_badge: "你的這條路",
+        other_path_label: "另一條路",
+        agency_note: "這只是目前傾向的去向。從今天開始的選擇，能重新畫過。"
     },
     es: {
         app_title: "1Day1Doom",
@@ -133,7 +145,10 @@ const UI_TEXT = {
         bias_label: "Hacia donde te lleva esto",
         quiz_intro: "En la era de la IA, ¿de qué lado caes?",
         persona_card_title: "Tu alter ego",
-        quiz_title: "5 preguntas, dos finales"
+        quiz_title: "5 preguntas, dos finales",
+        your_path_badge: "Tu camino",
+        other_path_label: "El otro camino",
+        agency_note: "Esto es solo hacia donde te lleva la tendencia de hoy. Lo que elijas a partir de ahora puede reescribirlo."
     },
     de: {
         app_title: "1Day1Doom",
@@ -159,7 +174,10 @@ const UI_TEXT = {
         bias_label: "Wohin das gerade tendiert",
         quiz_intro: "Im KI-Zeitalter — wo stehst du?",
         persona_card_title: "Dein Alter Ego",
-        quiz_title: "Die 5-Fragen-Diagnose"
+        quiz_title: "Die 5-Fragen-Diagnose",
+        your_path_badge: "Dein Weg",
+        other_path_label: "Der andere Weg",
+        agency_note: "Das ist nur, wohin es gerade tendiert. Was du ab heute entscheidest, kann es neu zeichnen."
     }
 };
 
@@ -636,6 +654,26 @@ function renderResult() {
     document.getElementById("doom-tree-wrap").classList.toggle("path-bias", bias === "doom");
     document.getElementById("doom-tree-title").textContent = t("path_doom_title");
     document.getElementById("doom-tree-desc").textContent = t("path_doom_desc");
+
+    renderPathBadges(bias);
+}
+
+function renderPathBadges(bias) {
+    document.querySelectorAll(".path-tree-badge").forEach(el => el.remove());
+    const biasWrap = document.getElementById(bias === "doom" ? "doom-tree-wrap" : "bloom-tree-wrap");
+    const otherWrap = document.getElementById(bias === "doom" ? "bloom-tree-wrap" : "doom-tree-wrap");
+    if (biasWrap) {
+        const badge = document.createElement("span");
+        badge.className = "path-tree-badge";
+        badge.textContent = t("your_path_badge");
+        biasWrap.appendChild(badge);
+    }
+    if (otherWrap) {
+        const altBadge = document.createElement("span");
+        altBadge.className = "path-tree-badge path-tree-badge-alt";
+        altBadge.textContent = t("other_path_label");
+        otherWrap.appendChild(altBadge);
+    }
 }
 
 function renderStageInner(stage, year, emoji, pathKey) {

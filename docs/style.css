@@ -643,6 +643,7 @@ body.result-only header .lang-switch {
     padding: 18px 16px 20px;
     box-shadow: var(--shadow);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
 }
 
 .path-tree-header {
@@ -715,23 +716,45 @@ body.result-only header .lang-switch {
 .path-tree.path-bias {
     box-shadow: var(--shadow), var(--bias-glow);
     transform: translateY(-2px);
-    position: relative;
+    order: -1;
 }
-.path-tree.path-bias::before {
-    content: "★";
+
+/* Path badges — labeled tags replacing the old star.
+   Bias path = "Your path", non-bias path = "Other path". */
+.path-tree-badge {
     position: absolute;
-    top: -14px;
+    top: -12px;
     right: 14px;
     background: var(--accent-rose);
     color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.95rem;
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    border: 1.5px solid var(--ink);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+}
+.path-tree-badge-alt {
+    background: var(--ink-soft);
+    font-weight: 600;
+    letter-spacing: 0;
+    opacity: 0.85;
+}
+
+/* Agency note — sits between dual tree and result-mid ad slot.
+   Reframes the diagnosed path as a tendency, not a fate. */
+.dual-tree-agency-note {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 14px 8px 18px;
+    padding: 12px 16px;
+    background: rgba(255, 184, 77, 0.10);
+    border: 1px dashed var(--accent-10);
+    border-radius: 14px;
+    line-height: 1.5;
 }
 
 /* ======================================================================
@@ -900,7 +923,7 @@ html[lang="zh-tw"] .persona-card {
     border-left: 4px solid var(--accent-rose);
 }
 html[lang="zh-tw"] .persona-bias strong { background: rgba(214, 51, 74, 0.15); color: var(--accent-rose); }
-html[lang="zh-tw"] .path-tree.path-bias::before { background: var(--accent-rose); }
+html[lang="zh-tw"] .path-tree.path-bias .path-tree-badge { background: var(--accent-rose); }
 html[lang="ja"] .evo-title,
 html[lang="ja"] .quiz-question,
 html[lang="ja"] .persona-nickname,
@@ -943,7 +966,7 @@ html[lang="ja"] .persona-card {
     border-left: 4px solid var(--accent-rose);
 }
 html[lang="ja"] .persona-bias strong { background: rgba(214, 51, 74, 0.15); color: var(--accent-rose); }
-html[lang="ja"] .path-tree.path-bias::before { background: var(--accent-rose); }
+html[lang="ja"] .path-tree.path-bias .path-tree-badge { background: var(--accent-rose); }
 
 /* ======================================================================
    Spanish: Latin modernism — magenta + mustard, DM Sans, warm white
@@ -1114,5 +1137,5 @@ html[lang="zh-tw"] .quiz-option:hover { background: var(--bloom-tint); border-co
 html[lang="zh-tw"] .quiz-option.selected { background: var(--accent-now); border-color: var(--accent-now); color: white; }
 html[lang="zh-tw"] .persona-card { background: #fffaee; border-left: 4px solid var(--accent-now); }
 html[lang="zh-tw"] .persona-bias strong { background: rgba(45, 90, 74, 0.15); color: var(--accent-now); }
-html[lang="zh-tw"] .path-tree.path-bias::before { background: var(--accent-now); }
+html[lang="zh-tw"] .path-tree.path-bias .path-tree-badge { background: var(--accent-now); }
 html[lang="zh-tw"] .lang-menu a.active { background: var(--accent-now); }
