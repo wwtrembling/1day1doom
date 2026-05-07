@@ -446,6 +446,24 @@ footer {
     margin: 4px 0 18px;
 }
 
+.quiz-progress-bar {
+    position: sticky;
+    top: 0;
+    height: 6px;
+    background: var(--bg-cream-2);
+    border-radius: 999px;
+    margin: 0 0 14px;
+    z-index: 10;
+    overflow: hidden;
+}
+.quiz-progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-now);
+    transition: width 360ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 999px;
+}
+
 .quiz-card {
     background: var(--card-bg);
     border: var(--border);
@@ -483,18 +501,27 @@ footer {
 
 .quiz-option {
     width: 100%;
-    padding: 16px 18px;
+    padding: 16px 18px 16px 22px;
     font-family: inherit;
     font-size: 1.05rem;
     font-weight: 600;
     text-align: left;
     border: var(--border);
+    border-left-width: 6px;
     border-radius: 14px;
     background: white;
     color: var(--ink);
     cursor: pointer;
     box-shadow: var(--shadow);
     transition: transform 0.05s ease, box-shadow 0.05s ease, background 0.1s ease;
+}
+.quiz-options .quiz-option[data-value="A"],
+.quiz-options .quiz-option[data-value="S"] {
+    border-left-color: var(--bloom-border);
+}
+.quiz-options .quiz-option[data-value="R"],
+.quiz-options .quiz-option[data-value="C"] {
+    border-left-color: var(--doom-border);
 }
 
 .quiz-option:hover {

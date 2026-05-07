@@ -530,6 +530,16 @@ function renderAllQuestions() {
     container.innerHTML = "";
     const total = (quiz.questions || []).length;
 
+    let progressBar = document.getElementById("quiz-progress-bar");
+    if (!progressBar) {
+        progressBar = document.createElement("div");
+        progressBar.id = "quiz-progress-bar";
+        progressBar.className = "quiz-progress-bar";
+        progressBar.innerHTML = '<div class="quiz-progress-bar-fill"></div>';
+        container.parentElement.insertBefore(progressBar, container);
+    }
+    updateQuizProgress(0, total);
+
     quiz.questions.forEach((q, idx) => {
         const text = pick(q, currentLang, "en", "ko");
         const optsHtml = (q.options || []).map((o) => {
@@ -553,6 +563,12 @@ function renderAllQuestions() {
     });
 }
 
+function updateQuizProgress(answered, total) {
+    const fill = document.querySelector("#quiz-progress-bar .quiz-progress-bar-fill");
+    if (!fill || !total) return;
+    fill.style.width = `${Math.round((answered / total) * 100)}%`;
+}
+
 function onAnswerSelected(qIdx, value) {
     state.answers[qIdx] = value;
 
@@ -564,6 +580,9 @@ function onAnswerSelected(qIdx, value) {
         });
         card.classList.add("answered");
     }
+
+    const answered = state.answers.filter(a => a !== null).length;
+    updateQuizProgress(answered, state.answers.length);
 
     // If not yet last question, scroll to next unanswered question
     const next = state.answers.findIndex((a, i) => a === null && i > qIdx);
