@@ -1,0 +1,127 @@
+{
+  "schema_version": 2,
+  "job_id": "construction_worker",
+  "label_ko": "건설 노동자",
+  "label_en": "Construction Worker",
+  "label_ja": "建設作業員",
+  "label_zh-tw": "建築工人",
+  "label_es": "Obrero de construcción",
+  "label_de": "Bauarbeiter",
+  "aliases_ko": ["건설업자", "공사장 인부", "현장 노동자", "건설 작업자"],
+  "emoji": "🏗️",
+  "share_caption": {
+    "ko": "로봇이 내 현장을 가져가나? — 30년 두 갈래 운명을 진단했다",
+    "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "삽을 들던 너는, 이제 현장을 지휘한다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    },
+    "doom": {
+      "ko": "로봇이 골조를 세운다. 너는 옆에서 안전모만 쓴다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "건설 노동자",
+      "skills": ["골조·마감 작업", "장비 운용", "현장 안전"],
+      "description": "오늘의 너. 새벽에 현장에 나가고, 한 층 한 층 쌓아 올린다. 도시의 스카이라인 어딘가에 너의 손자국이 있다."
+    },
+    "en": {"title": "", "skills": [], "description": ""},
+    "ja": {"title": "", "skills": [], "description": ""},
+    "zh-tw": {"title": "", "skills": [], "description": ""},
+    "es": {"title": "", "skills": [], "description": ""},
+    "de": {"title": "", "skills": [], "description": ""}
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "스마트 현장 관리자",
+            "skills": ["로봇·드론 운용", "BIM·디지털 도면", "안전 데이터 관리"],
+            "description": "장비는 로봇이 다루고, 너는 현장 전체를 데이터로 본다. 어떤 변수든 가장 빨리 잡아내는 눈은 여전히 너의 것이다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "도시 인프라 디렉터",
+            "skills": ["대형 프로젝트 총괄", "재해 복구 설계", "현장 윤리 책임"],
+            "description": "이제 너는 한 도시의 뼈대를 책임지는 사람. 사람과 로봇이 함께 일하는 현장의 마지막 결정은 너의 무전기에서 떨어진다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "로봇 보조 인력",
+            "skills": ["로봇 보조", "단순 마감 작업", "자재 운반"],
+            "description": "골조와 운반은 자율 장비가 한다. 너는 로봇이 못 닿는 자리를 채우고, 일감은 일 단위로 배정된다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "현장 입회 인력",
+            "skills": ["출입 관리", "장비 점검 보조", "비상 호출 대응"],
+            "description": "현장은 자동화 장비가 돌린다. 너는 규정이 사람을 요구하는 출입구와 비상 라인에 자리한다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "1인 시공팀을 이끄는 기능 장인",
+      "blurb_ko": "AI 도면과 장비를 일찍 받아들여 혼자서 작은 건물을 통째로 책임지는 사람. 한 명이 한 채를 짓는 시대를 너의 손이 앞당긴다.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "사람과 로봇을 같이 굴리는 현장 소장",
+      "blurb_ko": "기능공과 자율 장비를 함께 지휘하는 사람. 새 장비가 들어오면 곧장 공정에 녹여 현장 전체의 속도를 끌어올린다.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "손기술을 믿는 베테랑 기능공",
+      "blurb_ko": "오랜 경험과 자기 손맛을 더 믿는 사람. 자기 공정에선 단단하지만, 로봇 시공이 표준이 되는 시장에서 영역은 매년 좁아진다.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "옛 현장 문화를 지키는 반장",
+      "blurb_ko": "자동화 도입을 미루고 사람 사이의 호흡으로 현장을 굴리는 사람. 팀의 결은 지키지만, 자동화 시공사와의 격차는 점차 벌어진다.",
+      "bias": "doom"
+    }
+  }
+}

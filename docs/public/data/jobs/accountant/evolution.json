@@ -1,0 +1,127 @@
+{
+  "schema_version": 2,
+  "job_id": "accountant",
+  "label_ko": "회계사",
+  "label_en": "Accountant",
+  "label_ja": "会計士",
+  "label_zh-tw": "會計師",
+  "label_es": "Contador",
+  "label_de": "Buchhalter",
+  "aliases_ko": ["회계", "공인회계사", "세무사", "경리"],
+  "emoji": "📊",
+  "share_caption": {
+    "ko": "AI가 내 장부를 닫나? — 30년 두 갈래 운명을 진단했다",
+    "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "숫자는 AI가 맞춘다. 너는 그 숫자가 의미하는 결정을 한다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    },
+    "doom": {
+      "ko": "장부는 자동으로 닫히고, 너는 마지막 도장만 찍는다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "회계사",
+      "skills": ["재무제표 작성", "세무 신고", "감사 대응"],
+      "description": "오늘의 너. 결산 시즌엔 새벽까지 숫자와 씨름하고, 한 회사의 재무 건강을 어깨에 진다."
+    },
+    "en": {"title": "", "skills": [], "description": ""},
+    "ja": {"title": "", "skills": [], "description": ""},
+    "zh-tw": {"title": "", "skills": [], "description": ""},
+    "es": {"title": "", "skills": [], "description": ""},
+    "de": {"title": "", "skills": [], "description": ""}
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 활용 재무 어드바이저",
+            "skills": ["AI 감사 도구 활용", "리스크 해석", "경영진 자문"],
+            "description": "분개와 결산은 AI가 끝낸다. 너는 그 숫자에서 회사가 다음에 무엇을 해야 하는지를 읽어낸다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "기업 윤리·신뢰 자문가",
+            "skills": ["AI 회계 거버넌스", "기업 리스크 설계", "분쟁 자문"],
+            "description": "이제 너는 숫자 너머의 신뢰를 책임지는 사람. AI가 만든 보고서를 사회가 믿게 만드는 마지막 서명이 너의 이름이다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "결산 검수 담당",
+            "skills": ["AI 결산 결과 검토", "예외 케이스 처리", "신고서 확인"],
+            "description": "기장과 결산은 자동 회계 시스템이 한다. 너는 시스템이 띄운 예외 항목을 확인하는 자리에 머문다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "법정 인증 서명자",
+            "skills": ["서명 권한 관리", "예외 보고", "규정 확인"],
+            "description": "회계 업무는 거의 전부 AI가 처리한다. 너는 법이 사람의 서명을 요구하는 좁은 영역에서 도장을 찍는다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI를 비서로 쓰는 1인 회계법인",
+      "blurb_ko": "AI 회계 도구를 일찍 받아들이고 혼자서 큰 고객을 다루는 사람. 한 명이 한 산업을 자문할 수 있는 시대를 너의 손이 앞당긴다.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "팀 전체를 업그레이드하는 파트너",
+      "blurb_ko": "사람 회계사와 AI 도구를 함께 굴리는 사람. 새 도구가 나오면 곧장 팀 절차에 녹여 법인 전체의 처리 능력을 끌어올린다.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "엑셀과 직관을 믿는 정통 회계사",
+      "blurb_ko": "오랜 경험과 자기 손계산을 더 믿는 사람. 자기 클라이언트에선 단단하지만, 자동 회계 시장에서는 영역이 매년 좁아진다.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "옛 회계법인 문화를 지키는 시니어",
+      "blurb_ko": "AI 도입을 미루고 도제식 팀워크를 더 믿는 사람. 사무실의 결은 지키지만, 자동화된 경쟁 법인과의 격차는 점차 벌어진다.",
+      "bias": "doom"
+    }
+  }
+}
