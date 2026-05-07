@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ec"/>
+      <stop offset="100%" stop-color="#ffe8c4"/>
+    </linearGradient>
+    <linearGradient id="wordmark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff7a6f"/>
+      <stop offset="100%" stop-color="#f0a040"/>
+    </linearGradient>
+    <linearGradient id="bloomArrow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8c645"/>
+      <stop offset="100%" stop-color="#f0a040"/>
+    </linearGradient>
+    <linearGradient id="doomArrow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8a96a6"/>
+      <stop offset="100%" stop-color="#6b7787"/>
+    </linearGradient>
+    <radialGradient id="hub" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff7a6f"/>
+      <stop offset="100%" stop-color="#f0a040"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="160" cy="120" r="180" fill="#ffb84d" opacity="0.18"/>
+  <circle cx="1060" cy="520" r="200" fill="#6b7787" opacity="0.10"/>
+
+  <g transform="translate(600 340)">
+    <path d="M 0 0 Q -180 -40 -360 -100 L -340 -78 M -360 -100 L -332 -118"
+          stroke="url(#bloomArrow)" stroke-width="22" stroke-linecap="round"
+          stroke-linejoin="round" fill="none"/>
+    <path d="M 0 0 Q 180 -40 360 -100 L 340 -78 M 360 -100 L 332 -118"
+          stroke="url(#doomArrow)" stroke-width="22" stroke-linecap="round"
+          stroke-linejoin="round" fill="none"/>
+
+    <text x="-360" y="-130" text-anchor="middle"
+          font-family="'Noto Sans CJK KR', 'Apple SD Gothic Neo', system-ui, sans-serif"
+          font-weight="900" font-size="44" fill="#f0a040" letter-spacing="2">BLOOM</text>
+    <text x="360" y="-130" text-anchor="middle"
+          font-family="'Noto Sans CJK KR', 'Apple SD Gothic Neo', system-ui, sans-serif"
+          font-weight="900" font-size="44" fill="#6b7787" letter-spacing="2">DOOM</text>
+
+    <circle cx="0" cy="0" r="56" fill="url(#hub)" filter="url(#soft)" opacity="0.45"/>
+    <circle cx="0" cy="0" r="46" fill="url(#hub)"/>
+    <text x="0" y="16" text-anchor="middle"
+          font-family="'Noto Sans CJK KR', system-ui, sans-serif"
+          font-weight="900" font-size="42" fill="#fff7ec">1D</text>
+  </g>
+
+  <text x="600" y="160" text-anchor="middle"
+        font-family="'Noto Sans CJK KR', 'Apple SD Gothic Neo', system-ui, sans-serif"
+        font-weight="900" font-size="92" fill="url(#wordmark)" letter-spacing="-2">1Day1Doom</text>
+
+  <line x1="500" y1="190" x2="700" y2="190" stroke="#f0a040" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="600" y="490" text-anchor="middle"
+        font-family="'Noto Sans CJK KR', 'Apple SD Gothic Neo', system-ui, sans-serif"
+        font-weight="900" font-size="44" fill="#1a1a1a">AI가 내 직업을 잡아먹을까?</text>
+  <text x="600" y="540" text-anchor="middle"
+        font-family="'Noto Sans CJK KR', 'Apple SD Gothic Neo', system-ui, sans-serif"
+        font-weight="700" font-size="30" fill="#4a4a4a">5문항으로 30년 후 두 갈래 미래를 봐요</text>
+
+  <text x="600" y="585" text-anchor="middle"
+        font-family="'Noto Sans CJK KR', system-ui, sans-serif"
+        font-weight="600" font-size="20" fill="#6b7787" letter-spacing="3">WILL AI EAT MY JOB? · 5Q · 30 YEARS</text>
+</svg>
