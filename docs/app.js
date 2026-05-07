@@ -424,8 +424,11 @@ function onInputChange(e) {
         li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> <span class="suggest-label">${escapeHtml(jobLabel(j))}</span>`;
         li.addEventListener("mousedown", (ev) => {
             ev.preventDefault();
-            document.getElementById("job-input").value = jobLabel(j);
+            const label = jobLabel(j);
+            document.getElementById("job-input").value = label;
+            localStorage.setItem("evo_last_input", label);
             hideSuggestions();
+            startQuiz(j.id);
         });
         list.appendChild(li);
     }
