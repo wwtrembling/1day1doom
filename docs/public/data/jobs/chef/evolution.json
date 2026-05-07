@@ -1,0 +1,127 @@
+{
+  "schema_version": 2,
+  "job_id": "chef",
+  "label_ko": "셰프",
+  "label_en": "Chef",
+  "label_ja": "シェフ",
+  "label_zh-tw": "廚師",
+  "label_es": "Chef",
+  "label_de": "Koch",
+  "aliases_ko": ["요리사", "주방장", "요리 전문가", "쉐프"],
+  "emoji": "🍳",
+  "share_caption": {
+    "ko": "AI가 내 주방을 차지하나? — 30년 두 갈래 운명을 진단했다",
+    "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "레시피는 AI가 짠다. 너는 맛의 방향을 잡는다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    },
+    "doom": {
+      "ko": "주방은 자동 라인이 돌리고, 너는 마무리 한 접시를 낸다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "셰프",
+      "skills": ["메뉴 개발", "주방 운영", "팀 지휘"],
+      "description": "오늘의 너. 새벽에 시장에 나가고, 불 앞에서 하루를 보내고, 마지막 접시까지 직접 본다."
+    },
+    "en": {"title": "", "skills": [], "description": ""},
+    "ja": {"title": "", "skills": [], "description": ""},
+    "zh-tw": {"title": "", "skills": [], "description": ""},
+    "es": {"title": "", "skills": [], "description": ""},
+    "de": {"title": "", "skills": [], "description": ""}
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 미식 디렉터",
+            "skills": ["맛 큐레이션", "AI 레시피 튜닝", "감각 디자인"],
+            "description": "AI가 수천 개 조합을 제안하고, 너는 그중 사람을 울릴 한 접시를 고른다. 주방 전체가 너의 감각을 따라간다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "미각 철학자",
+            "skills": ["미식 문화 설계", "지역 식재료 보존", "차세대 셰프 멘토링"],
+            "description": "이제 너는 한 도시의 입맛을 만든다. 사람들은 너의 식당이 아니라 너의 관점을 먹으러 온다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "조리 라인 담당",
+            "skills": ["표준 레시피 실행", "기계 점검", "위생 관리"],
+            "description": "메뉴는 본사 알고리즘이 정하고, 조리 시간은 센서가 알린다. 너는 정해진 절차를 끝까지 정확히 수행한다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "마무리 담당 조리원",
+            "skills": ["접시 마감", "기계 보조", "주방 청결"],
+            "description": "주방의 대부분은 로봇 라인이 돌린다. 너는 손길이 필요한 마지막 한 접시를 책임진다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI를 부주방장으로 둔 오너 셰프",
+      "blurb_ko": "AI를 일찍 받아들여 혼자만의 맛을 더 깊게 파는 사람. 작은 가게에서도 세계급 코스를 낼 수 있는 시대를 너의 손이 앞당긴다.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "스마트 키친의 총괄 셰프",
+      "blurb_ko": "사람 직원과 자동화 라인을 함께 지휘하는 사람. 새 도구가 들어오면 곧장 메뉴에 녹여 팀 전체의 평균 수준을 끌어올린다.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "장작불을 지키는 정통파",
+      "blurb_ko": "정직한 불과 칼만 믿고 손맛으로 깊이를 쌓는 사람. 자기 가게의 단골은 단단하지만, 그 단골 바깥의 시장은 점점 멀어진다.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "옛 주방 문화를 지키는 헤드 셰프",
+      "blurb_ko": "AI 도입을 미루고 도제식 팀워크를 더 믿는 사람. 주방의 결은 지키지만, 자동화 주방들과의 격차는 점차 벌어진다.",
+      "bias": "doom"
+    }
+  }
+}

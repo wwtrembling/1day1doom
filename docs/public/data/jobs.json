@@ -138,6 +138,94 @@
       "label_de": "Arbeitssuchender",
       "emoji": "🛋️",
       "aliases_ko": ["백수", "취준생", "무직", "구직자", "휴직"]
+    },
+    {
+      "id": "chef",
+      "label_ko": "셰프",
+      "label_en": "Chef",
+      "label_ja": "シェフ",
+      "label_zh-tw": "廚師",
+      "label_es": "Chef",
+      "label_de": "Koch",
+      "emoji": "🍳",
+      "aliases_ko": ["요리사", "주방장", "요리 전문가", "쉐프"]
+    },
+    {
+      "id": "farmer",
+      "label_ko": "농부",
+      "label_en": "Farmer",
+      "label_ja": "農家",
+      "label_zh-tw": "農夫",
+      "label_es": "Agricultor",
+      "label_de": "Landwirt",
+      "emoji": "🌾",
+      "aliases_ko": ["농민", "농업인", "농사꾼", "영농인"]
+    },
+    {
+      "id": "police_officer",
+      "label_ko": "경찰관",
+      "label_en": "Police Officer",
+      "label_ja": "警察官",
+      "label_zh-tw": "警察",
+      "label_es": "Policía",
+      "label_de": "Polizist",
+      "emoji": "👮",
+      "aliases_ko": ["경찰", "순경", "형사", "경관"]
+    },
+    {
+      "id": "accountant",
+      "label_ko": "회계사",
+      "label_en": "Accountant",
+      "label_ja": "会計士",
+      "label_zh-tw": "會計師",
+      "label_es": "Contador",
+      "label_de": "Buchhalter",
+      "emoji": "📊",
+      "aliases_ko": ["회계", "공인회계사", "세무사", "경리"]
+    },
+    {
+      "id": "construction_worker",
+      "label_ko": "건설 노동자",
+      "label_en": "Construction Worker",
+      "label_ja": "建設作業員",
+      "label_zh-tw": "建築工人",
+      "label_es": "Obrero de construcción",
+      "label_de": "Bauarbeiter",
+      "emoji": "🏗️",
+      "aliases_ko": ["건설업자", "공사장 인부", "현장 노동자", "건설 작업자"]
+    },
+    {
+      "id": "journalist",
+      "label_ko": "기자",
+      "label_en": "Journalist",
+      "label_ja": "ジャーナリスト",
+      "label_zh-tw": "記者",
+      "label_es": "Periodista",
+      "label_de": "Journalist",
+      "emoji": "📰",
+      "aliases_ko": ["저널리스트", "취재기자", "신문기자", "언론인"]
+    },
+    {
+      "id": "musician",
+      "label_ko": "음악가",
+      "label_en": "Musician",
+      "label_ja": "ミュージシャン",
+      "label_zh-tw": "音樂家",
+      "label_es": "Músico",
+      "label_de": "Musiker",
+      "emoji": "🎵",
+      "aliases_ko": ["뮤지션", "연주자", "작곡가", "아티스트"]
+    },
+    {
+      "id": "hairdresser",
+      "label_ko": "미용사",
+      "label_en": "Hairdresser",
+      "label_ja": "美容師",
+      "label_zh-tw": "美髮師",
+      "label_es": "Peluquero",
+      "label_de": "Friseur",
+      "emoji": "💇",
+      "aliases_ko": ["헤어 디자이너", "헤어 스타일리스트", "이발사", "헤어샵 원장"]
     }
   ]
 }

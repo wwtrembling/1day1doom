@@ -1,0 +1,127 @@
+{
+  "schema_version": 2,
+  "job_id": "police_officer",
+  "label_ko": "경찰관",
+  "label_en": "Police Officer",
+  "label_ja": "警察官",
+  "label_zh-tw": "警察",
+  "label_es": "Policía",
+  "label_de": "Polizist",
+  "aliases_ko": ["경찰", "순경", "형사", "경관"],
+  "emoji": "👮",
+  "share_caption": {
+    "ko": "AI가 내 순찰을 대신하나? — 30년 두 갈래 운명을 진단했다",
+    "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+  },
+  "hook_copy": {
+    "bloom": {
+      "ko": "현장의 판단은 결국 사람이 한다. 너는 그 자리에 남는다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    },
+    "doom": {
+      "ko": "감시는 알고리즘이 한다. 너는 알고리즘이 가리킨 곳으로 출동한다.",
+      "en": "", "ja": "", "zh-tw": "", "es": "", "de": ""
+    }
+  },
+  "year0": {
+    "image": "stage_0.webp",
+    "ko": {
+      "title": "경찰관",
+      "skills": ["현장 대응", "조서 작성", "지역 순찰"],
+      "description": "오늘의 너. 무전을 받고 출동하고, 사람 사이의 일에 끼어들고, 한 동네의 안전을 어깨에 진다."
+    },
+    "en": {"title": "", "skills": [], "description": ""},
+    "ja": {"title": "", "skills": [], "description": ""},
+    "zh-tw": {"title": "", "skills": [], "description": ""},
+    "es": {"title": "", "skills": [], "description": ""},
+    "de": {"title": "", "skills": [], "description": ""}
+  },
+  "paths": {
+    "bloom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "bloom_10.webp",
+          "ko": {
+            "title": "AI 협업 수사관",
+            "skills": ["AI 분석 해석", "현장 판단", "시민 커뮤니케이션"],
+            "description": "AI가 데이터에서 단서를 골라내고, 너는 사람 앞에서 결정을 내린다. 알고리즘이 못 읽는 표정과 맥락이 너의 일이다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "bloom_30.webp",
+          "ko": {
+            "title": "공공 안전 윤리 책임자",
+            "skills": ["수사 윤리 설계", "AI 감시 감독", "지역 신뢰 구축"],
+            "description": "이제 너는 기술의 한계선을 정하는 사람. 어디까지 알고리즘을 쓸지, 어디부터 사람이 맡을지 사회가 너의 판단을 빌린다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    },
+    "doom": {
+      "stages": [
+        {
+          "year": 10,
+          "image": "doom_10.webp",
+          "ko": {
+            "title": "출동 대응 인력",
+            "skills": ["배차 지시 수행", "현장 보고", "기록 입력"],
+            "description": "어디로 갈지, 누구를 볼지는 통합 관제 AI가 정한다. 너는 지시받은 좌표로 출동해 절차대로 처리한다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        },
+        {
+          "year": 30,
+          "image": "doom_30.webp",
+          "ko": {
+            "title": "현장 입회자",
+            "skills": ["서류 확인", "민원 안내", "시스템 보조"],
+            "description": "수사·감시·교통은 자동화 시스템이 처리한다. 너는 법이 사람의 입회를 요구하는 좁은 영역에 자리한다."
+          },
+          "en": {"title": "", "skills": [], "description": ""},
+          "ja": {"title": "", "skills": [], "description": ""},
+          "zh-tw": {"title": "", "skills": [], "description": ""},
+          "es": {"title": "", "skills": [], "description": ""},
+          "de": {"title": "", "skills": [], "description": ""}
+        }
+      ]
+    }
+  },
+  "personas": {
+    "AS": {
+      "nickname_ko": "AI를 무전기처럼 쓰는 단독 형사",
+      "blurb_ko": "분석 도구를 일찍 받아들이고 혼자서 사건을 깊게 파는 사람. 한 명의 수사관이 큰 사건을 풀 수 있는 시대를 앞당긴다.",
+      "bias": "bloom"
+    },
+    "AC": {
+      "nickname_ko": "지구대를 끌어올리는 팀장",
+      "blurb_ko": "신기술을 팀에 빠르게 들이는 사람. 새 분석 도구가 나오면 곧장 현장 절차에 녹여 팀 전체의 대응 수준을 끌어올린다.",
+      "bias": "bloom"
+    },
+    "RS": {
+      "nickname_ko": "감과 발로 뛰는 베테랑 형사",
+      "blurb_ko": "오랜 현장 경험과 자기 직감을 더 믿는 사람. 자기 관할에서는 무적이지만, 데이터 중심 수사 흐름에서는 점차 외곽으로 밀린다.",
+      "bias": "doom"
+    },
+    "RC": {
+      "nickname_ko": "옛 지구대 문화를 지키는 반장",
+      "blurb_ko": "AI 도입을 미루고 동료 사이의 신뢰로 굴러가는 조직을 더 믿는 사람. 팀의 결은 지키지만, 자동 관제 흐름과는 거리가 벌어진다.",
+      "bias": "doom"
+    }
+  }
+}
