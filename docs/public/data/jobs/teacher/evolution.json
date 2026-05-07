@@ -27,12 +27,12 @@
       "de": "Die KI hat die Antworten. Menschen großziehen tust du."
     },
     "doom": {
-      "ko": "AI가 가르치고, 너는 출석을 본다.",
-      "en": "AI teaches. You take attendance.",
-      "ja": "AIが教え、君は出席を取る。",
-      "zh-tw": "AI 上課，你只負責點名。",
-      "es": "La IA enseña. Tú pasas lista.",
-      "de": "Die KI unterrichtet. Du machst Anwesenheit."
+      "ko": "AI가 가르치고, 너는 그 옆 빈자리를 채운다.",
+      "en": "AI teaches. You fill the gaps it can't.",
+      "ja": "AIが教え、君はその隙間を埋める。",
+      "zh-tw": "AI 上課，你補上它顧不到的地方。",
+      "es": "La IA enseña. Tú cubres lo que la IA no alcanza.",
+      "de": "Die KI unterrichtet. Du füllst die Lücken, die sie lässt."
     }
   },
   "year0": {
@@ -183,32 +183,32 @@
           "ko": {
             "title": "남은 교실 지킴이",
             "skills": ["출석 관리", "AI 시스템 보조", "학부모 응대"],
-            "description": "교실 대부분은 자동화 시스템이 운영한다. 너는 사람이 한 명 있어야 하는 자리에 조용히 남는다."
+            "description": "교실 대부분은 자동화 시스템이 운영한다. 너는 사람이 한 명 있어야 하는 자리를 지킨다."
           },
           "en": {
             "title": "Last-Standing Teacher",
             "skills": ["attendance", "AI system assistance", "parent communication"],
-            "description": "Most classrooms now run on automated systems. You quietly hold the seat where a human is still required."
+            "description": "Most classrooms now run on automated systems. You still hold the seat where a human is required."
           },
           "ja": {
             "title": "残った教室の守り手",
             "skills": ["出席管理", "AIシステム補助", "保護者対応"],
-            "description": "教室のほとんどは自動化システムが回す。君は人が一人いなければならない席に静かに残る。"
+            "description": "教室のほとんどは自動化システムが回す。君は人が一人いなければならない席をしっかり守る。"
           },
           "zh-tw": {
             "title": "留下的教室守門員",
             "skills": ["點名管理", "AI 系統協助", "家長應對"],
-            "description": "大部分教室都靠自動化系統運作。你安靜地守住那個必須有人類在場的座位。"
+            "description": "大部分教室都靠自動化系統運作。你穩穩守住那個必須有人類在場的座位。"
           },
           "es": {
             "title": "Profesor Residual",
             "skills": ["asistencia", "apoyo a sistemas IA", "comunicación con padres"],
-            "description": "Casi todas las aulas funcionan con sistemas automatizados. Tú ocupas en silencio el asiento donde aún hace falta un humano."
+            "description": "Casi todas las aulas funcionan con sistemas automatizados. Tú mantienes el asiento donde aún hace falta un humano."
           },
           "de": {
             "title": "Letzter Klassenlehrer",
             "skills": ["Anwesenheit", "KI-System-Support", "Eltern-Kommunikation"],
-            "description": "Die meisten Klassen laufen automatisiert. Du hältst still den Platz, an dem noch ein Mensch sein muss."
+            "description": "Die meisten Klassen laufen automatisiert. Du hältst den Platz, an dem noch ein Mensch sein muss."
           }
         }
       ]

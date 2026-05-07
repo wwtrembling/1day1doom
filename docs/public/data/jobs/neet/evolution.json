@@ -182,33 +182,33 @@
           "image": "doom_30.webp",
           "ko": {
             "title": "기본소득 시대의 관조자",
-            "skills": ["자기 시간 관리", "취미 깊이 파기", "조용한 관찰"],
-            "description": "자동화 사회에서 기본소득으로 살며 자기 속도로 시간을 보낸다. 일이 사라진 시대를 조용히 관찰한다."
+            "skills": ["자기 시간 관리", "취미 깊이 파기", "흐름 읽기"],
+            "description": "자동화 사회에서 기본소득으로 살며 자기 속도로 시간을 보낸다. 일자리 형태가 바뀐 시대를 한 발짝 떨어져서 본다."
           },
           "en": {
             "title": "Observer of the UBI Era",
-            "skills": ["managing your own time", "deep hobbies", "quiet observation"],
-            "description": "In an automated society, you live on basic income at your own pace. You quietly observe an era where work has faded."
+            "skills": ["managing your own time", "deep hobbies", "reading the current"],
+            "description": "In an automated society, you live on basic income at your own pace. You watch an era where the shape of work has changed, from a step back."
           },
           "ja": {
             "title": "ベーシックインカム時代の観察者",
-            "skills": ["自分の時間管理", "趣味を深掘り", "静かな観察"],
-            "description": "自動化された社会の中で、ベーシックインカムを受け、自分のペースで時間を使う。仕事が薄れた時代を静かに見つめる。"
+            "skills": ["自分の時間管理", "趣味を深掘り", "流れを読む"],
+            "description": "自動化された社会の中で、ベーシックインカムを受け、自分のペースで時間を使う。仕事のかたちが変わった時代を、少し離れて眺める。"
           },
           "zh-tw": {
             "title": "基本收入時代的旁觀者",
-            "skills": ["自我時間管理", "興趣深耕", "安靜觀察"],
-            "description": "在自動化社會裡靠基本收入過日子，照自己的節奏過。你安靜地看著一個工作慢慢消失的時代。"
+            "skills": ["自我時間管理", "興趣深耕", "看懂趨勢"],
+            "description": "在自動化社會裡靠基本收入過日子，照自己的節奏過。你從一段距離外，看著一個工作型態改變的時代。"
           },
           "es": {
             "title": "Observador de la Era del Ingreso Básico",
-            "skills": ["gestionar tu propio tiempo", "hobbies profundos", "observación tranquila"],
-            "description": "En una sociedad automatizada, vives con renta básica a tu ritmo. Miras en silencio una era en la que el trabajo se borró."
+            "skills": ["gestionar tu propio tiempo", "hobbies profundos", "leer la corriente"],
+            "description": "En una sociedad automatizada, vives con renta básica a tu ritmo. Miras desde cierta distancia una era en la que la forma del trabajo cambió."
           },
           "de": {
             "title": "Beobachter der Grundeinkommens-Ära",
-            "skills": ["eigene Zeit gestalten", "Hobbys vertiefen", "ruhiges Beobachten"],
-            "description": "In einer automatisierten Gesellschaft lebst du vom Grundeinkommen, im eigenen Tempo. Du schaust still einer Zeit zu, in der Arbeit verblasst."
+            "skills": ["eigene Zeit gestalten", "Hobbys vertiefen", "die Strömung lesen"],
+            "description": "In einer automatisierten Gesellschaft lebst du vom Grundeinkommen, im eigenen Tempo. Du schaust mit etwas Abstand auf eine Zeit, in der sich die Form der Arbeit verändert hat."
           }
         }
       ]
