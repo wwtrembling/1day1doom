@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Day1Doom — AI가 내 직업을 잡아먹나? 30년 두 갈래 운명 진단</title>
+    <title>1Day1Doom — AI가 내 직업을 잡아먹을까? 30년 두 갈래 운명</title>
 
-    <meta name="description" content="AI가 내 직업을 잡아먹나? 5문항 진단으로 30년 후 두 갈래 운명을 본다. Doom Path와 Bloom Path, 당신은 어느 쪽?">
+    <meta name="description" content="AI가 내 직업을 잡아먹을까? 5문항으로 보는 30년 후 두 갈래 운명. Doom Path와 Bloom Path, 당신은 어느 쪽?">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1day1doom.com/ko/">
-    <meta property="og:title" content="AI가 내 직업을 잡아먹나? — 30년 두 갈래 운명 진단">
-    <meta property="og:description" content="5문항으로 진단하는 직업의 30년 분기. 당신은 Doom인가, Bloom인가?">
+    <meta property="og:title" content="AI가 내 직업을 잡아먹을까? — 30년 두 갈래 운명">
+    <meta property="og:description" content="5문항으로 보는 30년 직업의 분기. 당신은 Doom인가, Bloom인가?">
     <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,6 +19,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6334819180242631"
      crossorigin="anonymous"></script>
 
+    <link rel="icon" type="image/svg+xml" href="../public/favicon.svg">
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -41,12 +42,12 @@
                 </ul>
             </div>
             <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
-            <p id="slogan" class="evo-subtitle" data-i18n="slogan">AI가 내 직업을 잡아먹나? — 5문항으로 30년 두 갈래 운명을 본다</p>
+            <p id="slogan" class="evo-subtitle" data-i18n="slogan">AI가 내 직업을 잡아먹을까? 5문항으로 보는 30년 두 갈래 운명</p>
         </header>
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">내 직업 입력</h2>
+                <h2 data-i18n="input_title">직업을 알려주세요</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
                         <label for="job-input" data-i18n="label_job">직업</label>
@@ -57,13 +58,13 @@
                     </div>
                 </form>
                 <p class="hint" data-i18n="hint">
-                    직업을 고르면 5문항이 나오고, 모두 답하면 결과가 같은 페이지에 나타나요.
+                    직업을 고르면 5문항이 떠요. 다 답하면 바로 결과를 볼 수 있어요.
                 </p>
             </section>
 
             <section id="quiz-section" class="panel hidden">
-                <h2 class="quiz-title" data-i18n="quiz_title">5문항 진단</h2>
-                <p class="quiz-intro" data-i18n="quiz_intro">AI 시대, 당신은 어디에 서 있나요?</p>
+                <h2 class="quiz-title" data-i18n="quiz_title">5문항으로 진단하기</h2>
+                <p class="quiz-intro" data-i18n="quiz_intro">AI 시대, 당신은 어디쯤 서 있나요?</p>
                 <div id="quiz-questions"></div>
                 <div class="ad-slot ad-slot-quiz" aria-hidden="true">
                     <ins class="adsbygoogle"
@@ -90,7 +91,7 @@
                     <h3 id="persona-nickname" class="persona-nickname">…</h3>
                     <p id="persona-blurb" class="persona-blurb">…</p>
                     <p class="persona-bias">
-                        <span data-i18n="bias_label">당신의 자연 결말</span>:
+                        <span data-i18n="bias_label">지금 성향의 도착지</span>:
                         <strong id="persona-bias-path">…</strong>
                     </p>
                 </div>
@@ -112,7 +113,7 @@
                     <div id="doom-tree-wrap" class="path-tree path-tree-doom">
                         <div class="path-tree-header">
                             <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">AI에 자리를 내주는 경로</p>
+                            <p id="doom-tree-desc" class="path-tree-desc">AI에게 자리를 내주는 길</p>
                         </div>
                         <div id="doom-tree" class="path-tree-stages"></div>
                     </div>
@@ -120,7 +121,7 @@
                     <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
                         <div class="path-tree-header">
                             <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">AI와 함께 진화하는 경로</p>
+                            <p id="bloom-tree-desc" class="path-tree-desc">AI와 함께 진화하는 길</p>
                         </div>
                         <div id="bloom-tree" class="path-tree-stages"></div>
                     </div>
@@ -136,9 +137,9 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">결과 공유</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">다른 페르소나도 보기</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">다른 직업으로 다시</button>
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">결과 공유하기</button>
+                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">다른 페르소나 보기</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">다른 직업으로 다시 하기</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">

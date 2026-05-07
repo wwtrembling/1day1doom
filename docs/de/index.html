@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Day1Doom — Frisst KI deinen Job? 30-Jahre-Schicksalsdiagnose</title>
+    <title>1Day1Doom — Frisst KI deinen Job? 5 Fragen, 30 Jahre Zukunft</title>
 
-    <meta name="description" content="Frisst KI deinen Job? Diagnostiziere dein 30-Jahre-Schicksal in 5 Fragen. Doom Path oder Bloom Path?">
+    <meta name="description" content="Frisst KI deinen Job? 5 Fragen, 30 Jahre Zukunft. Doom Path oder Bloom Path?">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1day1doom.com/de/">
-    <meta property="og:title" content="Frisst KI deinen Job? — 30-Jahre-Schicksalsdiagnose">
-    <meta property="og:description" content="5 Fragen, um zu sehen, wo deine Karriere sich gabelt. Doom oder Bloom?">
+    <meta property="og:title" content="Frisst KI deinen Job? — 5 Fragen, 30 Jahre Zukunft">
+    <meta property="og:description" content="5 Fragen, zwei Enden. Doom oder Bloom?">
     <meta property="og:image" content="https://1day1doom.com/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,6 +19,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6334819180242631"
      crossorigin="anonymous"></script>
 
+    <link rel="icon" type="image/svg+xml" href="../public/favicon.svg">
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -41,28 +42,28 @@
                 </ul>
             </div>
             <h1 class="evo-title" data-i18n="app_title">1Day1Doom</h1>
-            <p id="slogan" class="evo-subtitle" data-i18n="slogan">Frisst KI deinen Job? — Diagnostiziere dein 30-Jahre-Schicksal in 5 Fragen</p>
+            <p id="slogan" class="evo-subtitle" data-i18n="slogan">Frisst KI deinen Job? — 5 Fragen, 30 Jahre Zukunft.</p>
         </header>
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">Dein Beruf</h2>
+                <h2 data-i18n="input_title">Was machst du beruflich?</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
                         <label for="job-input" data-i18n="label_job">Beruf</label>
                         <input type="text" id="job-input" required
-                               placeholder="z. B. Backend-Entwickler, Lehrer, Krankenpfleger…"
+                               placeholder="z. B. Backend-Entwickler, Lehrerin, Pfleger…"
                                data-i18n-placeholder="placeholder_job">
                         <ul id="job-suggestions" class="suggest-list"></ul>
                     </div>
                 </form>
                 <p class="hint" data-i18n="hint">
-                    Beruf wählen, 5 Fragen beantworten — das Ergebnis erscheint auf derselben Seite.
+                    5 Fragen, dein Ergebnis sofort darunter. Kein Scrollen ins Nirgendwo.
                 </p>
             </section>
 
             <section id="quiz-section" class="panel hidden">
-                <h2 class="quiz-title" data-i18n="quiz_title">5-Fragen-Diagnose</h2>
+                <h2 class="quiz-title" data-i18n="quiz_title">Die 5-Fragen-Diagnose</h2>
                 <p class="quiz-intro" data-i18n="quiz_intro">Im KI-Zeitalter — wo stehst du?</p>
                 <div id="quiz-questions"></div>
                 <div class="ad-slot ad-slot-quiz" aria-hidden="true">
@@ -90,7 +91,7 @@
                     <h3 id="persona-nickname" class="persona-nickname">…</h3>
                     <p id="persona-blurb" class="persona-blurb">…</p>
                     <p class="persona-bias">
-                        <span data-i18n="bias_label">Dein natürliches Ende</span>:
+                        <span data-i18n="bias_label">Wohin das gerade tendiert</span>:
                         <strong id="persona-bias-path">…</strong>
                     </p>
                 </div>
@@ -112,7 +113,7 @@
                     <div id="doom-tree-wrap" class="path-tree path-tree-doom">
                         <div class="path-tree-header">
                             <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">Wo die KI den Platz übernimmt</p>
+                            <p id="doom-tree-desc" class="path-tree-desc">KI übernimmt deinen Platz</p>
                         </div>
                         <div id="doom-tree" class="path-tree-stages"></div>
                     </div>
@@ -120,7 +121,7 @@
                     <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
                         <div class="path-tree-header">
                             <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">Wo du mit der KI mitwächst</p>
+                            <p id="bloom-tree-desc" class="path-tree-desc">Du wächst mit der KI</p>
                         </div>
                         <div id="bloom-tree" class="path-tree-stages"></div>
                     </div>
@@ -136,9 +137,9 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Ergebnis teilen</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">Andere Persona ansehen</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">Anderen Beruf versuchen</button>
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Teilen</button>
+                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">Andere Persona zeigen</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">Nochmal, anderer Beruf</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">
