@@ -794,18 +794,13 @@ body.result-only header .lang-switch {
 }
 
 /* ======================================================================
-   Desktop layout for dual tree
+   Desktop layout for quiz / persona
+   Note: .dual-tree intentionally stays vertical on desktop too — since
+   PR #9 hid the alt path behind an opt-in toggle, only one tree is
+   visible by default; side-by-side columns would re-introduce the
+   "two paths competing for attention" feel we removed.
    ====================================================================== */
 @media (min-width: 720px) {
-    .dual-tree {
-        flex-direction: row;
-        align-items: stretch;
-        gap: 18px;
-    }
-    .path-tree {
-        flex: 1;
-        min-width: 0;
-    }
     .quiz-question { font-size: 1.85rem; }
     .persona-nickname { font-size: 2rem; }
     .quiz-card { padding: 36px 28px; min-height: 320px; }
