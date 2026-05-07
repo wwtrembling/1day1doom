@@ -795,6 +795,69 @@ body.result-only header .lang-switch {
     opacity: 0.85;
 }
 
+/* References card — collapsible source links for credibility.
+   Placed after dual-tree (and alt-toggle), before the result-mid ad slot.
+   Default closed so viral capture isn't cluttered; users who want
+   credibility signals can opt in. */
+.references-card {
+    margin: 14px 0 18px;
+    padding: 10px 16px;
+    background: var(--bg-cream-2);
+    border: 1px solid var(--ink-soft);
+    border-radius: 12px;
+    font-size: 0.88rem;
+}
+.references-card[open] {
+    background: var(--card-bg);
+    padding: 12px 16px 16px;
+}
+.references-summary {
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    padding: 4px 0;
+    user-select: none;
+}
+.references-summary::-webkit-details-marker { display: none; }
+.references-summary::after {
+    content: " ↓";
+    display: inline-block;
+    margin-left: 4px;
+    color: var(--ink-soft);
+}
+.references-card[open] .references-summary::after {
+    content: " ↑";
+}
+.references-intro {
+    margin: 12px 0 8px;
+    color: var(--ink-soft);
+    text-align: center;
+}
+.references-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.references-list li {
+    margin: 8px 0;
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--bg-cream-2);
+}
+.references-list li:last-child { border-bottom: none; }
+.references-list a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--ink-soft);
+    text-underline-offset: 3px;
+    word-break: break-word;
+}
+.references-list a:hover {
+    color: var(--accent-now);
+    text-decoration-color: var(--accent-now);
+}
+
 /* Agency note — sits between dual tree and result-mid ad slot.
    Reframes the diagnosed path as a tendency, not a fate. */
 .dual-tree-agency-note {

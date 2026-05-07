@@ -35,7 +35,9 @@ const UI_TEXT = {
         agency_note: "이 길은 지금 성향의 도착지일 뿐이에요. 오늘부터의 선택이 다시 그릴 수 있어요.",
         footer_tagline: "AI 시대의 직업 진단",
         btn_show_alt_path: "안 갔을 길 펼쳐보기",
-        btn_hide_alt_path: "접기"
+        btn_hide_alt_path: "접기",
+        btn_show_sources: "출처 보기",
+        references_intro: "이 진단은 다음 자료를 참고했어요."
     },
     en: {
         app_title: "1Day1Doom",
@@ -67,7 +69,9 @@ const UI_TEXT = {
         agency_note: "This is just where today's tendency leads. The choices you make from now on can redraw it.",
         footer_tagline: "Career diagnosis for the AI era",
         btn_show_alt_path: "Show the path not taken",
-        btn_hide_alt_path: "Hide"
+        btn_hide_alt_path: "Hide",
+        btn_show_sources: "Show sources",
+        references_intro: "Sources this diagnostic draws on:"
     },
     ja: {
         app_title: "1Day1Doom",
@@ -99,7 +103,9 @@ const UI_TEXT = {
         agency_note: "これは今の傾向の行き先にすぎません。今日からの選択が、これを描き直せます。",
         footer_tagline: "AI時代のキャリア診断",
         btn_show_alt_path: "もう一方の道を見る",
-        btn_hide_alt_path: "閉じる"
+        btn_hide_alt_path: "閉じる",
+        btn_show_sources: "出典を見る",
+        references_intro: "この診断が参考にした資料："
     },
     "zh-tw": {
         app_title: "1Day1Doom",
@@ -131,7 +137,9 @@ const UI_TEXT = {
         agency_note: "這只是目前傾向的去向。從今天開始的選擇，能重新畫過。",
         footer_tagline: "AI 時代的職業診斷",
         btn_show_alt_path: "看另一條路",
-        btn_hide_alt_path: "收起"
+        btn_hide_alt_path: "收起",
+        btn_show_sources: "查看資料來源",
+        references_intro: "本測驗參考的資料："
     },
     es: {
         app_title: "1Day1Doom",
@@ -163,7 +171,9 @@ const UI_TEXT = {
         agency_note: "Esto es solo hacia donde te lleva la tendencia de hoy. Lo que elijas a partir de ahora puede reescribirlo.",
         footer_tagline: "Diagnóstico de carrera para la era de la IA",
         btn_show_alt_path: "Ver el camino no elegido",
-        btn_hide_alt_path: "Ocultar"
+        btn_hide_alt_path: "Ocultar",
+        btn_show_sources: "Ver fuentes",
+        references_intro: "Este diagnóstico se basa en:"
     },
     de: {
         app_title: "1Day1Doom",
@@ -195,7 +205,9 @@ const UI_TEXT = {
         agency_note: "Das ist nur, wohin es gerade tendiert. Was du ab heute entscheidest, kann es neu zeichnen.",
         footer_tagline: "Karrierediagnose für das KI-Zeitalter",
         btn_show_alt_path: "Den anderen Weg zeigen",
-        btn_hide_alt_path: "Ausblenden"
+        btn_hide_alt_path: "Ausblenden",
+        btn_show_sources: "Quellen anzeigen",
+        references_intro: "Quellen dieser Diagnose:"
     }
 };
 
