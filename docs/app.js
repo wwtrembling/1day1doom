@@ -33,7 +33,9 @@ const UI_TEXT = {
         your_path_badge: "당신의 길",
         other_path_label: "다른 선택",
         agency_note: "이 길은 지금 성향의 도착지일 뿐이에요. 오늘부터의 선택이 다시 그릴 수 있어요.",
-        footer_tagline: "AI 시대의 직업 진단"
+        footer_tagline: "AI 시대의 직업 진단",
+        btn_show_alt_path: "안 갔을 길 펼쳐보기",
+        btn_hide_alt_path: "접기"
     },
     en: {
         app_title: "1Day1Doom",
@@ -63,7 +65,9 @@ const UI_TEXT = {
         your_path_badge: "Your path",
         other_path_label: "The other path",
         agency_note: "This is just where today's tendency leads. The choices you make from now on can redraw it.",
-        footer_tagline: "Career diagnosis for the AI era"
+        footer_tagline: "Career diagnosis for the AI era",
+        btn_show_alt_path: "Show the path not taken",
+        btn_hide_alt_path: "Hide"
     },
     ja: {
         app_title: "1Day1Doom",
@@ -93,7 +97,9 @@ const UI_TEXT = {
         your_path_badge: "あなたの道",
         other_path_label: "別の道",
         agency_note: "これは今の傾向の行き先にすぎません。今日からの選択が、これを描き直せます。",
-        footer_tagline: "AI時代のキャリア診断"
+        footer_tagline: "AI時代のキャリア診断",
+        btn_show_alt_path: "もう一方の道を見る",
+        btn_hide_alt_path: "閉じる"
     },
     "zh-tw": {
         app_title: "1Day1Doom",
@@ -123,7 +129,9 @@ const UI_TEXT = {
         your_path_badge: "你的這條路",
         other_path_label: "另一條路",
         agency_note: "這只是目前傾向的去向。從今天開始的選擇，能重新畫過。",
-        footer_tagline: "AI 時代的職業診斷"
+        footer_tagline: "AI 時代的職業診斷",
+        btn_show_alt_path: "看另一條路",
+        btn_hide_alt_path: "收起"
     },
     es: {
         app_title: "1Day1Doom",
@@ -153,7 +161,9 @@ const UI_TEXT = {
         your_path_badge: "Tu camino",
         other_path_label: "El otro camino",
         agency_note: "Esto es solo hacia donde te lleva la tendencia de hoy. Lo que elijas a partir de ahora puede reescribirlo.",
-        footer_tagline: "Diagnóstico de carrera para la era de la IA"
+        footer_tagline: "Diagnóstico de carrera para la era de la IA",
+        btn_show_alt_path: "Ver el camino no elegido",
+        btn_hide_alt_path: "Ocultar"
     },
     de: {
         app_title: "1Day1Doom",
@@ -183,7 +193,9 @@ const UI_TEXT = {
         your_path_badge: "Dein Weg",
         other_path_label: "Der andere Weg",
         agency_note: "Das ist nur, wohin es gerade tendiert. Was du ab heute entscheidest, kann es neu zeichnen.",
-        footer_tagline: "Karrierediagnose für das KI-Zeitalter"
+        footer_tagline: "Karrierediagnose für das KI-Zeitalter",
+        btn_show_alt_path: "Den anderen Weg zeigen",
+        btn_hide_alt_path: "Ausblenden"
     }
 };
 
@@ -269,6 +281,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("btn-share").addEventListener("click", onShare);
     const btnOtherPersona = document.getElementById("btn-other-persona");
     if (btnOtherPersona) btnOtherPersona.addEventListener("click", cycleNextPersona);
+    setupAltToggle();
 
     const input = document.getElementById("job-input");
     input.addEventListener("input", onInputChange);
@@ -664,17 +677,43 @@ function renderPathBadges(bias) {
     const biasWrap = document.getElementById(bias === "doom" ? "doom-tree-wrap" : "bloom-tree-wrap");
     const otherWrap = document.getElementById(bias === "doom" ? "bloom-tree-wrap" : "doom-tree-wrap");
     if (biasWrap) {
+        biasWrap.classList.remove("is-collapsed");
         const badge = document.createElement("span");
         badge.className = "path-tree-badge";
         badge.textContent = t("your_path_badge");
         biasWrap.appendChild(badge);
     }
     if (otherWrap) {
+        otherWrap.classList.add("is-collapsed");
         const altBadge = document.createElement("span");
         altBadge.className = "path-tree-badge path-tree-badge-alt";
         altBadge.textContent = t("other_path_label");
         otherWrap.appendChild(altBadge);
     }
+    const toggle = document.getElementById("alt-toggle");
+    if (toggle) {
+        toggle.textContent = t("btn_show_alt_path");
+        toggle.setAttribute("aria-expanded", "false");
+    }
+}
+
+function setupAltToggle() {
+    const btn = document.getElementById("alt-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+        let target = null;
+        for (const el of document.querySelectorAll(".path-tree")) {
+            if (!el.classList.contains("path-bias")) { target = el; break; }
+        }
+        if (!target) return;
+        const willExpand = target.classList.contains("is-collapsed");
+        target.classList.toggle("is-collapsed");
+        btn.setAttribute("aria-expanded", willExpand ? "true" : "false");
+        btn.textContent = t(willExpand ? "btn_hide_alt_path" : "btn_show_alt_path");
+        if (willExpand) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    });
 }
 
 function renderStageInner(stage, year, emoji, pathKey) {
