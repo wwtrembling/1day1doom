@@ -62,7 +62,7 @@
       "de": "KI übernimmt deinen Job — und du?",
       "options": [
         { "value": "A", "ko": "남는 시간에 더 큰 일을", "en": "tackle bigger work", "ja": "空いた時間でもっと大きな仕事に挑む", "zh-tw": "多出來的時間，拿來做更大的事", "es": "vas a por algo más grande", "de": "Größeres anpacken" },
-        { "value": "R", "ko": "내 손맛이 사라진다",     "en": "you lose your touch", "ja": "自分の手応えが消える",                "zh-tw": "我的手感會不見",         "es": "pierdes tu chispa",         "de": "mir geht das Handwerk flöten" }
+        { "value": "R", "ko": "내 손맛이 무뎌진다",     "en": "your touch fades",   "ja": "自分の手応えが薄れる",              "zh-tw": "我的手感會變鈍",         "es": "tu chispa se apaga",        "de": "mein Handwerk verblasst" }
       ]
     },
     {
@@ -82,12 +82,12 @@
     {
       "id": "q5",
       "axis": "AR",
-      "ko": "10년 뒤, 가장 두려운 건?",
-      "en": "Biggest fear in 10 years?",
-      "ja": "10年後、一番怖いことは？",
-      "zh-tw": "10 年後，你最怕什麼？",
-      "es": "¿Qué te da más miedo en 10 años?",
-      "de": "Was macht dir in 10 Jahren am meisten Angst?",
+      "ko": "10년 뒤, 가장 신경 쓰이는 건?",
+      "en": "What weighs on you most about 10 years out?",
+      "ja": "10年後、一番気になることは？",
+      "zh-tw": "10 年後，你最在意什麼？",
+      "es": "¿Qué te preocupa más a 10 años?",
+      "de": "Was macht dir in 10 Jahren am meisten Sorgen?",
       "options": [
         { "value": "A", "ko": "변화에 못 따라가는 것",     "en": "falling behind",          "ja": "変化に置いていかれること", "zh-tw": "跟不上時代",     "es": "quedarte atrás",                       "de": "abgehängt werden" },
         { "value": "R", "ko": "내가 하던 일이 사라지는 것", "en": "my craft disappearing",    "ja": "今の仕事が消えること",      "zh-tw": "我做的事不見了", "es": "que tu oficio se extinga",             "de": "dass mein Beruf verschwindet" }

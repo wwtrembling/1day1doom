@@ -32,7 +32,8 @@ const UI_TEXT = {
         quiz_title: "5문항으로 진단하기",
         your_path_badge: "당신의 길",
         other_path_label: "다른 선택",
-        agency_note: "이 길은 지금 성향의 도착지일 뿐이에요. 오늘부터의 선택이 다시 그릴 수 있어요."
+        agency_note: "이 길은 지금 성향의 도착지일 뿐이에요. 오늘부터의 선택이 다시 그릴 수 있어요.",
+        footer_tagline: "AI 시대의 직업 진단"
     },
     en: {
         app_title: "1Day1Doom",
@@ -61,7 +62,8 @@ const UI_TEXT = {
         quiz_title: "5-question diagnosis",
         your_path_badge: "Your path",
         other_path_label: "The other path",
-        agency_note: "This is just where today's tendency leads. The choices you make from now on can redraw it."
+        agency_note: "This is just where today's tendency leads. The choices you make from now on can redraw it.",
+        footer_tagline: "Career diagnosis for the AI era"
     },
     ja: {
         app_title: "1Day1Doom",
@@ -90,7 +92,8 @@ const UI_TEXT = {
         quiz_title: "5問診断",
         your_path_badge: "あなたの道",
         other_path_label: "別の道",
-        agency_note: "これは今の傾向の行き先にすぎません。今日からの選択が、これを描き直せます。"
+        agency_note: "これは今の傾向の行き先にすぎません。今日からの選択が、これを描き直せます。",
+        footer_tagline: "AI時代のキャリア診断"
     },
     "zh-tw": {
         app_title: "1Day1Doom",
@@ -119,7 +122,8 @@ const UI_TEXT = {
         quiz_title: "5 題快測",
         your_path_badge: "你的這條路",
         other_path_label: "另一條路",
-        agency_note: "這只是目前傾向的去向。從今天開始的選擇，能重新畫過。"
+        agency_note: "這只是目前傾向的去向。從今天開始的選擇，能重新畫過。",
+        footer_tagline: "AI 時代的職業診斷"
     },
     es: {
         app_title: "1Day1Doom",
@@ -148,7 +152,8 @@ const UI_TEXT = {
         quiz_title: "5 preguntas, dos finales",
         your_path_badge: "Tu camino",
         other_path_label: "El otro camino",
-        agency_note: "Esto es solo hacia donde te lleva la tendencia de hoy. Lo que elijas a partir de ahora puede reescribirlo."
+        agency_note: "Esto es solo hacia donde te lleva la tendencia de hoy. Lo que elijas a partir de ahora puede reescribirlo.",
+        footer_tagline: "Diagnóstico de carrera para la era de la IA"
     },
     de: {
         app_title: "1Day1Doom",
@@ -177,7 +182,8 @@ const UI_TEXT = {
         quiz_title: "Die 5-Fragen-Diagnose",
         your_path_badge: "Dein Weg",
         other_path_label: "Der andere Weg",
-        agency_note: "Das ist nur, wohin es gerade tendiert. Was du ab heute entscheidest, kann es neu zeichnen."
+        agency_note: "Das ist nur, wohin es gerade tendiert. Was du ab heute entscheidest, kann es neu zeichnen.",
+        footer_tagline: "Karrierediagnose für das KI-Zeitalter"
     }
 };
 
