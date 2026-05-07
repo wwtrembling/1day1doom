@@ -251,6 +251,14 @@ function localizedStage(stage) {
     return {};
 }
 
+// Build a clean URL based on current location: drops `index.html` from
+// the path and starts with no query params. Callers add `j` / `p` as
+// needed via `url.searchParams.set(...)`.
+function shareableUrl() {
+    const cleanPath = window.location.pathname.replace(/index\.html$/, "");
+    return new URL(window.location.origin + cleanPath);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     currentLang = (document.documentElement.lang || "ko").toLowerCase();
     if (!UI_TEXT[currentLang]) currentLang = "ko";
@@ -273,8 +281,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     await Promise.all([loadManifest(), loadQuiz()]);
 
     const params = new URLSearchParams(window.location.search);
-    const deepJob = params.get("job");
-    const deepPersona = (params.get("persona") || "").toUpperCase();
+    const deepJob = params.get("j") || params.get("job");
+    const deepPersona = (params.get("p") || params.get("persona") || "").toUpperCase();
 
     if (deepJob && PERSONA_CODES.includes(deepPersona)) {
         const entry = findJob(deepJob);
@@ -487,9 +495,8 @@ async function startQuiz(jobId) {
 
     renderAllQuestions();
 
-    const url = new URL(window.location.href);
-    url.searchParams.set("job", jobId);
-    url.searchParams.delete("persona");
+    const url = shareableUrl();
+    url.searchParams.set("j", jobId);
     history.replaceState(null, "", url);
 
     // Smooth scroll to quiz section
@@ -588,9 +595,9 @@ async function goResult(jobId, personaCode, { fromDeepLink = false } = {}) {
         }
         renderResult();
 
-        const url = new URL(window.location.href);
-        url.searchParams.set("job", jobId);
-        url.searchParams.set("persona", personaCode);
+        const url = shareableUrl();
+        url.searchParams.set("j", jobId);
+        url.searchParams.set("p", personaCode);
         history.replaceState(null, "", url);
 
         smoothScrollTo("result-section", "start");
@@ -715,10 +722,7 @@ function restartFlow() {
     evolution = null;
     document.getElementById("quiz-questions").innerHTML = "";
     setPhase("input");
-    const url = new URL(window.location.href);
-    url.searchParams.delete("job");
-    url.searchParams.delete("persona");
-    history.replaceState(null, "", url);
+    history.replaceState(null, "", shareableUrl());
     smoothScrollTo("input-section", "start");
 }
 
@@ -731,26 +735,31 @@ async function cycleNextPersona() {
 
 async function onShare() {
     if (!evolution || !state.persona) return;
-    const url = new URL(window.location.href);
-    url.searchParams.set("job", state.jobId);
-    url.searchParams.set("persona", state.persona);
+    const url = shareableUrl();
+    url.searchParams.set("j", state.jobId);
+    url.searchParams.set("p", state.persona);
     const shareUrl = url.toString();
 
     const caption = localized(evolution.share_caption || {}) || t("slogan");
-    const text = caption + "\n\n" + shareUrl;
 
     if (navigator.share) {
+        // Pass caption as text and URL separately. Embedding the URL in text
+        // while also passing url causes some messengers (e.g. KakaoTalk) to
+        // render the URL twice.
         try {
-            await navigator.share({ title: t("app_title"), text, url: shareUrl });
+            await navigator.share({ title: t("app_title"), text: caption, url: shareUrl });
             return;
         } catch (e) { /* user canceled */ }
     }
+    // Clipboard fallback: include the URL inline so a plain-text paste
+    // still carries the link.
+    const clipboardText = caption + "\n\n" + shareUrl;
     try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(text);
+            await navigator.clipboard.writeText(clipboardText);
         } else {
             const ta = document.createElement("textarea");
-            ta.value = text;
+            ta.value = clipboardText;
             ta.style.position = "fixed";
             ta.style.opacity = "0";
             document.body.appendChild(ta);
