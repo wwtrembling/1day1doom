@@ -735,7 +735,7 @@ function renderStageInner(stage, year, emoji, pathKey) {
             <div class="evo-card-year">${escapeHtml(yearLabel)}</div>
             ${pathBadge ? `<div class="evo-card-path-badge">${escapeHtml(pathBadge)}</div>` : ""}
         </div>
-        <div class="evo-card-emoji">${escapeHtml(emoji)}</div>
+        ${year === 0 ? `<div class="evo-card-emoji">${escapeHtml(emoji)}</div>` : ""}
         <h3 class="evo-card-title">${escapeHtml(sl.title || "")}</h3>
         <p class="evo-card-desc">${escapeHtml(sl.description || "")}</p>
         <div class="evo-card-skills">
