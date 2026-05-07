@@ -7,7 +7,7 @@
 const UI_TEXT = {
     ko: {
         app_title: "1Day1Doom",
-        slogan: "AI가 내 직업을 잡아먹을까? 5문항으로 30년 후 두 갈래 미래를 봐요.",
+        slogan: "AI 시대, 내 직업은 안녕할까?",
         input_title: "직업을 알려주세요",
         label_job: "직업",
         placeholder_job: "예: 백엔드 개발자, 교사, 간호사…",
@@ -39,7 +39,7 @@ const UI_TEXT = {
     },
     en: {
         app_title: "1Day1Doom",
-        slogan: "Will AI eat my job? Find your 30-year split fate in 5 questions.",
+        slogan: "Is your job AI-proof?",
         input_title: "What do you do?",
         label_job: "Job",
         placeholder_job: "e.g. Backend Developer, Teacher, Nurse…",
@@ -71,7 +71,7 @@ const UI_TEXT = {
     },
     ja: {
         app_title: "1Day1Doom",
-        slogan: "AIに仕事を奪われる？ 5問で30年後の運命が二択に分かれる。",
+        slogan: "AI時代、その仕事は残る？",
         input_title: "まず、職業を教えてください",
         label_job: "職業",
         placeholder_job: "例：バックエンド開発者、教師、看護師…",
@@ -103,7 +103,7 @@ const UI_TEXT = {
     },
     "zh-tw": {
         app_title: "1Day1Doom",
-        slogan: "AI 會吃掉你的工作嗎？5 題看見 30 年後的兩條路。",
+        slogan: "你的工作，撐得過 AI 嗎？",
         input_title: "你的職業是？",
         label_job: "職業",
         placeholder_job: "例如：後端工程師、老師、護理師⋯",
@@ -135,7 +135,7 @@ const UI_TEXT = {
     },
     es: {
         app_title: "1Day1Doom",
-        slogan: "¿La IA se comerá tu trabajo? Mira tus dos finales a 30 años — en 5 preguntas.",
+        slogan: "¿Tu trabajo sobrevive a la IA?",
         input_title: "Empezamos por tu trabajo",
         label_job: "Trabajo",
         placeholder_job: "p. ej. desarrollador backend, profesora, enfermero…",
@@ -167,7 +167,7 @@ const UI_TEXT = {
     },
     de: {
         app_title: "1Day1Doom",
-        slogan: "Frisst KI deinen Job? 5 Fragen, 30 Jahre, zwei Wege.",
+        slogan: "Frisst KI deinen Job?",
         input_title: "Was machst du beruflich?",
         label_job: "Beruf",
         placeholder_job: "z. B. Backend-Entwickler, Lehrerin, Pfleger…",
