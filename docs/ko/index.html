@@ -105,56 +105,56 @@
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">직업을 알려주세요</h2>
+                <h2 data-i18n="input_title">직업과 연령대를 알려주세요</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
                         <label for="job-input" data-i18n="label_job">직업</label>
                         <input type="text" id="job-input" required
-                               placeholder="예: 백엔드 개발자, 교사, 간호사…"
+                               placeholder="Software Developer, Teacher, Registered Nurse…"
                                data-i18n-placeholder="placeholder_job">
-                        <ul id="job-suggestions" class="suggest-list"></ul>
+                        <ul id="job-suggestions" class="suggest-list" hidden></ul>
                     </div>
+
+                    <div class="form-group">
+                        <label data-i18n="label_age">연령대</label>
+                        <div id="age-group" class="age-group" role="group">
+                            <button type="button" class="age-btn" data-age="20s" data-i18n="age_20s">20대</button>
+                            <button type="button" class="age-btn" data-age="30s" data-i18n="age_30s">30대</button>
+                            <button type="button" class="age-btn" data-age="40s" data-i18n="age_40s">40대</button>
+                            <button type="button" class="age-btn" data-age="50p" data-i18n="age_50p">50대+</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="evo-btn primary" data-i18n="btn_see_dashboard">내 대시보드 보기</button>
                 </form>
-                <p class="hint" data-i18n="hint">
-                    직업을 고르면 5문항이 떠요. 다 답하면 바로 결과를 볼 수 있어요.
-                </p>
+                <p class="hint" data-i18n="hint">현재 v1은 영어 직업명만 검색돼요. 한국어 직업명 검색은 v1.1에서 추가될 예정이에요.</p>
+                <p class="accuracy-notice" data-i18n="accuracy_notice">v1 데이터는 US BLS/O*NET 기준이에요. 한국 노동시장과 차이가 있을 수 있어요.</p>
             </section>
 
-            <section id="quiz-section" class="panel hidden">
-                <h2 class="quiz-title" data-i18n="quiz_title">5문항으로 진단하기</h2>
-                <p class="quiz-intro" data-i18n="quiz_intro">AI 시대, 당신은 어디쯤 서 있나요?</p>
-                <div id="quiz-questions"></div>
-                <div class="ad-slot ad-slot-quiz" aria-hidden="true">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000001"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                </div>
-            </section>
+            <div class="ad-slot ad-slot-input" aria-hidden="true">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334819180242631"
+                     data-ad-slot="0000000001"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
 
             <section id="result-section" class="panel hidden">
                 <div class="result-header">
                     <p class="result-job-label">
-                        <span data-i18n="result_job_label">내 직업</span>:
+                        <span data-i18n="result_job_label">직업</span>:
                         <strong id="result-job-name">…</strong>
+                        ·
+                        <span data-i18n="result_age_label">연령대</span>:
+                        <strong id="result-age-name">…</strong>
                     </p>
-                    <h2 id="hook-copy" class="result-caption">…</h2>
+                    <p class="result-subtitle" data-i18n="result_subtitle">메이저 보고서가 평균값으로만 보여주는 정보를 당신의 좌표로 분해했어요.</p>
                 </div>
 
-                <div class="persona-card">
-                    <div class="persona-card-label" data-i18n="persona_card_title">당신의 부캐</div>
-                    <div class="persona-emoji-big" id="persona-emoji">✨</div>
-                    <h3 id="persona-nickname" class="persona-nickname">…</h3>
-                    <p id="persona-blurb" class="persona-blurb">…</p>
-                    <p class="persona-bias">
-                        <span data-i18n="bias_label">지금 성향의 도착지</span>:
-                        <strong id="persona-bias-path">…</strong>
-                    </p>
-                </div>
+                <div id="panel-task-heatmap" class="dashboard-panel">…</div>
 
-                <div class="ad-slot ad-slot-result-top" aria-hidden="true">
+                <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-6334819180242631"
@@ -163,65 +163,18 @@
                          data-full-width-responsive="true"></ins>
                 </div>
 
-                <div class="year0-frame">
-                    <div id="year0-card" class="evo-card stage-0 path-year0"></div>
-                </div>
-
-                <div class="dual-tree">
-                    <div id="doom-tree-wrap" class="path-tree path-tree-doom">
-                        <div class="path-tree-header">
-                            <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">AI에게 자리를 내주는 길</p>
-                        </div>
-                        <div id="doom-tree" class="path-tree-stages"></div>
-                    </div>
-
-                    <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
-                        <div class="path-tree-header">
-                            <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">AI와 함께 진화하는 길</p>
-                        </div>
-                        <div id="bloom-tree" class="path-tree-stages"></div>
-                    </div>
-
-                    <p class="dual-tree-agency-note" data-i18n="agency_note">
-                        이 길은 지금 성향의 도착지일 뿐이에요. 오늘부터의 선택이 다시 그릴 수 있어요.
-                    </p>
-
-                    <button id="alt-toggle" class="alt-toggle" type="button" aria-expanded="false" data-i18n="btn_show_alt_path">안 갔을 길 펼쳐보기</button>
-                </div>
-
-                <details class="references-card">
-                    <summary class="references-summary" data-i18n="btn_show_sources">출처 보기</summary>
-                    <p class="references-intro" data-i18n="references_intro">이 진단은 다음 자료를 참고했어요.</p>
-                    <ul class="references-list">
-                        <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener">WEF · Future of Jobs Report 2025</a></li>
-                        <li><a href="https://www.oecd.org/en/topics/artificial-intelligence.html" target="_blank" rel="noopener">OECD · AI Outlook</a></li>
-                        <li><a href="https://www.mckinsey.com/featured-insights/future-of-work" target="_blank" rel="noopener">McKinsey · Future of Work</a></li>
-                        <li><a href="https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379" target="_blank" rel="noopener">IMF · Gen-AI &amp; the Workforce</a></li>
-                    </ul>
-                </details>
-
-                <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000003"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                </div>
+                <div id="panel-cohort-reality" class="dashboard-panel">…</div>
 
                 <div class="action-buttons">
                     <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">결과 공유하기</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">다른 답을 했다면?</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">다른 직업으로 다시 하기</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart">다른 직업으로 다시 하기</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000004"
+                         data-ad-slot="0000000003"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
                 </div>
@@ -236,7 +189,7 @@
     <script src="../app.js"></script>
     <script>
       (function pushAds(){
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 3; i++) {
           try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
         }
       })();

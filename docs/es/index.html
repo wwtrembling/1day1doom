@@ -105,56 +105,56 @@
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">Empezamos por tu trabajo</h2>
+                <h2 data-i18n="input_title">Tu profesión y edad</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
-                        <label for="job-input" data-i18n="label_job">Trabajo</label>
+                        <label for="job-input" data-i18n="label_job">Profesión</label>
                         <input type="text" id="job-input" required
-                               placeholder="p. ej. desarrollador backend, profesora, enfermero…"
+                               placeholder="Software Developer, Teacher, Registered Nurse…"
                                data-i18n-placeholder="placeholder_job">
-                        <ul id="job-suggestions" class="suggest-list"></ul>
+                        <ul id="job-suggestions" class="suggest-list" hidden></ul>
                     </div>
+
+                    <div class="form-group">
+                        <label data-i18n="label_age">Edad</label>
+                        <div id="age-group" class="age-group" role="group">
+                            <button type="button" class="age-btn" data-age="20s" data-i18n="age_20s">20s</button>
+                            <button type="button" class="age-btn" data-age="30s" data-i18n="age_30s">30s</button>
+                            <button type="button" class="age-btn" data-age="40s" data-i18n="age_40s">40s</button>
+                            <button type="button" class="age-btn" data-age="50p" data-i18n="age_50p">50+</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="evo-btn primary" data-i18n="btn_see_dashboard">Ver mi panel</button>
                 </form>
-                <p class="hint" data-i18n="hint">
-                    Pones tu trabajo, contestas 5 preguntas y ves el resultado aquí mismo.
-                </p>
+                <p class="hint" data-i18n="hint">v1 solo busca nombres en inglés. La búsqueda en español llegará en v1.1.</p>
+                <p class="accuracy-notice" data-i18n="accuracy_notice">Datos v1 = US (BLS/O*NET). Tu mercado local puede diferir.</p>
             </section>
 
-            <section id="quiz-section" class="panel hidden">
-                <h2 class="quiz-title" data-i18n="quiz_title">5 preguntas, dos finales</h2>
-                <p class="quiz-intro" data-i18n="quiz_intro">En la era de la IA, ¿de qué lado caes?</p>
-                <div id="quiz-questions"></div>
-                <div class="ad-slot ad-slot-quiz" aria-hidden="true">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000001"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                </div>
-            </section>
+            <div class="ad-slot ad-slot-input" aria-hidden="true">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334819180242631"
+                     data-ad-slot="0000000001"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
 
             <section id="result-section" class="panel hidden">
                 <div class="result-header">
                     <p class="result-job-label">
-                        <span data-i18n="result_job_label">Tu trabajo</span>:
+                        <span data-i18n="result_job_label">Profesión</span>:
                         <strong id="result-job-name">…</strong>
+                        ·
+                        <span data-i18n="result_age_label">Edad</span>:
+                        <strong id="result-age-name">…</strong>
                     </p>
-                    <h2 id="hook-copy" class="result-caption">…</h2>
+                    <p class="result-subtitle" data-i18n="result_subtitle">Descompusimos los promedios de WEF/OECD en tus coordenadas personales.</p>
                 </div>
 
-                <div class="persona-card">
-                    <div class="persona-card-label" data-i18n="persona_card_title">Tu alter ego</div>
-                    <div class="persona-emoji-big" id="persona-emoji">✨</div>
-                    <h3 id="persona-nickname" class="persona-nickname">…</h3>
-                    <p id="persona-blurb" class="persona-blurb">…</p>
-                    <p class="persona-bias">
-                        <span data-i18n="bias_label">Hacia donde te lleva esto</span>:
-                        <strong id="persona-bias-path">…</strong>
-                    </p>
-                </div>
+                <div id="panel-task-heatmap" class="dashboard-panel">…</div>
 
-                <div class="ad-slot ad-slot-result-top" aria-hidden="true">
+                <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-6334819180242631"
@@ -163,65 +163,18 @@
                          data-full-width-responsive="true"></ins>
                 </div>
 
-                <div class="year0-frame">
-                    <div id="year0-card" class="evo-card stage-0 path-year0"></div>
-                </div>
-
-                <div class="dual-tree">
-                    <div id="doom-tree-wrap" class="path-tree path-tree-doom">
-                        <div class="path-tree-header">
-                            <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">Cuando la IA se sienta en tu silla</p>
-                        </div>
-                        <div id="doom-tree" class="path-tree-stages"></div>
-                    </div>
-
-                    <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
-                        <div class="path-tree-header">
-                            <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">Cuando evolucionas junto a la IA</p>
-                        </div>
-                        <div id="bloom-tree" class="path-tree-stages"></div>
-                    </div>
-
-                    <p class="dual-tree-agency-note" data-i18n="agency_note">
-                        Esto es solo hacia donde te lleva la tendencia de hoy. Lo que elijas a partir de ahora puede reescribirlo.
-                    </p>
-
-                    <button id="alt-toggle" class="alt-toggle" type="button" aria-expanded="false" data-i18n="btn_show_alt_path">Ver el camino no elegido</button>
-                </div>
-
-                <details class="references-card">
-                    <summary class="references-summary" data-i18n="btn_show_sources">Ver fuentes</summary>
-                    <p class="references-intro" data-i18n="references_intro">Este diagnóstico se basa en:</p>
-                    <ul class="references-list">
-                        <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener">WEF · Future of Jobs Report 2025</a></li>
-                        <li><a href="https://www.oecd.org/en/topics/artificial-intelligence.html" target="_blank" rel="noopener">OECD · AI Outlook</a></li>
-                        <li><a href="https://www.mckinsey.com/featured-insights/future-of-work" target="_blank" rel="noopener">McKinsey · Future of Work</a></li>
-                        <li><a href="https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379" target="_blank" rel="noopener">IMF · Gen-AI &amp; the Workforce</a></li>
-                    </ul>
-                </details>
-
-                <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000003"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                </div>
+                <div id="panel-cohort-reality" class="dashboard-panel">…</div>
 
                 <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Compartir mi resultado</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">¿Y si hubiera respondido distinto?</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">Probar con otro trabajo</button>
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Compartir mi panel</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart">Probar otra profesión</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000004"
+                         data-ad-slot="0000000003"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
                 </div>
@@ -236,7 +189,7 @@
     <script src="../app.js"></script>
     <script>
       (function pushAds(){
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 3; i++) {
           try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
         }
       })();

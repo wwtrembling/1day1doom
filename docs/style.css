@@ -289,6 +289,83 @@ input[type="text"]:focus {
     line-height: 1.45;
 }
 
+/* ========= v2 pivot — dashboard form & panels ========= */
+
+.age-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 6px;
+}
+.age-btn {
+    padding: 12px 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: white;
+    color: var(--ink);
+    border: var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.05s ease, background 0.1s ease;
+}
+.age-btn:hover { background: var(--bg-cream-2); }
+.age-btn:active { transform: translateY(2px); }
+.age-btn.selected {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+}
+
+.accuracy-notice {
+    margin: 10px 0 0;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    background: var(--bg-cream-2);
+    border-left: 3px dashed var(--ink-soft);
+    border-radius: 4px;
+    line-height: 1.5;
+}
+
+.result-subtitle {
+    margin: 8px 0 0;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+
+.dashboard-panel {
+    background: var(--card-bg);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+}
+.dashboard-panel-title {
+    margin: 0 0 4px;
+    font-family: 'Jua', sans-serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+}
+.dashboard-panel-subtitle {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+.dashboard-panel-empty {
+    margin: 12px 0;
+    padding: 18px;
+    background: var(--bg-cream-2);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+
 .evolution-cards {
     display: flex;
     flex-direction: column;
