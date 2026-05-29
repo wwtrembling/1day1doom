@@ -1,0 +1,30 @@
+{
+  "build_time": "2026-05-29T18:13:58.610472Z",
+  "version": "v2.0.0-data",
+  "selection": "top 200 BLS detailed occupations by total employment",
+  "sources": [
+    {
+      "id": "eloundou-2023",
+      "name": "GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models",
+      "authors": "Eloundou T, Manning S, Mishkin P, Rock D (2023)",
+      "url": "https://github.com/openai/GPTs-are-GPTs",
+      "license": "MIT",
+      "provides": "O*NET task statements, GPT-4 task exposure labels, BLS national wages (May 2021), BLS Employment Projections 2020-2030"
+    },
+    {
+      "id": "felten-2021-aioe",
+      "name": "AIOE: Occupational, Industry, and Geographic Exposure to AI",
+      "authors": "Felten E, Raj M, Seamans R (2021)",
+      "url": "https://github.com/AIOE-Data/AIOE",
+      "license": "Citation-requested (academic data)",
+      "provides": "AIOE score per 6-digit SOC occupation"
+    }
+  ],
+  "exposure_label_legend": {
+    "T0": "No exposure — LLMs and tools that build on LLMs offer no or minimal improvement to time required.",
+    "T1": "Direct exposure — LLM alone could reduce time to do the task by ≥50%.",
+    "T2": "LLM+ exposed — LLM with tools / interfaces could reduce time by ≥50%.",
+    "T3": "Image+ exposed (rare in occ-level set).",
+    "T4": "All other partial-exposure or uncertain."
+  }
+}
