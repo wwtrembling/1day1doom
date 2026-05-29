@@ -4,3 +4,7 @@ __pycache__/
 batch-service/output/
 batch-service/venv/
 bash.exe.stackdump
+
+# Pivot v2 data pipeline — raw source data downloaded by scripts/build-data.py
+# (JSON build artifacts under docs/public/data/v2/ ARE committed.)
+data-sources/
