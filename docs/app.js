@@ -28,6 +28,21 @@ const UI_TEXT = {
         panel_cohort_title: "코호트 + Reality Check",
         panel_cohort_subtitle: "당신과 비슷한 사람들의 위치 + 두려움을 줄이는 객관 데이터.",
         panel_coming_soon: "곧 추가될 패널이에요.",
+        task_summary: "이 직업의 task {n}개 중 AI 노출 분포",
+        task_show_more: "더 보기",
+        task_show_less: "접기",
+        task_type_core: "핵심",
+        task_type_supplemental: "보조",
+        legend_T0: "안전",
+        legend_T1: "직접 노출",
+        legend_T2: "LLM+도구",
+        legend_T3: "이미지 영역",
+        legend_T4: "부분/불확실",
+        legend_T0_desc: "AI가 50% 이상 시간을 단축할 수 없어요.",
+        legend_T1_desc: "LLM 단독으로 50%+ 단축 가능.",
+        legend_T2_desc: "LLM + 도구/인터페이스 결합 시 50%+ 단축.",
+        legend_T3_desc: "이미지 생성 등 특수 영역.",
+        legend_T4_desc: "부분 노출 또는 불확실해요.",
         accuracy_notice: "v1 데이터는 US BLS/O*NET 기준이에요. 한국 노동시장과 차이가 있을 수 있어요.",
         msg_share_done: "링크를 복사했어요. 어디든 붙여넣어 보세요!",
         msg_no_match: "그 직업은 아직 v1에 없어요. 비슷한 영어 직업명으로 시도해 주세요.",
@@ -57,6 +72,21 @@ const UI_TEXT = {
         panel_cohort_title: "Cohort + Reality Check",
         panel_cohort_subtitle: "Where peers like you stand + grounded counter-evidence.",
         panel_coming_soon: "Panel coming in the next release.",
+        task_summary: "AI exposure across {n} tasks in this job",
+        task_show_more: "Show more",
+        task_show_less: "Show less",
+        task_type_core: "Core",
+        task_type_supplemental: "Supplemental",
+        legend_T0: "Safe",
+        legend_T1: "High exposure",
+        legend_T2: "LLM + tools",
+        legend_T3: "Image domain",
+        legend_T4: "Partial / uncertain",
+        legend_T0_desc: "AI offers no significant time savings (<50%).",
+        legend_T1_desc: "An LLM alone can save 50%+ time.",
+        legend_T2_desc: "LLM with tools/interfaces saves 50%+.",
+        legend_T3_desc: "Image generation or specialty domain.",
+        legend_T4_desc: "Partial exposure or uncertain.",
         accuracy_notice: "v1 data is US (BLS/O*NET). Local market may differ.",
         msg_share_done: "Link copied. Paste anywhere.",
         msg_no_match: "That job isn't in v1 yet. Try a similar English title.",
@@ -86,6 +116,21 @@ const UI_TEXT = {
         panel_cohort_title: "コホート + Reality Check",
         panel_cohort_subtitle: "近いプロフィールの人の位置 + 過剰な不安を抑える客観データ。",
         panel_coming_soon: "近日追加予定のパネルです。",
+        task_summary: "この職業の{n}個のタスクのAI影響度分布",
+        task_show_more: "もっと見る",
+        task_show_less: "閉じる",
+        task_type_core: "コア",
+        task_type_supplemental: "補助",
+        legend_T0: "安全",
+        legend_T1: "直接影響",
+        legend_T2: "LLM+ツール",
+        legend_T3: "画像領域",
+        legend_T4: "部分/不確実",
+        legend_T0_desc: "AIによる時間短縮は50%未満。",
+        legend_T1_desc: "LLM単独で50%以上短縮可能。",
+        legend_T2_desc: "LLM + ツール/UIで50%以上短縮。",
+        legend_T3_desc: "画像生成など特殊領域。",
+        legend_T4_desc: "部分的または不確実。",
         accuracy_notice: "v1 データは米国 BLS/O*NET ベース。日本市場とは差があります。",
         msg_share_done: "リンクをコピーしました。どこへでも貼り付けてください。",
         msg_no_match: "その職業は v1 に未対応。近い英語職業名でお試しください。",
@@ -115,6 +160,21 @@ const UI_TEXT = {
         panel_cohort_title: "同代人 + Reality Check",
         panel_cohort_subtitle: "與你相近的人在哪 + 緩解過度恐懼的客觀數據。",
         panel_coming_soon: "下個版本即將加入。",
+        task_summary: "此職業 {n} 個 task 的 AI 影響分布",
+        task_show_more: "看更多",
+        task_show_less: "收起",
+        task_type_core: "核心",
+        task_type_supplemental: "輔助",
+        legend_T0: "安全",
+        legend_T1: "直接暴露",
+        legend_T2: "LLM + 工具",
+        legend_T3: "影像領域",
+        legend_T4: "部分/不確定",
+        legend_T0_desc: "AI 無法縮短 50% 以上時間。",
+        legend_T1_desc: "LLM 單獨可縮短 50% 以上時間。",
+        legend_T2_desc: "LLM 配合工具/介面可縮短 50% 以上。",
+        legend_T3_desc: "影像生成等特殊領域。",
+        legend_T4_desc: "部分暴露或不確定。",
         accuracy_notice: "v1 數據以美國 BLS/O*NET 為準。台灣市場可能有差。",
         msg_share_done: "已複製連結。貼到任何地方都可以。",
         msg_no_match: "v1 還沒收錄這個職業。請試試相近的英文職業名。",
@@ -144,6 +204,21 @@ const UI_TEXT = {
         panel_cohort_title: "Cohorte + Reality Check",
         panel_cohort_subtitle: "Dónde están personas como tú + evidencia que reduce el miedo.",
         panel_coming_soon: "Panel próximamente.",
+        task_summary: "Exposición a IA en las {n} tareas de esta profesión",
+        task_show_more: "Ver más",
+        task_show_less: "Ver menos",
+        task_type_core: "Esencial",
+        task_type_supplemental: "Suplementario",
+        legend_T0: "Seguro",
+        legend_T1: "Alta exposición",
+        legend_T2: "LLM + herramientas",
+        legend_T3: "Dominio de imagen",
+        legend_T4: "Parcial / incierto",
+        legend_T0_desc: "La IA no ahorra >50% del tiempo.",
+        legend_T1_desc: "Un LLM solo ahorra 50%+ tiempo.",
+        legend_T2_desc: "LLM con herramientas ahorra 50%+.",
+        legend_T3_desc: "Generación de imágenes u otros dominios específicos.",
+        legend_T4_desc: "Exposición parcial o incierta.",
         accuracy_notice: "Datos v1 = US (BLS/O*NET). Tu mercado local puede diferir.",
         msg_share_done: "Enlace copiado. Pégalo donde quieras.",
         msg_no_match: "Esa profesión aún no está en v1. Prueba un título en inglés similar.",
@@ -173,6 +248,21 @@ const UI_TEXT = {
         panel_cohort_title: "Kohorte + Reality Check",
         panel_cohort_subtitle: "Wo Leute wie du stehen + Evidenz, die Angst dämpft.",
         panel_coming_soon: "Panel folgt im nächsten Release.",
+        task_summary: "KI-Exposition über {n} Aufgaben in diesem Beruf",
+        task_show_more: "Mehr anzeigen",
+        task_show_less: "Ausblenden",
+        task_type_core: "Kern",
+        task_type_supplemental: "Ergänzend",
+        legend_T0: "Sicher",
+        legend_T1: "Hoch exponiert",
+        legend_T2: "LLM + Tools",
+        legend_T3: "Bildbereich",
+        legend_T4: "Teilweise / unsicher",
+        legend_T0_desc: "KI spart keine >50% Zeit.",
+        legend_T1_desc: "LLM allein spart 50%+ Zeit.",
+        legend_T2_desc: "LLM mit Tools spart 50%+.",
+        legend_T3_desc: "Bildgenerierung oder Spezialbereich.",
+        legend_T4_desc: "Teilweise oder unsicher.",
         accuracy_notice: "v1-Daten = US (BLS/O*NET). Lokaler Markt kann abweichen.",
         msg_share_done: "Link kopiert. Überall einfügen.",
         msg_no_match: "Dieser Beruf ist in v1 noch nicht dabei. Versuche einen ähnlichen englischen Titel.",
@@ -183,11 +273,15 @@ const UI_TEXT = {
 
 const DATA_BASE = "../public/data/v2";
 const AGE_COHORTS = ["20s", "30s", "40s", "50p"];
+const TASK_LABELS = ["T0", "T1", "T2", "T3", "T4"];
+const TASKS_VISIBLE_INITIAL = 8;
 
 const state = {
     lang: "ko",
     occupations: null,   // array from v2/occupations.json
     meta: null,
+    tasks: null,         // { soc → [task] }, lazy-loaded
+    tasksLoading: null,  // in-flight promise
     selected: { soc: null, onet_soc: null, age: null }
 };
 
@@ -242,6 +336,17 @@ async function loadOccupations() {
 
 function findOccupation(soc) {
     return state.occupations.find(o => o.soc === soc) || null;
+}
+
+async function loadTasks() {
+    if (state.tasks) return state.tasks;
+    if (state.tasksLoading) return state.tasksLoading;
+    state.tasksLoading = (async () => {
+        const res = await fetch(`${DATA_BASE}/tasks.json`, { cache: "force-cache" });
+        state.tasks = await res.json();
+        return state.tasks;
+    })();
+    return state.tasksLoading;
 }
 
 // ------- autocomplete --------------------------------------------
@@ -378,9 +483,8 @@ function renderDashboard() {
     document.getElementById("result-job-name").textContent = occ.title;
     document.getElementById("result-age-name").textContent = t(`age_${state.selected.age}`);
 
-    // PR #3 fills #panel-task-heatmap; PR #4 fills #panel-cohort-reality.
-    // Render placeholders for now so the layout is visible.
-    renderPanelPlaceholder("panel-task-heatmap", "panel_task_title", "panel_task_subtitle");
+    renderTaskHeatmap(occ.soc);
+    // PR #4 fills #panel-cohort-reality.
     renderPanelPlaceholder("panel-cohort-reality", "panel_cohort_title", "panel_cohort_subtitle");
 
     setPhase("result");
@@ -395,6 +499,120 @@ function renderPanelPlaceholder(panelId, titleKey, subtitleKey) {
         <p class="dashboard-panel-subtitle">${escapeHtml(t(subtitleKey))}</p>
         <p class="dashboard-panel-empty">${escapeHtml(t("panel_coming_soon"))}</p>
     `;
+}
+
+// Order tasks for display: high-exposure first (T1, T2), then T3/T4, then
+// safe (T0) last. Within each bucket, Core tasks first. This puts the
+// "things to pay attention to" up top without hiding the safe ones —
+// clinical guidance: specificity over magnitude.
+const TASK_DISPLAY_ORDER = ["T1", "T2", "T3", "T4", "T0"];
+
+function sortTasksForDisplay(tasks) {
+    return [...tasks].sort((a, b) => {
+        const da = TASK_DISPLAY_ORDER.indexOf(a.gpt4);
+        const db = TASK_DISPLAY_ORDER.indexOf(b.gpt4);
+        if (da !== db) return da - db;
+        // Core before Supplemental within same label
+        const ca = a.type === "Core" ? 0 : 1;
+        const cb = b.type === "Core" ? 0 : 1;
+        return ca - cb;
+    });
+}
+
+function computeExposureDist(tasks) {
+    const dist = { T0: 0, T1: 0, T2: 0, T3: 0, T4: 0 };
+    for (const t of tasks) {
+        if (dist[t.gpt4] !== undefined) dist[t.gpt4]++;
+    }
+    return dist;
+}
+
+function taskLabel(task) {
+    return TASK_LABELS.includes(task.gpt4) ? task.gpt4 : "T4";
+}
+
+async function renderTaskHeatmap(soc) {
+    const el = document.getElementById("panel-task-heatmap");
+    if (!el) return;
+
+    // Loading placeholder so the layout doesn't jump.
+    el.innerHTML = `
+        <h3 class="dashboard-panel-title">${escapeHtml(t("panel_task_title"))}</h3>
+        <p class="dashboard-panel-subtitle">${escapeHtml(t("panel_task_subtitle"))}</p>
+        <p class="dashboard-panel-empty">…</p>
+    `;
+
+    let tasks;
+    try {
+        const all = await loadTasks();
+        tasks = all[soc] || [];
+    } catch (e) {
+        console.error("tasks load failed", e);
+        el.querySelector(".dashboard-panel-empty").textContent = t("panel_coming_soon");
+        return;
+    }
+    if (!tasks.length) {
+        el.querySelector(".dashboard-panel-empty").textContent = t("panel_coming_soon");
+        return;
+    }
+
+    const sorted = sortTasksForDisplay(tasks);
+    const dist = computeExposureDist(tasks);
+    const total = tasks.length;
+    const summary = t("task_summary").replace("{n}", total);
+
+    const segments = TASK_LABELS.map(label => {
+        const n = dist[label] || 0;
+        if (!n) return "";
+        const pct = (n / total * 100).toFixed(1);
+        return `<span class="task-bar-seg task-bar-${label}" style="width:${pct}%" title="${label}: ${n}"></span>`;
+    }).join("");
+
+    const legendChips = TASK_LABELS.map(label =>
+        `<span class="task-legend-chip task-legend-${label}" title="${escapeHtml(t("legend_" + label + "_desc"))}">` +
+        `<i></i>${escapeHtml(label)} · ${escapeHtml(t("legend_" + label))}` +
+        `</span>`
+    ).join("");
+
+    const rowsHtml = sorted.map((task, idx) => {
+        const label = taskLabel(task);
+        const typeLabel = task.type === "Core" ? t("task_type_core") : t("task_type_supplemental");
+        const hiddenAttr = idx >= TASKS_VISIBLE_INITIAL ? ' data-hidden="1"' : "";
+        return `
+            <div class="task-row task-row-${label}" data-type="${escapeHtml(task.type)}"${hiddenAttr}>
+                <span class="task-chip task-chip-${label}">${label}</span>
+                <p class="task-text">${escapeHtml(task.task)}</p>
+                <span class="task-type">${escapeHtml(typeLabel)}</span>
+            </div>
+        `;
+    }).join("");
+
+    const hasMore = total > TASKS_VISIBLE_INITIAL;
+    const showMoreBtn = hasMore
+        ? `<button type="button" class="task-show-more" data-expanded="0">${escapeHtml(t("task_show_more"))} (${total - TASKS_VISIBLE_INITIAL})</button>`
+        : "";
+
+    el.innerHTML = `
+        <h3 class="dashboard-panel-title">${escapeHtml(t("panel_task_title"))}</h3>
+        <p class="dashboard-panel-subtitle">${escapeHtml(t("panel_task_subtitle"))}</p>
+        <p class="task-summary">${escapeHtml(summary)}</p>
+        <div class="task-bar">${segments}</div>
+        <div class="task-legend">${legendChips}</div>
+        <div class="task-list">${rowsHtml}</div>
+        ${showMoreBtn}
+    `;
+
+    const btn = el.querySelector(".task-show-more");
+    if (btn) btn.addEventListener("click", () => toggleTaskList(el, btn, total));
+}
+
+function toggleTaskList(panelEl, btn, total) {
+    const nowExpanded = !panelEl.classList.contains("tasks-expanded");
+    panelEl.classList.toggle("tasks-expanded", nowExpanded);
+    btn.dataset.expanded = nowExpanded ? "1" : "0";
+    btn.textContent = nowExpanded
+        ? t("task_show_less")
+        : `${t("task_show_more")} (${total - TASKS_VISIBLE_INITIAL})`;
 }
 
 // ------- URL hydration (?soc=&age=) ------------------------------
