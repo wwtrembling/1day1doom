@@ -283,6 +283,11 @@ function shareableUrl() {
     return new URL(window.location.origin + cleanPath);
 }
 
+function trackEvent(name, params) {
+    if (typeof window.gtag !== "function") return;
+    try { window.gtag("event", name, params || {}); } catch (e) {}
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     currentLang = (document.documentElement.lang || "ko").toLowerCase();
     if (!UI_TEXT[currentLang]) currentLang = "ko";
@@ -514,6 +519,7 @@ async function onJobSubmit(e) {
         alert(t("msg_no_match"));
         return;
     }
+    trackEvent("job_submit", { job: entry.id, language: currentLang });
     await startQuiz(entry.id);
 }
 
@@ -606,6 +612,7 @@ function onAnswerSelected(qIdx, value) {
     // All answered → compute persona, render result
     if (state.answers.every(a => a !== null)) {
         const persona = calculatePersona();
+        trackEvent("quiz_complete", { job: state.jobId, persona, language: currentLang });
         goResult(state.jobId, persona);
     }
 }
@@ -647,6 +654,12 @@ async function goResult(jobId, personaCode, { fromDeepLink = false } = {}) {
             evolution = await res.json();
         }
         renderResult();
+        trackEvent("persona_view", {
+            job: jobId,
+            persona: personaCode,
+            language: currentLang,
+            source: fromDeepLink ? "deeplink" : "fresh"
+        });
 
         const url = shareableUrl();
         url.searchParams.set("j", jobId);
@@ -827,6 +840,9 @@ async function onShare() {
         // render the URL twice.
         try {
             await navigator.share({ title: t("app_title"), text: caption, url: shareUrl });
+            trackEvent("share_click", {
+                job: state.jobId, persona: state.persona, language: currentLang, method: "native"
+            });
             return;
         } catch (e) { /* user canceled */ }
     }
@@ -847,6 +863,9 @@ async function onShare() {
             document.body.removeChild(ta);
         }
         alert(t("msg_share_done"));
+        trackEvent("share_click", {
+            job: state.jobId, persona: state.persona, language: currentLang, method: "clipboard"
+        });
     } catch (e) {
         console.error("share failed", e);
     }
