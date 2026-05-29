@@ -1,286 +1,217 @@
-// 1Day1Doom — single-page dual-path × persona diagnostic.
-//
-// Layout: one HTML page with three vertically-stacked sections that reveal
-// progressively as the user fills in their job and answers all 5 quiz questions.
-// Deep-link `?job=<id>&persona=<code>` skips the form and renders the result only.
+// 1Day1Doom v2 — Personal Risk Dashboard
+// Round 6 pivot. The user enters a job (autocomplete) and age cohort;
+// the result page renders dashboard panels (filled by later PRs).
+
+"use strict";
 
 const UI_TEXT = {
     ko: {
         app_title: "1Day1Doom",
         slogan: "AI 시대, 내 직업은 안녕할까?",
-        input_title: "직업을 알려주세요",
+        input_title: "직업과 연령대를 알려주세요",
         label_job: "직업",
-        placeholder_job: "예: 백엔드 개발자, 교사, 간호사…",
-        hint: "직업을 고르면 5문항이 떠요. 다 답하면 바로 결과를 볼 수 있어요.",
+        placeholder_job: "Software Developer, Teacher, Registered Nurse…",
+        label_age: "연령대",
+        age_20s: "20대",
+        age_30s: "30대",
+        age_40s: "40대",
+        age_50p: "50대+",
+        hint: "현재 v1은 영어 직업명만 검색돼요. 한국어 직업명 검색은 v1.1에서 추가될 예정이에요.",
+        btn_see_dashboard: "내 대시보드 보기",
         btn_share: "결과 공유하기",
-        btn_other_persona: "다른 답을 했다면?",
-        btn_restart_quiz: "다른 직업으로 다시 하기",
-        result_job_label: "내 직업",
+        btn_restart: "다른 직업으로 다시 하기",
+        result_job_label: "직업",
+        result_age_label: "연령대",
+        result_subtitle: "메이저 보고서가 평균값으로만 보여주는 정보를 당신의 좌표로 분해했어요.",
+        panel_task_title: "Task별 AI 노출",
+        panel_task_subtitle: "당신 직무의 task를 분해하고 각각의 AI 영향을 표시해요.",
+        panel_cohort_title: "코호트 + Reality Check",
+        panel_cohort_subtitle: "당신과 비슷한 사람들의 위치 + 두려움을 줄이는 객관 데이터.",
+        panel_coming_soon: "곧 추가될 패널이에요.",
+        accuracy_notice: "v1 데이터는 US BLS/O*NET 기준이에요. 한국 노동시장과 차이가 있을 수 있어요.",
         msg_share_done: "링크를 복사했어요. 어디든 붙여넣어 보세요!",
-        msg_no_match: "아직 준비 안 된 직업이에요. 비슷한 직업으로 골라 주세요.",
-        year_now: "지금",
-        year_10: "10년 후",
-        year_30: "30년 후",
-        skills_label: "핵심 역량",
-        path_doom_title: "DOOM PATH",
-        path_bloom_title: "BLOOM PATH",
-        path_doom_desc: "AI에게 자리를 내주는 길",
-        path_bloom_desc: "AI와 함께 진화하는 길",
-        bias_label: "지금 성향의 도착지",
-        quiz_intro: "AI 시대, 당신은 어디쯤 서 있나요?",
-        persona_card_title: "당신의 부캐",
-        quiz_title: "5문항으로 진단하기",
-        your_path_badge: "당신의 길",
-        other_path_label: "다른 선택",
-        agency_note: "이 길은 지금 성향의 도착지일 뿐이에요. 오늘부터의 선택이 다시 그릴 수 있어요.",
-        footer_tagline: "AI 시대의 직업 진단",
-        btn_show_alt_path: "안 갔을 길 펼쳐보기",
-        btn_hide_alt_path: "접기",
-        btn_show_sources: "출처 보기",
-        references_intro: "이 진단은 다음 자료를 참고했어요."
+        msg_no_match: "그 직업은 아직 v1에 없어요. 비슷한 영어 직업명으로 시도해 주세요.",
+        msg_pick_age: "연령대도 선택해 주세요.",
+        footer_tagline: "AI 시대 직업 좌표 대시보드"
     },
     en: {
         app_title: "1Day1Doom",
         slogan: "Is your job AI-proof?",
-        input_title: "What do you do?",
+        input_title: "Your job and age",
         label_job: "Job",
-        placeholder_job: "e.g. Backend Developer, Teacher, Nurse…",
-        hint: "Drop in your job, answer 5 quick questions, see your fate.",
-        btn_share: "Share my fate",
-        btn_other_persona: "If I'd answered differently?",
-        btn_restart_quiz: "Try another job",
-        result_job_label: "Your job",
-        msg_share_done: "Link copied. Paste it anywhere.",
-        msg_no_match: "Don't have that one yet — try a close cousin.",
-        year_now: "Now",
-        year_10: "10 years",
-        year_30: "30 years",
-        skills_label: "Key skills",
-        path_doom_title: "DOOM PATH",
-        path_bloom_title: "BLOOM PATH",
-        path_doom_desc: "AI takes your seat",
-        path_bloom_desc: "You evolve with AI",
-        bias_label: "Where this leans today",
-        quiz_intro: "In the age of AI, where do you stand?",
-        persona_card_title: "Your alter-ego",
-        quiz_title: "5-question diagnosis",
-        your_path_badge: "Your path",
-        other_path_label: "The other path",
-        agency_note: "This is just where today's tendency leads. The choices you make from now on can redraw it.",
-        footer_tagline: "Career diagnosis for the AI era",
-        btn_show_alt_path: "Show the path not taken",
-        btn_hide_alt_path: "Hide",
-        btn_show_sources: "Show sources",
-        references_intro: "Sources this diagnostic draws on:"
+        placeholder_job: "Software Developer, Teacher, Registered Nurse…",
+        label_age: "Age",
+        age_20s: "20s",
+        age_30s: "30s",
+        age_40s: "40s",
+        age_50p: "50+",
+        hint: "Type your occupation in English. v1.1 will add native job-name search.",
+        btn_see_dashboard: "See my dashboard",
+        btn_share: "Share my dashboard",
+        btn_restart: "Try another job",
+        result_job_label: "Job",
+        result_age_label: "Age",
+        result_subtitle: "We broke the WEF/OECD averages into your personal coordinates.",
+        panel_task_title: "Task-level AI exposure",
+        panel_task_subtitle: "Your job decomposed into tasks, each scored for AI impact.",
+        panel_cohort_title: "Cohort + Reality Check",
+        panel_cohort_subtitle: "Where peers like you stand + grounded counter-evidence.",
+        panel_coming_soon: "Panel coming in the next release.",
+        accuracy_notice: "v1 data is US (BLS/O*NET). Local market may differ.",
+        msg_share_done: "Link copied. Paste anywhere.",
+        msg_no_match: "That job isn't in v1 yet. Try a similar English title.",
+        msg_pick_age: "Pick an age cohort too.",
+        footer_tagline: "Career coordinates for the AI era"
     },
     ja: {
         app_title: "1Day1Doom",
         slogan: "AI時代、その仕事は残る？",
-        input_title: "まず、職業を教えてください",
+        input_title: "職業と年齢層を教えてください",
         label_job: "職業",
-        placeholder_job: "例：バックエンド開発者、教師、看護師…",
-        hint: "職業を選んで5問に答えると、このページに結果が表示されます。",
-        btn_share: "結果をシェアする",
-        btn_other_persona: "違う答えだったら？",
-        btn_restart_quiz: "他の職業でやり直す",
-        result_job_label: "あなたの職業",
-        msg_share_done: "リンクをコピーしました。どこにでも貼り付けられます。",
-        msg_no_match: "まだ用意できていません。近い職業を選んでください。",
-        year_now: "今",
-        year_10: "10年後",
-        year_30: "30年後",
-        skills_label: "コアスキル",
-        path_doom_title: "DOOM PATH",
-        path_bloom_title: "BLOOM PATH",
-        path_doom_desc: "AIに席を譲る未来",
-        path_bloom_desc: "AIと共に進化する未来",
-        bias_label: "今の傾向の行き先",
-        quiz_intro: "AI時代、あなたはどこに立っていますか？",
-        persona_card_title: "あなたの分身",
-        quiz_title: "5問診断",
-        your_path_badge: "あなたの道",
-        other_path_label: "別の道",
-        agency_note: "これは今の傾向の行き先にすぎません。今日からの選択が、これを描き直せます。",
-        footer_tagline: "AI時代のキャリア診断",
-        btn_show_alt_path: "もう一方の道を見る",
-        btn_hide_alt_path: "閉じる",
-        btn_show_sources: "出典を見る",
-        references_intro: "この診断が参考にした資料："
+        placeholder_job: "Software Developer, Teacher, Registered Nurse…",
+        label_age: "年齢層",
+        age_20s: "20代",
+        age_30s: "30代",
+        age_40s: "40代",
+        age_50p: "50代+",
+        hint: "現在 v1 は英語の職業名のみ検索可能。日本語職業名検索は v1.1 で対応予定。",
+        btn_see_dashboard: "ダッシュボードを見る",
+        btn_share: "結果をシェア",
+        btn_restart: "別の職業で試す",
+        result_job_label: "職業",
+        result_age_label: "年齢層",
+        result_subtitle: "WEF/OECDの平均値を、あなたの座標に分解しました。",
+        panel_task_title: "タスク別 AI 影響度",
+        panel_task_subtitle: "あなたの職業をタスクに分解し、それぞれのAI影響を表示。",
+        panel_cohort_title: "コホート + Reality Check",
+        panel_cohort_subtitle: "近いプロフィールの人の位置 + 過剰な不安を抑える客観データ。",
+        panel_coming_soon: "近日追加予定のパネルです。",
+        accuracy_notice: "v1 データは米国 BLS/O*NET ベース。日本市場とは差があります。",
+        msg_share_done: "リンクをコピーしました。どこへでも貼り付けてください。",
+        msg_no_match: "その職業は v1 に未対応。近い英語職業名でお試しください。",
+        msg_pick_age: "年齢層も選択してください。",
+        footer_tagline: "AI 時代のキャリア座標ダッシュボード"
     },
     "zh-tw": {
         app_title: "1Day1Doom",
         slogan: "你的工作，撐得過 AI 嗎？",
-        input_title: "你的職業是？",
+        input_title: "你的職業與年齡層",
         label_job: "職業",
-        placeholder_job: "例如：後端工程師、老師、護理師⋯",
-        hint: "選好職業、答完 5 題，結果會直接出現在同一頁。",
-        btn_share: "分享我的結果",
-        btn_other_persona: "如果換了答案？",
-        btn_restart_quiz: "換個職業再測",
-        result_job_label: "你的職業",
-        msg_share_done: "連結複製好了，貼到哪裡都能分享。",
-        msg_no_match: "還沒收錄這個職業，挑一個相近的試試？",
-        year_now: "現在",
-        year_10: "10 年後",
-        year_30: "30 年後",
-        skills_label: "核心技能",
-        path_doom_title: "DOOM PATH",
-        path_bloom_title: "BLOOM PATH",
-        path_doom_desc: "AI 接手你位置的那條路",
-        path_bloom_desc: "跟 AI 一起進化的那條路",
-        bias_label: "你目前傾向的去向",
-        quiz_intro: "AI 時代，你站在哪一邊？",
-        persona_card_title: "你的分身",
-        quiz_title: "5 題快測",
-        your_path_badge: "你的這條路",
-        other_path_label: "另一條路",
-        agency_note: "這只是目前傾向的去向。從今天開始的選擇，能重新畫過。",
-        footer_tagline: "AI 時代的職業診斷",
-        btn_show_alt_path: "看另一條路",
-        btn_hide_alt_path: "收起",
-        btn_show_sources: "查看資料來源",
-        references_intro: "本測驗參考的資料："
+        placeholder_job: "Software Developer, Teacher, Registered Nurse…",
+        label_age: "年齡層",
+        age_20s: "20 多歲",
+        age_30s: "30 多歲",
+        age_40s: "40 多歲",
+        age_50p: "50+",
+        hint: "v1 目前僅支援英文職業名搜尋。中文職業名搜尋將於 v1.1 加入。",
+        btn_see_dashboard: "看我的儀表板",
+        btn_share: "分享結果",
+        btn_restart: "換個職業再試",
+        result_job_label: "職業",
+        result_age_label: "年齡層",
+        result_subtitle: "把 WEF/OECD 的平均值，拆解成你的座標。",
+        panel_task_title: "Task 級 AI 暴露度",
+        panel_task_subtitle: "把你的職業拆成 task，逐個標出 AI 影響。",
+        panel_cohort_title: "同代人 + Reality Check",
+        panel_cohort_subtitle: "與你相近的人在哪 + 緩解過度恐懼的客觀數據。",
+        panel_coming_soon: "下個版本即將加入。",
+        accuracy_notice: "v1 數據以美國 BLS/O*NET 為準。台灣市場可能有差。",
+        msg_share_done: "已複製連結。貼到任何地方都可以。",
+        msg_no_match: "v1 還沒收錄這個職業。請試試相近的英文職業名。",
+        msg_pick_age: "也請選擇年齡層。",
+        footer_tagline: "AI 時代的職業座標儀表板"
     },
     es: {
         app_title: "1Day1Doom",
         slogan: "¿Tu trabajo sobrevive a la IA?",
-        input_title: "Empezamos por tu trabajo",
-        label_job: "Trabajo",
-        placeholder_job: "p. ej. desarrollador backend, profesora, enfermero…",
-        hint: "Pones tu trabajo, contestas 5 preguntas y ves el resultado aquí mismo.",
-        btn_share: "Compartir mi resultado",
-        btn_other_persona: "¿Y si hubiera respondido distinto?",
-        btn_restart_quiz: "Probar con otro trabajo",
-        result_job_label: "Tu trabajo",
-        msg_share_done: "Enlace copiado. Ya lo puedes pegar donde quieras.",
-        msg_no_match: "Ese aún no lo tenemos. Prueba con uno parecido.",
-        year_now: "Ahora",
-        year_10: "10 años",
-        year_30: "30 años",
-        skills_label: "Habilidades clave",
-        path_doom_title: "DOOM PATH",
-        path_bloom_title: "BLOOM PATH",
-        path_doom_desc: "Cuando la IA se sienta en tu silla",
-        path_bloom_desc: "Cuando evolucionas junto a la IA",
-        bias_label: "Hacia donde te lleva esto",
-        quiz_intro: "En la era de la IA, ¿de qué lado caes?",
-        persona_card_title: "Tu alter ego",
-        quiz_title: "5 preguntas, dos finales",
-        your_path_badge: "Tu camino",
-        other_path_label: "El otro camino",
-        agency_note: "Esto es solo hacia donde te lleva la tendencia de hoy. Lo que elijas a partir de ahora puede reescribirlo.",
-        footer_tagline: "Diagnóstico de carrera para la era de la IA",
-        btn_show_alt_path: "Ver el camino no elegido",
-        btn_hide_alt_path: "Ocultar",
-        btn_show_sources: "Ver fuentes",
-        references_intro: "Este diagnóstico se basa en:"
+        input_title: "Tu profesión y edad",
+        label_job: "Profesión",
+        placeholder_job: "Software Developer, Teacher, Registered Nurse…",
+        label_age: "Edad",
+        age_20s: "20s",
+        age_30s: "30s",
+        age_40s: "40s",
+        age_50p: "50+",
+        hint: "v1 solo busca nombres en inglés. La búsqueda en español llegará en v1.1.",
+        btn_see_dashboard: "Ver mi panel",
+        btn_share: "Compartir mi panel",
+        btn_restart: "Probar otra profesión",
+        result_job_label: "Profesión",
+        result_age_label: "Edad",
+        result_subtitle: "Descompusimos los promedios de WEF/OECD en tus coordenadas personales.",
+        panel_task_title: "Exposición a IA por tarea",
+        panel_task_subtitle: "Tu profesión descompuesta en tareas, cada una con su impacto IA.",
+        panel_cohort_title: "Cohorte + Reality Check",
+        panel_cohort_subtitle: "Dónde están personas como tú + evidencia que reduce el miedo.",
+        panel_coming_soon: "Panel próximamente.",
+        accuracy_notice: "Datos v1 = US (BLS/O*NET). Tu mercado local puede diferir.",
+        msg_share_done: "Enlace copiado. Pégalo donde quieras.",
+        msg_no_match: "Esa profesión aún no está en v1. Prueba un título en inglés similar.",
+        msg_pick_age: "Elige también una franja de edad.",
+        footer_tagline: "Coordenadas profesionales para la era de la IA"
     },
     de: {
         app_title: "1Day1Doom",
         slogan: "Frisst KI deinen Job?",
-        input_title: "Was machst du beruflich?",
-        label_job: "Beruf",
-        placeholder_job: "z. B. Backend-Entwickler, Lehrerin, Pfleger…",
-        hint: "5 Fragen, dein Ergebnis sofort darunter. Kein Scrollen ins Nirgendwo.",
-        btn_share: "Teilen",
-        btn_other_persona: "Was, wenn ich anders geantwortet hätte?",
-        btn_restart_quiz: "Nochmal, anderer Beruf",
-        result_job_label: "Dein Beruf",
-        msg_share_done: "Link kopiert. Ab damit.",
-        msg_no_match: "Den kennen wir noch nicht — nimm was Ähnliches.",
-        year_now: "Jetzt",
-        year_10: "in 10 Jahren",
-        year_30: "in 30 Jahren",
-        skills_label: "Kernkompetenzen",
-        path_doom_title: "DOOM PATH",
-        path_bloom_title: "BLOOM PATH",
-        path_doom_desc: "KI übernimmt deinen Platz",
-        path_bloom_desc: "Du wächst mit der KI",
-        bias_label: "Wohin das gerade tendiert",
-        quiz_intro: "Im KI-Zeitalter — wo stehst du?",
-        persona_card_title: "Dein Alter Ego",
-        quiz_title: "Die 5-Fragen-Diagnose",
-        your_path_badge: "Dein Weg",
-        other_path_label: "Der andere Weg",
-        agency_note: "Das ist nur, wohin es gerade tendiert. Was du ab heute entscheidest, kann es neu zeichnen.",
-        footer_tagline: "Karrierediagnose für das KI-Zeitalter",
-        btn_show_alt_path: "Den anderen Weg zeigen",
-        btn_hide_alt_path: "Ausblenden",
-        btn_show_sources: "Quellen anzeigen",
-        references_intro: "Quellen dieser Diagnose:"
+        input_title: "Deine Tätigkeit und dein Alter",
+        label_job: "Tätigkeit",
+        placeholder_job: "Software Developer, Teacher, Registered Nurse…",
+        label_age: "Alter",
+        age_20s: "20er",
+        age_30s: "30er",
+        age_40s: "40er",
+        age_50p: "50+",
+        hint: "v1 sucht nur englische Berufsbezeichnungen. Deutsche Suche kommt in v1.1.",
+        btn_see_dashboard: "Mein Dashboard zeigen",
+        btn_share: "Dashboard teilen",
+        btn_restart: "Anderen Beruf testen",
+        result_job_label: "Beruf",
+        result_age_label: "Alter",
+        result_subtitle: "Wir haben die WEF/OECD-Durchschnitte in deine Koordinaten zerlegt.",
+        panel_task_title: "KI-Exposition pro Task",
+        panel_task_subtitle: "Dein Beruf in Tasks zerlegt, jeweils mit KI-Impact.",
+        panel_cohort_title: "Kohorte + Reality Check",
+        panel_cohort_subtitle: "Wo Leute wie du stehen + Evidenz, die Angst dämpft.",
+        panel_coming_soon: "Panel folgt im nächsten Release.",
+        accuracy_notice: "v1-Daten = US (BLS/O*NET). Lokaler Markt kann abweichen.",
+        msg_share_done: "Link kopiert. Überall einfügen.",
+        msg_no_match: "Dieser Beruf ist in v1 noch nicht dabei. Versuche einen ähnlichen englischen Titel.",
+        msg_pick_age: "Wähle auch eine Altersgruppe.",
+        footer_tagline: "Karriere-Koordinaten für das KI-Zeitalter"
     }
 };
 
-const FALLBACK_CHAIN = {
-    ko: ["ko", "en"],
-    en: ["en", "ko"],
-    ja: ["ja", "en", "ko"],
-    "zh-tw": ["zh-tw", "en", "ko"],
-    es: ["es", "en", "ko"],
-    de: ["de", "en", "ko"]
-};
+const DATA_BASE = "../public/data/v2";
+const AGE_COHORTS = ["20s", "30s", "40s", "50p"];
 
-const DATA_BASE = "../public/data";
-const PERSONA_CODES = ["AS", "AC", "RS", "RC"];
+const state = {
+    lang: "ko",
+    occupations: null,   // array from v2/occupations.json
+    meta: null,
+    selected: { soc: null, onet_soc: null, age: null }
+};
 
 let currentLang = "ko";
-let manifest = null;
-let quiz = null;
-let evolution = null;
-let state = {
-    jobId: null,
-    answers: [],
-    persona: null,
-    phase: "input"     // "input" | "quiz" | "result"
-};
+
+// ------- helpers --------------------------------------------------
 
 function t(key) {
-    return UI_TEXT[currentLang][key] || UI_TEXT.en[key] || key;
+    return (UI_TEXT[currentLang] && UI_TEXT[currentLang][key]) || UI_TEXT.en[key] || key;
 }
 
-function pick(obj, ...candidateKeys) {
-    if (!obj) return "";
-    for (const k of candidateKeys) {
-        const v = obj[k];
-        if (v !== undefined && v !== null && v !== "") return v;
-    }
-    return "";
+function applyI18n() {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        el.textContent = t(el.dataset.i18n);
+    });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+        el.placeholder = t(el.dataset.i18nPlaceholder);
+    });
 }
 
-function localized(obj) {
-    if (!obj) return "";
-    const chain = FALLBACK_CHAIN[currentLang] || ["en", "ko"];
-    for (const k of chain) {
-        if (obj[k] !== undefined && obj[k] !== null && obj[k] !== "") return obj[k];
-    }
-    return "";
-}
-
-function localizedField(obj, prefix) {
-    if (!obj) return "";
-    const chain = FALLBACK_CHAIN[currentLang] || ["en", "ko"];
-    for (const k of chain) {
-        const v = obj[`${prefix}_${k}`];
-        if (v !== undefined && v !== null && v !== "") return v;
-    }
-    return "";
-}
-
-function localizedStage(stage) {
-    if (!stage) return {};
-    const chain = FALLBACK_CHAIN[currentLang] || ["en", "ko"];
-    for (const k of chain) {
-        if (stage[k]) return stage[k];
-    }
-    return {};
-}
-
-// Build a clean URL based on current location: drops `index.html` from
-// the path and starts with no query params. Callers add `j` / `p` as
-// needed via `url.searchParams.set(...)`.
-function shareableUrl() {
-    const cleanPath = window.location.pathname.replace(/index\.html$/, "");
-    return new URL(window.location.origin + cleanPath);
+function escapeHtml(s) {
+    return String(s)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
 function trackEvent(name, params) {
@@ -288,566 +219,237 @@ function trackEvent(name, params) {
     try { window.gtag("event", name, params || {}); } catch (e) {}
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-    currentLang = (document.documentElement.lang || "ko").toLowerCase();
-    if (!UI_TEXT[currentLang]) currentLang = "ko";
-    applyI18n();
-
-    document.getElementById("job-form").addEventListener("submit", onJobSubmit);
-    document.getElementById("btn-restart").addEventListener("click", restartFlow);
-    document.getElementById("btn-share").addEventListener("click", onShare);
-    const btnOtherPersona = document.getElementById("btn-other-persona");
-    if (btnOtherPersona) btnOtherPersona.addEventListener("click", cycleNextPersona);
-    setupAltToggle();
-
-    const input = document.getElementById("job-input");
-    input.addEventListener("input", onInputChange);
-    input.addEventListener("focus", onInputFocus);
-    document.addEventListener("click", (e) => {
-        if (!e.target.closest(".form-group")) hideSuggestions();
-    });
-
-    setupLangSwitch();
-
-    await Promise.all([loadManifest(), loadQuiz()]);
-
-    const params = new URLSearchParams(window.location.search);
-    const deepJob = params.get("j") || params.get("job");
-    const deepPersona = (params.get("p") || params.get("persona") || "").toUpperCase();
-
-    if (deepJob && PERSONA_CODES.includes(deepPersona)) {
-        const entry = findJob(deepJob);
-        if (entry) {
-            await goResult(entry.id, deepPersona, { fromDeepLink: true });
-            return;
-        }
-    }
-    if (deepJob) {
-        const entry = findJob(deepJob);
-        if (entry) {
-            input.value = pick(entry, `label_${currentLang}`, "label_en", "label_ko");
-            await startQuiz(entry.id);
-            return;
-        }
-    }
-    setPhase("input");
-});
-
-function applyI18n() {
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        const txt = t(key);
-        if (txt) el.textContent = txt;
-    });
-    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-        const key = el.getAttribute("data-i18n-placeholder");
-        const txt = t(key);
-        if (txt) el.placeholder = txt;
-    });
-    document.title = t("app_title") + " — " + t("slogan");
-}
-
-async function loadManifest() {
-    try {
-        const res = await fetch(`${DATA_BASE}/jobs.json`, { cache: "no-store" });
-        if (!res.ok) throw new Error("manifest fetch failed");
-        manifest = await res.json();
-    } catch (e) {
-        console.error("Failed to load manifest:", e);
-        manifest = { jobs: [] };
-    }
-}
-
-function setupLangSwitch() {
-    const wrap = document.getElementById("lang-switch");
-    if (!wrap) return;
-    const toggle = wrap.querySelector(".lang-toggle");
-    const menu = wrap.querySelector(".lang-menu");
-    if (!toggle || !menu) return;
-    const close = () => {
-        menu.hidden = true;
-        toggle.setAttribute("aria-expanded", "false");
-    };
-    const open = () => {
-        menu.hidden = false;
-        toggle.setAttribute("aria-expanded", "true");
-    };
-    toggle.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (menu.hidden) open(); else close();
-    });
-    document.addEventListener("click", (e) => {
-        if (!wrap.contains(e.target)) close();
-    });
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") close();
-    });
-}
-
-async function loadQuiz() {
-    try {
-        const res = await fetch(`${DATA_BASE}/quiz.json`, { cache: "no-store" });
-        if (!res.ok) throw new Error("quiz fetch failed");
-        quiz = await res.json();
-    } catch (e) {
-        console.error("Failed to load quiz:", e);
-        quiz = { questions: [] };
-    }
-}
-
-function normalize(s) {
-    return (s || "").toLowerCase().replace(/\s+/g, "").trim();
-}
-
-function jobAllLabels(j) {
-    const locales = (manifest && manifest.locales) || ["ko", "en", "ja", "zh-tw", "es", "de"];
-    const out = [];
-    for (const loc of locales) {
-        const v = j["label_" + loc];
-        if (v) out.push(v);
-    }
-    for (const a of (j.aliases_ko || [])) out.push(a);
-    return out;
-}
-
-function findJob(query) {
-    if (!manifest || !manifest.jobs) return null;
-    const q = normalize(query);
-    if (!q) return null;
-    for (const j of manifest.jobs) {
-        if (j.id === query) return j;
-        for (const lab of jobAllLabels(j)) {
-            if (normalize(lab) === q) return j;
-        }
-    }
-    return null;
-}
-
-function suggestJobs(query) {
-    if (!manifest || !manifest.jobs) return [];
-    const q = normalize(query);
-    if (!q) return [];
-    const scored = [];
-    for (const j of manifest.jobs) {
-        const labels = jobAllLabels(j).map(normalize);
-        let score = 0;
-        for (const lab of labels) {
-            if (!lab) continue;
-            if (lab === q) score = Math.max(score, 100);
-            else if (lab.startsWith(q)) score = Math.max(score, 60);
-            else if (lab.includes(q)) score = Math.max(score, 30);
-        }
-        if (score > 0) scored.push({ j, score });
-    }
-    scored.sort((a, b) => b.score - a.score);
-    return scored.slice(0, 12).map(x => x.j);
-}
-
-function jobLabel(j) {
-    return pick(j, `label_${currentLang}`, "label_en", "label_ko") || j.id;
-}
-
-function onInputChange(e) {
-    const q = e.target.value.trim();
-    const jobs = q ? suggestJobs(q) : (manifest && manifest.jobs ? manifest.jobs : []);
-    renderJobList(jobs);
-}
-
-function onInputFocus(e) {
-    const q = e.target.value.trim();
-    const jobs = q ? suggestJobs(q) : (manifest && manifest.jobs ? manifest.jobs : []);
-    renderJobList(jobs);
-}
-
-function renderJobList(jobs) {
-    const list = document.getElementById("job-suggestions");
-    list.innerHTML = "";
-    if (!jobs.length) {
-        list.style.display = "none";
-        return;
-    }
-    for (const j of jobs) {
-        const li = document.createElement("li");
-        li.innerHTML = `<span class="suggest-emoji">${escapeHtml(j.emoji || "✨")}</span> <span class="suggest-label">${escapeHtml(jobLabel(j))}</span>`;
-        li.addEventListener("mousedown", (ev) => {
-            ev.preventDefault();
-            const label = jobLabel(j);
-            document.getElementById("job-input").value = label;
-            localStorage.setItem("evo_last_input", label);
-            hideSuggestions();
-            startQuiz(j.id);
-        });
-        list.appendChild(li);
-    }
-    list.style.display = "block";
-}
-
-function hideSuggestions() {
-    const list = document.getElementById("job-suggestions");
-    list.style.display = "none";
-    list.innerHTML = "";
-}
-
-function setPhase(phase) {
-    state.phase = phase;
-    const inputSec = document.getElementById("input-section");
-    const quizSec = document.getElementById("quiz-section");
-    const resultSec = document.getElementById("result-section");
-    inputSec.classList.toggle("hidden", phase === "result-only");
-    quizSec.classList.toggle("hidden", phase === "input" || phase === "result-only");
-    resultSec.classList.toggle("hidden", phase !== "result" && phase !== "result-only");
-    if (phase === "result-only") {
-        // deep-link arrival: hide everything except result for clean share landing
-        document.body.classList.add("result-only");
-    } else {
-        document.body.classList.remove("result-only");
-    }
-}
-
-async function onJobSubmit(e) {
-    e.preventDefault();
-    const raw = document.getElementById("job-input").value.trim();
-    if (!raw) return;
-    localStorage.setItem("evo_last_input", raw);
-
-    let entry = findJob(raw);
-    if (!entry) {
-        const sugg = suggestJobs(raw);
-        if (sugg.length) entry = sugg[0];
-    }
-    if (!entry) {
-        alert(t("msg_no_match"));
-        return;
-    }
-    trackEvent("job_submit", { job: entry.id, language: currentLang });
-    await startQuiz(entry.id);
-}
-
-async function startQuiz(jobId) {
-    state.jobId = jobId;
-    state.answers = new Array((quiz.questions || []).length).fill(null);
-    state.persona = null;
-
-    // Clear any previous result
-    document.getElementById("result-section").classList.add("hidden");
-    state.phase = "quiz";
-    setPhase("quiz");
-
-    renderAllQuestions();
-
-    const url = shareableUrl();
-    url.searchParams.set("j", jobId);
-    history.replaceState(null, "", url);
-
-    // Smooth scroll to quiz section
-    smoothScrollTo("quiz-section", "start");
-}
-
-function renderAllQuestions() {
-    const container = document.getElementById("quiz-questions");
-    container.innerHTML = "";
-    const total = (quiz.questions || []).length;
-
-    let progressBar = document.getElementById("quiz-progress-bar");
-    if (!progressBar) {
-        progressBar = document.createElement("div");
-        progressBar.id = "quiz-progress-bar";
-        progressBar.className = "quiz-progress-bar";
-        progressBar.innerHTML = '<div class="quiz-progress-bar-fill"></div>';
-        container.parentElement.insertBefore(progressBar, container);
-    }
-    updateQuizProgress(0, total);
-
-    quiz.questions.forEach((q, idx) => {
-        const text = pick(q, currentLang, "en", "ko");
-        const optsHtml = (q.options || []).map((o) => {
-            const label = pick(o, currentLang, "en", "ko");
-            return `<button type="button" class="quiz-option" data-q="${idx}" data-value="${escapeHtml(o.value)}">${escapeHtml(label)}</button>`;
-        }).join("");
-
-        const card = document.createElement("div");
-        card.className = "quiz-card";
-        card.id = `q-${idx}`;
-        card.innerHTML = `
-            <div class="quiz-progress">${idx + 1} / ${total}</div>
-            <h3 class="quiz-question">${escapeHtml(text)}</h3>
-            <div class="quiz-options">${optsHtml}</div>
-        `;
-        container.appendChild(card);
-    });
-
-    container.querySelectorAll(".quiz-option").forEach(btn => {
-        btn.addEventListener("click", () => onAnswerSelected(parseInt(btn.dataset.q, 10), btn.dataset.value));
-    });
-}
-
-function updateQuizProgress(answered, total) {
-    const fill = document.querySelector("#quiz-progress-bar .quiz-progress-bar-fill");
-    if (!fill || !total) return;
-    fill.style.width = `${Math.round((answered / total) * 100)}%`;
-}
-
-function onAnswerSelected(qIdx, value) {
-    state.answers[qIdx] = value;
-
-    // Mark this question's selected option
-    const card = document.getElementById(`q-${qIdx}`);
-    if (card) {
-        card.querySelectorAll(".quiz-option").forEach(btn => {
-            btn.classList.toggle("selected", btn.dataset.value === value);
-        });
-        card.classList.add("answered");
-    }
-
-    const answered = state.answers.filter(a => a !== null).length;
-    updateQuizProgress(answered, state.answers.length);
-
-    // If not yet last question, scroll to next unanswered question
-    const next = state.answers.findIndex((a, i) => a === null && i > qIdx);
-    if (next !== -1) {
-        smoothScrollTo(`q-${next}`, "center");
-        return;
-    }
-
-    // All answered → compute persona, render result
-    if (state.answers.every(a => a !== null)) {
-        const persona = calculatePersona();
-        trackEvent("quiz_complete", { job: state.jobId, persona, language: currentLang });
-        goResult(state.jobId, persona);
-    }
-}
-
-function calculatePersona() {
-    let arSum = 0;
-    let scSum = 0;
-    (quiz.questions || []).forEach((q, i) => {
-        const ans = state.answers[i];
-        if (!ans) return;
-        if (q.axis === "AR") {
-            if (ans === "A") arSum += 1;
-            else if (ans === "R") arSum -= 1;
-        } else if (q.axis === "SC") {
-            if (ans === "C") scSum += 1;
-            else if (ans === "S") scSum -= 1;
-        }
-    });
-    const ar = arSum > 0 ? "A" : "R";
-    const sc = scSum > 0 ? "C" : "S";
-    const code = ar + sc;
-    return PERSONA_CODES.includes(code) ? code : "AS";
-}
-
-async function goResult(jobId, personaCode, { fromDeepLink = false } = {}) {
-    state.jobId = jobId;
-    state.persona = personaCode;
-
-    if (fromDeepLink) {
-        setPhase("result-only");
-    } else {
-        setPhase("result");
-    }
-
-    try {
-        if (!evolution || evolution.job_id !== jobId) {
-            const res = await fetch(`${DATA_BASE}/jobs/${jobId}/evolution.json`, { cache: "no-store" });
-            if (!res.ok) throw new Error("evolution fetch failed");
-            evolution = await res.json();
-        }
-        renderResult();
-        trackEvent("persona_view", {
-            job: jobId,
-            persona: personaCode,
-            language: currentLang,
-            source: fromDeepLink ? "deeplink" : "fresh"
-        });
-
-        const url = shareableUrl();
-        url.searchParams.set("j", jobId);
-        url.searchParams.set("p", personaCode);
-        history.replaceState(null, "", url);
-
-        smoothScrollTo("result-section", "start");
-    } catch (e) {
-        console.error(e);
-        alert(t("msg_no_match"));
-        restartFlow();
-    }
-}
-
-function renderResult() {
-    const ev = evolution;
-    if (!ev) return;
-    const code = state.persona;
-    const persona = (ev.personas || {})[code] || {};
-    const bias = persona.bias === "doom" ? "doom" : "bloom";
-    const emoji = ev.emoji || "✨";
-
-    const evLabelObj = {
-        ko: ev.label_ko, en: ev.label_en, ja: ev.label_ja,
-        "zh-tw": ev["label_zh-tw"], es: ev.label_es, de: ev.label_de
-    };
-    const jobLabelText = localized(evLabelObj) || ev.label_en || ev.label_ko;
-
-    const nickname = localizedField(persona, "nickname") || code;
-    const blurb = localizedField(persona, "blurb") || "";
-    const hookCopy = localized((ev.hook_copy || {})[bias] || {}) || "";
-
-    document.getElementById("result-job-name").textContent = jobLabelText;
-    document.getElementById("persona-emoji").textContent = emoji;
-    document.getElementById("persona-nickname").textContent = nickname;
-    document.getElementById("persona-blurb").textContent = blurb;
-    document.getElementById("persona-bias-path").textContent =
-        bias === "doom" ? t("path_doom_title") : t("path_bloom_title");
-    document.getElementById("hook-copy").textContent = hookCopy;
-
-    // Year 0 — shared across paths
-    const year0Card = document.getElementById("year0-card");
-    year0Card.innerHTML = renderStageInner(ev.year0, 0, emoji, "year0");
-
-    // Bloom + Doom paths
-    const bloomStages = ((ev.paths && ev.paths.bloom && ev.paths.bloom.stages) || []).slice().sort((a, b) => a.year - b.year);
-    const doomStages = ((ev.paths && ev.paths.doom && ev.paths.doom.stages) || []).slice().sort((a, b) => a.year - b.year);
-
-    document.getElementById("bloom-tree").innerHTML = bloomStages.map(s =>
-        `<div class="evo-card stage-${s.year} path-bloom">${renderStageInner(s, s.year, emoji, "bloom")}</div>`
-    ).join("");
-    document.getElementById("bloom-tree-wrap").classList.toggle("path-bias", bias === "bloom");
-    document.getElementById("bloom-tree-title").textContent = t("path_bloom_title");
-    document.getElementById("bloom-tree-desc").textContent = t("path_bloom_desc");
-
-    document.getElementById("doom-tree").innerHTML = doomStages.map(s =>
-        `<div class="evo-card stage-${s.year} path-doom">${renderStageInner(s, s.year, emoji, "doom")}</div>`
-    ).join("");
-    document.getElementById("doom-tree-wrap").classList.toggle("path-bias", bias === "doom");
-    document.getElementById("doom-tree-title").textContent = t("path_doom_title");
-    document.getElementById("doom-tree-desc").textContent = t("path_doom_desc");
-
-    renderPathBadges(bias);
-}
-
-function renderPathBadges(bias) {
-    document.querySelectorAll(".path-tree-badge").forEach(el => el.remove());
-    const biasWrap = document.getElementById(bias === "doom" ? "doom-tree-wrap" : "bloom-tree-wrap");
-    const otherWrap = document.getElementById(bias === "doom" ? "bloom-tree-wrap" : "doom-tree-wrap");
-    if (biasWrap) {
-        biasWrap.classList.remove("is-collapsed");
-        const badge = document.createElement("span");
-        badge.className = "path-tree-badge";
-        badge.textContent = t("your_path_badge");
-        biasWrap.appendChild(badge);
-    }
-    if (otherWrap) {
-        otherWrap.classList.add("is-collapsed");
-        const altBadge = document.createElement("span");
-        altBadge.className = "path-tree-badge path-tree-badge-alt";
-        altBadge.textContent = t("other_path_label");
-        otherWrap.appendChild(altBadge);
-    }
-    const toggle = document.getElementById("alt-toggle");
-    if (toggle) {
-        toggle.textContent = t("btn_show_alt_path");
-        toggle.setAttribute("aria-expanded", "false");
-    }
-}
-
-function setupAltToggle() {
-    const btn = document.getElementById("alt-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", () => {
-        let target = null;
-        for (const el of document.querySelectorAll(".path-tree")) {
-            if (!el.classList.contains("path-bias")) { target = el; break; }
-        }
-        if (!target) return;
-        const willExpand = target.classList.contains("is-collapsed");
-        target.classList.toggle("is-collapsed");
-        btn.setAttribute("aria-expanded", willExpand ? "true" : "false");
-        btn.textContent = t(willExpand ? "btn_hide_alt_path" : "btn_show_alt_path");
-        if (willExpand) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-    });
-}
-
-function renderStageInner(stage, year, emoji, pathKey) {
-    const sl = localizedStage(stage);
-    const skills = Array.isArray(sl.skills) ? sl.skills : [];
-    const yearLabel = year === 0 ? t("year_now") : year === 10 ? t("year_10") : t("year_30");
-    const pathBadge = pathKey === "doom" ? "DOOM" : pathKey === "bloom" ? "BLOOM" : "";
-    return `
-        <div class="evo-card-head">
-            <div class="evo-card-year">${escapeHtml(yearLabel)}</div>
-            ${pathBadge ? `<div class="evo-card-path-badge">${escapeHtml(pathBadge)}</div>` : ""}
-        </div>
-        ${year === 0 ? `<div class="evo-card-emoji">${escapeHtml(emoji)}</div>` : ""}
-        <h3 class="evo-card-title">${escapeHtml(sl.title || "")}</h3>
-        <p class="evo-card-desc">${escapeHtml(sl.description || "")}</p>
-        <div class="evo-card-skills">
-            <div class="evo-card-skills-label">${t("skills_label")}</div>
-            <ul>
-                ${skills.map(s => `<li>${escapeHtml(s)}</li>`).join("")}
-            </ul>
-        </div>
-    `;
+function shareableUrl() {
+    const cleanPath = window.location.pathname.replace(/index\.html$/, "");
+    return new URL(window.location.origin + cleanPath);
 }
 
 function smoothScrollTo(id, block) {
-    requestAnimationFrame(() => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        if (typeof el.scrollIntoView === "function") {
-            el.scrollIntoView({ behavior: "smooth", block: block || "start" });
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: block || "start" });
+}
+
+// ------- data load ------------------------------------------------
+
+async function loadOccupations() {
+    const [occRes, metaRes] = await Promise.all([
+        fetch(`${DATA_BASE}/occupations.json`, { cache: "force-cache" }),
+        fetch(`${DATA_BASE}/meta.json`, { cache: "force-cache" })
+    ]);
+    state.occupations = await occRes.json();
+    state.meta = await metaRes.json();
+}
+
+function findOccupation(soc) {
+    return state.occupations.find(o => o.soc === soc) || null;
+}
+
+// ------- autocomplete --------------------------------------------
+
+function normalize(s) {
+    return String(s || "").toLowerCase().trim();
+}
+
+function suggestOccupations(query) {
+    const q = normalize(query);
+    if (!q || !state.occupations) return [];
+    const matches = [];
+    for (const o of state.occupations) {
+        const title = normalize(o.title);
+        if (title.includes(q)) {
+            // rank: starts-with > contains
+            matches.push({ occ: o, rank: title.startsWith(q) ? 0 : 1 });
         }
+        if (matches.length >= 30) break;
+    }
+    matches.sort((a, b) => a.rank - b.rank);
+    return matches.slice(0, 8).map(m => m.occ);
+}
+
+function renderSuggestions(items) {
+    const ul = document.getElementById("job-suggestions");
+    if (!ul) return;
+    if (!items.length) { ul.hidden = true; ul.innerHTML = ""; return; }
+    ul.innerHTML = items.map(o =>
+        `<li data-soc="${escapeHtml(o.soc)}">${escapeHtml(o.title)}</li>`
+    ).join("");
+    ul.hidden = false;
+}
+
+function hideSuggestions() {
+    const ul = document.getElementById("job-suggestions");
+    if (ul) { ul.hidden = true; ul.innerHTML = ""; }
+}
+
+function onJobInput(e) {
+    const items = suggestOccupations(e.target.value);
+    renderSuggestions(items);
+}
+
+function onJobInputFocus(e) {
+    if (e.target.value) onJobInput(e);
+}
+
+function onSuggestionClick(e) {
+    const li = e.target.closest("li[data-soc]");
+    if (!li) return;
+    const soc = li.dataset.soc;
+    const occ = findOccupation(soc);
+    if (!occ) return;
+    document.getElementById("job-input").value = occ.title;
+    state.selected.soc = soc;
+    state.selected.onet_soc = occ.onet_soc;
+    hideSuggestions();
+}
+
+// ------- age cohort ----------------------------------------------
+
+function setAge(cohort) {
+    if (!AGE_COHORTS.includes(cohort)) return;
+    state.selected.age = cohort;
+    document.querySelectorAll(".age-btn").forEach(b => {
+        b.classList.toggle("selected", b.dataset.age === cohort);
     });
 }
 
-function escapeHtml(s) {
-    return String(s)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;");
+function onAgeClick(e) {
+    const btn = e.target.closest(".age-btn");
+    if (!btn) return;
+    setAge(btn.dataset.age);
 }
 
+// ------- form submit / result -----------------------------------
+
+function resolveOccupation(raw) {
+    // If state.selected.soc already chosen from suggestion list, use it.
+    if (state.selected.soc) return findOccupation(state.selected.soc);
+    // Otherwise try exact (case-insensitive) match on input value.
+    const q = normalize(raw);
+    if (!q) return null;
+    const exact = state.occupations.find(o => normalize(o.title) === q);
+    if (exact) return exact;
+    // Fall back to first suggestion (best partial match).
+    const sugg = suggestOccupations(raw);
+    return sugg[0] || null;
+}
+
+function onFormSubmit(e) {
+    e.preventDefault();
+    const raw = document.getElementById("job-input").value.trim();
+    if (!state.selected.age) { alert(t("msg_pick_age")); return; }
+    const occ = resolveOccupation(raw);
+    if (!occ) { alert(t("msg_no_match")); return; }
+
+    state.selected.soc = occ.soc;
+    state.selected.onet_soc = occ.onet_soc;
+    document.getElementById("job-input").value = occ.title;
+
+    trackEvent("dashboard_view", {
+        soc: occ.soc, age: state.selected.age, language: currentLang, source: "fresh"
+    });
+
+    pushUrl();
+    renderDashboard();
+}
+
+function pushUrl() {
+    const url = shareableUrl();
+    url.searchParams.set("soc", state.selected.soc);
+    url.searchParams.set("age", state.selected.age);
+    history.replaceState(null, "", url);
+}
+
+function setPhase(phase) {
+    const input = document.getElementById("input-section");
+    const result = document.getElementById("result-section");
+    if (phase === "input") {
+        input.classList.remove("hidden");
+        result.classList.add("hidden");
+    } else if (phase === "result") {
+        input.classList.add("hidden");
+        result.classList.remove("hidden");
+    }
+}
+
+function renderDashboard() {
+    const occ = findOccupation(state.selected.soc);
+    if (!occ) return;
+
+    document.getElementById("result-job-name").textContent = occ.title;
+    document.getElementById("result-age-name").textContent = t(`age_${state.selected.age}`);
+
+    // PR #3 fills #panel-task-heatmap; PR #4 fills #panel-cohort-reality.
+    // Render placeholders for now so the layout is visible.
+    renderPanelPlaceholder("panel-task-heatmap", "panel_task_title", "panel_task_subtitle");
+    renderPanelPlaceholder("panel-cohort-reality", "panel_cohort_title", "panel_cohort_subtitle");
+
+    setPhase("result");
+    smoothScrollTo("result-section", "start");
+}
+
+function renderPanelPlaceholder(panelId, titleKey, subtitleKey) {
+    const el = document.getElementById(panelId);
+    if (!el) return;
+    el.innerHTML = `
+        <h3 class="dashboard-panel-title">${escapeHtml(t(titleKey))}</h3>
+        <p class="dashboard-panel-subtitle">${escapeHtml(t(subtitleKey))}</p>
+        <p class="dashboard-panel-empty">${escapeHtml(t("panel_coming_soon"))}</p>
+    `;
+}
+
+// ------- URL hydration (?soc=&age=) ------------------------------
+
+function hydrateFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const soc = params.get("soc");
+    const age = params.get("age");
+    if (!soc || !age) return;
+    const occ = findOccupation(soc);
+    if (!occ || !AGE_COHORTS.includes(age)) return;
+
+    state.selected.soc = occ.soc;
+    state.selected.onet_soc = occ.onet_soc;
+    state.selected.age = age;
+
+    document.getElementById("job-input").value = occ.title;
+    setAge(age);
+    trackEvent("dashboard_view", {
+        soc: occ.soc, age, language: currentLang, source: "deeplink"
+    });
+    renderDashboard();
+}
+
+// ------- restart / share / lang switcher -------------------------
+
 function restartFlow() {
-    state = { jobId: null, answers: [], persona: null, phase: "input" };
-    evolution = null;
-    document.getElementById("quiz-questions").innerHTML = "";
-    setPhase("input");
+    state.selected.soc = null;
+    state.selected.onet_soc = null;
+    state.selected.age = null;
+    document.getElementById("job-input").value = "";
+    document.querySelectorAll(".age-btn").forEach(b => b.classList.remove("selected"));
     history.replaceState(null, "", shareableUrl());
+    setPhase("input");
     smoothScrollTo("input-section", "start");
 }
 
-async function cycleNextPersona() {
-    if (!state.jobId || !state.persona) return;
-    const idx = PERSONA_CODES.indexOf(state.persona);
-    const next = PERSONA_CODES[(idx + 1) % PERSONA_CODES.length];
-    await goResult(state.jobId, next);
-}
-
 async function onShare() {
-    if (!evolution || !state.persona) return;
+    if (!state.selected.soc || !state.selected.age) return;
     const url = shareableUrl();
-    url.searchParams.set("j", state.jobId);
-    url.searchParams.set("p", state.persona);
+    url.searchParams.set("soc", state.selected.soc);
+    url.searchParams.set("age", state.selected.age);
     const shareUrl = url.toString();
-
-    const caption = localized(evolution.share_caption || {}) || t("slogan");
+    const occ = findOccupation(state.selected.soc);
+    const caption = `${t("app_title")} — ${occ ? occ.title : ""}`;
 
     if (navigator.share) {
-        // Pass caption as text and URL separately. Embedding the URL in text
-        // while also passing url causes some messengers (e.g. KakaoTalk) to
-        // render the URL twice.
         try {
             await navigator.share({ title: t("app_title"), text: caption, url: shareUrl });
             trackEvent("share_click", {
-                job: state.jobId, persona: state.persona, language: currentLang, method: "native"
+                soc: state.selected.soc, age: state.selected.age, language: currentLang, method: "native"
             });
             return;
         } catch (e) { /* user canceled */ }
     }
-    // Clipboard fallback: include the URL inline so a plain-text paste
-    // still carries the link.
     const clipboardText = caption + "\n\n" + shareUrl;
     try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -864,9 +466,62 @@ async function onShare() {
         }
         alert(t("msg_share_done"));
         trackEvent("share_click", {
-            job: state.jobId, persona: state.persona, language: currentLang, method: "clipboard"
+            soc: state.selected.soc, age: state.selected.age, language: currentLang, method: "clipboard"
         });
     } catch (e) {
         console.error("share failed", e);
     }
 }
+
+function setupLangSwitch() {
+    const sw = document.getElementById("lang-switch");
+    if (!sw) return;
+    const btn = sw.querySelector(".lang-toggle");
+    const menu = sw.querySelector(".lang-menu");
+    if (!btn || !menu) return;
+    btn.addEventListener("click", () => {
+        const open = menu.hidden;
+        menu.hidden = !open;
+        btn.setAttribute("aria-expanded", String(open));
+    });
+    document.addEventListener("click", (e) => {
+        if (!sw.contains(e.target)) {
+            menu.hidden = true;
+            btn.setAttribute("aria-expanded", "false");
+        }
+    });
+}
+
+// ------- bootstrap ------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", async () => {
+    currentLang = (document.documentElement.lang || "ko").toLowerCase();
+    if (!UI_TEXT[currentLang]) currentLang = "en";
+    state.lang = currentLang;
+    applyI18n();
+    setupLangSwitch();
+
+    try {
+        await loadOccupations();
+    } catch (e) {
+        console.error("data load failed", e);
+        return;
+    }
+
+    document.getElementById("job-form").addEventListener("submit", onFormSubmit);
+    const input = document.getElementById("job-input");
+    input.addEventListener("input", onJobInput);
+    input.addEventListener("focus", onJobInputFocus);
+    input.addEventListener("input", () => { state.selected.soc = null; });
+    document.getElementById("job-suggestions").addEventListener("mousedown", onSuggestionClick);
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("#job-input,#job-suggestions")) hideSuggestions();
+    });
+
+    document.getElementById("age-group").addEventListener("click", onAgeClick);
+
+    document.getElementById("btn-share").addEventListener("click", onShare);
+    document.getElementById("btn-restart").addEventListener("click", restartFlow);
+
+    hydrateFromUrl();
+});

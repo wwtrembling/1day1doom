@@ -105,56 +105,56 @@
 
         <main>
             <section id="input-section" class="panel">
-                <h2 data-i18n="input_title">What do you do?</h2>
+                <h2 data-i18n="input_title">Your job and age</h2>
                 <form id="job-form" autocomplete="off">
                     <div class="form-group">
                         <label for="job-input" data-i18n="label_job">Job</label>
                         <input type="text" id="job-input" required
-                               placeholder="e.g. Backend Developer, Teacher, Nurse…"
+                               placeholder="Software Developer, Teacher, Registered Nurse…"
                                data-i18n-placeholder="placeholder_job">
-                        <ul id="job-suggestions" class="suggest-list"></ul>
+                        <ul id="job-suggestions" class="suggest-list" hidden></ul>
                     </div>
+
+                    <div class="form-group">
+                        <label data-i18n="label_age">Age</label>
+                        <div id="age-group" class="age-group" role="group">
+                            <button type="button" class="age-btn" data-age="20s" data-i18n="age_20s">20s</button>
+                            <button type="button" class="age-btn" data-age="30s" data-i18n="age_30s">30s</button>
+                            <button type="button" class="age-btn" data-age="40s" data-i18n="age_40s">40s</button>
+                            <button type="button" class="age-btn" data-age="50p" data-i18n="age_50p">50+</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="evo-btn primary" data-i18n="btn_see_dashboard">See my dashboard</button>
                 </form>
-                <p class="hint" data-i18n="hint">
-                    Drop in your job, answer 5 quick questions, see your fate.
-                </p>
+                <p class="hint" data-i18n="hint">Type your occupation in English. v1.1 will add native job-name search.</p>
+                <p class="accuracy-notice" data-i18n="accuracy_notice">v1 data is US (BLS/O*NET). Local market may differ.</p>
             </section>
 
-            <section id="quiz-section" class="panel hidden">
-                <h2 class="quiz-title" data-i18n="quiz_title">5-question diagnosis</h2>
-                <p class="quiz-intro" data-i18n="quiz_intro">In the age of AI, where do you stand?</p>
-                <div id="quiz-questions"></div>
-                <div class="ad-slot ad-slot-quiz" aria-hidden="true">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000001"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                </div>
-            </section>
+            <div class="ad-slot ad-slot-input" aria-hidden="true">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334819180242631"
+                     data-ad-slot="0000000001"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
 
             <section id="result-section" class="panel hidden">
                 <div class="result-header">
                     <p class="result-job-label">
-                        <span data-i18n="result_job_label">Your job</span>:
+                        <span data-i18n="result_job_label">Job</span>:
                         <strong id="result-job-name">…</strong>
+                        ·
+                        <span data-i18n="result_age_label">Age</span>:
+                        <strong id="result-age-name">…</strong>
                     </p>
-                    <h2 id="hook-copy" class="result-caption">…</h2>
+                    <p class="result-subtitle" data-i18n="result_subtitle">We broke the WEF/OECD averages into your personal coordinates.</p>
                 </div>
 
-                <div class="persona-card">
-                    <div class="persona-card-label" data-i18n="persona_card_title">Your alter-ego</div>
-                    <div class="persona-emoji-big" id="persona-emoji">✨</div>
-                    <h3 id="persona-nickname" class="persona-nickname">…</h3>
-                    <p id="persona-blurb" class="persona-blurb">…</p>
-                    <p class="persona-bias">
-                        <span data-i18n="bias_label">Where this leans today</span>:
-                        <strong id="persona-bias-path">…</strong>
-                    </p>
-                </div>
+                <div id="panel-task-heatmap" class="dashboard-panel">…</div>
 
-                <div class="ad-slot ad-slot-result-top" aria-hidden="true">
+                <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-6334819180242631"
@@ -163,65 +163,18 @@
                          data-full-width-responsive="true"></ins>
                 </div>
 
-                <div class="year0-frame">
-                    <div id="year0-card" class="evo-card stage-0 path-year0"></div>
-                </div>
-
-                <div class="dual-tree">
-                    <div id="doom-tree-wrap" class="path-tree path-tree-doom">
-                        <div class="path-tree-header">
-                            <h3 id="doom-tree-title" class="path-tree-title">DOOM PATH</h3>
-                            <p id="doom-tree-desc" class="path-tree-desc">AI takes your seat</p>
-                        </div>
-                        <div id="doom-tree" class="path-tree-stages"></div>
-                    </div>
-
-                    <div id="bloom-tree-wrap" class="path-tree path-tree-bloom">
-                        <div class="path-tree-header">
-                            <h3 id="bloom-tree-title" class="path-tree-title">BLOOM PATH</h3>
-                            <p id="bloom-tree-desc" class="path-tree-desc">You evolve with AI</p>
-                        </div>
-                        <div id="bloom-tree" class="path-tree-stages"></div>
-                    </div>
-
-                    <p class="dual-tree-agency-note" data-i18n="agency_note">
-                        This is just where today's tendency leads. The choices you make from now on can redraw it.
-                    </p>
-
-                    <button id="alt-toggle" class="alt-toggle" type="button" aria-expanded="false" data-i18n="btn_show_alt_path">Show the path not taken</button>
-                </div>
-
-                <details class="references-card">
-                    <summary class="references-summary" data-i18n="btn_show_sources">Show sources</summary>
-                    <p class="references-intro" data-i18n="references_intro">Sources this diagnostic draws on:</p>
-                    <ul class="references-list">
-                        <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener">WEF · Future of Jobs Report 2025</a></li>
-                        <li><a href="https://www.oecd.org/en/topics/artificial-intelligence.html" target="_blank" rel="noopener">OECD · AI Outlook</a></li>
-                        <li><a href="https://www.mckinsey.com/featured-insights/future-of-work" target="_blank" rel="noopener">McKinsey · Future of Work</a></li>
-                        <li><a href="https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379" target="_blank" rel="noopener">IMF · Gen-AI &amp; the Workforce</a></li>
-                    </ul>
-                </details>
-
-                <div class="ad-slot ad-slot-result-mid" aria-hidden="true">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000003"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                </div>
+                <div id="panel-cohort-reality" class="dashboard-panel">…</div>
 
                 <div class="action-buttons">
-                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Share my fate</button>
-                    <button id="btn-other-persona" class="evo-btn" data-i18n="btn_other_persona">If I'd answered differently?</button>
-                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart_quiz">Try another job</button>
+                    <button id="btn-share" class="evo-btn secondary" data-i18n="btn_share">Share my dashboard</button>
+                    <button id="btn-restart" class="evo-btn ghost" data-i18n="btn_restart">Try another job</button>
                 </div>
 
                 <div class="ad-slot ad-slot-result-bottom" aria-hidden="true">
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-6334819180242631"
-                         data-ad-slot="0000000004"
+                         data-ad-slot="0000000003"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
                 </div>
@@ -236,7 +189,7 @@
     <script src="../app.js"></script>
     <script>
       (function pushAds(){
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 3; i++) {
           try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
         }
       })();
