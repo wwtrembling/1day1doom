@@ -43,6 +43,21 @@ const UI_TEXT = {
         legend_T2_desc: "LLM + 도구/인터페이스 결합 시 50%+ 단축.",
         legend_T3_desc: "이미지 생성 등 특수 영역.",
         legend_T4_desc: "부분 노출 또는 불확실해요.",
+        cohort_position_title: "200개 직업 중 당신의 위치",
+        cohort_position_subtitle: "GPT-4 노출 점수로 본 분포",
+        cohort_percentile: "당신 직업은 노출 상위 {p}%에 있어요",
+        cohort_axis_left: "← 안전",
+        cohort_axis_right: "노출 큼 →",
+        reality_check_title: "Reality Check",
+        reality_check_intro: "메이저 doom 보도가 자주 빠뜨리는 4가지 객관 데이터.",
+        reality_card_1_head: "과거 자동화 예측은 자주 빗나가요",
+        reality_card_1_body: "ATM 도입 후 미국 뱅크텔러는 1980 50만 → 2010 60만으로 늘었어요. 지점이 싸져 더 많이 만들어졌어요.",
+        reality_card_2_head: "같은 데이터, 다른 결론",
+        reality_card_2_body: "Frey-Osborne 2013은 미국 직업 47%가 '고위험'이라 했지만, OECD 2016 재추정은 9%. 실제 2013-23 실업률은 평균 4%대였어요.",
+        reality_card_3_head: "새 직업이 만들어져요",
+        reality_card_3_body: "Autor 2024 분석: 2018년 미국 고용의 60%는 1940년에 없던 직업이에요. 자동화는 새 직업도 만들어요.",
+        reality_card_4_head: "노출 ≠ 대체",
+        reality_card_4_body: "Acemoglu 2024 추정: 향후 10년 AI 영향은 GDP +0.5–0.9%. '대량 실업' 시나리오는 아니에요.",
         accuracy_notice: "v1 데이터는 US BLS/O*NET 기준이에요. 한국 노동시장과 차이가 있을 수 있어요.",
         msg_share_done: "링크를 복사했어요. 어디든 붙여넣어 보세요!",
         msg_no_match: "그 직업은 아직 v1에 없어요. 비슷한 영어 직업명으로 시도해 주세요.",
@@ -87,6 +102,21 @@ const UI_TEXT = {
         legend_T2_desc: "LLM with tools/interfaces saves 50%+.",
         legend_T3_desc: "Image generation or specialty domain.",
         legend_T4_desc: "Partial exposure or uncertain.",
+        cohort_position_title: "Your position among 200 occupations",
+        cohort_position_subtitle: "Distribution by GPT-4 exposure score",
+        cohort_percentile: "Your job is in the top {p}% by exposure",
+        cohort_axis_left: "← Safer",
+        cohort_axis_right: "More exposed →",
+        reality_check_title: "Reality Check",
+        reality_check_intro: "4 objective data points major AI-doom coverage often skips.",
+        reality_card_1_head: "Past automation predictions often miss",
+        reality_card_1_body: "After ATMs, US bank tellers grew from 500k (1980) to 600k (2010). Cheaper branches meant more branches were opened.",
+        reality_card_2_head: "Same data, different conclusions",
+        reality_card_2_body: "Frey-Osborne 2013 said 47% of US jobs were 'high-risk.' OECD 2016 re-estimated 9%. Actual 2013-23 unemployment averaged ~4%.",
+        reality_card_3_head: "New jobs are created",
+        reality_card_3_body: "Autor 2024: 60% of 2018 US employment is in occupations that didn't exist in 1940. Automation also creates jobs.",
+        reality_card_4_head: "Exposure ≠ replacement",
+        reality_card_4_body: "Acemoglu 2024: AI's labor-market impact over 10 years is ~+0.5–0.9% GDP. Not a 'mass unemployment' scenario.",
         accuracy_notice: "v1 data is US (BLS/O*NET). Local market may differ.",
         msg_share_done: "Link copied. Paste anywhere.",
         msg_no_match: "That job isn't in v1 yet. Try a similar English title.",
@@ -131,6 +161,21 @@ const UI_TEXT = {
         legend_T2_desc: "LLM + ツール/UIで50%以上短縮。",
         legend_T3_desc: "画像生成など特殊領域。",
         legend_T4_desc: "部分的または不確実。",
+        cohort_position_title: "200職業における、あなたの位置",
+        cohort_position_subtitle: "GPT-4 影響度スコアでの分布",
+        cohort_percentile: "あなたの職業は影響度の上位 {p}% にあります",
+        cohort_axis_left: "← 安全",
+        cohort_axis_right: "影響大 →",
+        reality_check_title: "Reality Check",
+        reality_check_intro: "メジャーな AI 不安報道がよく省く 4 つの客観データ。",
+        reality_card_1_head: "過去の自動化予測はしばしば外れる",
+        reality_card_1_body: "ATM 導入後、米国の銀行窓口係は 1980 年 50 万人 → 2010 年 60 万人に増加。支店コストが下がり、店舗数が増えたためです。",
+        reality_card_2_head: "同じデータ、異なる結論",
+        reality_card_2_body: "Frey-Osborne 2013 は米国職業の 47% が「高リスク」と予測。OECD 2016 の再推計は 9%。実際 2013-23 の失業率は平均約 4%。",
+        reality_card_3_head: "新しい職業が生まれている",
+        reality_card_3_body: "Autor 2024：2018 年の米国雇用の 60% は 1940 年に存在しなかった職業。自動化は新しい職業も作る。",
+        reality_card_4_head: "影響 ≠ 代替",
+        reality_card_4_body: "Acemoglu 2024 推計：今後 10 年の AI 労働市場への影響は GDP 比 +0.5–0.9%。「大量失業」シナリオではない。",
         accuracy_notice: "v1 データは米国 BLS/O*NET ベース。日本市場とは差があります。",
         msg_share_done: "リンクをコピーしました。どこへでも貼り付けてください。",
         msg_no_match: "その職業は v1 に未対応。近い英語職業名でお試しください。",
@@ -175,6 +220,21 @@ const UI_TEXT = {
         legend_T2_desc: "LLM 配合工具/介面可縮短 50% 以上。",
         legend_T3_desc: "影像生成等特殊領域。",
         legend_T4_desc: "部分暴露或不確定。",
+        cohort_position_title: "200 個職業中你的位置",
+        cohort_position_subtitle: "依 GPT-4 暴露分數的分布",
+        cohort_percentile: "你的職業在暴露度前 {p}%",
+        cohort_axis_left: "← 安全",
+        cohort_axis_right: "暴露大 →",
+        reality_check_title: "Reality Check",
+        reality_check_intro: "主流 AI 末日報導常忽略的 4 個客觀數據。",
+        reality_card_1_head: "過去的自動化預測常常落空",
+        reality_card_1_body: "ATM 普及後，美國銀行櫃員從 1980 的 50 萬增加到 2010 的 60 萬。分行成本下降，反而開了更多分行。",
+        reality_card_2_head: "同樣資料，不同結論",
+        reality_card_2_body: "Frey-Osborne 2013 說美國 47% 工作「高風險」。OECD 2016 重新估算為 9%。實際 2013-23 失業率平均約 4%。",
+        reality_card_3_head: "新工作正在誕生",
+        reality_card_3_body: "Autor 2024 分析：2018 美國 60% 的就業在 1940 年並不存在。自動化也創造新工作。",
+        reality_card_4_head: "暴露 ≠ 取代",
+        reality_card_4_body: "Acemoglu 2024 估計：未來 10 年 AI 對勞動市場影響約 GDP +0.5–0.9%，非「大規模失業」場景。",
         accuracy_notice: "v1 數據以美國 BLS/O*NET 為準。台灣市場可能有差。",
         msg_share_done: "已複製連結。貼到任何地方都可以。",
         msg_no_match: "v1 還沒收錄這個職業。請試試相近的英文職業名。",
@@ -219,6 +279,21 @@ const UI_TEXT = {
         legend_T2_desc: "LLM con herramientas ahorra 50%+.",
         legend_T3_desc: "Generación de imágenes u otros dominios específicos.",
         legend_T4_desc: "Exposición parcial o incierta.",
+        cohort_position_title: "Tu posición entre 200 ocupaciones",
+        cohort_position_subtitle: "Distribución según exposición a GPT-4",
+        cohort_percentile: "Tu profesión está en el top {p}% de exposición",
+        cohort_axis_left: "← Más seguro",
+        cohort_axis_right: "Más expuesto →",
+        reality_check_title: "Reality Check",
+        reality_check_intro: "4 datos objetivos que la cobertura mediática del 'doom' suele omitir.",
+        reality_card_1_head: "Las predicciones de automatización suelen fallar",
+        reality_card_1_body: "Tras los cajeros automáticos, los cajeros bancarios en EE. UU. crecieron de 500k (1980) a 600k (2010). Sucursales más baratas significan más sucursales.",
+        reality_card_2_head: "Mismos datos, distintas conclusiones",
+        reality_card_2_body: "Frey-Osborne 2013 estimó 47% de empleos en 'alto riesgo'. La OCDE en 2016 lo reestimó en 9%. El desempleo real 2013-23 promedió ~4%.",
+        reality_card_3_head: "Se crean nuevos empleos",
+        reality_card_3_body: "Autor 2024: el 60% del empleo de EE. UU. en 2018 está en ocupaciones que no existían en 1940. La automatización también crea empleos.",
+        reality_card_4_head: "Exposición ≠ reemplazo",
+        reality_card_4_body: "Acemoglu 2024: el impacto laboral de la IA en 10 años es ~+0,5–0,9% del PIB. No es un escenario de 'desempleo masivo'.",
         accuracy_notice: "Datos v1 = US (BLS/O*NET). Tu mercado local puede diferir.",
         msg_share_done: "Enlace copiado. Pégalo donde quieras.",
         msg_no_match: "Esa profesión aún no está en v1. Prueba un título en inglés similar.",
@@ -263,6 +338,21 @@ const UI_TEXT = {
         legend_T2_desc: "LLM mit Tools spart 50%+.",
         legend_T3_desc: "Bildgenerierung oder Spezialbereich.",
         legend_T4_desc: "Teilweise oder unsicher.",
+        cohort_position_title: "Deine Position unter 200 Berufen",
+        cohort_position_subtitle: "Verteilung nach GPT-4-Expositionsscore",
+        cohort_percentile: "Dein Beruf liegt in den obersten {p}% der Exposition",
+        cohort_axis_left: "← Sicherer",
+        cohort_axis_right: "Stärker exponiert →",
+        reality_check_title: "Reality Check",
+        reality_check_intro: "4 objektive Datenpunkte, die in der KI-Doom-Berichterstattung oft fehlen.",
+        reality_card_1_head: "Automatisierungsprognosen liegen oft daneben",
+        reality_card_1_body: "Nach Geldautomaten stieg die Zahl der US-Bankangestellten von 500k (1980) auf 600k (2010). Günstigere Filialen führten zu mehr Filialen.",
+        reality_card_2_head: "Gleiche Daten, andere Schlussfolgerungen",
+        reality_card_2_body: "Frey-Osborne 2013 sah 47% der US-Jobs als 'hochrisikoreich'. OECD 2016 schätzte 9%. Die Arbeitslosigkeit 2013-23 lag im Schnitt bei ~4%.",
+        reality_card_3_head: "Neue Berufe entstehen",
+        reality_card_3_body: "Autor 2024: 60% der US-Beschäftigung 2018 entfallen auf Berufe, die es 1940 nicht gab. Automatisierung schafft auch neue Jobs.",
+        reality_card_4_head: "Exposition ≠ Ersatz",
+        reality_card_4_body: "Acemoglu 2024 schätzt den KI-Arbeitsmarkteffekt über 10 Jahre auf ~+0,5–0,9% BIP. Kein 'Massenarbeitslosigkeit'-Szenario.",
         accuracy_notice: "v1-Daten = US (BLS/O*NET). Lokaler Markt kann abweichen.",
         msg_share_done: "Link kopiert. Überall einfügen.",
         msg_no_match: "Dieser Beruf ist in v1 noch nicht dabei. Versuche einen ähnlichen englischen Titel.",
@@ -484,8 +574,7 @@ function renderDashboard() {
     document.getElementById("result-age-name").textContent = t(`age_${state.selected.age}`);
 
     renderTaskHeatmap(occ.soc);
-    // PR #4 fills #panel-cohort-reality.
-    renderPanelPlaceholder("panel-cohort-reality", "panel_cohort_title", "panel_cohort_subtitle");
+    renderCohortReality(occ);
 
     setPhase("result");
     smoothScrollTo("result-section", "start");
@@ -613,6 +702,66 @@ function toggleTaskList(panelEl, btn, total) {
     btn.textContent = nowExpanded
         ? t("task_show_less")
         : `${t("task_show_more")} (${total - TASKS_VISIBLE_INITIAL})`;
+}
+
+// Reality Check sources — author label is locale-independent (proper nouns).
+const REALITY_SOURCES = [
+    { label: "Bessen 2015 · SSRN",       url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2690435" },
+    { label: "Arntz et al. 2016 · OECD", url: "https://doi.org/10.1787/5jlz9h56dvq7-en" },
+    { label: "Autor 2024 · NBER w31866", url: "https://www.nber.org/papers/w31866" },
+    { label: "Acemoglu 2024 · NBER w32487", url: "https://www.nber.org/papers/w32487" }
+];
+
+function computeExposurePercentile(occ, all) {
+    // Rank by exp_gamma desc: rank 1 = most exposed, rank N = least.
+    // Returns the top-X percentile (1..100), where smaller means more exposed.
+    if (!occ || typeof occ.exp_gamma !== "number") return null;
+    const valid = all.filter(o => typeof o.exp_gamma === "number");
+    valid.sort((a, b) => b.exp_gamma - a.exp_gamma);
+    const idx = valid.findIndex(o => o.soc === occ.soc);
+    if (idx < 0) return null;
+    return Math.max(1, Math.round(((idx + 1) / valid.length) * 100));
+}
+
+function renderCohortReality(occ) {
+    const el = document.getElementById("panel-cohort-reality");
+    if (!el) return;
+
+    const pct = computeExposurePercentile(occ, state.occupations);
+    const markerLeft = pct !== null ? 100 - pct : 50;  // top 32% → marker at 68%
+    const pctText = pct !== null
+        ? t("cohort_percentile").replace("{p}", pct)
+        : "";
+
+    const realityCards = REALITY_SOURCES.map((src, i) => {
+        const headKey = `reality_card_${i + 1}_head`;
+        const bodyKey = `reality_card_${i + 1}_body`;
+        return `
+            <div class="reality-card">
+                <h4>${escapeHtml(t(headKey))}</h4>
+                <p>${escapeHtml(t(bodyKey))}</p>
+                <a href="${escapeHtml(src.url)}" target="_blank" rel="noopener">${escapeHtml(src.label)} →</a>
+            </div>
+        `;
+    }).join("");
+
+    el.innerHTML = `
+        <h3 class="dashboard-panel-title">${escapeHtml(t("cohort_position_title"))}</h3>
+        <p class="dashboard-panel-subtitle">${escapeHtml(t("cohort_position_subtitle"))}</p>
+
+        <div class="cohort-axis">
+            <span>${escapeHtml(t("cohort_axis_left"))}</span>
+            <span>${escapeHtml(t("cohort_axis_right"))}</span>
+        </div>
+        <div class="cohort-strip">
+            <div class="cohort-marker" style="left:${markerLeft.toFixed(1)}%"></div>
+        </div>
+        <p class="cohort-percentile">${escapeHtml(pctText)}</p>
+
+        <h4 class="reality-check-title">${escapeHtml(t("reality_check_title"))}</h4>
+        <p class="reality-check-intro">${escapeHtml(t("reality_check_intro"))}</p>
+        <div class="reality-grid">${realityCards}</div>
+    `;
 }
 
 // ------- URL hydration (?soc=&age=) ------------------------------
