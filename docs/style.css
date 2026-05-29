@@ -484,6 +484,87 @@ input[type="text"]:focus {
 }
 .task-show-more:hover { background: var(--bg-cream-2); }
 
+/* Cohort + Reality Check (P4) */
+.cohort-axis {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+}
+.cohort-strip {
+    position: relative;
+    height: 14px;
+    background: linear-gradient(to right, #5cb85c 0%, #f0ad4e 50%, #d9534f 100%);
+    border-radius: 999px;
+    margin-bottom: 12px;
+}
+.cohort-marker {
+    position: absolute;
+    top: -5px;
+    width: 18px;
+    height: 24px;
+    border-radius: 4px;
+    background: var(--ink);
+    border: 2px solid white;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.cohort-percentile {
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: center;
+}
+
+.reality-check-title {
+    margin: 18px 0 4px;
+    font-family: 'Jua', sans-serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+}
+.reality-check-intro {
+    margin: 0 0 12px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+.reality-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+@media (min-width: 600px) {
+    .reality-grid { grid-template-columns: 1fr 1fr; }
+}
+.reality-card {
+    padding: 12px 14px;
+    background: var(--bg-cream-2);
+    border-radius: 10px;
+    border-left: 3px solid #5cb85c;
+}
+.reality-card h4 {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+.reality-card p {
+    margin: 0 0 8px;
+    font-size: 0.86rem;
+    color: var(--ink);
+    line-height: 1.5;
+}
+.reality-card a {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-decoration: underline;
+    text-decoration-color: var(--ink-soft);
+    text-underline-offset: 2px;
+}
+.reality-card a:hover { color: var(--accent-now); }
+
 .evolution-cards {
     display: flex;
     flex-direction: column;
