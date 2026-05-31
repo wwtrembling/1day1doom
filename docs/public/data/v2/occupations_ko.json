@@ -1,0 +1,2002 @@
+[
+  {
+    "soc": "41-2031",
+    "onet_soc": "41-2031.00",
+    "title": "소매 판매원",
+    "tot_emp": 3693490,
+    "aioe": 0.0873,
+    "exp_alpha": 0.0789,
+    "exp_beta": 0.3421,
+    "exp_gamma": 0.6053
+  },
+  {
+    "soc": "41-2011",
+    "onet_soc": "41-2011.00",
+    "title": "계산원",
+    "tot_emp": 3318020,
+    "aioe": -0.2481,
+    "exp_alpha": 0.1395,
+    "exp_beta": 0.2093,
+    "exp_gamma": 0.2791
+  },
+  {
+    "soc": "35-3023",
+    "onet_soc": "35-3023.00",
+    "title": "패스트푸드 조리원",
+    "tot_emp": 3095120,
+    "aioe": null,
+    "exp_alpha": 0.0208,
+    "exp_beta": 0.0625,
+    "exp_gamma": 0.1042
+  },
+  {
+    "soc": "29-1141",
+    "onet_soc": "29-1141.00",
+    "title": "간호사",
+    "tot_emp": 3047530,
+    "aioe": 0.2294,
+    "exp_alpha": 0.0476,
+    "exp_beta": 0.3333,
+    "exp_gamma": 0.619
+  },
+  {
+    "soc": "11-1021",
+    "onet_soc": "11-1021.00",
+    "title": "경영 관리자",
+    "tot_emp": 2984920,
+    "aioe": 0.5749,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.4808,
+    "exp_gamma": 0.9615
+  },
+  {
+    "soc": "43-4051",
+    "onet_soc": "43-4051.00",
+    "title": "고객 상담원",
+    "tot_emp": 2787070,
+    "aioe": 0.9563,
+    "exp_alpha": 0.1364,
+    "exp_beta": 0.5682,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "53-7062",
+    "onet_soc": "53-7062.00",
+    "title": "하역 작업원",
+    "tot_emp": 2729010,
+    "aioe": -1.7092,
+    "exp_alpha": 0.04,
+    "exp_beta": 0.04,
+    "exp_gamma": 0.04
+  },
+  {
+    "soc": "43-9061",
+    "onet_soc": "43-9061.00",
+    "title": "사무원",
+    "tot_emp": 2578180,
+    "aioe": 0.9889,
+    "exp_alpha": 0.3636,
+    "exp_beta": 0.5758,
+    "exp_gamma": 0.7879
+  },
+  {
+    "soc": "53-7065",
+    "onet_soc": "53-7065.00",
+    "title": "물류 입출고원",
+    "tot_emp": 2451430,
+    "aioe": null,
+    "exp_alpha": 0.1091,
+    "exp_beta": 0.1818,
+    "exp_gamma": 0.2545
+  },
+  {
+    "soc": "37-2011",
+    "onet_soc": "37-2011.00",
+    "title": "건물 청소원",
+    "tot_emp": 2036680,
+    "aioe": -1.4362,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "53-3032",
+    "onet_soc": "53-3032.00",
+    "title": "대형 화물차 운전기사",
+    "tot_emp": 1903420,
+    "aioe": -1.1491,
+    "exp_alpha": 0.1923,
+    "exp_beta": 0.2788,
+    "exp_gamma": 0.3654
+  },
+  {
+    "soc": "43-6014",
+    "onet_soc": "43-6014.00",
+    "title": "행정 비서",
+    "tot_emp": 1825980,
+    "aioe": 1.0991,
+    "exp_alpha": 0.3846,
+    "exp_beta": 0.6442,
+    "exp_gamma": 0.9038
+  },
+  {
+    "soc": "35-3031",
+    "onet_soc": "35-3031.00",
+    "title": "서빙 직원",
+    "tot_emp": 1804030,
+    "aioe": -0.9481,
+    "exp_alpha": 0.0816,
+    "exp_beta": 0.1837,
+    "exp_gamma": 0.2857
+  },
+  {
+    "soc": "43-3031",
+    "onet_soc": "43-3031.00",
+    "title": "경리 사무원",
+    "tot_emp": 1509370,
+    "aioe": 1.0397,
+    "exp_alpha": 0.6047,
+    "exp_beta": 0.8023,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "43-1011",
+    "onet_soc": "43-1011.00",
+    "title": "사무 관리 감독자",
+    "tot_emp": 1443630,
+    "aioe": 1.0387,
+    "exp_alpha": 0.0833,
+    "exp_beta": 0.4896,
+    "exp_gamma": 0.8958
+  },
+  {
+    "soc": "49-9071",
+    "onet_soc": "49-9071.00",
+    "title": "시설 유지보수원",
+    "tot_emp": 1416740,
+    "aioe": -1.0144,
+    "exp_alpha": 0.0392,
+    "exp_beta": 0.1373,
+    "exp_gamma": 0.2353
+  },
+  {
+    "soc": "15-1252",
+    "onet_soc": "15-1252.00",
+    "title": "소프트웨어 개발자",
+    "tot_emp": 1364180,
+    "aioe": null,
+    "exp_alpha": 0.7895,
+    "exp_beta": 0.8684,
+    "exp_gamma": 0.9474
+  },
+  {
+    "soc": "25-2021",
+    "onet_soc": "25-2021.00",
+    "title": "초등학교 교사",
+    "tot_emp": 1329280,
+    "aioe": 0.8869,
+    "exp_alpha": 0.0541,
+    "exp_beta": 0.3108,
+    "exp_gamma": 0.5676
+  },
+  {
+    "soc": "13-2011",
+    "onet_soc": "13-2011.00",
+    "title": "회계사",
+    "tot_emp": 1318550,
+    "aioe": 1.482,
+    "exp_alpha": 0.12,
+    "exp_beta": 0.56,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "31-1131",
+    "onet_soc": "31-1131.00",
+    "title": "간호조무사",
+    "tot_emp": 1314830,
+    "aioe": null,
+    "exp_alpha": 0.0508,
+    "exp_beta": 0.1017,
+    "exp_gamma": 0.1525
+  },
+  {
+    "soc": "41-4012",
+    "onet_soc": "41-4012.00",
+    "title": "도매 영업 사원",
+    "tot_emp": 1242490,
+    "aioe": 0.8225,
+    "exp_alpha": 0.2414,
+    "exp_beta": 0.6207,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "35-2014",
+    "onet_soc": "35-2014.00",
+    "title": "레스토랑 조리사",
+    "tot_emp": 1193860,
+    "aioe": -0.7418,
+    "exp_alpha": 0.027,
+    "exp_beta": 0.0946,
+    "exp_gamma": 0.1622
+  },
+  {
+    "soc": "41-1011",
+    "onet_soc": "41-1011.00",
+    "title": "매장 관리자",
+    "tot_emp": 1143260,
+    "aioe": 0.0192,
+    "exp_alpha": 0.0811,
+    "exp_beta": 0.4865,
+    "exp_gamma": 0.8919
+  },
+  {
+    "soc": "33-9032",
+    "onet_soc": "33-9032.00",
+    "title": "경비원",
+    "tot_emp": 1057100,
+    "aioe": -0.3908,
+    "exp_alpha": 0.1667,
+    "exp_beta": 0.1667,
+    "exp_gamma": 0.1667
+  },
+  {
+    "soc": "35-1012",
+    "onet_soc": "35-1012.00",
+    "title": "외식업 현장 관리자",
+    "tot_emp": 1040600,
+    "aioe": -0.2575,
+    "exp_alpha": 0.2222,
+    "exp_beta": 0.5111,
+    "exp_gamma": 0.8
+  },
+  {
+    "soc": "13-1199",
+    "onet_soc": "13-1199.04",
+    "title": "비즈니스 연속성 기획자",
+    "tot_emp": 1030330,
+    "aioe": 1.0477,
+    "exp_alpha": 0.1463,
+    "exp_beta": 0.5732,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "41-3091",
+    "onet_soc": "41-3091.00",
+    "title": "서비스 영업 사원",
+    "tot_emp": 1026390,
+    "aioe": null,
+    "exp_alpha": 0.3333,
+    "exp_beta": 0.6333,
+    "exp_gamma": 0.9333
+  },
+  {
+    "soc": "25-2031",
+    "onet_soc": "25-2031.00",
+    "title": "중학교 교사",
+    "tot_emp": 1020240,
+    "aioe": 1.1913,
+    "exp_alpha": 0.0317,
+    "exp_beta": 0.3333,
+    "exp_gamma": 0.6349
+  },
+  {
+    "soc": "53-3033",
+    "onet_soc": "53-3033.00",
+    "title": "소형 화물차 운전기사",
+    "tot_emp": 1010040,
+    "aioe": -1.1205,
+    "exp_alpha": 0.2308,
+    "exp_beta": 0.3654,
+    "exp_gamma": 0.5
+  },
+  {
+    "soc": "43-4171",
+    "onet_soc": "43-4171.00",
+    "title": "안내 데스크 직원",
+    "tot_emp": 983150,
+    "aioe": 1.0132,
+    "exp_alpha": 0.2,
+    "exp_beta": 0.5333,
+    "exp_gamma": 0.8667
+  },
+  {
+    "soc": "47-2061",
+    "onet_soc": "47-2061.00",
+    "title": "건설 노무자",
+    "tot_emp": 968760,
+    "aioe": -1.623,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.05,
+    "exp_gamma": 0.1
+  },
+  {
+    "soc": "37-3011",
+    "onet_soc": "37-3011.00",
+    "title": "조경 관리원",
+    "tot_emp": 892450,
+    "aioe": -1.8243,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0244,
+    "exp_gamma": 0.0488
+  },
+  {
+    "soc": "43-5071",
+    "onet_soc": "43-5071.00",
+    "title": "입출하 사무원",
+    "tot_emp": 795360,
+    "aioe": -0.7463,
+    "exp_alpha": 0.2857,
+    "exp_beta": 0.5,
+    "exp_gamma": 0.7143
+  },
+  {
+    "soc": "35-2021",
+    "onet_soc": "35-2021.00",
+    "title": "조리 보조원",
+    "tot_emp": 783350,
+    "aioe": -1.2264,
+    "exp_alpha": 0.0185,
+    "exp_beta": 0.037,
+    "exp_gamma": 0.0556
+  },
+  {
+    "soc": "13-1111",
+    "onet_soc": "13-1111.00",
+    "title": "경영 컨설턴트",
+    "tot_emp": 768450,
+    "aioe": 1.4324,
+    "exp_alpha": 0.0952,
+    "exp_beta": 0.4048,
+    "exp_gamma": 0.7143
+  },
+  {
+    "soc": "35-2011",
+    "onet_soc": "35-2011.00",
+    "title": "패스트푸드 조리사",
+    "tot_emp": 768130,
+    "aioe": -0.7132,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "53-7051",
+    "onet_soc": "53-7051.00",
+    "title": "지게차 운전원",
+    "tot_emp": 758290,
+    "aioe": -1.3987,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0312,
+    "exp_gamma": 0.0625
+  },
+  {
+    "soc": "13-1082",
+    "onet_soc": "13-1082.00",
+    "title": "프로젝트 관리 전문가",
+    "tot_emp": 743860,
+    "aioe": null,
+    "exp_alpha": 0.1,
+    "exp_beta": 0.55,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "13-1071",
+    "onet_soc": "13-1071.00",
+    "title": "인사 담당자",
+    "tot_emp": 740830,
+    "aioe": 1.36,
+    "exp_alpha": 0.3333,
+    "exp_beta": 0.6444,
+    "exp_gamma": 0.9556
+  },
+  {
+    "soc": "31-9092",
+    "onet_soc": "31-9092.00",
+    "title": "의료 보조원",
+    "tot_emp": 727760,
+    "aioe": 0.1498,
+    "exp_alpha": 0.1795,
+    "exp_beta": 0.359,
+    "exp_gamma": 0.5385
+  },
+  {
+    "soc": "13-1161",
+    "onet_soc": "13-1161.00",
+    "title": "시장조사 분석가",
+    "tot_emp": 727540,
+    "aioe": 1.4268,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.5,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "37-2012",
+    "onet_soc": "37-2012.00",
+    "title": "객실 청소원",
+    "tot_emp": 723430,
+    "aioe": -1.4807,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "11-3031",
+    "onet_soc": "11-3031.00",
+    "title": "재무 관리자",
+    "tot_emp": 681070,
+    "aioe": 1.4462,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.4815,
+    "exp_gamma": 0.963
+  },
+  {
+    "soc": "23-1011",
+    "onet_soc": "23-1011.00",
+    "title": "변호사",
+    "tot_emp": 681010,
+    "aioe": 1.3288,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.425,
+    "exp_gamma": 0.85
+  },
+  {
+    "soc": "47-2031",
+    "onet_soc": "47-2031.00",
+    "title": "목수",
+    "tot_emp": 668060,
+    "aioe": -1.3236,
+    "exp_alpha": 0.0444,
+    "exp_beta": 0.1444,
+    "exp_gamma": 0.2444
+  },
+  {
+    "soc": "47-1011",
+    "onet_soc": "47-1011.00",
+    "title": "건설 현장 감독",
+    "tot_emp": 665870,
+    "aioe": -0.3054,
+    "exp_alpha": 0.0667,
+    "exp_beta": 0.4,
+    "exp_gamma": 0.7333
+  },
+  {
+    "soc": "33-3051",
+    "onet_soc": "33-3051.00",
+    "title": "경찰관",
+    "tot_emp": 665380,
+    "aioe": -0.6681,
+    "exp_alpha": 0.069,
+    "exp_beta": 0.25,
+    "exp_gamma": 0.431
+  },
+  {
+    "soc": "43-6013",
+    "onet_soc": "43-6013.00",
+    "title": "의료 행정 비서",
+    "tot_emp": 656640,
+    "aioe": 1.218,
+    "exp_alpha": 0.3333,
+    "exp_beta": 0.6667,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "15-1232",
+    "onet_soc": "15-1232.00",
+    "title": "IT 기술지원 전문가",
+    "tot_emp": 654310,
+    "aioe": null,
+    "exp_alpha": 0.4444,
+    "exp_beta": 0.6111,
+    "exp_gamma": 0.7778
+  },
+  {
+    "soc": "47-2111",
+    "onet_soc": "47-2111.00",
+    "title": "전기 기사",
+    "tot_emp": 650580,
+    "aioe": -0.7797,
+    "exp_alpha": 0.0976,
+    "exp_beta": 0.1463,
+    "exp_gamma": 0.1951
+  },
+  {
+    "soc": "29-2061",
+    "onet_soc": "29-2061.00",
+    "title": "준간호사",
+    "tot_emp": 641240,
+    "aioe": -0.5137,
+    "exp_alpha": 0.0789,
+    "exp_beta": 0.25,
+    "exp_gamma": 0.4211
+  },
+  {
+    "soc": "49-3023",
+    "onet_soc": "49-3023.00",
+    "title": "자동차 정비사",
+    "tot_emp": 629780,
+    "aioe": -0.9547,
+    "exp_alpha": 0.0364,
+    "exp_beta": 0.0818,
+    "exp_gamma": 0.1273
+  },
+  {
+    "soc": "51-1011",
+    "onet_soc": "51-1011.00",
+    "title": "생산직 관리 감독자",
+    "tot_emp": 629420,
+    "aioe": -0.0845,
+    "exp_alpha": 0.15,
+    "exp_beta": 0.4,
+    "exp_gamma": 0.65
+  },
+  {
+    "soc": "25-2022",
+    "onet_soc": "25-2022.00",
+    "title": "중학교 교사",
+    "tot_emp": 592000,
+    "aioe": 1.2864,
+    "exp_alpha": 0.0725,
+    "exp_beta": 0.3478,
+    "exp_gamma": 0.6232
+  },
+  {
+    "soc": "53-7064",
+    "onet_soc": "53-7064.00",
+    "title": "포장 작업원",
+    "tot_emp": 585270,
+    "aioe": -1.5136,
+    "exp_alpha": 0.1,
+    "exp_beta": 0.1,
+    "exp_gamma": 0.1
+  },
+  {
+    "soc": "51-9061",
+    "onet_soc": "51-9061.00",
+    "title": "품질 검사원",
+    "tot_emp": 551380,
+    "aioe": -0.0293,
+    "exp_alpha": 0.2708,
+    "exp_beta": 0.4167,
+    "exp_gamma": 0.5625
+  },
+  {
+    "soc": "49-1011",
+    "onet_soc": "49-1011.00",
+    "title": "정비 관리 감독자",
+    "tot_emp": 526240,
+    "aioe": -0.0205,
+    "exp_alpha": 0.0256,
+    "exp_beta": 0.4103,
+    "exp_gamma": 0.7949
+  },
+  {
+    "soc": "15-1211",
+    "onet_soc": "15-1211.00",
+    "title": "시스템 분석가",
+    "tot_emp": 505150,
+    "aioe": null,
+    "exp_alpha": 0.5882,
+    "exp_beta": 0.75,
+    "exp_gamma": 0.9118
+  },
+  {
+    "soc": "11-9199",
+    "onet_soc": "11-9199.01",
+    "title": "규제 업무 관리자",
+    "tot_emp": 497890,
+    "aioe": 0.9647,
+    "exp_alpha": 0.1154,
+    "exp_beta": 0.5577,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "35-3011",
+    "onet_soc": "35-3011.00",
+    "title": "바텐더",
+    "tot_emp": 485330,
+    "aioe": -0.616,
+    "exp_alpha": 0.1111,
+    "exp_beta": 0.1944,
+    "exp_gamma": 0.2778
+  },
+  {
+    "soc": "11-3021",
+    "onet_soc": "11-3021.00",
+    "title": "IT 관리자",
+    "tot_emp": 485190,
+    "aioe": 1.0599,
+    "exp_alpha": 0.1212,
+    "exp_beta": 0.5303,
+    "exp_gamma": 0.9394
+  },
+  {
+    "soc": "53-3031",
+    "onet_soc": "53-3031.00",
+    "title": "배송 운전원",
+    "tot_emp": 477020,
+    "aioe": -0.7293,
+    "exp_alpha": 0.1667,
+    "exp_beta": 0.3333,
+    "exp_gamma": 0.5
+  },
+  {
+    "soc": "43-6011",
+    "onet_soc": "43-6011.00",
+    "title": "임원 비서",
+    "tot_emp": 466910,
+    "aioe": 1.0796,
+    "exp_alpha": 0.3784,
+    "exp_beta": 0.6486,
+    "exp_gamma": 0.9189
+  },
+  {
+    "soc": "11-2022",
+    "onet_soc": "11-2022.00",
+    "title": "영업 관리자",
+    "tot_emp": 453800,
+    "aioe": 1.2663,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.45,
+    "exp_gamma": 0.9
+  },
+  {
+    "soc": "39-9011",
+    "onet_soc": "39-9011.00",
+    "title": "보육 교사",
+    "tot_emp": 438520,
+    "aioe": -0.3835,
+    "exp_alpha": 0.1136,
+    "exp_beta": 0.1477,
+    "exp_gamma": 0.1818
+  },
+  {
+    "soc": "11-9111",
+    "onet_soc": "11-9111.00",
+    "title": "의료 서비스 관리자",
+    "tot_emp": 436770,
+    "aioe": 1.2603,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.4286,
+    "exp_gamma": 0.8571
+  },
+  {
+    "soc": "29-2052",
+    "onet_soc": "29-2052.00",
+    "title": "약국 기술원",
+    "tot_emp": 436630,
+    "aioe": 0.007,
+    "exp_alpha": 0.2941,
+    "exp_beta": 0.4265,
+    "exp_gamma": 0.5588
+  },
+  {
+    "soc": "43-3021",
+    "onet_soc": "43-3021.00",
+    "title": "청구 사무원",
+    "tot_emp": 429080,
+    "aioe": 1.3335,
+    "exp_alpha": 0.6905,
+    "exp_beta": 0.7738,
+    "exp_gamma": 0.8571
+  },
+  {
+    "soc": "41-3031",
+    "onet_soc": "41-3031.00",
+    "title": "금융 상품 영업원",
+    "tot_emp": 426870,
+    "aioe": 1.2563,
+    "exp_alpha": 0.2115,
+    "exp_beta": 0.6058,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "41-3021",
+    "onet_soc": "41-3021.00",
+    "title": "보험 설계사",
+    "tot_emp": 422600,
+    "aioe": 1.3413,
+    "exp_alpha": 0.1515,
+    "exp_beta": 0.5758,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "47-2152",
+    "onet_soc": "47-2152.00",
+    "title": "배관공",
+    "tot_emp": 417620,
+    "aioe": -1.1212,
+    "exp_alpha": 0.037,
+    "exp_beta": 0.1019,
+    "exp_gamma": 0.1667
+  },
+  {
+    "soc": "47-2073",
+    "onet_soc": "47-2073.00",
+    "title": "건설 중장비 운전원",
+    "tot_emp": 404820,
+    "aioe": -0.8815,
+    "exp_alpha": 0.0435,
+    "exp_beta": 0.0543,
+    "exp_gamma": 0.0652
+  },
+  {
+    "soc": "21-1093",
+    "onet_soc": "21-1093.00",
+    "title": "사회복지 보조원",
+    "tot_emp": 398380,
+    "aioe": 0.4652,
+    "exp_alpha": 0.2143,
+    "exp_beta": 0.3929,
+    "exp_gamma": 0.5714
+  },
+  {
+    "soc": "51-4121",
+    "onet_soc": "51-4121.00",
+    "title": "용접공",
+    "tot_emp": 397600,
+    "aioe": -1.1976,
+    "exp_alpha": 0.0784,
+    "exp_beta": 0.0882,
+    "exp_gamma": 0.098
+  },
+  {
+    "soc": "35-2012",
+    "onet_soc": "35-2012.00",
+    "title": "단체급식 조리사",
+    "tot_emp": 392860,
+    "aioe": -0.6361,
+    "exp_alpha": 0.0345,
+    "exp_beta": 0.1207,
+    "exp_gamma": 0.2069
+  },
+  {
+    "soc": "33-3012",
+    "onet_soc": "33-3012.00",
+    "title": "교도관",
+    "tot_emp": 392600,
+    "aioe": -0.8875,
+    "exp_alpha": 0.2273,
+    "exp_beta": 0.2614,
+    "exp_gamma": 0.2955
+  },
+  {
+    "soc": "25-2011",
+    "onet_soc": "25-2011.00",
+    "title": "유치원 교사",
+    "tot_emp": 391670,
+    "aioe": 0.0306,
+    "exp_alpha": 0.0606,
+    "exp_beta": 0.2273,
+    "exp_gamma": 0.3939
+  },
+  {
+    "soc": "35-9021",
+    "onet_soc": "35-9021.00",
+    "title": "설거지 담당원",
+    "tot_emp": 377040,
+    "aioe": -1.7386,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "25-3031",
+    "onet_soc": "25-3031.00",
+    "title": "기간제 교사",
+    "tot_emp": 374620,
+    "aioe": null,
+    "exp_alpha": 0.2778,
+    "exp_beta": 0.3611,
+    "exp_gamma": 0.4444
+  },
+  {
+    "soc": "49-9041",
+    "onet_soc": "49-9041.00",
+    "title": "산업 기계 정비사",
+    "tot_emp": 373090,
+    "aioe": -1.1332,
+    "exp_alpha": 0.1935,
+    "exp_beta": 0.2742,
+    "exp_gamma": 0.3548
+  },
+  {
+    "soc": "41-2021",
+    "onet_soc": "41-2021.00",
+    "title": "창구 접수원",
+    "tot_emp": 371620,
+    "aioe": 0.0784,
+    "exp_alpha": 0.2581,
+    "exp_beta": 0.5323,
+    "exp_gamma": 0.8065
+  },
+  {
+    "soc": "15-1299",
+    "onet_soc": "15-1299.01",
+    "title": "웹 관리자",
+    "tot_emp": 370190,
+    "aioe": null,
+    "exp_alpha": 0.8261,
+    "exp_beta": 0.913,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "43-5061",
+    "onet_soc": "43-5061.00",
+    "title": "생산계획 사무원",
+    "tot_emp": 367200,
+    "aioe": 0.6999,
+    "exp_alpha": 0.2692,
+    "exp_beta": 0.5962,
+    "exp_gamma": 0.9231
+  },
+  {
+    "soc": "43-3071",
+    "onet_soc": "43-3071.00",
+    "title": "은행 창구 직원",
+    "tot_emp": 364210,
+    "aioe": 0.4728,
+    "exp_alpha": 0.3125,
+    "exp_beta": 0.5417,
+    "exp_gamma": 0.7708
+  },
+  {
+    "soc": "53-3051",
+    "onet_soc": "53-3051.00",
+    "title": "통학버스 운전기사",
+    "tot_emp": 361420,
+    "aioe": null,
+    "exp_alpha": 0.2941,
+    "exp_beta": 0.3235,
+    "exp_gamma": 0.3529
+  },
+  {
+    "soc": "51-9111",
+    "onet_soc": "51-9111.00",
+    "title": "포장기계 조작원",
+    "tot_emp": 358640,
+    "aioe": -0.9786,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "49-9021",
+    "onet_soc": "49-9021.00",
+    "title": "냉난방 설비 기사",
+    "tot_emp": 356960,
+    "aioe": -0.8491,
+    "exp_alpha": 0.0702,
+    "exp_beta": 0.1053,
+    "exp_gamma": 0.1404
+  },
+  {
+    "soc": "53-7061",
+    "onet_soc": "53-7061.00",
+    "title": "세차원",
+    "tot_emp": 351960,
+    "aioe": -1.6299,
+    "exp_alpha": 0.0556,
+    "exp_beta": 0.0833,
+    "exp_gamma": 0.1111
+  },
+  {
+    "soc": "31-9091",
+    "onet_soc": "31-9091.00",
+    "title": "치과 보조원",
+    "tot_emp": 347170,
+    "aioe": -0.5269,
+    "exp_alpha": 0.1333,
+    "exp_beta": 0.2667,
+    "exp_gamma": 0.4
+  },
+  {
+    "soc": "13-2072",
+    "onet_soc": "13-2072.00",
+    "title": "대출 심사역",
+    "tot_emp": 340170,
+    "aioe": 1.3857,
+    "exp_alpha": 0.2045,
+    "exp_beta": 0.5909,
+    "exp_gamma": 0.9773
+  },
+  {
+    "soc": "21-1021",
+    "onet_soc": "21-1021.00",
+    "title": "아동·가족 사회복지사",
+    "tot_emp": 340050,
+    "aioe": 0.7762,
+    "exp_alpha": 0.0571,
+    "exp_beta": 0.2429,
+    "exp_gamma": 0.4286
+  },
+  {
+    "soc": "35-9011",
+    "onet_soc": "35-9011.00",
+    "title": "식당 보조원",
+    "tot_emp": 336970,
+    "aioe": -1.9271,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "23-2011",
+    "onet_soc": "23-2011.00",
+    "title": "법률 사무원",
+    "tot_emp": 336250,
+    "aioe": 1.2921,
+    "exp_alpha": 0.2,
+    "exp_beta": 0.525,
+    "exp_gamma": 0.85
+  },
+  {
+    "soc": "13-1151",
+    "onet_soc": "13-1151.00",
+    "title": "교육훈련 전문가",
+    "tot_emp": 336030,
+    "aioe": 1.1984,
+    "exp_alpha": 0.1053,
+    "exp_beta": 0.5526,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "43-5052",
+    "onet_soc": "43-5052.00",
+    "title": "우편 집배원",
+    "tot_emp": 335540,
+    "aioe": -1.0647,
+    "exp_alpha": 0.2051,
+    "exp_beta": 0.2308,
+    "exp_gamma": 0.2564
+  },
+  {
+    "soc": "13-1041",
+    "onet_soc": "13-1041.00",
+    "title": "준법감시인",
+    "tot_emp": 334340,
+    "aioe": 0.6981,
+    "exp_alpha": 0.4545,
+    "exp_beta": 0.6818,
+    "exp_gamma": 0.9091
+  },
+  {
+    "soc": "51-4041",
+    "onet_soc": "51-4041.00",
+    "title": "기계공",
+    "tot_emp": 333220,
+    "aioe": -0.8676,
+    "exp_alpha": 0.1633,
+    "exp_beta": 0.2347,
+    "exp_gamma": 0.3061
+  },
+  {
+    "soc": "35-9031",
+    "onet_soc": "35-9031.00",
+    "title": "식당 안내원",
+    "tot_emp": 324690,
+    "aioe": -0.0565,
+    "exp_alpha": 0.0571,
+    "exp_beta": 0.2286,
+    "exp_gamma": 0.4
+  },
+  {
+    "soc": "33-2011",
+    "onet_soc": "33-2011.00",
+    "title": "소방관",
+    "tot_emp": 317310,
+    "aioe": -1.3202,
+    "exp_alpha": 0.1053,
+    "exp_beta": 0.1404,
+    "exp_gamma": 0.1754
+  },
+  {
+    "soc": "15-1244",
+    "onet_soc": "15-1244.00",
+    "title": "네트워크 관리자",
+    "tot_emp": 316760,
+    "aioe": null,
+    "exp_alpha": 0.5405,
+    "exp_beta": 0.7297,
+    "exp_gamma": 0.9189
+  },
+  {
+    "soc": "29-1051",
+    "onet_soc": "29-1051.00",
+    "title": "약사",
+    "tot_emp": 312550,
+    "aioe": 0.6059,
+    "exp_alpha": 0.1143,
+    "exp_beta": 0.4286,
+    "exp_gamma": 0.7429
+  },
+  {
+    "soc": "17-2051",
+    "onet_soc": "17-2051.00",
+    "title": "토목 엔지니어",
+    "tot_emp": 304310,
+    "aioe": 1.2829,
+    "exp_alpha": 0.0714,
+    "exp_beta": 0.4464,
+    "exp_gamma": 0.8214
+  },
+  {
+    "soc": "21-1012",
+    "onet_soc": "21-1012.00",
+    "title": "진로 상담사",
+    "tot_emp": 296370,
+    "aioe": 0.9739,
+    "exp_alpha": 0.0526,
+    "exp_beta": 0.2895,
+    "exp_gamma": 0.5263
+  },
+  {
+    "soc": "17-2112",
+    "onet_soc": "17-2112.00",
+    "title": "산업공학 엔지니어",
+    "tot_emp": 293950,
+    "aioe": 1.1379,
+    "exp_alpha": 0.0526,
+    "exp_beta": 0.5263,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "13-2051",
+    "onet_soc": "13-2051.00",
+    "title": "금융 분석가",
+    "tot_emp": 291880,
+    "aioe": 1.3806,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.4615,
+    "exp_gamma": 0.9231
+  },
+  {
+    "soc": "39-5012",
+    "onet_soc": "39-5012.00",
+    "title": "미용사",
+    "tot_emp": 285980,
+    "aioe": -0.6825,
+    "exp_alpha": 0.0526,
+    "exp_beta": 0.0789,
+    "exp_gamma": 0.1053
+  },
+  {
+    "soc": "11-9021",
+    "onet_soc": "11-9021.00",
+    "title": "건설 현장 소장",
+    "tot_emp": 284750,
+    "aioe": 1.0291,
+    "exp_alpha": 0.0444,
+    "exp_beta": 0.4444,
+    "exp_gamma": 0.8444
+  },
+  {
+    "soc": "11-2021",
+    "onet_soc": "11-2021.00",
+    "title": "마케팅 관리자",
+    "tot_emp": 278690,
+    "aioe": 1.315,
+    "exp_alpha": 0.0625,
+    "exp_beta": 0.5,
+    "exp_gamma": 0.9375
+  },
+  {
+    "soc": "17-2141",
+    "onet_soc": "17-2141.00",
+    "title": "기계공학 엔지니어",
+    "tot_emp": 278240,
+    "aioe": 1.0047,
+    "exp_alpha": 0.0233,
+    "exp_beta": 0.4535,
+    "exp_gamma": 0.8837
+  },
+  {
+    "soc": "13-1031",
+    "onet_soc": "13-1031.00",
+    "title": "손해사정사",
+    "tot_emp": 278140,
+    "aioe": 1.274,
+    "exp_alpha": 0.08,
+    "exp_beta": 0.52,
+    "exp_gamma": 0.96
+  },
+  {
+    "soc": "45-2092",
+    "onet_soc": "45-2092.00",
+    "title": "농장 작업원",
+    "tot_emp": 277200,
+    "aioe": -1.6013,
+    "exp_alpha": 0.0714,
+    "exp_beta": 0.1429,
+    "exp_gamma": 0.2143
+  },
+  {
+    "soc": "11-9032",
+    "onet_soc": "11-9032.00",
+    "title": "초중고 교육행정가",
+    "tot_emp": 274710,
+    "aioe": 1.0488,
+    "exp_alpha": 0.0182,
+    "exp_beta": 0.4182,
+    "exp_gamma": 0.8182
+  },
+  {
+    "soc": "41-4011",
+    "onet_soc": "41-4011.00",
+    "title": "기술 영업 사원",
+    "tot_emp": 266160,
+    "aioe": 0.8912,
+    "exp_alpha": 0.1579,
+    "exp_beta": 0.5351,
+    "exp_gamma": 0.9123
+  },
+  {
+    "soc": "41-2022",
+    "onet_soc": "41-2022.00",
+    "title": "부품 판매원",
+    "tot_emp": 265130,
+    "aioe": -0.1185,
+    "exp_alpha": 0.1714,
+    "exp_beta": 0.3429,
+    "exp_gamma": 0.5143
+  },
+  {
+    "soc": "39-9032",
+    "onet_soc": "39-9032.00",
+    "title": "레크리에이션 지도사",
+    "tot_emp": 264020,
+    "aioe": -0.2441,
+    "exp_alpha": 0.119,
+    "exp_beta": 0.2381,
+    "exp_gamma": 0.3571
+  },
+  {
+    "soc": "13-2052",
+    "onet_soc": "13-2052.00",
+    "title": "재무 설계사",
+    "tot_emp": 263030,
+    "aioe": 1.4007,
+    "exp_alpha": 0.0526,
+    "exp_beta": 0.5,
+    "exp_gamma": 0.9474
+  },
+  {
+    "soc": "39-3091",
+    "onet_soc": "39-3091.00",
+    "title": "놀이시설 안내원",
+    "tot_emp": 262170,
+    "aioe": -0.5246,
+    "exp_alpha": 0.1923,
+    "exp_beta": 0.2115,
+    "exp_gamma": 0.2308
+  },
+  {
+    "soc": "49-3031",
+    "onet_soc": "49-3031.00",
+    "title": "버스·트럭 정비사",
+    "tot_emp": 261420,
+    "aioe": -1.0105,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "29-1229",
+    "onet_soc": "29-1229.01",
+    "title": "알레르기·면역 전문의",
+    "tot_emp": 256670,
+    "aioe": null,
+    "exp_alpha": 0.1667,
+    "exp_beta": 0.45,
+    "exp_gamma": 0.7333
+  },
+  {
+    "soc": "41-1012",
+    "onet_soc": "41-1012.00",
+    "title": "영업 관리 감독자",
+    "tot_emp": 243920,
+    "aioe": 1.3162,
+    "exp_alpha": 0.1111,
+    "exp_beta": 0.537,
+    "exp_gamma": 0.963
+  },
+  {
+    "soc": "35-3041",
+    "onet_soc": "35-3041.00",
+    "title": "배식 담당원",
+    "tot_emp": 243030,
+    "aioe": -0.727,
+    "exp_alpha": 0.0741,
+    "exp_beta": 0.1296,
+    "exp_gamma": 0.1852
+  },
+  {
+    "soc": "27-3031",
+    "onet_soc": "27-3031.00",
+    "title": "홍보 전문가",
+    "tot_emp": 242710,
+    "aioe": 1.2849,
+    "exp_alpha": 0.2424,
+    "exp_beta": 0.5909,
+    "exp_gamma": 0.9394
+  },
+  {
+    "soc": "43-4131",
+    "onet_soc": "43-4131.00",
+    "title": "대출 상담원",
+    "tot_emp": 238610,
+    "aioe": 1.3644,
+    "exp_alpha": 0.1875,
+    "exp_beta": 0.5938,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "29-1171",
+    "onet_soc": "29-1171.00",
+    "title": "전문간호사",
+    "tot_emp": 234690,
+    "aioe": 0.1901,
+    "exp_alpha": 0.037,
+    "exp_beta": 0.4815,
+    "exp_gamma": 0.9259
+  },
+  {
+    "soc": "11-9141",
+    "onet_soc": "11-9141.00",
+    "title": "부동산 관리자",
+    "tot_emp": 234680,
+    "aioe": 1.2154,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.4432,
+    "exp_gamma": 0.8864
+  },
+  {
+    "soc": "39-2021",
+    "onet_soc": "39-2021.00",
+    "title": "동물 관리사",
+    "tot_emp": 225680,
+    "aioe": -0.889,
+    "exp_alpha": 0.1818,
+    "exp_beta": 0.2727,
+    "exp_gamma": 0.3636
+  },
+  {
+    "soc": "29-1123",
+    "onet_soc": "29-1123.00",
+    "title": "물리치료사",
+    "tot_emp": 225350,
+    "aioe": -0.3582,
+    "exp_alpha": 0.0851,
+    "exp_beta": 0.1915,
+    "exp_gamma": 0.2979
+  },
+  {
+    "soc": "11-3012",
+    "onet_soc": "11-3012.00",
+    "title": "총무 관리자",
+    "tot_emp": 224620,
+    "aioe": null,
+    "exp_alpha": 0.087,
+    "exp_beta": 0.3913,
+    "exp_gamma": 0.6957
+  },
+  {
+    "soc": "39-9031",
+    "onet_soc": "39-9031.00",
+    "title": "피트니스 트레이너",
+    "tot_emp": 221600,
+    "aioe": -2.1119,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0147,
+    "exp_gamma": 0.0294
+  },
+  {
+    "soc": "43-4081",
+    "onet_soc": "43-4081.00",
+    "title": "호텔 프런트 직원",
+    "tot_emp": 220380,
+    "aioe": 0.6063,
+    "exp_alpha": 0.2051,
+    "exp_beta": 0.5,
+    "exp_gamma": 0.7949
+  },
+  {
+    "soc": "43-9041",
+    "onet_soc": "43-9041.00",
+    "title": "보험 사무원",
+    "tot_emp": 218300,
+    "aioe": 1.2402,
+    "exp_alpha": 0.6667,
+    "exp_beta": 0.8333,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "25-3021",
+    "onet_soc": "25-3021.00",
+    "title": "문화센터 강사",
+    "tot_emp": 216910,
+    "aioe": 0.5264,
+    "exp_alpha": 0.16,
+    "exp_beta": 0.36,
+    "exp_gamma": 0.56
+  },
+  {
+    "soc": "29-2034",
+    "onet_soc": "29-2034.00",
+    "title": "방사선사",
+    "tot_emp": 216380,
+    "aioe": -0.5559,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.3772,
+    "exp_gamma": 0.7544
+  },
+  {
+    "soc": "47-2141",
+    "onet_soc": "47-2141.00",
+    "title": "도장공",
+    "tot_emp": 214220,
+    "aioe": -1.588,
+    "exp_alpha": 0.0571,
+    "exp_beta": 0.0571,
+    "exp_gamma": 0.0571
+  },
+  {
+    "soc": "43-3011",
+    "onet_soc": "43-3011.00",
+    "title": "채권 추심원",
+    "tot_emp": 212900,
+    "aioe": 1.272,
+    "exp_alpha": 0.3929,
+    "exp_beta": 0.6964,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "11-9051",
+    "onet_soc": "11-9051.00",
+    "title": "외식업 매니저",
+    "tot_emp": 210680,
+    "aioe": -0.1213,
+    "exp_alpha": 0.0625,
+    "exp_beta": 0.4167,
+    "exp_gamma": 0.7708
+  },
+  {
+    "soc": "13-1051",
+    "onet_soc": "13-1051.00",
+    "title": "원가 산정사",
+    "tot_emp": 208950,
+    "aioe": 1.3677,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.5,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "29-1292",
+    "onet_soc": "29-1292.00",
+    "title": "치과위생사",
+    "tot_emp": 207190,
+    "aioe": null,
+    "exp_alpha": 0.0625,
+    "exp_beta": 0.1875,
+    "exp_gamma": 0.3125
+  },
+  {
+    "soc": "27-1024",
+    "onet_soc": "27-1024.00",
+    "title": "그래픽 디자이너",
+    "tot_emp": 204040,
+    "aioe": 0.7157,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.5,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "51-9198",
+    "onet_soc": "51-9198.00",
+    "title": "생산직 보조원",
+    "tot_emp": 202860,
+    "aioe": -1.4113,
+    "exp_alpha": 0.0444,
+    "exp_beta": 0.0889,
+    "exp_gamma": 0.1333
+  },
+  {
+    "soc": "11-1011",
+    "onet_soc": "11-1011.00",
+    "title": "최고경영자",
+    "tot_emp": 200480,
+    "aioe": 1.3342,
+    "exp_alpha": 0.1,
+    "exp_beta": 0.46,
+    "exp_gamma": 0.82
+  },
+  {
+    "soc": "43-5032",
+    "onet_soc": "43-5032.00",
+    "title": "배차 담당자",
+    "tot_emp": 194330,
+    "aioe": 1.2345,
+    "exp_alpha": 0.3478,
+    "exp_beta": 0.6739,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "27-2022",
+    "onet_soc": "27-2022.00",
+    "title": "스포츠 코치",
+    "tot_emp": 193740,
+    "aioe": 0.1169,
+    "exp_alpha": 0.0667,
+    "exp_beta": 0.3,
+    "exp_gamma": 0.5333
+  },
+  {
+    "soc": "11-3051",
+    "onet_soc": "11-3051.00",
+    "title": "생산 관리자",
+    "tot_emp": 192270,
+    "aioe": 0.5087,
+    "exp_alpha": 0.0606,
+    "exp_beta": 0.4848,
+    "exp_gamma": 0.9091
+  },
+  {
+    "soc": "25-1071",
+    "onet_soc": "25-1071.00",
+    "title": "보건의료학 교수",
+    "tot_emp": 191830,
+    "aioe": 0.9248,
+    "exp_alpha": 0.125,
+    "exp_beta": 0.475,
+    "exp_gamma": 0.825
+  },
+  {
+    "soc": "15-1253",
+    "onet_soc": "15-1253.00",
+    "title": "QA 엔지니어",
+    "tot_emp": 190120,
+    "aioe": null,
+    "exp_alpha": 0.807,
+    "exp_beta": 0.8772,
+    "exp_gamma": 0.9474
+  },
+  {
+    "soc": "13-1081",
+    "onet_soc": "13-1081.00",
+    "title": "물류 관리 전문가",
+    "tot_emp": 189320,
+    "aioe": 1.2973,
+    "exp_alpha": 0.0909,
+    "exp_beta": 0.5,
+    "exp_gamma": 0.9091
+  },
+  {
+    "soc": "11-9041",
+    "onet_soc": "11-9041.00",
+    "title": "건축·엔지니어링 관리자",
+    "tot_emp": 187100,
+    "aioe": 0.837,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.4714,
+    "exp_gamma": 0.9429
+  },
+  {
+    "soc": "47-2051",
+    "onet_soc": "47-2051.00",
+    "title": "콘크리트공",
+    "tot_emp": 186600,
+    "aioe": -1.7774,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "17-2071",
+    "onet_soc": "17-2071.00",
+    "title": "전기공학 엔지니어",
+    "tot_emp": 186020,
+    "aioe": 1.1267,
+    "exp_alpha": 0.2812,
+    "exp_beta": 0.5625,
+    "exp_gamma": 0.8438
+  },
+  {
+    "soc": "25-9031",
+    "onet_soc": "25-9031.00",
+    "title": "교육과정 개발자",
+    "tot_emp": 184740,
+    "aioe": 1.3019,
+    "exp_alpha": 0.175,
+    "exp_beta": 0.4875,
+    "exp_gamma": 0.8
+  },
+  {
+    "soc": "51-3011",
+    "onet_soc": "51-3011.00",
+    "title": "제과제빵사",
+    "tot_emp": 181800,
+    "aioe": -0.3853,
+    "exp_alpha": 0.1471,
+    "exp_beta": 0.2647,
+    "exp_gamma": 0.3824
+  },
+  {
+    "soc": "29-2072",
+    "onet_soc": "29-2072.00",
+    "title": "의무기록사",
+    "tot_emp": 180570,
+    "aioe": null,
+    "exp_alpha": 0.2353,
+    "exp_beta": 0.6176,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "51-4031",
+    "onet_soc": "51-4031.00",
+    "title": "금속 절단기 조작원",
+    "tot_emp": 179630,
+    "aioe": -1.0366,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.01,
+    "exp_gamma": 0.02
+  },
+  {
+    "soc": "15-1231",
+    "onet_soc": "15-1231.00",
+    "title": "네트워크 기술지원 전문가",
+    "tot_emp": 176200,
+    "aioe": null,
+    "exp_alpha": 0.4615,
+    "exp_beta": 0.6346,
+    "exp_gamma": 0.8077
+  },
+  {
+    "soc": "41-9022",
+    "onet_soc": "41-9022.00",
+    "title": "공인중개사",
+    "tot_emp": 175920,
+    "aioe": 0.8649,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.4375,
+    "exp_gamma": 0.875
+  },
+  {
+    "soc": "53-3053",
+    "onet_soc": "53-3053.00",
+    "title": "셔틀버스 운전기사",
+    "tot_emp": 175660,
+    "aioe": null,
+    "exp_alpha": 0.1923,
+    "exp_beta": 0.25,
+    "exp_gamma": 0.3077
+  },
+  {
+    "soc": "21-1022",
+    "onet_soc": "21-1022.00",
+    "title": "의료 사회복지사",
+    "tot_emp": 173860,
+    "aioe": 0.934,
+    "exp_alpha": 0.0312,
+    "exp_beta": 0.3438,
+    "exp_gamma": 0.6562
+  },
+  {
+    "soc": "49-2022",
+    "onet_soc": "49-2022.00",
+    "title": "통신 장비 설치·수리 기사",
+    "tot_emp": 172830,
+    "aioe": -0.853,
+    "exp_alpha": 0.2344,
+    "exp_beta": 0.2812,
+    "exp_gamma": 0.3281
+  },
+  {
+    "soc": "43-4111",
+    "onet_soc": "43-4111.00",
+    "title": "면접 조사원",
+    "tot_emp": 169840,
+    "aioe": 1.297,
+    "exp_alpha": 0.5172,
+    "exp_beta": 0.6724,
+    "exp_gamma": 0.8276
+  },
+  {
+    "soc": "15-1241",
+    "onet_soc": "15-1241.00",
+    "title": "네트워크 설계자",
+    "tot_emp": 168830,
+    "aioe": null,
+    "exp_alpha": 0.3906,
+    "exp_beta": 0.6641,
+    "exp_gamma": 0.9375
+  },
+  {
+    "soc": "11-3121",
+    "onet_soc": "11-3121.00",
+    "title": "인사 관리자",
+    "tot_emp": 166530,
+    "aioe": 1.3204,
+    "exp_alpha": 0.04,
+    "exp_beta": 0.48,
+    "exp_gamma": 0.92
+  },
+  {
+    "soc": "49-9099",
+    "onet_soc": "49-9099.01",
+    "title": "지열 설비 기술자",
+    "tot_emp": 164070,
+    "aioe": -0.5901,
+    "exp_alpha": 0.0645,
+    "exp_beta": 0.2097,
+    "exp_gamma": 0.3548
+  },
+  {
+    "soc": "51-4072",
+    "onet_soc": "51-4072.00",
+    "title": "금속 성형기 조작원",
+    "tot_emp": 163210,
+    "aioe": -1.1461,
+    "exp_alpha": 0.0233,
+    "exp_beta": 0.0814,
+    "exp_gamma": 0.1395
+  },
+  {
+    "soc": "29-2042",
+    "onet_soc": "29-2042.00",
+    "title": "응급구조사",
+    "tot_emp": 161400,
+    "aioe": null,
+    "exp_alpha": 0.1667,
+    "exp_beta": 0.2083,
+    "exp_gamma": 0.25
+  },
+  {
+    "soc": "27-1026",
+    "onet_soc": "27-1026.00",
+    "title": "비주얼 머천다이저",
+    "tot_emp": 159790,
+    "aioe": -1.0014,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.3049,
+    "exp_gamma": 0.6098
+  },
+  {
+    "soc": "51-9161",
+    "onet_soc": "51-9161.00",
+    "title": "CNC 기계 조작원",
+    "tot_emp": 157840,
+    "aioe": null,
+    "exp_alpha": 0.22,
+    "exp_beta": 0.25,
+    "exp_gamma": 0.28
+  },
+  {
+    "soc": "51-6011",
+    "onet_soc": "51-6011.00",
+    "title": "세탁원",
+    "tot_emp": 157400,
+    "aioe": -1.0544,
+    "exp_alpha": 0.025,
+    "exp_beta": 0.05,
+    "exp_gamma": 0.075
+  },
+  {
+    "soc": "15-1212",
+    "onet_soc": "15-1212.00",
+    "title": "정보보안 분석가",
+    "tot_emp": 157220,
+    "aioe": null,
+    "exp_alpha": 0.3478,
+    "exp_beta": 0.6522,
+    "exp_gamma": 0.9565
+  },
+  {
+    "soc": "11-9151",
+    "onet_soc": "11-9151.00",
+    "title": "사회복지 기관장",
+    "tot_emp": 156400,
+    "aioe": 1.1562,
+    "exp_alpha": 0.0714,
+    "exp_beta": 0.3929,
+    "exp_gamma": 0.7143
+  },
+  {
+    "soc": "11-9033",
+    "onet_soc": "11-9033.00",
+    "title": "대학 교육행정가",
+    "tot_emp": 155990,
+    "aioe": 1.4611,
+    "exp_alpha": 0.0244,
+    "exp_beta": 0.439,
+    "exp_gamma": 0.8537
+  },
+  {
+    "soc": "43-6012",
+    "onet_soc": "43-6012.00",
+    "title": "법률 사무 비서",
+    "tot_emp": 155250,
+    "aioe": 1.0145,
+    "exp_alpha": 0.3913,
+    "exp_beta": 0.6957,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "51-3092",
+    "onet_soc": "51-3092.00",
+    "title": "식품 가공원",
+    "tot_emp": 155240,
+    "aioe": -0.3791,
+    "exp_alpha": 0.1026,
+    "exp_beta": 0.1154,
+    "exp_gamma": 0.1282
+  },
+  {
+    "soc": "37-1011",
+    "onet_soc": "37-1011.00",
+    "title": "청소 관리 감독자",
+    "tot_emp": 153640,
+    "aioe": -0.5854,
+    "exp_alpha": 0.1633,
+    "exp_beta": 0.2653,
+    "exp_gamma": 0.3673
+  },
+  {
+    "soc": "15-1251",
+    "onet_soc": "15-1251.00",
+    "title": "프로그래머",
+    "tot_emp": 152610,
+    "aioe": null,
+    "exp_alpha": 0.9,
+    "exp_beta": 0.95,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "17-2199",
+    "onet_soc": "17-2199.03",
+    "title": "에너지 엔지니어",
+    "tot_emp": 151940,
+    "aioe": 0.7876,
+    "exp_alpha": 0.0976,
+    "exp_beta": 0.5488,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "43-4061",
+    "onet_soc": "43-4061.00",
+    "title": "공공 복지 자격심사원",
+    "tot_emp": 151340,
+    "aioe": 1.2263,
+    "exp_alpha": 0.4,
+    "exp_beta": 0.68,
+    "exp_gamma": 0.96
+  },
+  {
+    "soc": "43-4031",
+    "onet_soc": "43-4031.00",
+    "title": "관공서 민원 담당자",
+    "tot_emp": 150170,
+    "aioe": 1.1663,
+    "exp_alpha": 0.4364,
+    "exp_beta": 0.7,
+    "exp_gamma": 0.9636
+  },
+  {
+    "soc": "43-3051",
+    "onet_soc": "43-3051.00",
+    "title": "급여 담당자",
+    "tot_emp": 149290,
+    "aioe": 1.2576,
+    "exp_alpha": 0.6757,
+    "exp_beta": 0.8378,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "29-1127",
+    "onet_soc": "29-1127.00",
+    "title": "언어치료사",
+    "tot_emp": 147470,
+    "aioe": 1.1463,
+    "exp_alpha": 0.1707,
+    "exp_beta": 0.4512,
+    "exp_gamma": 0.7317
+  },
+  {
+    "soc": "43-9021",
+    "onet_soc": "43-9021.00",
+    "title": "데이터 입력원",
+    "tot_emp": 147170,
+    "aioe": 0.3108,
+    "exp_alpha": 0.8571,
+    "exp_beta": 0.8929,
+    "exp_gamma": 0.9286
+  },
+  {
+    "soc": "25-3041",
+    "onet_soc": "25-3041.00",
+    "title": "과외 교사",
+    "tot_emp": 147100,
+    "aioe": null,
+    "exp_alpha": 0.1714,
+    "exp_beta": 0.5429,
+    "exp_gamma": 0.9143
+  },
+  {
+    "soc": "51-3021",
+    "onet_soc": "51-3021.00",
+    "title": "정육사",
+    "tot_emp": 145930,
+    "aioe": -0.971,
+    "exp_alpha": 0.0526,
+    "exp_beta": 0.1316,
+    "exp_gamma": 0.2105
+  },
+  {
+    "soc": "53-3052",
+    "onet_soc": "53-3052.00",
+    "title": "시내버스 운전기사",
+    "tot_emp": 145720,
+    "aioe": null,
+    "exp_alpha": 0.2222,
+    "exp_beta": 0.2407,
+    "exp_gamma": 0.2593
+  },
+  {
+    "soc": "25-2058",
+    "onet_soc": "25-2058.00",
+    "title": "특수교육 교사",
+    "tot_emp": 145690,
+    "aioe": null,
+    "exp_alpha": 0.1026,
+    "exp_beta": 0.3013,
+    "exp_gamma": 0.5
+  },
+  {
+    "soc": "51-9124",
+    "onet_soc": "51-9124.00",
+    "title": "도장기 조작원",
+    "tot_emp": 145410,
+    "aioe": null,
+    "exp_alpha": 0.0217,
+    "exp_beta": 0.0435,
+    "exp_gamma": 0.0652
+  },
+  {
+    "soc": "51-5112",
+    "onet_soc": "51-5112.00",
+    "title": "인쇄기 조작원",
+    "tot_emp": 145290,
+    "aioe": -0.7094,
+    "exp_alpha": 0.175,
+    "exp_beta": 0.2875,
+    "exp_gamma": 0.4
+  },
+  {
+    "soc": "49-3042",
+    "onet_soc": "49-3042.00",
+    "title": "건설 중장비 정비사",
+    "tot_emp": 145230,
+    "aioe": -1.1698,
+    "exp_alpha": 0.05,
+    "exp_beta": 0.1,
+    "exp_gamma": 0.15
+  },
+  {
+    "soc": "11-3071",
+    "onet_soc": "11-3071.00",
+    "title": "물류·유통 관리자",
+    "tot_emp": 144640,
+    "aioe": 0.8908,
+    "exp_alpha": 0.0357,
+    "exp_beta": 0.4821,
+    "exp_gamma": 0.9286
+  },
+  {
+    "soc": "47-4051",
+    "onet_soc": "47-4051.00",
+    "title": "도로 유지보수원",
+    "tot_emp": 141150,
+    "aioe": -1.2791,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0161,
+    "exp_gamma": 0.0323
+  },
+  {
+    "soc": "29-2099",
+    "onet_soc": "29-2099.01",
+    "title": "신경진단 기사",
+    "tot_emp": 140770,
+    "aioe": -0.2839,
+    "exp_alpha": 0.0625,
+    "exp_beta": 0.3438,
+    "exp_gamma": 0.625
+  },
+  {
+    "soc": "27-2012",
+    "onet_soc": "27-2012.00",
+    "title": "프로듀서·감독",
+    "tot_emp": 138250,
+    "aioe": 0.9388,
+    "exp_alpha": 0.1702,
+    "exp_beta": 0.4681,
+    "exp_gamma": 0.766
+  },
+  {
+    "soc": "49-3021",
+    "onet_soc": "49-3021.00",
+    "title": "자동차 차체 수리공",
+    "tot_emp": 137300,
+    "aioe": -1.1806,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0426,
+    "exp_gamma": 0.0851
+  },
+  {
+    "soc": "51-4081",
+    "onet_soc": "51-4081.00",
+    "title": "복합 공작기계 조작원",
+    "tot_emp": 134880,
+    "aioe": -0.7427,
+    "exp_alpha": 0.0769,
+    "exp_beta": 0.1026,
+    "exp_gamma": 0.1282
+  },
+  {
+    "soc": "43-4151",
+    "onet_soc": "43-4151.00",
+    "title": "주문 접수원",
+    "tot_emp": 133850,
+    "aioe": 0.8389,
+    "exp_alpha": 0.4286,
+    "exp_beta": 0.7143,
+    "exp_gamma": 1.0
+  },
+  {
+    "soc": "29-1126",
+    "onet_soc": "29-1126.00",
+    "title": "호흡치료사",
+    "tot_emp": 133410,
+    "aioe": -0.1881,
+    "exp_alpha": 0.0952,
+    "exp_beta": 0.2024,
+    "exp_gamma": 0.3095
+  },
+  {
+    "soc": "29-1071",
+    "onet_soc": "29-1071.00",
+    "title": "진료 보조의",
+    "tot_emp": 132940,
+    "aioe": 0.1059,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.375,
+    "exp_gamma": 0.75
+  },
+  {
+    "soc": "31-9097",
+    "onet_soc": "31-9097.00",
+    "title": "채혈사",
+    "tot_emp": 132750,
+    "aioe": -0.2778,
+    "exp_alpha": 0.1463,
+    "exp_beta": 0.1829,
+    "exp_gamma": 0.2195
+  },
+  {
+    "soc": "51-3022",
+    "onet_soc": "51-3022.00",
+    "title": "식육 가공원",
+    "tot_emp": 132100,
+    "aioe": -1.1056,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.0,
+    "exp_gamma": 0.0
+  },
+  {
+    "soc": "47-2181",
+    "onet_soc": "47-2181.00",
+    "title": "지붕 공사원",
+    "tot_emp": 129890,
+    "aioe": -1.7529,
+    "exp_alpha": 0.0,
+    "exp_beta": 0.04,
+    "exp_gamma": 0.08
+  }
+]
