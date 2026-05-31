@@ -416,10 +416,15 @@ function smoothScrollTo(id, block) {
 // ------- data load ------------------------------------------------
 
 async function loadOccupations() {
-    const [occRes, metaRes] = await Promise.all([
-        fetch(`${DATA_BASE}/occupations.json`, { cache: "force-cache" }),
-        fetch(`${DATA_BASE}/meta.json`, { cache: "force-cache" })
-    ]);
+    const suffix = currentLang === "en" ? "" : `_${currentLang}`;
+    let occRes;
+    try {
+        occRes = await fetch(`${DATA_BASE}/occupations${suffix}.json`, { cache: "force-cache" });
+        if (!occRes.ok) throw new Error("fallback");
+    } catch {
+        occRes = await fetch(`${DATA_BASE}/occupations.json`, { cache: "force-cache" });
+    }
+    const metaRes = await fetch(`${DATA_BASE}/meta.json`, { cache: "force-cache" });
     state.occupations = await occRes.json();
     state.meta = await metaRes.json();
 }
@@ -432,7 +437,14 @@ async function loadTasks() {
     if (state.tasks) return state.tasks;
     if (state.tasksLoading) return state.tasksLoading;
     state.tasksLoading = (async () => {
-        const res = await fetch(`${DATA_BASE}/tasks.json`, { cache: "force-cache" });
+        const suffix = currentLang === "en" ? "" : `_${currentLang}`;
+        let res;
+        try {
+            res = await fetch(`${DATA_BASE}/tasks${suffix}.json`, { cache: "force-cache" });
+            if (!res.ok) throw new Error("fallback");
+        } catch {
+            res = await fetch(`${DATA_BASE}/tasks.json`, { cache: "force-cache" });
+        }
         state.tasks = await res.json();
         return state.tasks;
     })();
@@ -557,12 +569,17 @@ function pushUrl() {
 function setPhase(phase) {
     const input = document.getElementById("input-section");
     const result = document.getElementById("result-section");
+    const adInput = document.querySelector(".ad-slot-input");
     if (phase === "input") {
         input.classList.remove("hidden");
         result.classList.add("hidden");
+        if (adInput) adInput.classList.remove("hidden");
+        document.body.classList.remove("phase-result");
     } else if (phase === "result") {
         input.classList.add("hidden");
         result.classList.remove("hidden");
+        if (adInput) adInput.classList.add("hidden");
+        document.body.classList.add("phase-result");
     }
 }
 
@@ -618,6 +635,36 @@ function computeExposureDist(tasks) {
 
 function taskLabel(task) {
     return TASK_LABELS.includes(task.gpt4) ? task.gpt4 : "T4";
+}
+
+function buildDonutSVG(dist, total) {
+    const colors = { T0: '#5cb85c', T1: '#d9534f', T2: '#f0ad4e', T3: '#5bc0de', T4: '#999' };
+    const r = 42, cx = 60, cy = 60, sw = 13;
+    const C = 2 * Math.PI * r;
+
+    let offset = 0;
+    let arcs = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#eee" stroke-width="${sw}"/>`;
+
+    for (const label of TASK_LABELS) {
+        const n = dist[label] || 0;
+        if (!n) continue;
+        const len = (n / total) * C;
+        arcs += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" ` +
+            `stroke="${colors[label]}" stroke-width="${sw}" ` +
+            `stroke-dasharray="${len.toFixed(2)} ${(C - len).toFixed(2)}" ` +
+            `stroke-dashoffset="${(-offset).toFixed(2)}" ` +
+            `stroke-linecap="round" ` +
+            `transform="rotate(-90 ${cx} ${cy})"/>`;
+        offset += len;
+    }
+
+    const exposed = (dist.T1 || 0) + (dist.T2 || 0) + (dist.T3 || 0);
+    const pct = Math.round(exposed / total * 100);
+
+    return `<svg viewBox="0 0 120 120" class="exposure-donut">` +
+        arcs +
+        `<text x="${cx}" y="${cy + 1}" text-anchor="middle" dominant-baseline="central" class="donut-pct">${pct}%</text>` +
+        `</svg>`;
 }
 
 async function renderTaskHeatmap(soc) {
@@ -681,10 +728,30 @@ async function renderTaskHeatmap(soc) {
         ? `<button type="button" class="task-show-more" data-expanded="0">${escapeHtml(t("task_show_more"))} (${total - TASKS_VISIBLE_INITIAL})</button>`
         : "";
 
+    const donutSvg = buildDonutSVG(dist, total);
+    const TASK_COLORS = { T0: '#5cb85c', T1: '#d9534f', T2: '#f0ad4e', T3: '#5bc0de', T4: '#999' };
+    const breakdownRows = TASK_LABELS.map(label => {
+        const n = dist[label] || 0;
+        if (!n) return '';
+        const pct = Math.round(n / total * 100);
+        return `<div class="breakdown-row">
+            <span class="breakdown-dot" style="background:${TASK_COLORS[label]}"></span>
+            <span class="breakdown-label">${escapeHtml(t("legend_" + label))}</span>
+            <span class="breakdown-count">${n}</span>
+            <span class="breakdown-bar-wrap">
+                <span class="breakdown-bar-fill" style="width:${pct}%;background:${TASK_COLORS[label]}"></span>
+            </span>
+        </div>`;
+    }).join('');
+
     el.innerHTML = `
         <h3 class="dashboard-panel-title">${escapeHtml(t("panel_task_title"))}</h3>
         <p class="dashboard-panel-subtitle">${escapeHtml(t("panel_task_subtitle"))}</p>
         <p class="task-summary">${escapeHtml(summary)}</p>
+        <div class="exposure-overview">
+            ${donutSvg}
+            <div class="exposure-breakdown">${breakdownRows}</div>
+        </div>
         <div class="task-bar">${segments}</div>
         <div class="task-legend">${legendChips}</div>
         <div class="task-list">${rowsHtml}</div>
@@ -889,6 +956,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("btn-share").addEventListener("click", onShare);
     document.getElementById("btn-restart").addEventListener("click", restartFlow);
+
+    // Collapse empty ad slots after a delay (no ads on localhost/dev)
+    setTimeout(() => {
+        document.querySelectorAll('.ad-slot').forEach(slot => {
+            if (!slot.querySelector('iframe')) {
+                slot.style.display = 'none';
+            }
+        });
+    }, 3000);
 
     hydrateFromUrl();
 });
