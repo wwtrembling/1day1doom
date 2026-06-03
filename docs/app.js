@@ -28,7 +28,8 @@ const UI_TEXT = {
         panel_cohort_title: "내 위치 + 팩트체크",
         panel_cohort_subtitle: "비슷한 직업군과 비교한 내 위치 + 막연한 불안을 줄여줄 객관 데이터.",
         panel_coming_soon: "곧 추가될 예정이에요.",
-        task_summary: "총 {n}개 업무의 AI 영향도",
+        task_summary: "미국 노동부 기준 {n}개 업무 중 AI 영향을 받는 비율",
+        donut_label: "업무에 AI 영향",
         task_show_more: "더 보기",
         task_show_less: "접기",
         task_type_core: "핵심",
@@ -90,7 +91,8 @@ const UI_TEXT = {
         panel_cohort_title: "Your position + Fact check",
         panel_cohort_subtitle: "Where you stand vs. similar jobs + data to keep things in perspective.",
         panel_coming_soon: "Coming soon.",
-        task_summary: "AI impact across {n} tasks",
+        task_summary: "Of {n} tasks (US Dept. of Labor), % affected by AI",
+        donut_label: "tasks AI-affected",
         task_show_more: "Show more",
         task_show_less: "Show less",
         task_type_core: "Core",
@@ -152,7 +154,8 @@ const UI_TEXT = {
         panel_cohort_title: "あなたの位置 + ファクトチェック",
         panel_cohort_subtitle: "似た職業群との比較 + 漠然とした不安を和らげる客観データ。",
         panel_coming_soon: "近日追加予定です。",
-        task_summary: "全{n}業務のAI影響度",
+        task_summary: "米国労働省基準 {n}業務中、AI影響を受ける割合",
+        donut_label: "の業務にAI影響",
         task_show_more: "もっと見る",
         task_show_less: "閉じる",
         task_type_core: "コア",
@@ -214,7 +217,8 @@ const UI_TEXT = {
         panel_cohort_title: "我的位置 + 事實查核",
         panel_cohort_subtitle: "跟類似職業比，你在哪 + 降低焦慮的客觀數據。",
         panel_coming_soon: "即將推出。",
-        task_summary: "共 {n} 項工作的 AI 影響度",
+        task_summary: "美國勞工部定義的 {n} 項工作中，受 AI 影響的比例",
+        donut_label: "工作受 AI 影響",
         task_show_more: "看更多",
         task_show_less: "收起",
         task_type_core: "核心",
@@ -276,7 +280,8 @@ const UI_TEXT = {
         panel_cohort_title: "Tu posición + Verificación",
         panel_cohort_subtitle: "Dónde estás frente a profesiones similares + datos para calmar la ansiedad.",
         panel_coming_soon: "Próximamente.",
-        task_summary: "Impacto de IA en {n} tareas",
+        task_summary: "De {n} tareas (Depto. Trabajo de EE.UU.), % afectadas por IA",
+        donut_label: "tareas con impacto IA",
         task_show_more: "Ver más",
         task_show_less: "Ver menos",
         task_type_core: "Esencial",
@@ -338,7 +343,8 @@ const UI_TEXT = {
         panel_cohort_title: "Deine Position + Faktencheck",
         panel_cohort_subtitle: "Wo du im Vergleich stehst + Daten, die übertriebene Angst relativieren.",
         panel_coming_soon: "Kommt bald.",
-        task_summary: "KI-Einfluss auf {n} Aufgaben",
+        task_summary: "Von {n} Aufgaben (US-Arbeitsmin.), % mit KI-Einfluss",
+        donut_label: "Aufgaben KI-betroffen",
         task_show_more: "Mehr anzeigen",
         task_show_less: "Ausblenden",
         task_type_core: "Kern",
@@ -700,7 +706,8 @@ function buildDonutSVG(dist, total) {
 
     return `<svg viewBox="0 0 120 120" class="exposure-donut">` +
         arcs +
-        `<text x="${cx}" y="${cy + 1}" text-anchor="middle" dominant-baseline="central" class="donut-pct">${pct}%</text>` +
+        `<text x="${cx}" y="${cy - 6}" text-anchor="middle" dominant-baseline="central" class="donut-pct">${pct}%</text>` +
+        `<text x="${cx}" y="${cy + 12}" text-anchor="middle" dominant-baseline="central" class="donut-sub">${t("donut_label")}</text>` +
         `</svg>`;
 }
 
