@@ -1,18 +1,16 @@
-# 1Day1Doom — Project rules for Claude
+# 1Day1Doom — Project rules
 
-## Translation / multilingual copy
+## i18n
 
-- 번역은 Claude가 직접 수행한다 (별도 서브에이전트·파이프라인 불필요).
-- 지원 로케일: `ko`, `en`, `ja`, `zh-tw`, `es`, `de` (총 6개).
-- 번역은 의미 동치보다 **각 언어 시장의 자연스러운 viral hook / 헤드라인 관습**을 우선. 같은 컨셉을 6언어 번역하지 말고, 각 언어가 그 시장에서 자연스러운 카피를 갖도록 따로 작성한다.
-- 톤·심리 안전성이 걸린 변경(bias_label, doom path 본문 등)은 **임상심리/UX writing 관점도 추가 자문**.
-- 변경 시 4지점을 모두 동기화: ① `docs/app.js` UI_TEXT, ② 각 locale HTML `<head>`의 4개 메타(title, description, og:title, og:description), ③ 각 locale HTML body fallback (`data-i18n` 노드의 텍스트), ④ 필요 시 `docs/public/data/quiz.json` / `evolution.json`.
+- 로케일: `ko`, `en`, `ja`, `zh-tw`, `es`, `de`
+- 번역은 Claude가 직접 수행. 직역 금지 — 각 언어 시장에 자연스러운 카피로 작성.
+- 텍스트 변경 시 4곳 동기화: ① `docs/app.js` UI_TEXT ② 각 locale HTML `<head>` 메타 ③ 각 locale HTML body fallback ④ 필요 시 `docs/public/data/` JSON
+
+## 문체
+
+- 사용자에게 보이는 모든 텍스트(UI, 결과 페이지, 범례, 판정문, 안내문)에서 전문용어·약어·업계 코드 금지. 비개발자 일반인이 바로 이해할 수 있는 말로 풀어 쓴다.
+- 기준: "이 문장을 비개발자 친구에게 보여주면 바로 이해하나?"
 
 ## Branching
 
-- 작업 단위마다 **새 브랜치**를 main에서 분기 (`claude/<short-topic>` 형식).
-- 한 PR = 한 라운드. squash merge 후 다음 라운드는 새 브랜치에서.
-
-## Plan persistence
-
-- 각 라운드 플랜은 `/root/.claude/plans/b-master-purring-goblet.md` 상단에 누적. 과거 라운드 플랜은 보존(역사 기록).
+- `claude/<short-topic>` 형식으로 main에서 분기. 한 PR = 한 라운드.

@@ -429,6 +429,32 @@ input[type="text"]:focus {
     border: 1px solid rgba(0,0,0,0.06);
 }
 
+/* Verdict — one-line takeaway after donut */
+.verdict {
+    margin: 0 0 14px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+.verdict-high {
+    background: rgba(217, 83, 79, 0.12);
+    color: #b33a37;
+    border-left: 4px solid #d9534f;
+}
+.verdict-mid {
+    background: rgba(240, 173, 78, 0.15);
+    color: #8a6d2b;
+    border-left: 4px solid #f0ad4e;
+}
+.verdict-low {
+    background: rgba(92, 184, 92, 0.12);
+    color: #3a763a;
+    border-left: 4px solid #5cb85c;
+}
+
 /* Task heatmap (P1) */
 .task-summary {
     margin: 0 0 10px;
