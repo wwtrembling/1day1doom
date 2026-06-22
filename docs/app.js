@@ -24,11 +24,14 @@ const UI_TEXT = {
         result_age_label: "연령대",
         result_subtitle: "뉴스가 '평균'으로만 말하던 걸, 당신 직업 하나에 맞춰 풀어봤어요.",
         panel_task_title: "내 일 중 AI가 대신할 수 있는 부분",
-        panel_task_subtitle: "당신이 하는 일을 잘게 쪼개서, 각각 AI가 얼마나 대신할 수 있는지 보여줘요.",
+        panel_task_subtitle: "당신이 하는 일을 작은 단위로 쪼갠 뒤, 각각을 AI가 얼마나 거들 수 있는지 표시했어요.",
         panel_cohort_title: "비슷한 사람들과 비교 + 팩트 체크",
         panel_cohort_subtitle: "비슷한 처지의 사람들은 어디쯤 있는지, 그리고 막연한 불안을 덜어줄 사실들.",
         panel_coming_soon: "곧 추가될 내용이에요.",
-        task_summary: "이 직업이 하는 일 {n}가지를 AI가 얼마나 대신할 수 있는지",
+        task_summary: "이 직업이 하는 일 {n}가지를 AI가 얼마나 거들 수 있는지",
+        donut_sub: "AI 가속",
+        task_interpretation: "이 일을 {total}가지로 나눠 보면, 그중 {exposed}가지는 AI를 잘 쓰면 눈에 띄게 빨라질 수 있어요. 나머지는 아직 사람 손이 더 필요한 일이고요.",
+        task_reassurance: "단, '빨라진다'가 곧 '사라진다'는 아니에요. 대개는 같은 사람이 같은 시간에 더 많은 일을 해내게 됩니다.",
         task_show_more: "더 보기",
         task_show_less: "접기",
         task_type_core: "핵심",
@@ -83,11 +86,14 @@ const UI_TEXT = {
         result_age_label: "Age",
         result_subtitle: "The big reports only talk in averages. Here's what it looks like for your job.",
         panel_task_title: "What parts of your job AI could take over",
-        panel_task_subtitle: "We split your job into smaller tasks and show how much AI could do each one.",
+        panel_task_subtitle: "We split your job into smaller tasks and show how much AI could speed up each one.",
         panel_cohort_title: "Compared with people like you + a reality check",
         panel_cohort_subtitle: "Where people in your situation land — plus facts to calm the panic.",
         panel_coming_soon: "Coming in the next release.",
-        task_summary: "How much AI could do each of this job's {n} tasks",
+        task_summary: "How much AI could speed up each of this job's {n} tasks",
+        donut_sub: "AI-assisted",
+        task_interpretation: "Split this job into {total} tasks, and {exposed} of them could get noticeably faster with AI. The rest still need a human's hands.",
+        task_reassurance: "But 'faster' isn't 'gone.' Usually the same person just gets more done in the same time.",
         task_show_more: "Show more",
         task_show_less: "Show less",
         task_type_core: "Core",
@@ -142,11 +148,14 @@ const UI_TEXT = {
         result_age_label: "年齢層",
         result_subtitle: "ニュースが「平均」でしか語らないことを、あなたの職業ひとつに当てはめてみました。",
         panel_task_title: "あなたの仕事で AI が代われる部分",
-        panel_task_subtitle: "あなたの仕事を細かく分けて、それぞれ AI がどれくらい代われるかを示します。",
+        panel_task_subtitle: "あなたの仕事を細かく分けて、それぞれ AI がどれくらい手伝えるかを示します。",
         panel_cohort_title: "似た人との比較 + ファクトチェック",
         panel_cohort_subtitle: "似た立場の人がどのあたりにいるか、そして漠然とした不安を和らげる事実。",
         panel_coming_soon: "近日追加予定です。",
-        task_summary: "この仕事の {n} 個の作業を AI がどれくらい代われるか",
+        task_summary: "この仕事の {n} 個の作業を AI がどれくらい手伝えるか",
+        donut_sub: "AIで加速",
+        task_interpretation: "この仕事を {total} 個の作業に分けると、そのうち {exposed} 個は AI をうまく使えば目に見えて速くなります。残りはまだ人の手が必要な作業です。",
+        task_reassurance: "ただし「速くなる」は「なくなる」ではありません。多くの場合、同じ人が同じ時間でより多くをこなせるようになります。",
         task_show_more: "もっと見る",
         task_show_less: "閉じる",
         task_type_core: "コア",
@@ -201,11 +210,14 @@ const UI_TEXT = {
         result_age_label: "年齡層",
         result_subtitle: "新聞只講「平均」，這裡換成你這一個職業來看。",
         panel_task_title: "你的工作中，AI 能接手的部分",
-        panel_task_subtitle: "把你的工作拆成小項，逐一看 AI 能做多少。",
+        panel_task_subtitle: "把你的工作拆成小項，逐一看 AI 能幫上多少。",
         panel_cohort_title: "和相似的人比較 + 事實查核",
         panel_cohort_subtitle: "處境相近的人落在哪裡，以及能減輕焦慮的事實。",
         panel_coming_soon: "下個版本即將加入。",
-        task_summary: "這份工作的 {n} 項工作，AI 各能做多少",
+        task_summary: "這份工作的 {n} 項工作，AI 各能幫上多少",
+        donut_sub: "AI 加速",
+        task_interpretation: "把這份工作分成 {total} 項，其中 {exposed} 項只要善用 AI 就能明顯加快。其餘的還是需要人來做。",
+        task_reassurance: "但「變快」不等於「消失」。多半是同一個人，在同樣的時間裡完成更多事。",
         task_show_more: "看更多",
         task_show_less: "收起",
         task_type_core: "核心",
@@ -260,11 +272,14 @@ const UI_TEXT = {
         result_age_label: "Edad",
         result_subtitle: "Los grandes informes solo hablan de promedios. Aquí lo ves para tu profesión concreta.",
         panel_task_title: "Qué partes de tu trabajo podría asumir la IA",
-        panel_task_subtitle: "Dividimos tu trabajo en tareas y mostramos cuánto podría hacer la IA en cada una.",
+        panel_task_subtitle: "Dividimos tu trabajo en tareas y mostramos cuánto podría acelerar la IA en cada una.",
         panel_cohort_title: "Comparación con gente como tú + datos para tranquilizarte",
         panel_cohort_subtitle: "Dónde quedan las personas en tu situación, y datos que calman el miedo.",
         panel_coming_soon: "Disponible en la próxima versión.",
-        task_summary: "Cuánto podría hacer la IA en cada una de las {n} tareas de esta profesión",
+        task_summary: "Cuánto podría acelerar la IA cada una de las {n} tareas de esta profesión",
+        donut_sub: "con IA",
+        task_interpretation: "Si dividimos este trabajo en {total} tareas, {exposed} podrían ir mucho más rápido con IA. El resto aún necesita manos humanas.",
+        task_reassurance: "Pero 'más rápido' no es 'desaparece'. Normalmente la misma persona hace más en el mismo tiempo.",
         task_show_more: "Ver más",
         task_show_less: "Ver menos",
         task_type_core: "Esencial",
@@ -319,11 +334,14 @@ const UI_TEXT = {
         result_age_label: "Alter",
         result_subtitle: "Große Studien reden nur über Durchschnitte. Hier siehst du es für deinen Beruf.",
         panel_task_title: "Welche Teile deiner Arbeit die KI übernehmen könnte",
-        panel_task_subtitle: "Wir zerlegen deine Arbeit in einzelne Aufgaben und zeigen, wie viel die KI je davon schaffen könnte.",
+        panel_task_subtitle: "Wir zerlegen deine Arbeit in einzelne Aufgaben und zeigen, wie viel die KI je davon beschleunigen könnte.",
         panel_cohort_title: "Vergleich mit Leuten wie dir + Fakten-Check",
         panel_cohort_subtitle: "Wo Menschen in deiner Lage stehen – und Fakten, die die Angst dämpfen.",
         panel_coming_soon: "Kommt im nächsten Release.",
-        task_summary: "Wie viel die KI bei jeder der {n} Aufgaben dieses Berufs schaffen könnte",
+        task_summary: "Wie viel die KI bei jeder der {n} Aufgaben dieses Berufs beschleunigen könnte",
+        donut_sub: "mit KI",
+        task_interpretation: "Teilt man diesen Beruf in {total} Aufgaben, könnten {exposed} davon mit KI deutlich schneller gehen. Der Rest braucht weiter Menschenhand.",
+        task_reassurance: "Aber 'schneller' heißt nicht 'weg'. Meist schafft dieselbe Person in derselben Zeit einfach mehr.",
         task_show_more: "Mehr anzeigen",
         task_show_less: "Ausblenden",
         task_type_core: "Kern",
@@ -686,7 +704,8 @@ function buildDonutSVG(dist, total) {
 
     return `<svg viewBox="0 0 120 120" class="exposure-donut">` +
         arcs +
-        `<text x="${cx}" y="${cy + 1}" text-anchor="middle" dominant-baseline="central" class="donut-pct">${pct}%</text>` +
+        `<text x="${cx}" y="${cy - 5}" text-anchor="middle" dominant-baseline="central" class="donut-pct">${pct}%</text>` +
+        `<text x="${cx}" y="${cy + 13}" text-anchor="middle" dominant-baseline="central" class="donut-sub">${escapeHtml(t("donut_sub"))}</text>` +
         `</svg>`;
 }
 
@@ -752,6 +771,10 @@ async function renderTaskHeatmap(soc) {
         : "";
 
     const donutSvg = buildDonutSVG(dist, total);
+    const exposedCount = (dist.T1 || 0) + (dist.T2 || 0) + (dist.T3 || 0);
+    const interpretation = t("task_interpretation")
+        .replace("{total}", total)
+        .replace("{exposed}", exposedCount);
     const TASK_COLORS = { T0: '#5cb85c', T1: '#d9534f', T2: '#f0ad4e', T3: '#5bc0de', T4: '#999' };
     const breakdownRows = TASK_LABELS.map(label => {
         const n = dist[label] || 0;
@@ -775,6 +798,8 @@ async function renderTaskHeatmap(soc) {
             ${donutSvg}
             <div class="exposure-breakdown">${breakdownRows}</div>
         </div>
+        <p class="task-interpretation">${escapeHtml(interpretation)}</p>
+        <p class="task-reassurance">${escapeHtml(t("task_reassurance"))}</p>
         <div class="task-bar">${segments}</div>
         <div class="task-legend">${legendChips}</div>
         <div class="task-list">${rowsHtml}</div>
