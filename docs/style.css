@@ -496,17 +496,16 @@ input[type="text"]:focus {
 .task-list {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
 }
 .task-row {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    border-radius: 14px;
     background: var(--bg-cream-2);
-    border-left: 4px solid var(--ink-soft);
+    border-left: 3px solid var(--ink-soft);
 }
 .task-row-T0 { border-left-color: #5cb85c; }
 .task-row-T1 { border-left-color: #d9534f; }
@@ -515,35 +514,45 @@ input[type="text"]:focus {
 .task-row-T4 { border-left-color: #999; }
 
 .task-row[data-hidden] { display: none; }
-.dashboard-panel.tasks-expanded .task-row[data-hidden] { display: grid; }
+.dashboard-panel.tasks-expanded .task-row[data-hidden] { display: flex; }
 
-.task-chip {
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 3px 7px;
-    border-radius: 4px;
-    color: white;
-    min-width: 26px;
-    text-align: center;
+.task-row-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
-.task-chip-T0 { background: #5cb85c; }
-.task-chip-T1 { background: #d9534f; }
-.task-chip-T2 { background: #f0ad4e; }
-.task-chip-T3 { background: #5bc0de; }
-.task-chip-T4 { background: #999; }
+.task-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+.task-tag i {
+    width: 9px; height: 9px; border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.task-tag-T0 i { background: #5cb85c; }
+.task-tag-T1 i { background: #d9534f; }
+.task-tag-T2 i { background: #f0ad4e; }
+.task-tag-T3 i { background: #5bc0de; }
+.task-tag-T4 i { background: #999; }
 
 .task-text {
     margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.65;
     color: var(--ink);
+    word-break: keep-all;
 }
 .task-type {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 .task-row[data-type="Core"] .task-type {
     font-weight: 700;
