@@ -65,6 +65,15 @@ const UI_TEXT = {
         msg_share_done: "링크를 복사했어요. 어디든 붙여넣어 보세요!",
         msg_no_match: "아직 그 직업은 목록에 없어요. 비슷한 직업명으로 검색해 보세요.",
         msg_pick_age: "연령대도 선택해 주세요.",
+        map_title: "전체 직업 지도",
+        map_subtitle: "200개 직업을 한눈에. 끌어서 둘러보고, 점을 눌러 보세요.",
+        map_axis_y: "연봉 높음 ↑",
+        map_axis_x_low: "← AI 영향 적음",
+        map_axis_x_high: "AI 영향 큼 →",
+        map_you: "내 직업",
+        map_recenter: "내 직업으로",
+        map_info_default: "점을 누르면 그 직업의 연봉과 위험도가 나와요.",
+        map_hint: "끌어서 이동 · 손가락 두 개로 확대 · 점 크기 = 종사자 수",
         footer_tagline: "AI 시대 직업 좌표 대시보드"
     },
     en: {
@@ -127,6 +136,15 @@ const UI_TEXT = {
         msg_share_done: "Link copied. Paste anywhere.",
         msg_no_match: "That job isn't on the list yet. Try a similar title.",
         msg_pick_age: "Pick an age cohort too.",
+        map_title: "The whole job map",
+        map_subtitle: "All 200 jobs at a glance. Drag to explore, tap a dot.",
+        map_axis_y: "Higher pay ↑",
+        map_axis_x_low: "← Less AI impact",
+        map_axis_x_high: "More AI impact →",
+        map_you: "You",
+        map_recenter: "Find my job",
+        map_info_default: "Tap a dot to see that job's pay and risk.",
+        map_hint: "Drag to pan · pinch to zoom · dot size = workforce",
         footer_tagline: "Career coordinates for the AI era"
     },
     ja: {
@@ -189,6 +207,15 @@ const UI_TEXT = {
         msg_share_done: "リンクをコピーしました。どこへでも貼り付けてください。",
         msg_no_match: "その職業はまだ一覧にありません。近い職業名で検索してみてください。",
         msg_pick_age: "年齢層も選択してください。",
+        map_title: "職業マップ全体",
+        map_subtitle: "200の職業を一望。ドラッグで動かし、点をタップ。",
+        map_axis_y: "年収が高い ↑",
+        map_axis_x_low: "← AI の影響 小",
+        map_axis_x_high: "AI の影響 大 →",
+        map_you: "あなた",
+        map_recenter: "自分の職業へ",
+        map_info_default: "点をタップすると、その職業の年収とリスクが出ます。",
+        map_hint: "ドラッグで移動 · 二本指で拡大 · 点の大きさ＝就業者数",
         footer_tagline: "AI 時代のキャリア座標ダッシュボード"
     },
     "zh-tw": {
@@ -251,6 +278,15 @@ const UI_TEXT = {
         msg_share_done: "已複製連結。貼到任何地方都可以。",
         msg_no_match: "清單裡還沒有這個職業，換相近的職業名試試。",
         msg_pick_age: "也請選擇年齡層。",
+        map_title: "全職業地圖",
+        map_subtitle: "200 種職業一次看。拖曳探索，點一下圓點。",
+        map_axis_y: "薪資較高 ↑",
+        map_axis_x_low: "← AI 影響小",
+        map_axis_x_high: "AI 影響大 →",
+        map_you: "你的職業",
+        map_recenter: "回到我的職業",
+        map_info_default: "點一下圓點，看那個職業的薪資與風險。",
+        map_hint: "拖曳移動 · 雙指縮放 · 圓點大小＝從業人數",
         footer_tagline: "AI 時代的職業座標儀表板"
     },
     es: {
@@ -313,6 +349,15 @@ const UI_TEXT = {
         msg_share_done: "Enlace copiado. Pégalo donde quieras.",
         msg_no_match: "Esa profesión aún no está en la lista. Prueba con un nombre parecido.",
         msg_pick_age: "Elige también una franja de edad.",
+        map_title: "El mapa de todos los trabajos",
+        map_subtitle: "Las 200 profesiones de un vistazo. Arrastra y toca un punto.",
+        map_axis_y: "Más sueldo ↑",
+        map_axis_x_low: "← Menos impacto IA",
+        map_axis_x_high: "Más impacto IA →",
+        map_you: "Tú",
+        map_recenter: "Ir a mi profesión",
+        map_info_default: "Toca un punto para ver su sueldo y su riesgo.",
+        map_hint: "Arrastra para mover · pellizca para ampliar · tamaño = empleo",
         footer_tagline: "Coordenadas profesionales para la era de la IA"
     },
     de: {
@@ -375,6 +420,15 @@ const UI_TEXT = {
         msg_share_done: "Link kopiert. Überall einfügen.",
         msg_no_match: "Dieser Beruf ist noch nicht in der Liste. Versuch einen ähnlichen Namen.",
         msg_pick_age: "Wähle auch eine Altersgruppe.",
+        map_title: "Die ganze Berufslandkarte",
+        map_subtitle: "Alle 200 Berufe auf einen Blick. Ziehen und auf einen Punkt tippen.",
+        map_axis_y: "Höheres Gehalt ↑",
+        map_axis_x_low: "← Weniger KI-Einfluss",
+        map_axis_x_high: "Mehr KI-Einfluss →",
+        map_you: "Du",
+        map_recenter: "Zu meinem Beruf",
+        map_info_default: "Tippe einen Punkt an, um Gehalt und Risiko zu sehen.",
+        map_hint: "Ziehen zum Bewegen · zwei Finger zum Zoomen · Punktgröße = Beschäftigte",
         footer_tagline: "Karriere-Koordinaten für das KI-Zeitalter"
     }
 };
@@ -390,6 +444,8 @@ const state = {
     meta: null,
     tasks: null,         // { soc → [task] }, lazy-loaded
     tasksLoading: null,  // in-flight promise
+    wages: null,         // { soc → {median, …} }, lazy-loaded
+    wagesLoading: null,  // in-flight promise
     selected: { soc: null, onet_soc: null, age: null }
 };
 
@@ -486,6 +542,17 @@ async function loadTasks() {
         return state.tasks;
     })();
     return state.tasksLoading;
+}
+
+async function loadWages() {
+    if (state.wages) return state.wages;
+    if (state.wagesLoading) return state.wagesLoading;
+    state.wagesLoading = (async () => {
+        const res = await fetch(`${DATA_BASE}/wages.json`, { cache: "force-cache" });
+        state.wages = await res.json();
+        return state.wages;
+    })();
+    return state.wagesLoading;
 }
 
 // ------- autocomplete --------------------------------------------
@@ -633,6 +700,7 @@ function renderDashboard() {
 
     renderTaskHeatmap(occ.soc);
     renderCohortReality(occ);
+    renderJobMap(occ);
 
     setPhase("result");
     smoothScrollTo("result-section", "start");
@@ -880,6 +948,202 @@ function renderCohortReality(occ) {
         <p class="reality-check-intro">${escapeHtml(t("reality_check_intro"))}</p>
         <div class="reality-grid">${realityCards}</div>
     `;
+}
+
+// ------- job map (all occupations, pan/zoom) ---------------------
+
+const MAP_W = 360, MAP_H = 300, MAP_PAD = 26;
+
+function mapBandColor(nx) {
+    // nx in [0,1] along the AI-impact axis: green → orange → red
+    if (nx < 0.34) return "#5cb85c";
+    if (nx < 0.67) return "#f0ad4e";
+    return "#d9534f";
+}
+
+function fmtWage(n) {
+    if (typeof n !== "number") return "—";
+    try { return "$" + Math.round(n).toLocaleString(currentLang); }
+    catch { return "$" + Math.round(n); }
+}
+
+async function renderJobMap(currentOcc) {
+    const el = document.getElementById("panel-job-map");
+    if (!el) return;
+
+    el.innerHTML = `
+        <h3 class="dashboard-panel-title">${escapeHtml(t("map_title"))}</h3>
+        <p class="dashboard-panel-subtitle">${escapeHtml(t("map_subtitle"))}</p>
+        <p class="dashboard-panel-empty">…</p>
+    `;
+
+    let wages;
+    try {
+        wages = await loadWages();
+    } catch (e) {
+        console.error("wages load failed", e);
+        el.querySelector(".dashboard-panel-empty").textContent = t("panel_coming_soon");
+        return;
+    }
+
+    // Build plottable points: need an exposure score and a median wage.
+    const pts = [];
+    for (const o of state.occupations) {
+        const w = wages[o.soc];
+        const wage = w && typeof w.median === "number" ? w.median : null;
+        if (typeof o.exp_gamma !== "number" || wage === null) continue;
+        pts.push({ o, x: o.exp_gamma, y: Math.log(wage), wage, emp: o.tot_emp || 0 });
+    }
+    if (pts.length < 5) {
+        el.querySelector(".dashboard-panel-empty").textContent = t("panel_coming_soon");
+        return;
+    }
+
+    const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+    const xMin = Math.min(...xs), xMax = Math.max(...xs);
+    const yMin = Math.min(...ys), yMax = Math.max(...ys);
+    const empMax = Math.sqrt(Math.max(...pts.map(p => p.emp)) || 1);
+
+    const sx = v => MAP_PAD + (v - xMin) / (xMax - xMin || 1) * (MAP_W - 2 * MAP_PAD);
+    const sy = v => (MAP_H - MAP_PAD) - (v - yMin) / (yMax - yMin || 1) * (MAP_H - 2 * MAP_PAD);
+    const sr = emp => 2 + (Math.sqrt(emp) / empMax) * 7;
+
+    let currentXY = null;
+    const circles = pts.map(p => {
+        const cx = sx(p.x), cy = sy(p.y), r = sr(p.emp);
+        const nx = (p.x - xMin) / (xMax - xMin || 1);
+        const isYou = p.o.soc === currentOcc.soc;
+        if (isYou) currentXY = { x: cx, y: cy };
+        return `<circle class="jobmap-dot${isYou ? " jobmap-you" : ""}" cx="${cx.toFixed(1)}" ` +
+            `cy="${cy.toFixed(1)}" r="${(isYou ? Math.max(r, 5) : r).toFixed(1)}" ` +
+            `fill="${mapBandColor(nx)}" data-soc="${escapeHtml(p.o.soc)}"/>`;
+    }).join("");
+
+    const youLabel = currentXY
+        ? `<text class="jobmap-you-label" x="${currentXY.x.toFixed(1)}" y="${(currentXY.y - 8).toFixed(1)}" text-anchor="middle">${escapeHtml(t("map_you"))}</text>`
+        : "";
+
+    el.innerHTML = `
+        <h3 class="dashboard-panel-title">${escapeHtml(t("map_title"))}</h3>
+        <p class="dashboard-panel-subtitle">${escapeHtml(t("map_subtitle"))}</p>
+        <div class="jobmap-wrap">
+            <svg class="jobmap-svg" viewBox="0 0 ${MAP_W} ${MAP_H}" role="img" aria-label="${escapeHtml(t("map_title"))}">
+                <g class="jobmap-zoom">${circles}${youLabel}</g>
+            </svg>
+            <span class="jobmap-axis-y">${escapeHtml(t("map_axis_y"))}</span>
+            <span class="jobmap-axis-x-low">${escapeHtml(t("map_axis_x_low"))}</span>
+            <span class="jobmap-axis-x-high">${escapeHtml(t("map_axis_x_high"))}</span>
+            <div class="jobmap-controls">
+                <button type="button" class="jobmap-btn" data-act="in" aria-label="zoom in">+</button>
+                <button type="button" class="jobmap-btn" data-act="out" aria-label="zoom out">−</button>
+                <button type="button" class="jobmap-btn jobmap-recenter" data-act="home">${escapeHtml(t("map_recenter"))}</button>
+            </div>
+        </div>
+        <p class="jobmap-info">${escapeHtml(t("map_info_default"))}</p>
+        <p class="jobmap-hint">${escapeHtml(t("map_hint"))}</p>
+    `;
+
+    wireJobMap(el, currentXY);
+}
+
+function wireJobMap(el, currentXY) {
+    const svg = el.querySelector(".jobmap-svg");
+    const group = el.querySelector(".jobmap-zoom");
+    const info = el.querySelector(".jobmap-info");
+    if (!svg || !group) return;
+
+    let tx = 0, ty = 0, k = 1;
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+    const apply = () => { group.setAttribute("transform", `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${k.toFixed(3)})`); };
+
+    const toVb = (clientX, clientY) => {
+        const r = svg.getBoundingClientRect();
+        return { x: (clientX - r.left) / r.width * MAP_W, y: (clientY - r.top) / r.height * MAP_H };
+    };
+    const zoomAround = (vx, vy, factor) => {
+        const k2 = clamp(k * factor, 0.6, 8);
+        const f = k2 / k;
+        tx = vx - (vx - tx) * f;
+        ty = vy - (vy - ty) * f;
+        k = k2;
+        apply();
+    };
+    const recenter = () => {
+        if (!currentXY) { tx = 0; ty = 0; k = 1; apply(); return; }
+        k = 2.6;
+        tx = MAP_W / 2 - currentXY.x * k;
+        ty = MAP_H / 2 - currentXY.y * k;
+        apply();
+    };
+
+    el.querySelectorAll(".jobmap-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const act = btn.dataset.act;
+            if (act === "in") zoomAround(MAP_W / 2, MAP_H / 2, 1.4);
+            else if (act === "out") zoomAround(MAP_W / 2, MAP_H / 2, 1 / 1.4);
+            else if (act === "home") recenter();
+        });
+    });
+
+    svg.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const p = toVb(e.clientX, e.clientY);
+        zoomAround(p.x, p.y, e.deltaY < 0 ? 1.12 : 1 / 1.12);
+    }, { passive: false });
+
+    // Pointer pan + two-finger pinch.
+    const pointers = new Map();
+    let moved = false, lastDist = 0;
+    svg.addEventListener("pointerdown", (e) => {
+        svg.setPointerCapture(e.pointerId);
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        moved = false;
+    });
+    svg.addEventListener("pointermove", (e) => {
+        const prev = pointers.get(e.pointerId);
+        if (!prev) return;
+        const r = svg.getBoundingClientRect();
+        const kx = MAP_W / r.width, ky = MAP_H / r.height;
+        if (pointers.size === 1) {
+            tx += (e.clientX - prev.x) * kx;
+            ty += (e.clientY - prev.y) * ky;
+            if (Math.abs(e.clientX - prev.x) + Math.abs(e.clientY - prev.y) > 2) moved = true;
+            apply();
+        }
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        if (pointers.size === 2) {
+            const p = [...pointers.values()];
+            const dist = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+            if (lastDist) {
+                const mid = toVb((p[0].x + p[1].x) / 2, (p[0].y + p[1].y) / 2);
+                zoomAround(mid.x, mid.y, dist / lastDist);
+                moved = true;
+            }
+            lastDist = dist;
+        }
+    });
+    const endPointer = (e) => {
+        pointers.delete(e.pointerId);
+        if (pointers.size < 2) lastDist = 0;
+    };
+    svg.addEventListener("pointerup", endPointer);
+    svg.addEventListener("pointercancel", endPointer);
+
+    // Tap a dot → show its info (suppressed right after a drag).
+    svg.addEventListener("click", (e) => {
+        if (moved) { moved = false; return; }
+        const dot = e.target.closest && e.target.closest(".jobmap-dot");
+        if (!dot) return;
+        const occ = findOccupation(dot.dataset.soc);
+        if (!occ || !info) return;
+        const w = state.wages && state.wages[occ.soc];
+        const pct = computeExposurePercentile(occ, state.occupations);
+        const parts = [occ.title, fmtWage(w && w.median)];
+        if (pct !== null) parts.push(t("cohort_percentile").replace("{p}", pct));
+        info.textContent = parts.join(" · ");
+        group.querySelectorAll(".jobmap-dot-active").forEach(d => d.classList.remove("jobmap-dot-active"));
+        dot.classList.add("jobmap-dot-active");
+    });
 }
 
 // ------- URL hydration (?soc=&age=) ------------------------------
