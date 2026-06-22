@@ -755,12 +755,15 @@ async function renderTaskHeatmap(soc) {
     const rowsHtml = sorted.map((task, idx) => {
         const label = taskLabel(task);
         const typeLabel = task.type === "Core" ? t("task_type_core") : t("task_type_supplemental");
+        const tagLabel = t("legend_" + label);
         const hiddenAttr = idx >= TASKS_VISIBLE_INITIAL ? ' data-hidden="1"' : "";
         return `
             <div class="task-row task-row-${label}" data-type="${escapeHtml(task.type)}"${hiddenAttr}>
-                <span class="task-chip task-chip-${label}">${label}</span>
+                <div class="task-row-meta">
+                    <span class="task-tag task-tag-${label}"><i></i>${escapeHtml(tagLabel)}</span>
+                    <span class="task-type">${escapeHtml(typeLabel)}</span>
+                </div>
                 <p class="task-text">${escapeHtml(task.task)}</p>
-                <span class="task-type">${escapeHtml(typeLabel)}</span>
             </div>
         `;
     }).join("");
