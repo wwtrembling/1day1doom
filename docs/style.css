@@ -1622,3 +1622,95 @@ html[lang="zh-tw"] .persona-card { background: #fffaee; border-left: 4px solid v
 html[lang="zh-tw"] .persona-bias strong { background: rgba(45, 90, 74, 0.15); color: var(--accent-now); }
 html[lang="zh-tw"] .path-tree.path-bias .path-tree-badge { background: var(--accent-now); }
 html[lang="zh-tw"] .lang-menu a.active { background: var(--accent-now); }
+
+/* Job map (all occupations, pan/zoom) */
+.jobmap-wrap {
+    position: relative;
+    margin: 12px 0 10px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-cream);
+    border: 1px solid rgba(0,0,0,0.06);
+}
+.jobmap-svg {
+    display: block;
+    width: 100%;
+    aspect-ratio: 6 / 5;
+    touch-action: none;          /* we handle pan/zoom ourselves */
+    cursor: grab;
+    background:
+        linear-gradient(90deg, rgba(92,184,92,0.07), rgba(217,83,79,0.07));
+}
+.jobmap-svg:active { cursor: grabbing; }
+.jobmap-dot {
+    opacity: 0.78;
+    stroke: rgba(255,255,255,0.7);
+    stroke-width: 0.5;
+}
+.jobmap-you {
+    stroke: var(--ink);
+    stroke-width: 2;
+    opacity: 1;
+}
+.jobmap-dot-active {
+    stroke: var(--ink);
+    stroke-width: 1.6;
+    opacity: 1;
+}
+.jobmap-you-label {
+    font-size: 9px;
+    font-weight: 700;
+    fill: var(--ink);
+    paint-order: stroke;
+    stroke: var(--bg-cream);
+    stroke-width: 2.5;
+}
+.jobmap-axis-y,
+.jobmap-axis-x-low,
+.jobmap-axis-x-high {
+    position: absolute;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    background: rgba(255,255,255,0.72);
+    padding: 1px 6px;
+    border-radius: 6px;
+    pointer-events: none;
+}
+.jobmap-axis-y { top: 8px; left: 8px; }
+.jobmap-axis-x-low { bottom: 8px; left: 8px; }
+.jobmap-axis-x-high { bottom: 8px; right: 8px; }
+.jobmap-controls {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.jobmap-btn {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.9);
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+.jobmap-btn.jobmap-recenter { font-size: 0.78rem; font-weight: 600; }
+.jobmap-btn:hover { background: #fff; }
+.jobmap-info {
+    margin: 0 0 4px;
+    min-height: 1.4em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+.jobmap-hint {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+}
