@@ -424,9 +424,14 @@ async function loadOccupations() {
     } catch {
         occRes = await fetch(`${DATA_BASE}/occupations.json`, { cache: "force-cache" });
     }
-    const metaRes = await fetch(`${DATA_BASE}/meta.json`, { cache: "force-cache" });
     state.occupations = await occRes.json();
-    state.meta = await metaRes.json();
+    // meta.json is non-critical (not read by the core flow). Never let a meta
+    // fetch/parse failure abort init — otherwise no event listeners attach and
+    // the whole form (job select, age, submit) goes dead.
+    try {
+        const metaRes = await fetch(`${DATA_BASE}/meta.json`, { cache: "force-cache" });
+        if (metaRes.ok) state.meta = await metaRes.json();
+    } catch { /* ignore — meta is unused by the selection/dashboard flow */ }
 }
 
 function findOccupation(soc) {
